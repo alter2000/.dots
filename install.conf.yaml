@@ -1,3 +1,22 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+	link:
+    	create: true
+		relink: true
+- clean: ['~']
+- link: {
+		~/.bashrc: bashrc
+		~/.dots: ''
+		~/.gitconfig: gitconfig
+		~/.zshrc: zshrc
+		~/.zsh_favlist: zsh_favlist
+		~/.config/bspwm: bspwm/
+		~/.config/i3: i3/
+		~/.config/polybar: polybar/
+		~/.config/sxhkd: sxhkd/
+		~/.config/variety: variety/
+		
+}
+- shell: 
+		- [git submodule update --init --recursive, Installing submodules]
+		- [git submodule update --remote  --recursive, Updating submodules]
+		- [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]

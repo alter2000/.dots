@@ -84,3 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+###### ALIASES ######
+alias mu="micro"
+alias lA="ls -A"
