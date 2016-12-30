@@ -2,16 +2,22 @@
 	link:
     	create: true
 		relink: true
-- clean: ['~']
+- clean: [
+		'~'
+		'~/.cache'
+		'~/.config']
 - link: {
 		~/.bashrc: bashrc
 		~/.dots: ''
 		~/.gitconfig: gitconfig
 		~/.zshrc: zshrc
 		~/.zsh_favlist: zsh_favlist
+		~/.oh-my-zsh: oh-my-zsh/
 		~/.config/bspwm: bspwm/
 		~/.config/i3: i3/
+		~/.config/neofetch: neofetch/
 		~/.config/polybar: polybar/
+		~/.config/openbox: openbox/
 		~/.config/sxhkd: sxhkd/
 		~/.config/variety: variety/
 		
