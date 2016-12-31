@@ -21,7 +21,7 @@
 - shell: 
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
 - pacaur:
-        - atom-editor-bin
+        - atom
         - bash
         - zsh
         - snapd
@@ -32,6 +32,7 @@
         - clamav
         - clamtk
         - clang
+        - cmus
         - compton
         - conky
         - conky-manager
@@ -39,7 +40,7 @@
         - ditaa
         - f2fs-tools
         - faenza-icon-theme
-        - feh
+        - meh
         - filezilla
         - firefox
         - flashplugin

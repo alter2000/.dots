@@ -7,3 +7,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "Kornhe dotfiles"]
+	path = Kornhe_dotfiles
+	url = https://github.com/Kornhe/dotfiles.git
