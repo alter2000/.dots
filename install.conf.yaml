@@ -1,28 +1,84 @@
 - defaults:
-	link:
-    	create: true
-		relink: true
-- clean: [
-		'~'
-		'~/.cache'
-		'~/.config']
-- link: {
-		~/.bashrc: bashrc
-		~/.dots: ''
-		~/.gitconfig: gitconfig
-		~/.zshrc: zshrc
-		~/.zsh_favlist: zsh_favlist
-		~/.oh-my-zsh: oh-my-zsh/
-		~/.config/bspwm: bspwm/
-		~/.config/i3: i3/
-		~/.config/neofetch: neofetch/
-		~/.config/polybar: polybar/
-		~/.config/openbox: openbox/
-		~/.config/sxhkd: sxhkd/
-		~/.config/variety: variety/
-		
-}
+    link:
+        create: true
+        relink: true
+- clean: ['~', '~/.cache', '~/.config']
+- link:
+        ~/.bashrc: bashrc
+        ~/.dots: ''
+        ~/.gitconfig: gitconfig
+        ~/.zshrc: zshrc
+        ~/.zsh_favlist: zsh_favlist
+        ~/.oh-my-zsh: oh-my-zsh/
+        ~/.config/bspwm: bspwm/
+        ~/.config/i3: i3/
+        ~/.config/neofetch: neofetch/
+        ~/.config/polybar: polybar/
+        ~/.config/openbox: openbox/
+        ~/.config/sxhkd: sxhkd/
+        ~/.config/variety: variety/
+        
 - shell: 
-		- [git submodule update --init --recursive, Installing submodules]
-		- [git submodule update --remote  --recursive, Updating submodules]
-		- [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
+        - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
+- pacaur:
+        - atom-editor-bin
+        - bash
+        - zsh
+        - snapd
+        - aria2 
+        - asciinema
+        - budgie-desktop
+        - chromium
+        - clamav
+        - clamtk
+        - clang
+        - compton
+        - conky
+        - conky-manager
+        - connman
+        - ditaa
+        - f2fs-tools
+        - faenza-icon-theme
+        - feh
+        - filezilla
+        - firefox
+        - flashplugin
+        - flatpak
+        - geany
+        - gimp
+        - git
+        - gnome-tweak-tool
+        - gpart
+        - gparted
+        - gradle
+        - guake
+        - gvim
+        - htop
+        - ice-ssb
+        - inkscape
+        - intellij-idea-commuity-edition
+        - kate
+        - kdeconnect
+        - kdenlive
+        - libreoffice-fresh
+        - lollypop
+        - lxqt
+        - nodejs
+        - openbox
+        - pavucontrol
+        - plasma
+        - playonlinux
+        - powerline
+        - powerline-fonts
+        - powerline-vim
+        - rofi
+        - scrot
+        - sddm
+        - tree
+        - vino
+        - virtualbox
+        - vlc
+        - weston
+        - youtube-dl
+        - yelp
+        - zsnes
