@@ -4,30 +4,35 @@
         relink: true
 - clean: ['~', '~/.cache', '~/.config']
 - link:
-        ~/.bashrc: bashrc
+        ~/.bashrc:      bashrc
         ~/.dots: ''
-        ~/.gitconfig: gitconfig
-        ~/.zshrc: zshrc
+        ~/.gitconfig:   gitconfig
+        ~/.zshrc:       zshrc
         ~/.zsh_favlist: zsh_favlist
-        ~/.oh-my-zsh: oh-my-zsh/
-        ~/.config/bspwm: bspwm/
-        ~/.config/i3: i3/
-        ~/.config/neofetch: neofetch/
-        ~/.config/polybar: polybar/
-        ~/.config/openbox: openbox/
-        ~/.config/sxhkd: sxhkd/
-        ~/.config/variety: variety/
+        ~/.oh-my-zsh:   oh-my-zsh/
+        ~/.config/redshift.conf: redshift.conf
+        ~/.config/bspwm:           bspwm/
+        ~/.config/i3:              i3/
+        ~/.config/neofetch:        neofetch/
+        ~/.config/polybar:         polybar/
+        ~/.config/openbox:         openbox/
+        ~/.config/sxhkd:           sxhkd/
+        ~/.config/variety:         variety/
         
 - shell: 
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
 - pacaur:
         - atom
+        - apricity-icons
+        - arc-gtk-theme
+        - arc-icon-theme
+        - budgie-desktop
         - bash
         - zsh
         - snapd
         - aria2 
         - asciinema
-        - budgie-desktop
+        - bspwm
         - chromium
         - clamav
         - clamtk
@@ -55,31 +60,54 @@
         - guake
         - gvim
         - htop
+        - hexchat
         - ice-ssb
         - inkscape
         - intellij-idea-commuity-edition
         - kate
         - kdeconnect
         - kdenlive
+        - kdeplasma-addons
         - libreoffice-fresh
+        - libreoffice-extension-writer2latex
         - lollypop
         - lxqt
+        - lynx
+        - rtv
         - nodejs
+        - numix-themes
         - openbox
         - pavucontrol
+        - plank
         - plasma
         - playonlinux
         - powerline
         - powerline-fonts
         - powerline-vim
+        - qupzilla
         - rofi
         - scrot
         - sddm
+        - termite
+        - tlp
+        - ttf-arphic-uming
+        - ttf-baekmuk
+        - ttf-bitstream-vera
+        - ttf-dejavu
+        - ttf-droid
+        - ttf-freefont
+        - ttf-liberation
+        - ttf-ubuntu-font-family
         - tree
+        - vala
+        - variety
         - vino
         - virtualbox
         - vlc
         - weston
+        - xdotool
+        - xclip
+        - xsel
         - youtube-dl
         - yelp
         - zsnes
