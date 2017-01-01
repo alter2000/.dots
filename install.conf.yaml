@@ -45,7 +45,7 @@
         - ditaa
         - f2fs-tools
         - faenza-icon-theme
-        - meh
+        - feh
         - filezilla
         - firefox
         - flashplugin
@@ -63,7 +63,7 @@
         - hexchat
         - ice-ssb
         - inkscape
-        - intellij-idea-commuity-edition
+        - intellij-idea-community-edition
         - kate
         - kdeconnect
         - kdenlive
@@ -78,7 +78,7 @@
         - numix-themes
         - openbox
         - pavucontrol
-        - plank
+        - docky
         - plasma
         - playonlinux
         - powerline
