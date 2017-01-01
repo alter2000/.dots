@@ -9,6 +9,7 @@
         ~/.gitconfig:   gitconfig
         ~/.zshrc:       zshrc
         ~/.zsh_favlist: zsh_favlist
+        ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
         ~/.config/redshift.conf: redshift.conf
         ~/.config/bspwm:           bspwm/
