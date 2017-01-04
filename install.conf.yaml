@@ -11,6 +11,9 @@
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
+
+        ~/.config/plank:           plank/
+        ~/.config/polybar:         polybar/
         ~/.config/redshift.conf: redshift.conf
         ~/.config/bspwm:           bspwm/
         ~/.config/i3:              i3/
@@ -20,11 +23,11 @@
         ~/.config/sxhkd:           sxhkd/
         ~/.config/variety:         variety/
         
-- shell: 
+- shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
+        - [git submodule update --recursive, Updating all submodules] 
 - pacaur:
         - atom
-        - apricity-icons
         - arc-gtk-theme
         - arc-icon-theme
         - budgie-desktop
@@ -62,10 +65,10 @@
         - gvim
         - htop
         - hexchat
+        - i3-gaps
         - ice-ssb
         - inkscape
         - intellij-idea-community-edition
-        - kate
         - kdeconnect
         - kdenlive
         - kdeplasma-addons
@@ -74,7 +77,8 @@
         - lollypop
         - lxqt
         - lynx
-        - rtv
+        - ncmpcpp
+        - nitrogen
         - nodejs
         - numix-themes
         - openbox
@@ -87,6 +91,8 @@
         - powerline-vim
         - qupzilla
         - rofi
+        - rtv
+        - rxvt-unicode
         - scrot
         - sddm
         - termite

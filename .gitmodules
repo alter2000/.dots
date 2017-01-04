@@ -19,3 +19,6 @@
 [submodule "nettraffic"]
 	path = nettraffic
 	url = https://github.com/ma-santoso/nettraffic.git
+[submodule "zenbu"]
+	path = zenbu
+	url = https://github.com/metakirby5/zenbu.git
