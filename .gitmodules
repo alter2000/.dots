@@ -13,3 +13,6 @@
 [submodule "i3-wm-config"]
 	path = sainathadapa-i3-config
 	url = https://github.com/sainathadapa/i3-wm-config.git
+[submodule "Solarized-Acidalia"]
+	path = Solarized--Acidalia
+	url = https://github.com/ma-santoso/dotfiles.git

@@ -86,4 +86,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 ###### ALIASES ######
 alias mu="micro"
-alias lA="ls -A"
+alias la="ls -A"
+alias suffer="pacaur -Syu"
