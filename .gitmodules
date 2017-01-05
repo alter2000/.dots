@@ -22,3 +22,6 @@
 [submodule "zenbu"]
 	path = zenbu
 	url = https://github.com/metakirby5/zenbu.git
+[submodule "dotfiles"]
+	path = dotfiles
+	url = https://github.com/bryanbecker/dotfiles.git

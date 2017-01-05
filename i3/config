@@ -11,6 +11,11 @@ font pango:Ubuntu 9
 # kill focused window
 bindsym Mod1+F4 kill
 
+########################################
+
+##### KEYBINDINGS -- WINDOWS
+
+########################################
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -20,31 +25,13 @@ bindsym Mod1+F4 kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 
-
-
-
-
-
-
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+i focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+i move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -52,21 +39,17 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
-
 # split in vertical orientation
 bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -99,17 +82,10 @@ bindsym $mod+r mode "resize"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -120,8 +96,11 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+########################################
 
+##### KEYBINDINGS -- APPS
 
+########################################
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -133,12 +112,11 @@ bindsym Ctrl+Mod1+Del exec "i3-nagbar -t warning -m 'You pressed the exit shortc
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status i3bar
-}
+#bar {
+#        status_command i3status i3bar
+#}
 
-
-
+XKCD
 ########################################
 
 ##### STARTUP APPS AND SCRIPTS
@@ -148,20 +126,18 @@ bar {
 # Compton for fancy nancy
 exec --no-startup-id compton
 
-# NetworkManager applet
-exec --no-startup-id nm-applet
+# Connman applet
+exec --no-startup-id connman
 
 # Polybar
 exec_always --no-startup-id /home/alter/.config/polybar/launch.sh
 
-# Nitrogen 
-exec_always --no-startup-id nitrogen 
+# Nitrogen
+exec --no-startup-id nitrogen --restore
+exec_always --no-startup-id nitrogen
 
 # Rofi
 bindsym $mod+d exec rofi -dmenu -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
-
-
-
 
 # start a terminal
 bindsym $mod+Return exec termite

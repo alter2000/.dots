@@ -1,2 +1,4 @@
 compton &
 plank &
+polybar OBbar &
+feh --bg-zoom ~/.img/
