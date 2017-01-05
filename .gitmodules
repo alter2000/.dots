@@ -23,5 +23,5 @@
 	path = zenbu
 	url = https://github.com/metakirby5/zenbu.git
 [submodule "dotfiles"]
-	path = dotfiles
+	path = rainbow-stalin
 	url = https://github.com/bryanbecker/dotfiles.git
