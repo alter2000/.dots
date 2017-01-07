@@ -110,13 +110,13 @@ bindsym $mod+Shift+r restart
 bindsym Ctrl+Mod1+Del exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status i3bar
-#}
+##  Start i3bar to display a workspace bar (plus the system information i3status
+##  finds out, if available)
+# bar {
+#         status_command i3status i3bar
+# }
 
-XKCD
+#XKCD
 ########################################
 
 ##### STARTUP APPS AND SCRIPTS
@@ -134,10 +134,12 @@ exec_always --no-startup-id /home/alter/.config/polybar/launch.sh
 
 # Nitrogen
 exec --no-startup-id nitrogen --restore
-exec_always --no-startup-id nitrogen
 
 # Rofi
-bindsym $mod+d exec rofi -dmenu -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
+bindsym $mod+d exec rofi -show drun -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
+
+# Redshift
+exec_always --no-startup-id redshift
 
 # start a terminal
 bindsym $mod+Return exec termite
