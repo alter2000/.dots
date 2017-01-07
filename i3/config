@@ -136,8 +136,8 @@ exec_always --no-startup-id /home/alter/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 
 # Rofi
-bindsym $mod+d exec rofi -show drun -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
-
+# bindsym $mod+d exec rofi -show drun -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
+bindsym $mod+d exec rofi -show drun
 # Redshift
 exec_always --no-startup-id redshift
 

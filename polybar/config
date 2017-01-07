@@ -28,7 +28,7 @@ offset-x = 0
 offset-y = 0
 
 background = ${xrdb:color9}
-background = ${colors.background}
+;background = ${colors.background}
 foreground = ${colors.foreground}
 
 overline-size = 2
@@ -70,7 +70,7 @@ offset-x = 0
 offset-y = 0
 
 background = ${xrdb:color9}
-background = ${colors.background}
+;background = ${colors.background}
 foreground = ${colors.foreground}
 
 overline-size = 2

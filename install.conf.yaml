@@ -12,7 +12,7 @@
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
 
-        ~/.local/rofi/config: rofi/config
+        ~/.config/rofi: rofi/
 
         ~/.config/plank:           plank/
         ~/.config/polybar:         polybar/
