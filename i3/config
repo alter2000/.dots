@@ -119,7 +119,7 @@ bindsym Ctrl+Mod1+Del exec "i3-nagbar -t warning -m 'You pressed the exit shortc
 #XKCD
 ########################################
 
-##### STARTUP APPS AND SCRIPTS
+##### STARTUP APPS AND SCRIPTSo 
 
 ########################################
 

@@ -12,6 +12,8 @@
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
 
+        ~/.local/rofi/config: rofi/config
+
         ~/.config/plank:           plank/
         ~/.config/polybar:         polybar/
         ~/.config/redshift.conf: redshift.conf
@@ -22,10 +24,29 @@
         ~/.config/openbox:         openbox/
         ~/.config/sxhkd:           sxhkd/
         ~/.config/variety:         variety/
-        
+
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
-        - [git submodule update --recursive, Updating all submodules] 
+        - [git submodule update --recursive, Updating all submodules]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - pacaur:
         - atom
         - arc-gtk-theme
@@ -34,7 +55,7 @@
         - bash
         - zsh
         - snapd
-        - aria2 
+        - aria2
         - asciinema
         - bspwm
         - chromium
