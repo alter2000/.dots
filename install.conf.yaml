@@ -11,9 +11,8 @@
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
-
-        ~/.config/rofi: rofi/
-
+        /etc/xdg/openbox/autostart:   ob-autostart
+        ~/.config/rofi:            rofi/
         ~/.config/plank:           plank/
         ~/.config/polybar:         polybar/
         ~/.config/redshift.conf: redshift.conf
