@@ -12,6 +12,7 @@
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
         /etc/xdg/openbox/autostart:   ob-autostart
+        ~/.config/autokey:         autokey/
         ~/.config/rofi:            rofi/
         ~/.config/plank:           plank/
         ~/.config/polybar:         polybar/
