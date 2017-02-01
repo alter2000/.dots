@@ -11,6 +11,10 @@ font pango:Ubuntu 9
 # kill focused window
 bindsym Mod1+F4 kill
 
+#i3-gaps
+new_window pixel 2
+gaps inner 7
+
 ########################################
 
 ##### KEYBINDINGS -- WINDOWS
@@ -18,12 +22,11 @@ bindsym Mod1+F4 kill
 ########################################
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 
 # change focus
 bindsym $mod+Left focus left
@@ -98,7 +101,7 @@ mode "resize" {
 
 ########################################
 
-##### KEYBINDINGS -- APPS
+##### KEYBINDINGS -- ME
 
 ########################################
 
@@ -109,6 +112,12 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Ctrl+Mod1+Del exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# take screenshot
+bindsym Print exec scrot -e 'mv $f ~/Screenshots/'
+
+# volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
 
 ##  Start i3bar to display a workspace bar (plus the system information i3status
 ##  finds out, if available)
@@ -119,7 +128,7 @@ bindsym Ctrl+Mod1+Del exec "i3-nagbar -t warning -m 'You pressed the exit shortc
 #XKCD
 ########################################
 
-##### STARTUP APPS AND SCRIPTSo 
+##### STARTUP APPS AND SCRIPTS
 
 ########################################
 
@@ -133,13 +142,21 @@ exec --no-startup-id connman
 exec_always --no-startup-id /home/alter/.config/polybar/launch.sh
 
 # Nitrogen
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
+
+# feh (wallpaper)
+exec --no-startup-id feh --bg-scale .img/big_580ed2001998c055447fe0c7ee6114470a30d878.jpg
+
 
 # Rofi
 # bindsym $mod+d exec rofi -show drun -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
 bindsym $mod+d exec rofi -show drun
+
 # Redshift
 exec_always --no-startup-id redshift
 
 # start a terminal
 bindsym $mod+Return exec termite
+
+# lock
+bindsym $mod+L exec i3lock -i ~/.img/big_580ed2001998c055447fe0c7ee6114470a30d878.jpg
