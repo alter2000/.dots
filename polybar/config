@@ -76,7 +76,7 @@ width = 100%
 height = 25
 offset-x = 0
 offset-y = 0
-
+monitor = LVDS1
 background = ${colors.transparent}
 foreground = ${colors.white}
 
