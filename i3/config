@@ -132,6 +132,8 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
 
 ########################################
 
+exec synclient horiztwofingerscroll=1; synclient tapbutton1=1; synclient tapbutton2=2
+
 # Compton for fancy nancy
 exec --no-startup-id compton
 
@@ -150,10 +152,10 @@ exec --no-startup-id feh --bg-scale .img/big_580ed2001998c055447fe0c7ee6114470a3
 
 # Rofi
 # bindsym $mod+d exec rofi -show drun -font ubuntu mono 18 -fg #505050 -bg #000000 -hlfg #ffb964 -hlbg #000000 -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc #111111
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Redshift
-exec_always --no-startup-id redshift
+exec_always redshift
 
 # start a terminal
 bindsym $mod+Return exec termite

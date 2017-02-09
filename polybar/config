@@ -37,7 +37,7 @@ height = 25
 offset-x = 0
 offset-y = 0
 
-background = ${xrdb:color9}
+background = ${colors.background}
 
 overline-size = 2
 overline-color = #f00
@@ -53,7 +53,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = unifont:pixelsize=10;0
+font-0 = unifont:pixelsize=9;0
 font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 
@@ -79,6 +79,12 @@ offset-y = 0
 monitor = LVDS1
 background = ${colors.transparent}
 foreground = ${colors.white}
+spacer = " "
+
+font-0 = Roboto Mono:pixelsize=8
+font-1 = FontAwesome:pixelsize=10
+font-2 = Meslo LS S:pixelsize=8
+font-3 = Material Icons:pixelsize=14
 
 [bar/i3bar1]
 inherit = bar/i3bar-master
@@ -96,11 +102,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = RobotoMono:size=7.5;fontformat=truetype;0
-font-1 = RobotoMono:size=6:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-
-modules-left = i3
+modules-left = i3 down-speed up-speed
 modules-center = xwindow
 modules-right = volume memory cpu temperature date powermenu
 
@@ -231,15 +233,15 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = 
+;format-prefix-font = font-3
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.purple}
 label = %percentage%
 
 [module/memory]
 type = internal/memory
-interval = 2
-format-prefix = " "
+interval = 5.0
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%
@@ -257,12 +259,22 @@ label-connected = %essid%
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+;ramp-signal-0 = 
+;ramp-signal-1 = 
+;ramp-signal-2 = 
+;ramp-signal-3 = 
+;ramp-signal-4 = 
+;ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/network]
+type = internal/network
+interface = wlp16s0
+ping-interval = 3
+
+format-connected-padding = 1
+label-connected-padding-left = 1
+
+accumulate-stats = true
 
 [module/eth]
 type = internal/network
@@ -270,7 +282,7 @@ interface = ens1
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+;format-connected-prefix = " "
 format-connected-foreground-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -278,17 +290,34 @@ format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
 
+[module/up-speed]
+inherit = module/network
+
+format-connected-prefix = 
+format-connected-prefix-foreground = ${colors.blue}
+format-connected-underline = ${colors.blue}
+
+label-connected = %upspeed%
+
+[module/down-speed]
+inherit = module/network
+
+format-connected-prefix = 
+format-connected-prefix-foreground = ${colors.green}
+format-connected-underline = ${colors.green}
+
+label-connected = %downspeed%
+
 [module/date]
 type = internal/date
 interval = 5
 
 date = %d
-date-alt = " %Y-%m-%d"
+date-alt = "%Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -298,7 +327,7 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = vol.
+label-volume = vol
 label-volume-foreground = ${root.foreground}
 
 click-left = amixer -D pulse set Master 5%+ unmute
@@ -307,7 +336,6 @@ scroll-up = amixer -D pulse set Master 5%+ unmute
 scroll-down = amixer -D pulse set Master 5%- unmute
 interval = 0.5
 
-format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = STFU
 
@@ -361,19 +389,14 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 70
 
-format = <ramp> <label>
+format = <label>
 format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
+format-warn = <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -389,13 +412,15 @@ menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
+menu-0-2 = exit
+menu-0-2-exec = i3-msg exit
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
 menu-1-1-exec = systemctl reboot
 
-menu-2-0 = power off
+menu-2-0 = off
 menu-2-0-exec = systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
