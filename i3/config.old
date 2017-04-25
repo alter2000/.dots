@@ -94,7 +94,6 @@ mode resize {
         bindsym j mode default
 }
 
-
 ########################################
 
 ##### KEYBINDINGS -- ME
@@ -128,16 +127,16 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
 
 ########################################
 
-exec synclient horiztwofingerscroll=1; synclient tapbutton1=1; synclient tapbutton2=2
+#exec synclient horiztwofingerscroll=1; synclient tapbutton1=1; synclient tapbutton2=2
 
 # Compton for fancy nancy
-exec_always compton
+exec --no-startup-id compton
 
 # Connman
 exec --no-startup-id connman
 
 # Polybar
-exec_always /home/alter2000/.config/polybar/launch.sh
+exec_always --no-startup-id /home/alter/.config/polybar/launch.sh
 
 # feh (wallpaper)
 exec --no-startup-id feh --bg-scale .img/big_580ed2001998c055447fe0c7ee6114470a30d878.jpg

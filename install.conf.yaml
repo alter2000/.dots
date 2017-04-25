@@ -22,7 +22,7 @@
         ~/.config/polybar:         polybar/
         ~/.config/sxhkd:           sxhkd/
         ~/.config/variety:         variety/
-
+        ~/.img:                    img/
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
@@ -75,6 +75,7 @@
         - lollypop
         - lynx
         - ncmpcpp
+        - nodejs
         - numix-themes
         - openbox
         - oomox
