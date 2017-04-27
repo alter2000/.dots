@@ -11,41 +11,21 @@
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
-        /etc/xdg/openbox/autostart:   ob-autostart
+        ~/.config/openbox/autostart:   ob-autostart
         ~/.config/autokey:         autokey/
         ~/.config/rofi:            rofi/
-        ~/.config/plank:           plank/
         ~/.config/polybar:         polybar/
         ~/.config/redshift.conf: redshift.conf
         ~/.config/bspwm:           bspwm/
         ~/.config/i3:              i3/
         ~/.config/neofetch:        neofetch/
         ~/.config/polybar:         polybar/
-        ~/.config/openbox:         openbox/
         ~/.config/sxhkd:           sxhkd/
         ~/.config/variety:         variety/
-
+        ~/.img:                    img/
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - pacaur:
         - atom
@@ -67,15 +47,13 @@
         - conky
         - conky-manager
         - connman
+        - dia
         - ditaa
         - f2fs-tools
-        - faenza-icon-theme
         - feh
         - filezilla
         - firefox
         - flashplugin
-        - flatpak
-        - geany
         - gimp
         - git
         - gnome-tweak-tool
@@ -92,20 +70,17 @@
         - intellij-idea-community-edition
         - kdeconnect
         - kdenlive
-        - kdeplasma-addons
         - libreoffice-fresh
         - libreoffice-extension-writer2latex
         - lollypop
-        - lxqt
         - lynx
         - ncmpcpp
-        - nitrogen
         - nodejs
         - numix-themes
         - openbox
+        - oomox
         - pavucontrol
         - docky
-        - plasma
         - playonlinux
         - powerline
         - powerline-fonts
@@ -131,11 +106,11 @@
         - variety
         - vino
         - virtualbox
+        - qemu-kvm
         - vlc
         - weston
         - xdotool
         - xclip
-        - xsel
         - youtube-dl
         - yelp
         - zsnes

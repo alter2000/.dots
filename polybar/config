@@ -81,10 +81,15 @@ background = ${colors.transparent}
 foreground = ${colors.white}
 spacer = " "
 
-font-0 = Roboto Mono:pixelsize=8
+font-0 = Roboto Mono:pixelsize=9
 font-1 = FontAwesome:pixelsize=10
+<<<<<<< HEAD
 font-2 = Meslo LS S:pixelsize=8
 font-3 = Material Icons:pixelsize=14;+4
+=======
+font-2 = Meslo LG S:pixelsize=8
+font-3 = Material Design Icons:pixelsize=10
+>>>>>>> 2c0c006b221987d498178418e15d6a09ee2d9e24
 
 [bar/i3bar1]
 inherit = bar/i3bar-master

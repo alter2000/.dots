@@ -82,10 +82,10 @@ mode resize {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode default
@@ -93,7 +93,6 @@ mode resize {
         bindsym $mod mode default
         bindsym j mode default
 }
-
 
 ########################################
 
@@ -128,19 +127,20 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
 
 ########################################
 
-exec synclient horiztwofingerscroll=1; synclient tapbutton1=1; synclient tapbutton2=2
+#exec synclient horiztwofingerscroll=1; synclient tapbutton1=1; synclient tapbutton2=2
 
 # Compton for fancy nancy
-exec_always --no-startup-id compton
+exec --no-startup-id compton
 
-# Connman applet
-exec_always --no-startup-id connman
+# Connman
+exec --no-startup-id connman
 
 # Polybar
-exec_always $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id /home/alter/.config/polybar/launch.sh
 
 # feh (wallpaper)
 exec --no-startup-id feh --bg-scale .img/big_580ed2001998c055447fe0c7ee6114470a30d878.jpg
+
 
 # Rofi
 # bindsym $mod+d exec rofi -show drun -font ubuntu mono 18 -fg #505050 -bg #000000 -hlfg #ffb964 -hlbg #000000 -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc #111111
@@ -153,4 +153,4 @@ exec --no-startup-id redshift
 bindsym $mod+Return exec termite
 
 # lock
-bindsym $mod+L exec i3lock -i ~/.img/lock.png
+bindsym $mod+L exec i3lock -i ~/.img/big_580ed2001998c055447fe0c7ee6114470a30d878.jpg
