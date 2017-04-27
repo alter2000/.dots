@@ -84,7 +84,7 @@ spacer = " "
 font-0 = Roboto Mono:pixelsize=8
 font-1 = FontAwesome:pixelsize=10
 font-2 = Meslo LS S:pixelsize=8
-font-3 = Material Icons:pixelsize=14
+font-3 = Material Icons:pixelsize=14;+4
 
 [bar/i3bar1]
 inherit = bar/i3bar-master
@@ -102,9 +102,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-modules-left = i3 down-speed up-speed
-modules-center = xwindow
-modules-right = volume memory cpu temperature date powermenu
+modules-left = i3 down-speed up-speed music
+modules-center = xwindow  weather
+modules-right = volume memory cpu date powermenu
 
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
@@ -213,6 +213,22 @@ icon-repeat = 
 toggle-on-foreground = ${colors.primary}
 toggle-off-foreground = #66
 
+
+[module/music]
+type = custom/script
+interval = 2
+
+label = %output:0:45:...%
+exec = ~/.config/polybar/mpris.sh
+
+[module/redshift]
+type = custom/script
+interval = 120.0
+exec = ~/.config/polybar/redshift
+click-left = pkill redshift
+click-right = redshift
+
+
 [module/backlight]
 type = internal/xbacklight
 
@@ -233,7 +249,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = 
+format-prefix = " "
 ;format-prefix-font = font-3
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.purple}
@@ -244,7 +260,7 @@ type = internal/memory
 interval = 5.0
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %percentage_used%
+label =  %percentage_used%
 
 [module/wlan]
 type = internal/network
@@ -326,7 +342,7 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <ramp-volume> <bar-volume>
 label-volume = vol
 label-volume-foreground = ${root.foreground}
 
@@ -337,7 +353,10 @@ scroll-down = amixer -D pulse set Master 5%- unmute
 interval = 0.5
 
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = STFU
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -424,3 +443,11 @@ menu-2-0 = off
 menu-2-0-exec = systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/weather]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+exec = ~/.config/polybar/weather
