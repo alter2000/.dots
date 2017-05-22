@@ -84,7 +84,7 @@ spacer = " "
 font-0 = Roboto Mono:pixelsize=8
 font-1 = FontAwesome:pixelsize=9
 font-2 = Meslo LG S:pixelsize=9
-font-3 = Material Design Icons:pixelsize=10
+font-3 = Material Icons:pixelsize=14;+4
 
 
 [bar/i3bar1]
@@ -103,9 +103,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-modules-left = i3 down-speed up-speed music
+modules-left = i3 down-speed up-speed battery music
 modules-center = xwindow  weather
-modules-right = volume memory cpu date powermenu
+modules-right = backlight volume memory cpu date powermenu
 
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
@@ -167,8 +167,21 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+#strip-wsnumbers = true
 
-label-mode-padding = 2
+#ws-icon-0 = 1;/
+#ws-icon-1 = 2;//
+#ws-icon-2 = 3;///
+#ws-icon-3 = 4;/|
+#ws-icon-4 = 5;|
+#ws-icon-5 = 6;|/
+#ws-icon-6 = 7;|//
+#ws-icon-7 = 8;|///
+#ws-icon-8 = 9;/|
+#ws-icon-9 = 10;|
+#ws-icon-default = 0
+
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -234,8 +247,7 @@ click-right = redshift
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
-
+label = 
 bar-width = 10
 bar-indicator = │
 bar-indicator-foreground = #ff
@@ -265,7 +277,7 @@ label =  %percentage_used%
 
 [module/wlan]
 type = internal/network
-interface = wlp16s0
+interface = wls1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -285,7 +297,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/network]
 type = internal/network
-interface = wlp16s0
+interface = wls1
 ping-interval = 3
 
 format-connected-padding = 1
@@ -381,26 +393,26 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 99
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #19defa
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = #19defa
 
-format-full-prefix = " "
+format-full-prefix = ""
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+#animation-charging-1 = 
+#animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 

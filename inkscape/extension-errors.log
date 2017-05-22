@@ -1,0 +1,20 @@
+Extension "Sketch Input" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: skconvert
+
+Extension "XFIG Input" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: fig2dev
+
+Extension "Win32 Vector Print" failed to load because the extension is designed for Windows only.  This is caused by an improper .inx file for this extension.  An improper .inx file could have been caused by a faulty installation of Inkscape.
+Extension "Dia Input" failed to load because a dependency was not met.
+Dependency:
+  type: executable
+  location: path
+  string: dia
+  description: In order to import Dia files, Dia itself must be installed.  You can get Dia at http://live.gnome.org/Dia
+

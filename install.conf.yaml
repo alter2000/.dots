@@ -11,6 +11,7 @@
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
         ~/.oh-my-zsh:   oh-my-zsh/
+        ~/.config/inkscape:        inkscape/
         ~/.config/openbox/autostart:   ob-autostart
         ~/.config/autokey:         autokey/
         ~/.config/rofi:            rofi/
@@ -18,6 +19,7 @@
         ~/.config/redshift.conf: redshift.conf
         ~/.config/bspwm:           bspwm/
         ~/.config/i3:              i3/
+        ~/.config/sway:            i3/
         ~/.config/neofetch:        neofetch/
         ~/.config/polybar:         polybar/
         ~/.config/sxhkd:           sxhkd/
