@@ -123,6 +123,12 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
 bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 
+# mouse (besides keynav, for when too hasty to reconfigure my mind to use vi)
+bindsym Mod1+Shift+Up    exec xdotool mousemove_relative -- 0 -15 
+bindsym Mod1+Shift+Down  exec xdotool mousemove_relative 0 15 
+bindsym Mod1+Shift+Left  exec xdotool mousemove_relative -- -15 0 
+bindsym Mod1+Shift+Right exec xdotool mousemove_relative 15 0
+
 ##  Start i3bar to display a workspace bar (plus the system information i3status
 ##  finds out, if available)
 # bar {
@@ -135,11 +141,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -10
 
 ########################################
 
-for_window [instance="chrome_app_list" window_role="bubble"] floating enable
-for_window [class="feh"] floating enable
-for_window [instance="gnome-tweak-tool"] floating enable
-for_window [instance="transmission-gtk"] floating enable
-for_window [instance="Steam"] floating enable
+#for_window [instance="chrome_app_list" window_role="bubble"] floating enable
+#for_window [class="feh"] floating enable
+#for_window [instance="gnome-tweak-tool"] floating enable
+#for_window [instance="transmission-gtk"] floating enable
+#for_window [instance="Steam"] floating enable
 
 # class                 border  backgr. text    indicator child_border
 
@@ -156,19 +162,19 @@ for_window [instance="Steam"] floating enable
 
 ########################################
 
-exec --no-startup-id synclient horiztwofingerscroll=1; synclient tapbutton1=1; synclient tapbutton2=2
-
+exec --no-startup-id synclient tapbutton1=1; synclient tapbutton2=2
+exec --no-startup-id synclient horiztwofingerscroll=1;
 # Compton for fancy nancy
 exec_always --no-startup-id compton
 
 # Connman applet
-exec_always --no-startup-id connman
+#exec_always --no-startup-id connman
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # wal (wallpaper & colour scheme)
-exec --no-startup-id wal -t -i "$(< "{$HOME}/.cache/wal/wal")
+exec --no-startup-id wal -t -i "$HOME/.img/low_poly_mountain.jpg"
 
 # Rofi
 # bindsym $mod+d exec rofi -show drun -font ubuntu mono 18 -fg #505050 -bg #000000 -hlfg #ffb964 -hlbg #000000 -width 30 -lines 5 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc #111111
