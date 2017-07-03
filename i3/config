@@ -141,11 +141,9 @@ bindsym Mod1+Shift+Right exec xdotool mousemove_relative 15 0
 
 ########################################
 
-#for_window [instance="chrome_app_list" window_role="bubble"] floating enable
 #for_window [class="feh"] floating enable
-#for_window [instance="gnome-tweak-tool"] floating enable
-#for_window [instance="transmission-gtk"] floating enable
-#for_window [instance="Steam"] floating enable
+for_window [class="Budgie-polkit-dialog" instance="budgie-polkit-dialog"] floating enable
+for_window [class="Nautilus" instance="file_progress"] floating enable
 
 # class                 border  backgr. text    indicator child_border
 
