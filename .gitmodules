@@ -13,9 +13,6 @@
 [submodule "Solarized-Acidalia"]
 	path = Solarized--Acidalia
 	url = https://github.com/ma-santoso/dotfiles.git
-[submodule "nettraffic"]
-	path = nettraffic
-	url = https://github.com/ma-santoso/nettraffic.git
 [submodule "dotfiles"]
 	path = rainbow-stalin
 	url = https://github.com/bryanbecker/dotfiles.git

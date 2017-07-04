@@ -2,12 +2,14 @@
     link:
         create: true
         relink: true
-- clean: ['~', '~/.cache', '~/.config']
+- clean: ['~']
 - link:
         ~/.bashrc:      bashrc
         ~/.dots: ''
         ~/.gitconfig:   gitconfig
+          force: true
         ~/.zshrc:       zshrc
+          force:true
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
         ~/.config/rtv/rtv.cfg:     rtv
@@ -17,16 +19,18 @@
         ~/.config/autokey:         autokey/
         ~/.config/rofi:            rofi/
         ~/.config/polybar:         polybar/
-        ~/.config/redshift.conf: redshift.conf
+        ~/.config/redshift.conf:   redshift.conf
         ~/.config/i3:              i3/
         ~/.config/sway:            i3/
         ~/.config/neofetch:        neofetch/
         ~/.config/polybar:         polybar/
         ~/.config/variety:         variety/
         ~/.img:                    img/
+        ~/.local/bin/:             bin/
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
+        - [cd /tmp; git clone https://github.com/carnager/rofi-scripts/; git clone https://github.com/okraits/rofi-tools; mkdir -p $HOME/.local/bin; mv ./rofi-scripts/{monitor_layout.sh,rofi-finder/finder.sh,rofi-randr} ./rofi-tools/rofi-power $HOME/.local/bin/; rm -rf ./rofi-{scripts,tools}, Adding rofi plugins]
 
 - pacaur:
         - atom
