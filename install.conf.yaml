@@ -7,9 +7,7 @@
         ~/.bashrc:      bashrc
         ~/.dots: ''
         ~/.gitconfig:   gitconfig
-          force: true
         ~/.zshrc:       zshrc
-          force:true
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
         ~/.config/rtv/rtv.cfg:     rtv
@@ -30,9 +28,12 @@
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
-        - [cd /tmp; git clone https://github.com/carnager/rofi-scripts/; git clone https://github.com/okraits/rofi-tools; mkdir -p $HOME/.local/bin; mv ./rofi-scripts/{monitor_layout.sh,rofi-finder/finder.sh,rofi-randr} ./rofi-tools/rofi-power $HOME/.local/bin/; rm -rf ./rofi-{scripts,tools}, Adding rofi plugins]
+        -
+          command: cd /tmp; git clone "https://github.com/carnager/rofi-scripts/"; git clone "https://github.com/okraits/rofi-tools"; mkdir -p $HOME/.local/bin; mv ./rofi-scripts/{monitor_layout.sh,rofi-finder/finder.sh,rofi-randr} ./rofi-tools/rofi-power $HOME/.local/bin/; rm -rf ./rofi-{scripts,tools}
+          stdout: true
+        -
 
-- pacaur:
+- pacman:
         - atom
         - arc-gtk-theme
         - arc-icon-theme
@@ -65,14 +66,12 @@
         - gnome-tweak-tool
         - gpart
         - gparted
-        - gradle
         - guake
         - gucharmap
         - handbrake
         - httrack
         - hugin
         - htop
-        - i3-gaps
         - inkscape
         - kdeconnect
         - kdenlive
@@ -93,11 +92,9 @@
         - noto-fonts-emoji
         - ntfs-3g
         - ntp
-        - numix-themes
-        - openbox
+        - numix-gtk-theme
         - openra
         - openssh
-        - oomox
         - pavucontrol
         - playonlinux
         - picard
@@ -105,7 +102,6 @@
         - playerctl
         - redshift
         - rofi
-        - rtv
         - rsync
         - ruby
         - scrot
@@ -121,12 +117,7 @@
         - sushi
         - transmission-gtk
         - ttf-droid
-        - ttf-font-awesome
         - ttf-liberation
-        - ttf-material-design-icons
-        - ttf-meslo
-        - ttf-ms-fonts
-        - ttf-roboto-font
         - ttf-ubuntu-font-family
         - tree
         - tuxpaint
@@ -142,5 +133,14 @@
         - xdotool
         - xclip
         - youtube-dl
-        - zsnes
         - zsh-syntax-highlighting
+
+- pacaur:
+        - android-studio
+        - i3-gaps
+        - rtv
+        - ttf-font-awesome
+        - ttf-material-design-icons
+        - ttf-meslo
+        - ttf-ms-fonts
+        - ttf-roboto-font
