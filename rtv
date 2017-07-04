@@ -20,10 +20,10 @@ monochrome = False
 ;log = /tmp/rtv.log
 
 ; Default subreddit that will be opened when the program launches.
-subreddit = front
+;subreddit = front
 ;subreddit = python
 ;subreddit = python+linux+programming
-;subreddit = all
+subreddit = all
 
 ; Allow rtv to store reddit authentication credentials between sessions.
 persistent = True
@@ -38,7 +38,7 @@ history_size = 200
 enable_media = False
 
 ; Maximum number of columns for a comment
-max_comment_cols = 120
+max_comment_cols = 180
 
 ; Hide username if logged in, display "Logged in" instead
 hide_username = False
