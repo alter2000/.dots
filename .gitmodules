@@ -7,9 +7,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule "Kornhe dotfiles"]
-	path = Kornhe_dotfiles
-	url = https://github.com/Kornhe/dotfiles.git
 [submodule "i3-wm-config"]
 	path = sainathadapa-i3-config
 	url = https://github.com/sainathadapa/i3-wm-config.git
@@ -19,9 +16,6 @@
 [submodule "nettraffic"]
 	path = nettraffic
 	url = https://github.com/ma-santoso/nettraffic.git
-[submodule "zenbu"]
-	path = zenbu
-	url = https://github.com/metakirby5/zenbu.git
 [submodule "dotfiles"]
 	path = rainbow-stalin
 	url = https://github.com/bryanbecker/dotfiles.git
