@@ -52,6 +52,7 @@
         - compton
         - dia
         - downgrade
+        - elinks
         - evince
         - exfat-utils
         - f2fs-tools
@@ -79,7 +80,6 @@
         - libreoffice-extension-writer2latex
         - lightdm-gtk-greeter
         - lollypop
-        - lynx
         - lyx
         - menumaker
         - mosh

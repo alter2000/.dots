@@ -124,9 +124,9 @@ bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 
 # mouse (besides keynav, for when too hasty to reconfigure my mind to use vi)
-bindsym Mod1+Shift+Up    exec xdotool mousemove_relative -- 0 -15 
-bindsym Mod1+Shift+Down  exec xdotool mousemove_relative 0 15 
-bindsym Mod1+Shift+Left  exec xdotool mousemove_relative -- -15 0 
+bindsym Mod1+Shift+Up    exec xdotool mousemove_relative -- 0 -15
+bindsym Mod1+Shift+Down  exec xdotool mousemove_relative 0 15
+bindsym Mod1+Shift+Left  exec xdotool mousemove_relative -- -15 0
 bindsym Mod1+Shift+Right exec xdotool mousemove_relative 15 0
 
 ##  Start i3bar to display a workspace bar (plus the system information i3status
@@ -141,7 +141,7 @@ bindsym Mod1+Shift+Right exec xdotool mousemove_relative 15 0
 
 ########################################
 
-#for_window [class="feh"] floating enable
+for_window [class="feh"] floating enable
 for_window [class="Budgie-polkit-dialog" instance="budgie-polkit-dialog"] floating enable
 for_window [class="Nautilus" instance="file_progress"] floating enable
 
@@ -151,7 +151,7 @@ for_window [class="Nautilus" instance="file_progress"] floating enable
 #client.focused_inactive $color1 #5f676a #ffffff #484e50   #5f676a
 #client.unfocused        $color1 #222222 #888888 #292d2e   #222222
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
-#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c 
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #client.background       $color15
 
 ########################################
@@ -185,5 +185,6 @@ exec --no-startup-id redshift
 bindsym $mod+Return exec termite
 
 # lock
-bindsym $mod+L exec i3lock-fancy -pf Ubuntu -t "password hint: GTFO" #-i %HOME/.img/lock.png
+bindsym $mod+L exec i3lock-fancy -pf Ubuntu -t "paswurd hint: GTFO" #-i $HOME/.img/lock.png
 
+bindsym $mod+Z scratchpad show

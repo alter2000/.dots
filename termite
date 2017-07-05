@@ -1,13 +1,13 @@
 [options]
 scroll_on_output = false
 scroll_on_keystroke = true
-audible_bell = true
+audible_bell = false
 mouse_autohide = true
 allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Ubuntu Mono 10
+font = Ubuntu Mono 11
 scrollback_lines = 10000
 search_wrap = true
 icon_name = termite
