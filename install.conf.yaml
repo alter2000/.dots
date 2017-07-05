@@ -138,6 +138,7 @@
 - pacaur:
         - android-studio
         - i3-gaps
+        - i3lock-fancy-git
         - rtv
         - ttf-font-awesome
         - ttf-material-design-icons
