@@ -1,0 +1,328 @@
+## ELinks 0.13.GIT configuration file
+
+## This is ELinks configuration file. You can edit it manually,
+## if you wish so; this file is edited by ELinks when you save
+## options through UI, however only option values will be altered
+## and missing options will be added at the end of file; if option
+## is not written in this file, but in some file included from it,
+## it is NOT counted as missing. Note that all your formatting,
+## own comments and so on will be kept as-is.
+##
+## Obviously, if you don't like what ELinks is going to do with
+## this file, you can change it by altering the config.saving_style
+## option. Come on, aren't we friendly guys after all?
+
+
+
+##############################
+# Automatically saved options
+#
+
+## config 
+#  Configuration handling options.
+
+  ## config.saving_style_w [0|1]
+  #  This is internal option used when displaying a warning about obsolete
+  #  config.saving_style. You shouldn't touch it.
+  set config.saving_style_w = 1
+
+
+## terminal 
+#  Terminal options.
+
+  ## terminal.xterm-termite 
+  #  Options specific to this terminal type (according to $TERM value).
+
+    ## terminal.xterm-termite.underline [0|1]
+    set terminal.xterm-termite.underline = 1
+    ## terminal.xterm-termite.italic [0|1]
+    set terminal.xterm-termite.italic = 1
+    ## terminal.xterm-termite.transparency [0|1]
+    set terminal.xterm-termite.transparency = 1
+    ## terminal.xterm-termite.colors <num>
+    set terminal.xterm-termite.colors = 1
+    ## terminal.xterm-termite.m11_hack [0|1]
+    set terminal.xterm-termite.m11_hack = 0
+    ## terminal.xterm-termite.type <num>
+    set terminal.xterm-termite.type = 2
+
+
+## ui 
+#  User interface options.
+
+  ## ui.language <language>
+  #  Language of user interface. 'System' means that the language will be
+  #  extracted from the environment dynamically.
+  set ui.language = "System"
+
+
+
+
+
+##############################
+# Automatically saved options
+#
+
+## bookmarks 
+#  Bookmark options.
+
+  ## bookmarks.file_format <num>
+  #  File format for bookmarks (affects both reading and saving):
+  #  0 is the default native ELinks format
+  #  1 is XBEL universal XML bookmarks format
+  set bookmarks.file_format = 1
+
+  ## bookmarks.folder_state [0|1]
+  #  When saving bookmarks also store whether folders are expanded or not, so
+  #  the look of the bookmark dialog is kept across ELinks sessions. If disabled
+  #  all folders will appear unexpanded next time ELinks is run.
+  set bookmarks.folder_state = 0
+
+
+## config 
+#  Configuration handling options.
+
+  ## config.comments <num>
+  #  Amount of comments automatically written to the config file:
+  #  0 is no comments are written
+  #  1 is only the "blurb" (name+type) is written
+  #  2 is only the description is written
+  #  3 is full comments are written
+  set config.comments = 3
+
+
+## connection 
+#  Connection options.
+
+  ## connection.ssl 
+  #  SSL options.
+
+    ## connection.ssl.client_cert 
+    #  X509 client certificate options.
+
+      ## connection.ssl.client_cert.enable [0|1]
+      #  Enable or not the sending of X509 client certificates to servers which
+      #  request them.
+      set connection.ssl.client_cert.enable = 1
+
+
+
+  ## connection.max_connections <num>
+  #  Maximum number of concurrent connections.
+  set connection.max_connections = 16
+
+  ## connection.max_connections_to_host <num>
+  #  Maximum number of concurrent connections to a given host.
+  set connection.max_connections_to_host = 8
+
+  ## connection.receive_timeout <num>
+  #  Receive timeout (in seconds).
+  set connection.receive_timeout = 20
+
+  ## connection.retries <num>
+  #  Number of tries to establish a connection. Zero means try forever.
+  set connection.retries = 5
+
+
+## document 
+#  Document options.
+
+  ## document.browse 
+  #  Document browsing options (mainly interactivity).
+
+    ## document.browse.images 
+    #  Options for handling of images.
+
+      ## document.browse.images.display_style <num>
+      #  Display style for image tags when displayed:
+      #  0     means always display IMG
+      #  1     means always display filename
+      #  2     means display alt/title attribute if possible,
+      #        IMG if not
+      #  3     means display alt/title attribute if possible,
+      #        filename if not
+      set document.browse.images.display_style = 0
+
+      ## document.browse.images.filename_maxlen <num>
+      #  Maximum length of image filename when displayed:
+      #  0     means always display full filename
+      #  1-500 means display filename with this maximal length;
+      #        if it is longer, the middle is substituted by
+      #        an asterisk
+      set document.browse.images.filename_maxlen = 30
+
+      ## document.browse.images.image_link_tagging <num>
+      #  When to enclose image links:
+      #  0 means never
+      #  1 means never if alt or title are provided (old behavior)
+      #  2 means always
+      set document.browse.images.image_link_tagging = 2
+
+
+    ## document.browse.links 
+    #  Options for handling of links to other documents.
+
+      ## document.browse.links.active_link 
+      #  Options for the active link.
+
+        ## document.browse.links.active_link.enable_color [0|1]
+        #  Enable use of the active link background and text color settings
+        #  instead of the link colors from the document.
+        set document.browse.links.active_link.enable_color = 1
+
+        ## document.browse.links.active_link.bold [0|1]
+        #  Make the active link text bold.
+        set document.browse.links.active_link.bold = 1
+
+        ## document.browse.links.active_link.underline [0|1]
+        #  Underline the active link.
+        set document.browse.links.active_link.underline = 1
+
+
+
+    ## document.browse.scrolling 
+    #  Scrolling options.
+
+      ## document.browse.scrolling.vertical_overlap <num>
+      #  Number of overlapping lines between the new page displayed and the
+      #  previous one when scrolling one page up or down.
+      set document.browse.scrolling.vertical_overlap = 3
+
+
+
+  ## document.download 
+  #  Options regarding files downloading and handling.
+
+    ## document.download.directory <str>
+    #  Default download directory.
+    set document.download.directory = "~/Downloads"
+
+    ## document.download.notify_bell <num>
+    #  Audio notification when download is completed:
+    #  0 is never
+    #  1 is when background notification is active
+    #  2 is always
+    set document.download.notify_bell = 2
+
+
+
+## mime 
+#  MIME-related options (handlers of various MIME types).
+
+  ## mime.extension 
+  #  Extension <-> MIME type association.
+
+    ## mime.extension.html <str>
+    #  MIME-type matching this file extension ('*' is used here in place of
+    #  '.').
+    set mime.extension.html = "text/html"
+
+    ## mime.extension.png <str>
+    #  MIME-type matching this file extension ('*' is used here in place of
+    #  '.').
+    set mime.extension.png = "image/png"
+
+
+
+
+
+
+##############################
+# Automatically saved options
+#
+
+## mime 
+#  MIME-related options (handlers of various MIME types).
+
+  ## mime.extension 
+  #  Extension <-> MIME type association.
+
+    ## mime.extension.gif <str>
+    #  MIME-type matching this file extension ('*' is used here in place of
+    #  '.').
+    set mime.extension.gif = "image/gif"
+
+
+  ## mime.mailcap 
+  #  Options for mailcap support.
+
+    ## mime.mailcap.description <num>
+    #  Type of description to show in "what to do with this file" query dialog:
+    #  0 is show "mailcap"
+    #  1 is show program to be run
+    #  2 is show mailcap description field if any;
+    #       "mailcap" otherwise
+    set mime.mailcap.description = 1
+
+
+
+## protocol 
+#  Protocol specific options.
+
+  ## protocol.http 
+  #  HTTP-specific options.
+
+    ## protocol.http.compression [0|1]
+    #  If enabled, the capability to receive compressed content (gzip and/or
+    #  bzip2) is announced to the server, which usually sends the reply
+    #  compressed, thus saving some bandwidth at slight CPU expense.
+    #  
+    #  If ELinks displays a incomplete page or garbage, try disabling this
+    #  option. If that helps, there may be a bug in the decompression part of
+    #  ELinks. Please report such bugs.
+    #  
+    #  If ELinks has been compiled without compression support, this option has
+    #  no effect. To check the supported features, see Help -> About.
+    set protocol.http.compression = 1
+
+
+
+## terminal 
+#  Terminal options.
+
+  ## terminal.xterm-termite 
+  #  Options specific to this terminal type (according to $TERM value).
+
+    ## terminal.xterm-termite.utf_8_io [0|1]
+    set terminal.xterm-termite.utf_8_io = 1
+
+
+## ui 
+#  User interface options.
+
+  ## ui.clock 
+  #  Digital clock in the status bar.
+
+    ## ui.clock.enable [0|1]
+    #  Whether to display a digital clock in the status bar.
+    set ui.clock.enable = 0
+
+
+  ## ui.sessions 
+  #  Sessions settings.
+
+    ## ui.sessions.auto_restore [0|1]
+    #  Automatically restore the session at start.
+    #  
+    #  This feature requires bookmark support.
+    set ui.sessions.auto_restore = 1
+
+    ## ui.sessions.auto_save [0|1]
+    #  Automatically save the session when quitting.
+    #  
+    #  This feature requires bookmark support.
+    set ui.sessions.auto_save = 1
+
+
+  ## ui.tabs 
+  #  Window tabs settings.
+
+    ## ui.tabs.show_bar <num>
+    #  Show tabs bar on the screen:
+    #  0 means never
+    #  1 means only if two or more tabs are open
+    #  2 means always
+    set ui.tabs.show_bar = 1
+
+
+

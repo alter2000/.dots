@@ -145,14 +145,37 @@ for_window [class="feh"] floating enable
 for_window [class="Budgie-polkit-dialog" instance="budgie-polkit-dialog"] floating enable
 for_window [class="Nautilus" instance="file_progress"] floating enable
 
-# class                 border  backgr. text    indicator child_border
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources for some reason.
 
-#client.focused          $color0 #285577 #ffffff #2e9ef4   #285577
-#client.focused_inactive $color1 #5f676a #ffffff #484e50   #5f676a
-#client.unfocused        $color1 #222222 #888888 #292d2e   #222222
-#client.urgent           #2f343a #900000 #ffffff #900000   #900000
-#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-#client.background       $color15
+set_from_resource $c1 i3wm.color0 #f0f0f0
+set_from_resource $c2 i3wm.color1 #f0f0f0
+set_from_resource $c3 i3wm.color2 #f0f0f0
+set_from_resource $c4 i3wm.color3 #f0f0f0
+set_from_resource $c5 i3wm.color4 #f0f0f0
+set_from_resource $c6 i3wm.color5 #f0f0f0
+set_from_resource $c7 i3wm.color6 #f0f0f0
+set_from_resource $c8 i3wm.color7 #f0f0f0
+set_from_resource $c9 i3wm.color8 #f0f0f0
+set_from_resource $c10 i3wm.color9 #f0f0f0
+set_from_resource $c11 i3wm.color10 #f0f0f0
+set_from_resource $c12 i3wm.color11 #f0f0f0
+set_from_resource $c13 i3wm.color12 #f0f0f0
+set_from_resource $c14 i3wm.color13 #f0f0f0
+set_from_resource $c15 i3wm.color14 #f0f0f0
+set_from_resource $c16 i3wm.color15 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $c3     $c3     $c1  $c3       $c3
+client.focused_inactive $bg     $bg     $c1  $bg       $bg
+client.unfocused        $bg     $bg     $c1  $bg       $bg
+client.urgent           $c12    $c12    $c1  $c12      $c12
+client.placeholder      $c8     $c8     $c1  $c8       $c8
+
+client.background       $c10
 
 ########################################
 
@@ -161,17 +184,17 @@ for_window [class="Nautilus" instance="file_progress"] floating enable
 ########################################
 
 exec --no-startup-id synclient tapbutton1=1; synclient tapbutton2=2
-exec --no-startup-id synclient horiztwofingerscroll=1;
+# exec --no-startup-id synclient horiztwofingerscroll=1;
+
+# Budgie (because why not) polkit dialog
+exec_always --no-startup-id budgie-polkit-dialog
 # Compton for fancy nancy
 exec_always --no-startup-id compton
-
-# Connman applet
-#exec_always --no-startup-id connman
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# wal (wallpaper & colour scheme)
+# (py)wal (wallpaper & colour scheme)
 exec --no-startup-id wal -t -i "$HOME/.img/low_poly_mountain.jpg"
 
 # Rofi

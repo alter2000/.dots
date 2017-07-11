@@ -10,6 +10,9 @@
         ~/.zshrc:       zshrc
         ~/.zsh_favlist: zsh_favlist
         ~/.xbindkeysrc: xbindkeysrc
+        ~/.tmux.conf:   tmux
+        ~/.vim:         vim/
+        ~/.elinks/elinks.conf:     elinks
         ~/.config/rtv/rtv.cfg:     rtv
         ~/.config/termite/config:  termite
         ~/.config/inkscape:        inkscape/
@@ -28,10 +31,6 @@
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
-        -
-          command: cd /tmp; git clone "https://github.com/carnager/rofi-scripts/"; git clone "https://github.com/okraits/rofi-tools"; mkdir -p $HOME/.local/bin; mv ./rofi-scripts/{monitor_layout.sh,rofi-finder/finder.sh,rofi-randr} ./rofi-tools/rofi-power $HOME/.local/bin/; rm -rf ./rofi-{scripts,tools}
-          stdout: true
-        -
 
 - pacman:
         - atom
