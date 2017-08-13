@@ -325,7 +325,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -428,7 +428,7 @@
        precision="2"
        scale="100"
        offset="5"
-       unit="mm" />
+       unit="px" />
   </group>
   <group
      id="palette">
@@ -578,8 +578,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="348"
-       h="318"
+       w="364"
+       h="353"
        visible="1"
        state="2"
        placement="1" />
@@ -597,8 +597,8 @@
        sel-as-groups="0"
        x="0"
        y="0"
-       w="348"
-       h="504"
+       w="364"
+       h="450"
        visible="1"
        state="2"
        placement="2" />
@@ -691,14 +691,15 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/alter/" />
+       path="/home/alter2000/Documents/" />
     <group
        id="import"
        enable_preview="1"
        path=""
        ask="1"
-       link="link"
-       scale="optimizeSpeed" />
+       link="embed"
+       scale="auto"
+       forcexdpi="0" />
     <group
        id="debug"
        redirect="0" />
@@ -1056,8 +1057,8 @@
      id="desktop"
      style="line-height:1.25;-inkscape-font-specification:'Helvetica-Normal, Normal';font-family:Helvetica-Normal;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal">
     <group
-       width="1348"
-       height="723"
+       width="1898"
+       height="1031"
        x="6"
        y="33"
        fullscreen="0"

@@ -1,15 +1,46 @@
-# If you come from bash you might have to change your $PATH.
+##### KEYBINDINGS #####
+bindkey "e[1~" beginning-of-line
+bindkey "e[4~" end-of-line
+bindkey "e[5~" beginning-of-history
+bindkey "e[6~" end-of-history
+bindkey "e[3~" delete-char
+bindkey "e[2~" quoted-insert
+bindkey "e[5C" forward-word
+bindkey "eOc" emacs-forward-word
+bindkey "e[5D" backward-word
+bindkey "eOd" emacs-backward-word
+bindkey "ee[C" forward-word
+bindkey "ee[D" backward-word
+bindkey "^H" backward-delete-word
+# for non RH/Debian xterm, can't hurt for RH/DEbian xterm
+bindkey "eOH" beginning-of-line
+bindkey "eOF" end-of-line
+# for freebsd console
+bindkey "e[H" beginning-of-line
+bindkey "e[F" end-of-line
+# completion in the middle of a line
+bindkey '^i' expand-or-complete-prefix
+
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+export ZSH=/home/alter2000/.oh-my-zsh
+DEFAULT_USER="alter2000"
+# Import colorscheme from 'wal'
+(wal -r &)
 
-# Path to your oh-my-zsh installation.
-  export ZSH=/home/alter/.oh-my-zsh
-
-  DEFAULT_USER="alter"
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs ip battery)
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+#POWERLEVEL9K_SHORTEN_DELIMITER=""
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="]"
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=") "
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
@@ -38,7 +69,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -56,10 +87,6 @@ plugins=(git archlinux)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -71,20 +98,17 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 ###### ALIASES ######
-alias mu="micro"
+alias mu="TERM=xterm-truecolor micro"
 alias la="ls -A"
 alias suffer="pacaur -Syu"
+alias pain="pacaur -S"
+alias pacre="pacaur -R"
+alias pacrem="pacaur -Rsn"
+alias pacrmorphans="pacaur -Rns $(pacaur -Qtdq)"
+eval $(thefuck --alias)

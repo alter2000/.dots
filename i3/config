@@ -118,10 +118,11 @@ bindsym Print exec scrot -e 'mv  ~/Screenshots/'
 # volume
 bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -D pulse set Master toggle
 
 # brightness
-bindsym XF86MonBrightnessUp exec xbacklight +10
-bindsym XF86MonBrightnessDown exec xbacklight -10
+bindsym XF86MonBrightnessUp exec lux -m 1 -M 4794 -a 4%
+bindsym XF86MonBrightnessDown exec lux -m 1 -M 4794 -s 4%
 
 # mouse (besides keynav, for when too hasty to reconfigure my mind to use vi)
 bindsym Mod1+Shift+Up    exec xdotool mousemove_relative -- 0 -15
@@ -179,22 +180,23 @@ client.background       $c10
 
 ########################################
 
-##### STARTUP APPS AND SCRIPTS
+##### (STARTUP) APPS AND SCRIPTS
 
 ########################################
 
-exec --no-startup-id synclient tapbutton1=1; synclient tapbutton2=2
-# exec --no-startup-id synclient horiztwofingerscroll=1;
-
+exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
+exec setxkbmap -locale gb
 # Budgie (because why not) polkit dialog
 exec_always --no-startup-id budgie-polkit-dialog
 # Compton for fancy nancy
 exec_always --no-startup-id compton
+# dedaemon (DEdaemon) for display setup (often switching so it's important)
+#exec --no-startup-id dedaemon stop; dedaemon $HOME/.dots/dedaemon
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# (py)wal (wallpaper & colour scheme)
+# wal (wallpaper & colour scheme); pywal when ready
 exec --no-startup-id wal -t -i "$HOME/.img/low_poly_mountain.jpg"
 
 # Rofi
@@ -207,7 +209,17 @@ exec --no-startup-id redshift
 # start a terminal
 bindsym $mod+Return exec termite
 
+# IDE depends
+bindsym XF86Tools exec atom
+
+# Endless Sky (game shortcut, yes)
+bindsym XF86LaunchA exec $HOME/.steam/steam/steamapps/common/Endless\ Sky/endless-sky
+
+# browser - Firefox/Vivaldi depending on mood
+bindsym XF86Search exec firefox
+
+# File manager
+bindsym XF86Explorer exec nautilus
+
 # lock
 bindsym $mod+L exec i3lock-fancy -pf Ubuntu -t "paswurd hint: GTFO" #-i $HOME/.img/lock.png
-
-bindsym $mod+Z scratchpad show

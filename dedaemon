@@ -1,0 +1,18 @@
+general {
+	log "$(HOME)/.dedaemon.log"
+}
+
+display * {
+	mode max
+	rate max
+	where { right-of primary }
+}
+
+
+input * {
+	type keyboard
+	commands [
+		"xset r rate 200 30"
+		"setxkbmap -locale uk"
+	]
+}

@@ -277,7 +277,7 @@ label =  %percentage_used%
 
 [module/wlan]
 type = internal/network
-interface = wls1
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -297,7 +297,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/network]
 type = internal/network
-interface = wls1
+interface = wlp3s0
 ping-interval = 3
 
 format-connected-padding = 1
@@ -307,8 +307,14 @@ accumulate-stats = true
 
 [module/eth]
 type = internal/network
-interface = ens1
+interface = enp0s25
 interval = 3.0
+ping-interval = 2
+
+format-connected-padding = 1
+label-connected-padding-left =1
+
+accumulate-stats = true
 
 format-connected-underline = #55aa55
 ;format-connected-prefix = " "
@@ -336,6 +342,14 @@ format-connected-prefix-foreground = ${colors.green}
 format-connected-underline = ${colors.green}
 
 label-connected = %downspeed%
+
+[module/up-speed_eth]
+inherit = module/up-speed
+interface = enp0s25
+
+[module/down-speed_eth]
+inherit = module/down-speed
+interface = enp0s25
 
 [module/date]
 type = internal/date
