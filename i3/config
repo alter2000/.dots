@@ -185,7 +185,8 @@ client.background       $c10
 ########################################
 
 exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
-exec setxkbmap -locale gb
+#exec setxkbmap gb
+
 # Budgie (because why not) polkit dialog
 exec_always --no-startup-id budgie-polkit-dialog
 # Compton for fancy nancy
