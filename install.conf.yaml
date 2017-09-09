@@ -17,7 +17,7 @@
         ~/.config/termite/config:  termite
         ~/.config/inkscape:        inkscape/
         ~/.config/openbox/autostart: ob-autostart
-        ~/.config/autokey:         autokey/
+        ~/.config/cmus:            cmus
         ~/.config/rofi:            rofi/
         ~/.config/polybar:         polybar/
         ~/.config/redshift.conf:   redshift.conf

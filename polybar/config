@@ -103,7 +103,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-modules-left = i3 down-speed up-speed battery music
+modules-left = i3 down-speed up-speed battery cmus
 modules-center = xwindow  weather
 modules-right = backlight volume memory cpu temperature date powermenu
 
@@ -478,3 +478,15 @@ format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 exec = ~/.config/polybar/weather
+
+[module/cmus]
+type = custom/script
+
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+
+click-left = cmus-remote --pause
+click-right = cmus-remote --stop
+
+

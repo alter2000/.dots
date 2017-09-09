@@ -110,5 +110,5 @@ alias suffer="pacaur -Syu"
 alias pain="pacaur -S"
 alias pacre="pacaur -R"
 alias pacrem="pacaur -Rsn"
-alias pacrmorphans="pacaur -Rns $(pacaur -Qtdq)"
+alias pacrmorphans="sudo pacman -Rns $(pacman -Qtdq)"
 eval $(thefuck --alias)

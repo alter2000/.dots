@@ -207,6 +207,9 @@ bindsym $mod+d exec rofi -show drun
 # Redshift
 exec --no-startup-id redshift
 
+# KDE Connect
+exec --no-startup-id /usr/bin/indicator-kdeconnect
+
 # start a terminal
 bindsym $mod+Return exec termite
 
