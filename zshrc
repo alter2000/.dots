@@ -21,14 +21,13 @@ bindkey "e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 export ZSH=/home/alter2000/.oh-my-zsh
 DEFAULT_USER="alter2000"
 # Import colorscheme from 'wal'
 (wal -r &)
 
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
