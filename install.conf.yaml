@@ -33,37 +33,43 @@
         - [git submodule update --recursive, Updating all submodules]
 
 - pacman:
-        - atom
+        - alsa-utils
         - arc-gtk-theme
         - arc-icon-theme
+        - asciinema
+        - atom
         - audacity
+        - bash
+        - beets
         - bsd-games
         - budgie-desktop
-        - bash
-        - zsh
-        - snapd
-        - asciinema
         - chromium
         - clamav
-        - clamtk
         - clang
         - cmus
         - compton
+        - dconf-editor
         - dia
         - downgrade
         - elinks
         - evince
         - exfat-utils
         - f2fs-tools
-        - f2fs-tools
         - feh
         - filezilla
         - firefox
         - flashplugin
+        - geogebra
         - gimp
         - git
+        - gksu
         - gnome-boxes
+        - gnome- directory-thumbnailer
+        - gnome-online-accounts
+        - gnome-shell
+        - gnome-system-monitor
         - gnome-tweak-tool
+        - gnuplot
         - gpart
         - gparted
         - guake
@@ -76,34 +82,38 @@
         - kdeconnect
         - kdenlive
         - libreoffice-fresh
+        - libreoffice-fresh-sq
         - libreoffice-extension-writer2latex
         - lightdm-gtk-greeter
         - lollypop
+        - lux
+        - lxappearance
         - lyx
         - menumaker
         - mosh
-        - mpd
+        - mopidy
         - mpv
         - nautilus
-        - neovim
+        - nautilus-image-converter
         - nodejs
         - noto-fonts
         - noto-fonts-emoji
+        - ncmpcpp
         - ntfs-3g
         - ntp
         - numix-gtk-theme
         - openra
+        - openshot
         - openssh
         - pavucontrol
         - playonlinux
-        - picard
-        - pinta
         - playerctl
         - redshift
         - rofi
         - rsync
         - ruby
-        - scrot
+        - maim
+        - snapd
         - steam
         - steam-native-runtime
         - subtitleeditor
@@ -113,18 +123,16 @@
         - termite
         - tlp
         - tmux
-        - sushi
         - transmission-gtk
         - ttf-droid
         - ttf-liberation
         - ttf-ubuntu-font-family
         - tree
         - tuxpaint
-        - ufw
         - unrar
         - unzip
         - usbutils
-        - vala
+        - vim
         - vino
         - vlc
         - w3m
@@ -132,12 +140,21 @@
         - xdotool
         - xclip
         - youtube-dl
+        - zsh
         - zsh-syntax-highlighting
 
 - pacaur:
         - android-studio
+        - android-tools
+        - android-udev
+        - chrome-gnome-shell-git
         - i3-gaps
         - i3lock-fancy-git
+        - indicator-kdeconnect
+        - etcher
+        - micro
+        - nautilus-folder-icons
+        - nautilus-send-to-bluetooth
         - rtv
         - ttf-font-awesome
         - ttf-material-design-icons

@@ -1,0 +1,6 @@
+set backspace=indent,eol,start
+set number hidden ic hls
+set mouse=a
+set smarttab autoindent
+syntax enable
+set history=100

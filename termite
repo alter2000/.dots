@@ -17,7 +17,7 @@ icon_name = termite
 cursor_blink = system
 
 # "block", "underline" or "ibeam"
-cursor_shape = ibeam
+cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 browser = firefox
@@ -38,8 +38,8 @@ foreground = #dcdccc
 foreground_bold = #ffffff
 background = #3f3f3f
 
-# 10% background transparency (requires a compositor)
-background = rgba(63, 63, 63, 0.9)
+# 25% background transparency (requires a compositor)
+background = rgba(63, 63, 63, 0.75)
 
 # if unset, will reverse foreground and background
 highlight = #2f2f2f

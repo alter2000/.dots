@@ -8,78 +8,48 @@
 ;=====================================================
 
 [colors]
-background = ${colors.black}
-foreground = ${colors.white}
+foreground = ${xrdb:foreground}
+background = ${xrdb:background}
 black = #cc0c0d0e
 white = #b7b8b9
 transparent = #00000000
-red = #e31a1c
-green = #31a354
-blue = #3182bd
 purple = #756bb1
 orange = #de935f
 yellow = #d7a645
 light-gray = #D3D3D3
 dark-gray = #A9A9A9
-primary = ${colors.transparent}
-secondary =${colors.dark-gray}
 foreground-alt = ${colors.light-gray}
-background-alt = ${colors.dark-gray}
+background-alt = ${colors.bblack}
+
+red     = #ff000f
+green   = #8ce10b
+;yellow  = #ffb900
+blue    = #008df8
+magenta = #6d43a6
+cyan    = #00d8eb
+
+bblack 	 = #444444
+bred     = #ff2740
+bgreen   = #abe15b
+byellow  = #ffd242
+bblue    = #0092ff
+bmagenta = #9a5feb
+bcyan    = #67fff0
+bwhite   = #ffffff
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
-[bar/OBbar]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 25
-offset-x = 0
-offset-y = 0
-
-background = ${colors.background}
-
-overline-size = 2
-overline-color = #f00
-underline-size = 2
-underline-color = #00f
-
-border-bottom-size = 2
-border-bottom-color = #333
-
-spacing = 1
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = unifont:pixelsize=9;0
-font-1 = unifont:size=6:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-
-modules-left = xwindow
-modules-center = mpd
-modules-right = volume xkeyboard memory cpu temperature wlan date powermenu
-
-tray-position = right
-tray-padding = 2
-tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;override-redirect = true
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 [bar/i3bar-master]
 override-redirect = false
 width = 100%
 height = 25
-offset-x = 0
-offset-y = 0
+fixed-center = true
 background = ${colors.transparent}
 foreground = ${colors.white}
-spacer = " "
+spacer = "  "
 
 font-0 = Roboto Mono:pixelsize=8
 font-1 = FontAwesome:pixelsize=9
@@ -89,158 +59,124 @@ font-3 = Material Icons:pixelsize=14;+4
 
 [bar/i3bar1]
 inherit = bar/i3bar-master
-overline-size = 2
-overline-color = #000
-underline-size = 2
-underline-color = #00f
+fixed-center = false
+overline-size = 0
+;overline-color = #000
+underline-size = 3
+underline-color = #000
 
-border-bottom-size = 2
-border-bottom-color = #333
+border-bottom-size = 0
+;border-bottom-color = #333
 
 spacing = 1
-padding-left = 0
-padding-right = 2
+padding-left = 3
+padding-right = 3
 module-margin-left = 1
 module-margin-right = 2
 
-modules-left = i3 down-speed up-speed battery cmus
-modules-center = xwindow  weather
+modules-left = i3 down-speed up-speed battery mpd
+modules-center = xwindow weather test
 modules-right = backlight volume memory cpu temperature date powermenu
 
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
-wm-restack = i3
+
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-underline = ${colors.secondary}
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-
-label-layout = %layout%
-
-label-indicator-padding = 2
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 25
-
+interval = 300
 mount-0 = /
 mount-1 = /home
-mount-2 = /invalid/mountpoint
-
 label-mounted = %mountpoint%: %percentage_free%
-
 label-unmounted = %mountpoint%: umount'd
 label-unmounted-foreground = ${colors.foreground-alt}
+
 
 [module/bspwm]
 type = internal/bspwm
 ws-icon-default = x
-
+enable-click = true
+enable-scroll = true
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.transparent}
 label-focused-padding = 2
-
 label-occupied = %index%
 label-occupied-padding = 2
-
 label-urgent = %index%!
 label-urgent-background = ${colors.red}
 label-urgent-padding = 2
-
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
+index-sort = false
 wrapping-scroll = false
-#strip-wsnumbers = true
+strip-wsnumbers = false
 
-#ws-icon-0 = 1;/
-#ws-icon-1 = 2;//
-#ws-icon-2 = 3;///
-#ws-icon-3 = 4;/|
-#ws-icon-4 = 5;|
-#ws-icon-5 = 6;|/
-#ws-icon-6 = 7;|//
-#ws-icon-7 = 8;|///
-#ws-icon-8 = 9;/|
-#ws-icon-9 = 10;|
-#ws-icon-default = 0
+
+ws-icon-0 = 1 ffox;
+ws-icon-1 = 2 ide;
+ws-icon-2 = 3 files;
+ws-icon-3 = 4 random;
+ws-icon-4 = 5 random;
+ws-icon-5 = 6 random;
+ws-icon-6 = 7 random;
+ws-icon-7 = 8 random;
+ws-icon-8 = 9 aux;
+ws-icon-9 = 10 media;
+ws-icon-default = O
 
 label-mode-padding = 1
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-label-focused = %index%
+label-mode-background = ${colors.transparent}
+label-focused = 
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
-
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-label-urgent = %index%!
+label-urgent = %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
+
 [module/mpd]
 type = internal/mpd
-host = 127.0.0.1
+host = 0.0.0.0
 port = 6600
+password = idk
 interval = 2
 
-format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <label-song> <toggle> <icon-seekf> <icon-next>   	 <icon-repeat> <icon-random>
 
-label-song-maxlen = 25
+;label-song-maxlen = 20
 label-song-ellipsis = true
 
-icon-prev = 
-icon-seekb = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-icon-seekf = 
-
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground = ${colors.primary}
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+toggle-on-foreground = ${colors.white}
 toggle-off-foreground = #66
-
-
-[module/music]
-type = custom/script
-interval = 2
-
-label = %output:0:45:...%
-exec = ~/.config/polybar/mpris.sh
-
-[module/redshift]
-type = custom/script
-interval = 120.0
-exec = ~/.config/polybar/redshift
-click-left = pkill redshift
-click-right = redshift
 
 
 [module/backlight]
@@ -259,6 +195,7 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -267,6 +204,8 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.purple}
 label = %percentage%
+click-left = termite -e htop &
+
 
 [module/memory]
 type = internal/memory
@@ -275,19 +214,17 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label =  %percentage_used%
 
+
 [module/wlan]
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 format-disconnected-underline = ${self.format-connected-underline}
-
 label-connected = %essid%
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
-
 ;ramp-signal-0 = 
 ;ramp-signal-1 = 
 ;ramp-signal-2 = 
@@ -298,83 +235,73 @@ label-disconnected-foreground = ${colors.foreground-alt}
 [module/network]
 type = internal/network
 interface = wlp3s0
-ping-interval = 3
-
+ping-interval = 2.5
 format-connected-padding = 1
 label-connected-padding-left = 1
-
 accumulate-stats = true
+
 
 [module/eth]
 type = internal/network
 interface = enp0s25
 interval = 3.0
 ping-interval = 2
-
 format-connected-padding = 1
 label-connected-padding-left =1
-
 accumulate-stats = true
-
 format-connected-underline = #55aa55
 ;format-connected-prefix = " "
 format-connected-foreground-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
-
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
 
+
 [module/up-speed]
 inherit = module/network
-
 format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.blue}
 format-connected-underline = ${colors.blue}
-
 label-connected = %upspeed%
+
 
 [module/down-speed]
 inherit = module/network
-
 format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.green}
 format-connected-underline = ${colors.green}
-
 label-connected = %downspeed%
+
 
 [module/up-speed_eth]
 inherit = module/up-speed
 interface = enp0s25
 
+
 [module/down-speed_eth]
 inherit = module/down-speed
 interface = enp0s25
 
+
 [module/date]
 type = internal/date
 interval = 5
-
 date = %d
 date-alt = "%Y-%m-%d"
-
 time = %H:%M
 time-alt = %H:%M:%S
-
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
-
 label = %date% %time%
+
 
 [module/volume]
 type = internal/volume
-
+;master-mixer = Master
 format-volume = <ramp-volume> <bar-volume>
 label-volume = vol
-label-volume-foreground = ${root.foreground}
-
-click-left = amixer -D pulse set Master 5%+ unmute
-click-right = amixer -D pulse set Master 5%- unmute
+click-right = termite -e alsamixer &
 scroll-up = amixer -D pulse set Master 5%+ unmute
 scroll-down = amixer -D pulse set Master 5%- unmute
 interval = 0.5
@@ -403,6 +330,7 @@ bar-volume-empty = ─
 bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -430,6 +358,7 @@ animation-charging-0 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
+
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -442,15 +371,16 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.dark-gray}
+
 
 [module/powermenu]
 type = custom/menu
 
 label-open = power
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${colors.dark-gray}
 label-close = cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.dark-gray}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -471,6 +401,7 @@ menu-2-0-exec = systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
+
 [module/weather]
 type = custom/script
 interval = 10
@@ -479,14 +410,10 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 exec = ~/.config/polybar/weather
 
-[module/cmus]
+
+[module/redshift]
 type = custom/script
-
-exec = sh ~/.config/polybar/cmus.sh
-exec-if = pgrep -x cmus
-interval = 1
-
-click-left = cmus-remote --pause
-click-right = cmus-remote --stop
-
-
+interval = 120.0
+exec = ~/.config/polybar/redshift
+click-left = pkill redshift
+click-right = redshift

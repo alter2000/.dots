@@ -21,8 +21,7 @@ bindkey "e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-export ZSH=/home/alter2000/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 DEFAULT_USER="alter2000"
 # Import colorscheme from 'wal'
 (wal -r &)
@@ -34,9 +33,9 @@ PATH="$HOME/.local/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs ip battery)
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-#POWERLEVEL9K_SHORTEN_DELIMITER=""
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="]"
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=") "
