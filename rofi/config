@@ -1,7 +1,7 @@
 rofi.location:          3
 rofi.color-enabled:     true
 !                       'background', 'border'
-rofi.color-window:      argb:ff000000, argb:ff000000
+!rofi.color-window:      argb:ff000000, argb:ff000000
 ! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
 !rofi.color-normal:      argb:0033333, #ffffff, argb:00222222, argb:00555555, argb:ff00BCD4
 !rofi.color-urgent:      argb:0033333, #ffffff, argb:00222222, argb:00222222, argb:ff00BCD4
