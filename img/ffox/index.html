@@ -1,56 +1,58 @@
 <html>
-
 <head>
-    <title>Shpifaqe</title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="res/logo-dark.png" />
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+  <title>Shpifaqe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../.cache/wal/colors.css">
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="res/logo-dark.png" />
+  <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body>
-
-    <div class="stripe" style="background-color:#090909">
-        <div class="title"><span>Official</span></div>
-        <div class="content">
-            <span class="item"><a href="https://archlabsblog.wordpress.com">Official Website</a></span>
-            <span class="item"><a href="https://plus.google.com/u/0/communities/111177505820810068511">ArchLabs G+</a></span>
-            <span class="item"><a href="https://www.tapatalk.com/groups/archlabs/index.php">ArchLabs Forums</a></span>
-            <span class="item"><a href="https://twitter.com/ArchLabsLinux">ArchLabs Twitter</a></span>
-        </div>
+<body style="background-color: var(--background)">
+  <div class="stripe" id="media">
+    <div class="title"><span>Media</span></div>
+    <div class="content">
+      <span class="item"><a href="https://deezer.com/">Deezer</a></span>
+      <span class="item"><a href="https://youtube.com/">YouTube</a></span>
+      <span class="item"><a href="https://jango.com/">Jango</a></span>
     </div>
-
-    <div class="stripe" style="background-color:#9E3B58">
-        <div class="title"><span>Openbox</span></div>
-        <div class="content">
-            <span class="item"><a href="https://www.opendesktop.org/">Box Look</a></span>
-            <span class="item"><a href="https://urukrama.wordpress.com/openbox-guide/">Urukrama's Openbox Guide+</a></span>
-            <span class="item"><a href="https://forums.bunsenlabs.org/viewforum.php?id=9">Bunsenlabs Openbox Scripts etc.</a></span>
-        </div>
-    </div>
-
-    <div class="stripe" style="background-color:#1AADB5">
-        <div class="title"><span>Wikis</span></div>
-        <div class="content">
-            <span class="item"><a href="http://openbox.org/wiki/Main_Page">Openbox Wiki</a></span>
-            <span class="item"><a href="https://wiki.archlinux.org/index.php/Openbox">Arch Wiki</a></span>
-            <span class="item"><a href="https://i3wm.org/docs/">i3 Wiki</a></span>
-        </div>
-    </div>
-
-    <div class="stripe" style="background-color:#BA386F">
-        <div class="title"><span>GetArchLabs</span></div>
-        <div class="content">
-            <span class="item"><a href="https://sourceforge.net/projects/archlabs-linux-minimo/">Official Download</a></span>
-            <span class="item"><a href="https://sourceforge.net/p/archlabs-linux-minimo/tickets/new/">Got a suggestion?</a></span>
-        </div>
-    </div>
+  </div>
     
-    <form method="get" action="https://www.duckduckgo.com">
-            <input type="text" name="q" placeholder="Search..." autofocus>
-            <p><span name="yt">arch.wiki</span><span name="sr">arch.forums</span><span name="a">arch.packages</span><span name="w">openbox.official</span></p>
-        </form>
+  <div class="stripe" id="google">
+    <div class="title"><span>Google</span></div>
+    <div class="content">
+      <span class="item"><a href="https://mail.google.com/">Gmail</a></span>
+      <span class="item"><a href="https://keep.google.com/">Keep</a></span>
+      <span class="item"><a href="https://play.google.com/">Play</a></span>
+    </div>
+  </div>
+    
+  <div class="stripe" id="wiki">
+    <div class="title"><span>Wikis</span></div>
+    <div class="content">
+      <span class="item"><a href="http://en.wikipedia.org/">Wikipedia</a></span>
+      <span class="item"><a href="https://wiki.archlinux.org/">Arch Wiki</a></span>
+      <span class="item"><a href="https://wiki.openlabs.cc/">Open Labs Wiki</a></span>
+    </div>
+  </div>
+  
+  <div class="stripe" id="fora">
+    <div class="title"><span>Fora</span></div>
+    <div class="content">
+      <span class="item"><a href="https://forum.openlabs.cc/">Open Labs Forum</a></span>
+      <span class="item"><a href="https://forum.xda-developers.com/">XDA Developers</a></span>
+      <span class="item"><a href="http://scribo.club/">Scribo</a></span>
+    </div>
+  </div>
+  
+  <form method="get" action="https://www.duckduckgo.com">
+    <input type="text" name="q" placeholder="Sup, lawd?" autofocus>
+    <p><span name="aur">aur</span>
+    <span name="r">reddit</span>
+    <span name="yt">youtube</span>
+    <span name="gp">play</span></p>
+  </form>
 </body>
 </html>

@@ -4,27 +4,27 @@ $(document).ready(function() {
 
     var $search = $("input[name='q']");
 
+    $("span[name='aur']").click(function() {
+        var curr = $search.val();
+        $search.val("!aur " + curr);
+        $search.focus();
+    });
+
+    $("span[name='r']").click(function() {
+        var curr = $search.val();
+        $search.val("!reddits " + curr);
+        $search.focus();
+    });
+
     $("span[name='yt']").click(function() {
         var curr = $search.val();
-        $search.val("!arch " + curr);
+        $search.val("!youtube " + curr);
         $search.focus();
     });
 
-    $("span[name='sr']").click(function() {
+    $("span[name='gp']").click(function() {
         var curr = $search.val();
-        $search.val("!archforums " + curr);
-        $search.focus();
-    });
-
-    $("span[name='a']").click(function() {
-        var curr = $search.val();
-        $search.val("!pkg " + curr);
-        $search.focus();
-    });
-
-    $("span[name='w']").click(function() {
-        var curr = $search.val();
-        $search.val("!openbox" + curr);
+        $search.val("!googleplay" + curr);
         $search.focus();
     });
 
