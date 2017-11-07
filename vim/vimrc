@@ -1,6 +1,88 @@
-set backspace=indent,eol,start
-set number hidden ic hls
-set mouse=a
-set smarttab autoindent
+" for when using elsewhere
+set fsync backspace=indent,eol,start updatetime=1500
+
+" search candy
+set incsearch nohlsearch ignorecase smartcase
+
+" useful shiz 
+set number hidden cursorline cursorcolumn
+set splitright
+set mouse=a mousefocus clipboard=unnamedplus
+set smarttab autoindent copyindent
+set scrolloff=2	  " 2 lines of context when scrolling
 syntax enable
-set history=100
+set history=100 undolevels=100
+
+" show non-printable chars
+set list listchars=tab:>-,trail:.,extends:#,nbsp:.
+
+" tab -> 2 spaces, autoindent when pasting
+set expandtab tabstop=2
+
+" default tab->2 spaces, use multiples of 2 when autoindenting
+set softtabstop=2 shiftwidth=2 shiftround
+set directory=~/.vim-tmp,/var/tmp   " store swap files here
+
+" indentation rules and plugins loaded per filetype
+filetype on
+filetype indent plugin on
+
+set ttimeoutlen=10
+set noshowmode
+set colorcolumn=80
+hi ColorColumn ctermbg=7
+
+" Install vim-plug if it's not already there
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugs')
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'bling/vim-airline'
+Plug 'Raimondi/delimitMate'
+Plug 'chrisbra/Colorizer'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-startify'
+Plug 'sjl/gundo.vim'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'Valloric/YouCompleteMe'
+call plug#end()
+
+" Plugin options
+let g:livepreview_previewer = 'evince'
+
+let g:gundo_preview_height = 20
+let g:gundo_width = 60
+let g:gundo_preview_bottom = 1
+
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_highlighting_cache = 1
+let g:airline_extensions = []
+let g:promptline_theme = 'airline'
+
+
+" Set solarized on fish
+if $SHELL == '/bin/fish'
+  set background=light
+  colorscheme solarized
+endif
+
+" Keybinds
+nnoremap j gj
+nnoremap k gk
+nnoremap <F2> :GundoToggle<CR>
+
+" Spellcheck and autowrap
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=sq
+autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us
+"autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+"autocmd BufRead,BufNewFile *.txt setlocal textwidth=80
+

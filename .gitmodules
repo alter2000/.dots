@@ -16,3 +16,6 @@
 [submodule "dotfiles"]
 	path = rainbow-stalin
 	url = https://github.com/bryanbecker/dotfiles.git
+[submodule "zsh/powerlevel9k"]
+	path = zsh/powerlevel9k
+	url = https://github.com/bhilburn/powerlevel9k.git

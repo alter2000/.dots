@@ -7,27 +7,29 @@
         ~/.bashrc:      bashrc
         ~/.dots: ''
         ~/.gitconfig:   gitconfig
-        ~/.zshrc:       zshrc
-        ~/.zsh_favlist: zsh_favlist
-        ~/.xbindkeysrc: xbindkeysrc
         ~/.tmux.conf:   tmux
         ~/.vim:         vim/
-        ~/.elinks/elinks.conf:     elinks
-        ~/.config/rtv/rtv.cfg:     rtv
-        ~/.config/termite/config:  termite
-        ~/.config/inkscape:        inkscape/
-        ~/.config/openbox/autostart: ob-autostart
+        ~/.xbindkeysrc: xbindkeysrc
+        ~/.zsh:         zsh/
+        ~/.zshrc:       zshrc
+
         ~/.config/cmus:            cmus
-        ~/.config/rofi:            rofi/
+        ~/.config/dunst:           dunst/
+        ~/.elinks/elinks.conf:     elinks
+        ~/.config/gtk-3.0:         gtk-3.0/
+        ~/.gtkrc-2.0:              gtkrc2
+        ~/.config/i3:              i3/
+        ~/.config/inkscape:        inkscape/
+        ~/.config/neofetch:        neofetch/
+        ~/.config/openbox/autostart: ob-autostart
         ~/.config/polybar:         polybar/
         ~/.config/redshift.conf:   redshift.conf
-        ~/.config/i3:              i3/
+        ~/.config/rofi:            rofi/
+        ~/.config/rtv/rtv.cfg:     rtv
         ~/.config/sway:            i3/
-        ~/.config/neofetch:        neofetch/
-        ~/.config/polybar:         polybar/
-        ~/.config/variety:         variety/
+        ~/.config/termite/config:  termite
         ~/.img:                    img/
-        ~/.local/bin/:             bin/
+        ~/.local/bin:              bin/
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
@@ -50,7 +52,7 @@
         - compton
         - dconf-editor
         - dia
-        - downgrade
+        - dunst
         - elinks
         - evince
         - exfat-utils
@@ -63,8 +65,6 @@
         - gimp
         - git
         - gksu
-        - gnome-boxes
-        - gnome- directory-thumbnailer
         - gnome-online-accounts
         - gnome-shell
         - gnome-system-monitor
@@ -74,6 +74,7 @@
         - gparted
         - guake
         - gucharmap
+        - gvim
         - handbrake
         - httrack
         - hugin
@@ -85,13 +86,12 @@
         - libreoffice-fresh-sq
         - libreoffice-extension-writer2latex
         - lightdm-gtk-greeter
-        - lollypop
         - lux
         - lxappearance
         - lyx
+        - maim
         - menumaker
         - mosh
-        - mopidy
         - mpv
         - nautilus
         - nautilus-image-converter
@@ -105,22 +105,20 @@
         - openra
         - openshot
         - openssh
+        - otf-overpass
         - pavucontrol
-        - playonlinux
-        - playerctl
         - redshift
         - rofi
         - rsync
         - ruby
-        - maim
         - snapd
         - steam
-        - steam-native-runtime
         - subtitleeditor
         - supertux
         - supertuxkart
         - teeworlds
         - termite
+        - texlive-most
         - tlp
         - tmux
         - transmission-gtk
@@ -132,8 +130,8 @@
         - unrar
         - unzip
         - usbutils
-        - vim
         - vino
+        - virt-manager
         - vlc
         - w3m
         - xarchiver
@@ -148,16 +146,25 @@
         - android-tools
         - android-udev
         - chrome-gnome-shell-git
+        - downgrade
+        - fontawesome.sty
         - i3-gaps
         - i3lock-fancy-git
         - indicator-kdeconnect
         - etcher
+        - latex-homework-git
+        - latex-solarized-git
+        - latex-wrapfig
         - micro
         - nautilus-folder-icons
         - nautilus-send-to-bluetooth
         - rtv
+        - texlive-latexextra
+        - texlive-moderncv-git
+        - texlive-pictures
         - ttf-font-awesome
         - ttf-material-design-icons
         - ttf-meslo
         - ttf-ms-fonts
         - ttf-roboto-font
+        - zsh-autosuggestions

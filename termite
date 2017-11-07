@@ -32,19 +32,19 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [colors]
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
-foreground = #dcdccc
-foreground_bold = #ffffff
+#cursor = #586e75
+#cursor_foreground = #586e75
+foreground = #93a1a1
+#foreground_bold = #f3f3f3
 background = #3f3f3f
 
-# 25% background transparency (requires a compositor)
-background = rgba(63, 63, 63, 0.75)
+# 5% background transparency (requires a compositor)
+background = rgba(70,70,70,0.95)
 
 # if unset, will reverse foreground and background
-highlight = #2f2f2f
+highlight = #073642
 
-# colors from color0 to color254 can be set
+# default termite colors; wal and solarized are added later
 color0 = #3f3f3f
 color1 = #705050
 color2 = #60b48a
@@ -63,14 +63,14 @@ color14 = #93e0e3
 color15 = #ffffff
 
 [hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+font = Monospace 12
+foreground = #dcdccc
+background = #3f3f3f
+active_foreground = #e68080
+active_background = #3f3f3f
+padding = 2
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
 
 # vim: ft=dosini cms=#%s
