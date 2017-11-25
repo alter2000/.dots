@@ -73,4 +73,3 @@ _arguments -s -S \
     && return 0
 
     return 1
-

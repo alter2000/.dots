@@ -2,14 +2,18 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/powerlevel9k/powerlevel9k.zsh-theme
 source ~/.zsh/vars.zsh
 source ~/.zsh/functions.zsh
-
+source ~/.zsh/completions/completions.zsh
 
 ### ALIASES ###
 alias mu="TERM=xterm-truecolor micro"
-alias ls="ls --color"
+# fuck the law with the dick in my hand
+alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+
+alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
-alias ll="la -l"
-alias la="ls -A"
+alias ll="ls -lA"
+alias la="ls -Ah"
+
 alias gst="git status"
 alias gaa="git add -A"
 alias gc="git commit"
@@ -18,13 +22,15 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias less="less -R"
+alias mutt="neomutt"
+
 alias suffer="pacaur -Syu"
 alias pain="pacaur -S"
 alias painl="pacaur -U"
 alias paind="pacaur -S --asdeps"
 alias pare="pacaur -R"
 alias parm="pacaur -Rsn"
-alias parmorphans="sudo pacman -Rs $(pacman -Qtdq)"
+alias parmorphans="sudo pacman -Rns $(pacman -Qtdq)"
 eval $(thefuck --alias)
 
 

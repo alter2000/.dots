@@ -12,12 +12,12 @@
         ~/.xbindkeysrc: xbindkeysrc
         ~/.zsh:         zsh/
         ~/.zshrc:       zshrc
+        ~/.mailcap:     mailcap
 
-        ~/.config/cmus:            cmus
-        ~/.config/dunst:           dunst/
-        ~/.elinks/elinks.conf:     elinks
         ~/.config/gtk-3.0:         gtk-3.0/
-        ~/.gtkrc-2.0:              gtkrc2
+        ~/.config/cmus:            cmus
+        ~/.config/compton.conf:    compton
+        ~/.config/dunst:           dunst/
         ~/.config/i3:              i3/
         ~/.config/inkscape:        inkscape/
         ~/.config/neofetch:        neofetch/
@@ -26,18 +26,26 @@
         ~/.config/redshift.conf:   redshift.conf
         ~/.config/rofi:            rofi/
         ~/.config/rtv/rtv.cfg:     rtv
-        ~/.config/sway:            i3/
+        ~/.config/sway:            sway/
         ~/.config/termite/config:  termite
+        ~/.elinks/elinks.conf:     elinks
+        ~/.gtkrc-2.0:              gtkrc2
         ~/.img:                    img/
         ~/.local/bin:              bin/
+        ~/.pandoc:                 pandoc/
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
 
 - pacman:
         - alsa-utils
+        - android-tools
+        - android-udev
         - arc-gtk-theme
         - arc-icon-theme
+        - arduino
+        - arduino-docs
+        - arduino-avr-core
         - asciinema
         - atom
         - audacity
@@ -45,6 +53,7 @@
         - beets
         - bsd-games
         - budgie-desktop
+        - calcurse
         - chromium
         - clamav
         - clang
@@ -86,7 +95,6 @@
         - libreoffice-fresh-sq
         - libreoffice-extension-writer2latex
         - lightdm-gtk-greeter
-        - lux
         - lxappearance
         - lyx
         - maim
@@ -95,6 +103,7 @@
         - mpv
         - nautilus
         - nautilus-image-converter
+        - neomutt
         - nodejs
         - noto-fonts
         - noto-fonts-emoji
@@ -132,8 +141,8 @@
         - usbutils
         - vino
         - virt-manager
-        - vlc
         - w3m
+        - wkhtmltopdf
         - xarchiver
         - xdotool
         - xclip
@@ -143,11 +152,10 @@
 
 - pacaur:
         - android-studio
-        - android-tools
-        - android-udev
-        - chrome-gnome-shell-git
+        - ant-gtk-theme
         - downgrade
         - fontawesome.sty
+        - git-spindle
         - i3-gaps
         - i3lock-fancy-git
         - indicator-kdeconnect
@@ -155,9 +163,11 @@
         - latex-homework-git
         - latex-solarized-git
         - latex-wrapfig
+        - lux
         - micro
         - nautilus-folder-icons
         - nautilus-send-to-bluetooth
+        - nerd-fonts-complete
         - rtv
         - texlive-latexextra
         - texlive-moderncv-git
@@ -167,4 +177,5 @@
         - ttf-meslo
         - ttf-ms-fonts
         - ttf-roboto-font
+        - vlc-git
         - zsh-autosuggestions

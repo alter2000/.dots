@@ -7,6 +7,8 @@ export ZDOTDIR="$HOME/.zsh"
 export ARCHFLAGS='-arch x86_64'
 export GITHUB_USER='alter2000'
 export fpath=(/home/alter2000/.zsh/completions/ $fpath)
+
+
 ### POWERLEVEL9K ###
 DEFAULT_USER="alter2000"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir custom_wifi_signal vcs)

@@ -19,3 +19,6 @@
 [submodule "zsh/powerlevel9k"]
 	path = zsh/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
+[submodule "bin/creative-cloud-linux"]
+	path = bin/creative-cloud-linux
+	url = https://github.com/corbindavenport/creative-cloud-linux/

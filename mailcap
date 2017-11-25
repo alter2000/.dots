@@ -1,0 +1,32 @@
+#                              Mailcap 101
+# - The first entry with a matching MIME type will be executed, * is a wildcard
+# - %s will be replaced with the image or video url
+# - Add ``test=test -n "$DISPLAY"`` if your command opens a new window
+# - Add ``needsterminal`` for commands that use the terminal
+# - Add ``copiousoutput`` for commands that dump text to stdout
+
+############
+# TEXT FILES
+############
+#text/html ; elinks '%s'    ; needsterminal
+text/html ; qutebrowser '%s'; test=test -n "$DISPLAY"
+text/html ; chromium '%s'   ; test=test -n "$DISPLAY"
+text/tex  ; vim '%s'        ; needsterminal
+text/*    ; less -R '%s'    ; needsterminal
+############
+# VIEWABLES
+############
+image/x-imgur-album ; feh -g 640x480 %s; test=test -n "$DISPLAY"
+image/gif       ; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+image/*         ; feh -g 640x480 '%s'; test=test -n "$DISPLAY"
+video/x-youtube ; vlc '%s' --width 640 --height 480; test=test -n "$DISPLAY"
+video/x-youtube ; mpv --ytdl-format=best '%s' --autofit 640x480; test=test -n "$DISPLAY"
+video/*         ; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+
+# terminal solutions
+image/*         ; w3m -o 'ext_image_viewer=off' '%s'; needsterminal
+# Display images in ascii using img2txt and lib-caca
+image/*         ; curl -s '%s' | convert - jpg:/tmp/rtv.jpg && img2txt -f utf8 /tmp/rtv.jpg; needsterminal; copiousoutput
+# need framebuffer
+video/x-youtube ; mpv -vo drm -quiet '%s'; needsterminal
+video/*         ; mpv -vo drm -quiet '%s'; needsterminal

@@ -11,7 +11,7 @@
 foreground = ${xrdb:foreground}
 background = ${xrdb:background}
 black = #cc0c0d0e
-white = #b7b8b9
+white = #8fa1b3
 transparent = #00000000
 purple = #756bb1
 orange = #de935f
@@ -28,7 +28,7 @@ blue    = #008df8
 magenta = #6d43a6
 cyan    = #00d8eb
 
-bblack 	 = #444444
+bblack   = #444444
 bred     = #ff2740
 bgreen   = #abe15b
 byellow  = #ffd242
@@ -52,7 +52,7 @@ foreground = ${colors.white}
 spacer = "  "
 
 font-0 = Roboto Mono:pixelsize=8
-font-1 = FontAwesome:pixelsize=9
+font-1 = FontAwesome:pixelsize=10
 font-2 = Meslo LG S:pixelsize=9
 font-3 = Material Icons:pixelsize=14;+4
 
@@ -74,9 +74,9 @@ padding-right = 3
 module-margin-left = 1
 module-margin-right = 2
 
-modules-left = i3 down-speed up-speed battery mpd
-modules-center = xwindow weather test
-modules-right = backlight volume memory cpu temperature date powermenu
+modules-left = i3 down-speed up-speed battery weather redshift mpd
+modules-center =
+modules-right = xwindow backlight volume memory cpu temperature date
 
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
@@ -84,7 +84,7 @@ scroll-down = i3wm-wsnext
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:100:...%
 
 
 [module/filesystem]
@@ -335,7 +335,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 99
+full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #19defa
@@ -343,7 +343,7 @@ format-charging-underline = #19defa
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = #19defa
 
-format-full-prefix = ""
+format-full-prefix = 
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
@@ -353,8 +353,6 @@ ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
-#animation-charging-1 = 
-#animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
@@ -404,16 +402,21 @@ menu-2-1-exec = menu-open-0
 
 [module/weather]
 type = custom/script
-interval = 10
+tail = true
+interval = 1800
 format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-exec = ~/.config/polybar/weather
-
+label = %output%
+format-padding = 2
+format-underline = ${colors.yellow}
+exec = ~/.dots/polybar/weather -i
 
 [module/redshift]
 type = custom/script
-interval = 120.0
-exec = ~/.config/polybar/redshift
-click-left = pkill redshift
-click-right = redshift
+tail = true
+exec = ~/.dots/polybar/redshift
+click-left = redshift -c ~/.dots/redshift.conf &
+click-right = redshift -x && pkill -15 redshift &
+format = <label>
+label = "%output%"
+format-underline = ${colors.orange}
+
