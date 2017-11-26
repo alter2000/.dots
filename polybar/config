@@ -55,6 +55,7 @@ font-0 = Roboto Mono:pixelsize=8
 font-1 = FontAwesome:pixelsize=10
 font-2 = Meslo LG S:pixelsize=9
 font-3 = Material Icons:pixelsize=14;+4
+font-4 = FontAwesome:pixelsize=14;+2
 
 
 [bar/i3bar1]
@@ -64,22 +65,24 @@ overline-size = 0
 ;overline-color = #000
 underline-size = 3
 underline-color = #000
-
 border-bottom-size = 0
 ;border-bottom-color = #333
-
 spacing = 1
 padding-left = 3
 padding-right = 3
 module-margin-left = 1
 module-margin-right = 2
-
 modules-left = i3 down-speed up-speed battery weather redshift mpd
 modules-center =
 modules-right = xwindow backlight volume memory cpu temperature date
-
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
+
+
+[bar/i3bar2]
+inherit = bar/i3bar-master
+override-redirect = true
+
 
 
 [module/xwindow]
@@ -409,6 +412,7 @@ label = %output%
 format-padding = 2
 format-underline = ${colors.yellow}
 exec = ~/.dots/polybar/weather -i
+
 
 [module/redshift]
 type = custom/script

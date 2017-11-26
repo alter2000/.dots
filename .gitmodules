@@ -7,9 +7,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule "i3-wm-config"]
-	path = sainathadapa-i3-config
-	url = https://github.com/sainathadapa/i3-wm-config.git
 [submodule "Solarized-Acidalia"]
 	path = Solarized--Acidalia
 	url = https://github.com/ma-santoso/dotfiles.git
@@ -22,3 +19,6 @@
 [submodule "bin/creative-cloud-linux"]
 	path = bin/creative-cloud-linux
 	url = https://github.com/corbindavenport/creative-cloud-linux/
+[submodule "img/ffox/solarized-everything-css"]
+	path = img/ffox/solarized-everything-css
+	url = https://github.com/alphapapa/solarized-everything-css/

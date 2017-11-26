@@ -385,7 +385,7 @@ startup_screen = media_library
 ## Note: You can define startup slave screen by choosing screen from the list
 ## above or an empty value for no slave screen.
 ##
-startup_slave_screen = "visualizer"
+#startup_slave_screen = "visualizer"
 #
 startup_slave_screen_focus = no
 #

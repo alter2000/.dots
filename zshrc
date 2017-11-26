@@ -7,7 +7,7 @@ source ~/.zsh/completions/completions.zsh
 ### ALIASES ###
 alias mu="TERM=xterm-truecolor micro"
 # fuck the law with the dick in my hand
-alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+alias ytmp3="youtube-dl --extract-audio --audio-format mp3 "
 
 alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
@@ -16,11 +16,15 @@ alias la="ls -Ah"
 
 alias gst="git status"
 alias gaa="git add -A"
-alias gc="git commit"
+alias gc="git commit "
 alias gp="git push"
+alias gh="git hub "
+alias gb="git bb "
+
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
+
 alias less="less -R"
 alias mutt="neomutt"
 
@@ -31,6 +35,7 @@ alias paind="pacaur -S --asdeps"
 alias pare="pacaur -R"
 alias parm="pacaur -Rsn"
 alias parmorphans="sudo pacman -Rns $(pacman -Qtdq)"
+
 eval $(thefuck --alias)
 
 

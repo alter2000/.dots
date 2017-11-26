@@ -18,6 +18,7 @@ gaps outer 9
 smart_gaps on
 smart_borders no_gaps
 
+default_orientation horizontal
 ########################################
 
 ##### KEYBINDINGS -- WINDOWS
@@ -42,9 +43,9 @@ bindsym $mod+e layout toggle split
 bindsym $mod+space focus mode_toggle
 
 # change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up   focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -145,37 +146,50 @@ for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Dia" instance="dia"] floating enable
 for_window [class="Com.github.nick92.coffee" instance="com.github.nick92.coffee"] floating enable
 
+assign [class="Firefox"]  ffox
+assign [class="Chromium"] ffox
+
+assign [class="Vim"]  ide
+assign [class="Atom"] ide
+assign [class="Boostnote"] aux
+
+assign [class="Nautilus"] files
+assign [class="Thunar"]   files
+
+assign [class="ncmpcpp"]  media
+assign [class="Transmission"] media
+
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources for some reason.
 
-set_from_resource $c1 i3wm.color1 #f0f0f0
-set_from_resource $c2 i3wm.color2 #f0f0f0
-set_from_resource $c3 i3wm.color3 #f0f0f0
-set_from_resource $c4 i3wm.color4 #f0f0f0
-set_from_resource $c5 i3wm.color5 #f0f0f0
-set_from_resource $c6 i3wm.color6 #f0f0f0
-set_from_resource $c7 i3wm.color7 #f0f0f0
-set_from_resource $c8 i3wm.color8 #f0f0f0
-set_from_resource $c9 i3wm.color9 #f0f0f0
-set_from_resource $c10 i3wm.color10 #f0f0f0
-set_from_resource $c11 i3wm.color11 #f0f0f0
-set_from_resource $c12 i3wm.color12 #f0f0f0
-set_from_resource $c13 i3wm.color13 #f0f0f0
-set_from_resource $c14 i3wm.color14 #f0f0f0
+#set_from_resource $c1 i3wm.color1 #f0f0f0
+#set_from_resource $c2 i3wm.color2 #f0f0f0
+#set_from_resource $c3 i3wm.color3 #f0f0f0
+#set_from_resource $c4 i3wm.color4 #f0f0f0
+#set_from_resource $c5 i3wm.color5 #f0f0f0
+#set_from_resource $c6 i3wm.color6 #f0f0f0
+#set_from_resource $c7 i3wm.color7 #f0f0f0
+#set_from_resource $c8 i3wm.color8 #f0f0f0
+#set_from_resource $c9 i3wm.color9 #f0f0f0
+#set_from_resource $c10 i3wm.color10 #f0f0f0
+#set_from_resource $c11 i3wm.color11 #f0f0f0
+#set_from_resource $c12 i3wm.color12 #f0f0f0
+#set_from_resource $c13 i3wm.color13 #f0f0f0
+#set_from_resource $c14 i3wm.color14 #f0f0f0
 
-set_from_resource $bg i3wm.color0 #f0f0f0
-set_from_resource $fg i3wm.color15 #000000
+#set_from_resource $bg i3wm.color0 #f0f0f0
+#set_from_resource $fg i3wm.color15 #000000
 
 # class                 border  backgr. text indicator child_border
-client.focused          $c1     $bg     $fg  $c1        $c3
-client.focused_inactive $c1     $bg     $fg  $c1        $c3
-client.unfocused        $c2     $bg     $fg  $c2        $c3
-client.urgent           $c13    $bg     $fg  $c13       $c14
-client.placeholder      $c0     $bg     $fg  $c0        $c12
-client.background       $bg     $bg     $fg  $bg        $bg
+#client.focused          $c1     $bg     $fg  $c1        $c3
+#client.focused_inactive $c1     $bg     $fg  $c1        $c3
+#client.unfocused        $c2     $bg     $fg  $c2        $c3
+#client.urgent           $c13    $bg     $fg  $c13       $c14
+#client.placeholder      $c0     $bg     $fg  $c0        $c12
+#client.background       $bg     $bg     $fg  $bg        $bg
 
 ########################################
 
@@ -183,20 +197,38 @@ client.background       $bg     $bg     $fg  $bg        $bg
 
 ########################################
 
-exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
+bar {
+  pango_markup enabled
+  font pango:Ubuntu 10
+  position bottom
+  output eDP-1
+  strip_workspace_numbers yes
+  icon_theme Papirus
+  colors {
+    background #fdf6e3
+    #foreground #657b83
+    active_workspace   # # #
+    inactive_workspace # #93a1a1 #
+    urgent_workspace   # #cb4b16 #657b3
+    binding_mode       # # #657b3
+  }
+  status_command i3status-rs ~/.dots/sway/i3status-rs.toml
+}
+
+#exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
 
 # Budgie polkit dialog
 exec_always --no-startup-id budgie-polkit-dialog
 
 # Compton for fancy nancy
-exec_always --no-startup-id compton
+#exec_always --no-startup-id compton
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # pywal (wallpaper & colour scheme)
 exec --no-startup-id wal -t -i "$HOME/.img/rainbowzigzag.png"
-
+exec output eDP-1 bg "#fdf6e3" solid_color
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+w exec --no-startup-id rofi -show window -modi window -location 0 -width 900
@@ -227,5 +259,5 @@ bindsym XF86Search exec --no-startup-id firefox
 bindsym XF86Explorer exec --no-startup-id nautilus
 
 # lock
-bindsym $mod+L exec --no-startup-id i3lock-fancy -pf Ubuntu -t "paswurd hint: GTFO"
+bindsym $mod+L exec --no-startup-id swaylock --font Ubuntu #-t "paswurd hint: GTFO"
 

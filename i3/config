@@ -42,16 +42,21 @@ bindsym $mod+e layout toggle split
 bindsym $mod+space focus mode_toggle
 
 # change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up   focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up   move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # switch to workspace
 bindsym $mod+1 workspace 1 ffox
@@ -94,6 +99,10 @@ mode resize {
         bindsym Down resize grow height 5 px or 5 ppt
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode default
@@ -144,6 +153,19 @@ for_window [class="Budgie-polkit-dialog" instance="budgie-polkit-dialog"] floati
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Dia" instance="dia"] floating enable
 for_window [class="Com.github.nick92.coffee" instance="com.github.nick92.coffee"] floating enable
+
+assign [class="Firefox"]  1 ffox
+assign [class="Chromium"] 1 ffox
+
+assign [class="Vim"]  2 ide
+assign [class="Atom"] 2 ide
+assign [class="Boostnote"] 9 aux
+
+assign [class="Nautilus"] 3 files
+assign [class="Thunar"]   3 files
+
+assign [class="ncmpcpp"]      10 media
+assign [class="Transmission"] 10 media
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use

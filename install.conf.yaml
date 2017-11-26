@@ -14,15 +14,18 @@
         ~/.zshrc:       zshrc
         ~/.mailcap:     mailcap
 
+        ~/.calcurse:               calcurse/
         ~/.config/gtk-3.0:         gtk-3.0/
-        ~/.config/cmus:            cmus
         ~/.config/compton.conf:    compton
         ~/.config/dunst:           dunst/
         ~/.config/i3:              i3/
         ~/.config/inkscape:        inkscape/
+        ~/.config/mpd:             mpd/
         ~/.config/neofetch:        neofetch/
         ~/.config/openbox/autostart: ob-autostart
         ~/.config/polybar:         polybar/
+        ~/.config/qutebrowser:     qutebrowser/
+        ~/.config/ranger/rc.conf:  ranger.conf
         ~/.config/redshift.conf:   redshift.conf
         ~/.config/rofi:            rofi/
         ~/.config/rtv/rtv.cfg:     rtv
@@ -75,8 +78,6 @@
         - git
         - gksu
         - gnome-online-accounts
-        - gnome-shell
-        - gnome-system-monitor
         - gnome-tweak-tool
         - gnuplot
         - gpart
@@ -151,31 +152,60 @@
         - zsh-syntax-highlighting
 
 - pacaur:
-        - android-studio
+        - adbfs-git
         - ant-gtk-theme
+        - android-studio-canary
+        - bash-pipes
+        - bookworm
+        - boostnote
+        - canto-curses
+        - coffee-git
         - downgrade
+        - endless-sky
+        - etcher
         - fontawesome.sty
+        - gnome-directory-thumbnailer
+        - gimagereader
         - git-spindle
         - i3-gaps
         - i3lock-fancy-git
+        - i3status-rust
         - indicator-kdeconnect
-        - etcher
         - latex-homework-git
         - latex-solarized-git
         - latex-wrapfig
         - lux
         - micro
+        - moon-buggy
         - nautilus-folder-icons
         - nautilus-send-to-bluetooth
+        - neofetch
         - nerd-fonts-complete
+        - pplatex-git
+        - paper-gtk-theme-git
+        - papirus-icon-theme-git
+        - papirus-libreoffice-theme
+        - plotinus-git
+        - polybar
+        - python-conda
+        - python-pywal
         - rtv
+        - rxvt-unicode-pixbuf
+        - terminess-powerline-font-git
         - texlive-latexextra
         - texlive-moderncv-git
         - texlive-pictures
+        - tor-browser
+        - touchpad-toggle
         - ttf-font-awesome
         - ttf-material-design-icons
         - ttf-meslo
         - ttf-ms-fonts
         - ttf-roboto-font
+        - ttf-ubuntu-mono-derivative-powerline-git
         - vlc-git
+        - wordgrinder
+        - xf86-input-joystick
+        - xfwm4-better-smartplacement
+        - zotero
         - zsh-autosuggestions
