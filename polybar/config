@@ -37,6 +37,8 @@ bmagenta = #9a5feb
 bcyan    = #67fff0
 bwhite   = #ffffff
 
+color0  = ${xrdb.color0}
+
 [global/wm]
 margin-top = 5
 margin-bottom = 5
@@ -82,8 +84,14 @@ scroll-down = i3wm-wsnext
 [bar/i3bar2]
 inherit = bar/i3bar-master
 override-redirect = true
-
-
+fixed-center = false
+padding-left = 10
+padding-right = 10
+modules-center = apps
+foreground = ${xrdb.color15}
+background = ${xrdb.color0}
+font-0 = FontAwesome:pixelsize=20
+font-1 = Material Icons:pixelsize=20
 
 [module/xwindow]
 type = internal/xwindow
@@ -423,4 +431,18 @@ click-right = redshift -x && pkill -15 redshift &
 format = <label>
 label = "%output%"
 format-underline = ${colors.orange}
+
+
+[module/apps]
+type = custom/menu
+menu-0 = 
+menu-1 = 
+menu-2 = 
+menu-3 = 
+;menu-4 = 
+menu-0-exec = firefox &
+menu-1-exec =  &
+menu-2-exec =  &
+menu-3-exec =  &
+;menu-4-exec = media_n_shite
 

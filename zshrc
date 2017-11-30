@@ -7,11 +7,11 @@ source ~/.zsh/completions/completions.zsh
 ### ALIASES ###
 alias mu="TERM=xterm-truecolor micro"
 # fuck the law with the dick in my hand
-alias ytmp3="youtube-dl --extract-audio --audio-format mp3 "
+alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
 
 alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
-alias ll="ls -lA"
+alias ll="ls -Alh"
 alias la="ls -Ah"
 
 alias gst="git status"
@@ -25,6 +25,7 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
+alias tree="tree -C"
 alias less="less -R"
 alias mutt="neomutt"
 

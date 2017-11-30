@@ -136,11 +136,14 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse set Capture toggle
 bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 150%
 
 # brightness
-bindsym XF86MonBrightnessUp exec lux -m 1 -M 4794 -a 4%
-bindsym XF86MonBrightnessDown exec lux -m 1 -M 4794 -s 4%
+bindsym XF86MonBrightnessUp exec --no-startup-id lux -m 1 -M 4794 -a 4%
+bindsym XF86MonBrightnessDown exec --no-startup-id lux -m 1 -M 4794 -s 4%
 
 # toggle touchpad via touchpad-toggle (AUR)
 bindsym XF86Display exec touchpad-toggle.sh
+
+# set up TV as secondary monitor
+bindsym Ctrl+XF86Display exec --no-startup-id xrandr --output eDP1 --auto --primary --output VGA1 --gamma 0.8:0.8:0.8 --above eDP1
 
 ########################################
 
@@ -161,8 +164,9 @@ assign [class="Vim"]  2 ide
 assign [class="Atom"] 2 ide
 assign [class="Boostnote"] 9 aux
 
-assign [class="Nautilus"] 3 files
-assign [class="Thunar"]   3 files
+assign [class="Nautilus"]  3 files
+assign [class="Thunar"]    3 files
+assign [instance="*.epub"] 3 files
 
 assign [class="ncmpcpp"]      10 media
 assign [class="Transmission"] 10 media
@@ -206,6 +210,7 @@ client.background       $bg     $bg     $fg  $bg        $bg
 ########################################
 
 exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
+exec --no-startup-id keynav
 
 # Budgie polkit dialog
 exec_always --no-startup-id budgie-polkit-dialog
@@ -215,9 +220,6 @@ exec_always --no-startup-id compton
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# pywal (wallpaper & colour scheme)
-exec --no-startup-id wal -t -i "$HOME/.img/rainbowzigzag.png"
 
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -244,10 +246,14 @@ bindsym XF86LaunchA exec --no-startup-id endless-sky
 
 # browser - Firefox/Vivaldi depending on mood
 bindsym XF86Search exec --no-startup-id firefox
+bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
 
 # File manager
 bindsym XF86Explorer exec --no-startup-id nautilus
 
 # lock
 bindsym $mod+L exec --no-startup-id i3lock-fancy -pf Ubuntu -t "paswurd hint: GTFO"
+
+# pywal (wallpaper & colour scheme)
+exec --no-startup-id wal -t -i "$HOME/.img/mountain_valley.jpg"
 

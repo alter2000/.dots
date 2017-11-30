@@ -1,0 +1,78 @@
+/* Remove tab close and new tab button */
+.tabbrowser-tab:not([pinned])
+.tab-close-button {display: none !important;}
+.tabs-newtab-button {display: none !important;}
+/* Hide the three dots thing in the address bar */
+#pageActionButton {visibility: hidden;}
+/* Set "inherit" to restore sidebar header */
+#sidebar-header {display: none !important;}
+#sidebar {min-width: 80px !important;}
+/* Hide horizontal tab bar */
+#TabsToolbar {visibility: collapse !important;}
+
+/* TODO */
+/* Hide the scrollbar */
+/* Purple navbar when private */
+
+/* Change thin line above tab to wal theme
+.tab-line{ background-color: -- }*/
+/* Transparent non-loaded tabs */
+.tab.discarded {opacity: 0.75;}
+/* Numbered tabs */
+#tabbar {counter-reset: tabs;}
+.tab:not(.collapsed) {counter-increment: tabs;}
+.tab .active-marker::before {
+  background: Highlight;
+  color: HighlightText;
+  content: counter(tabs);
+  font-size: x-small;
+  right: 0.2em;
+  padding: 0.2em;
+  pointer-events none;
+  position: absolute;
+  bottom: 0.2em;
+}
+
+/* Color the URL bar if there's something wrong with the SSL certificate or if it doesn't exist. */
+#urlbar {
+  position: relative;
+  z-index: 1;
+}
+#identity-box:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: white;
+  opacity: 0.2;
+}
+#urlbar[pageproxystate='valid'] #identity-box.unknownIdentity:after {background: #ff0039; /* Firefox Red 50 */}
+/* about:config */
+#urlbar[pageproxystate='valid'] #identity-box.chromeUI:after {background: #0a84ff; /* Firefox Blue 50 */}
+/* uBlock Origin Dashboard */
+#urlbar[pageproxystate='valid'] #identity-box.extensionPage:after {background: #45a1ff; /* Firefox Blue 40 */}
+/* https://mixed.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContent:after {background: #d7b600; /* Firefox Yellow 60 */}
+/* https://very.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContentLoadedActiveBlocked:after {background: #d7b600; /* Firefox Yellow 60 */}
+/* https://self-signed.badssl.com/ but add certificate exception */
+#urlbar[pageproxystate='valid'] #identity-box.certUserOverridden:after {background: #ffe900; /* Firefox Yellow 50 */}
+/* Don't know an example for this */
+#urlbar[pageproxystate='valid'] #identity-box.weakCipher:after {background: #a47f00; /* Firefox Yellow 70 */}
+/* https://mixed-script.badssl.com/ but disable protection */
+#urlbar[pageproxystate='valid'] #identity-box.mixedActiveContent:after {background: #d70022;  /* Firefox Red 60 */}
+/* http://http-login.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.insecureLoginForms:after {background: #a4000f;  /* Firefox Red 70 */}
+/* Makes the certificate company white */
+#identity-box.verifiedIdentity, #identity-icon-labels {color: #FFF !important;}
+
+
+/* Pocket style */
+@-moz-document domain("getpocket.com") {
+    .page-renderdark {background: #424242;}
+    #pkt-nav {background: #424242;}
+}

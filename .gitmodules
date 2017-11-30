@@ -22,3 +22,6 @@
 [submodule "img/ffox/solarized-everything-css"]
 	path = img/ffox/solarized-everything-css
 	url = https://github.com/alphapapa/solarized-everything-css/
+[submodule "powerline"]
+	path = powerline
+	url = https://github.com/powerline/powerline

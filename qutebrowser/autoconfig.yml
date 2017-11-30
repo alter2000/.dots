@@ -3,6 +3,9 @@
 
 config_version: 1
 global:
+  bindings.commands:
+    normal:
+      ',n': set ui user-stylesheet ~/.img/ffox/solarized-everything-css/css/solarized-all-sites-light.css
   prompt.filebrowser: true
   scrolling.bar: true
   scrolling.smooth: true
