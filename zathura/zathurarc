@@ -1,4 +1,4 @@
-include zathura-gruvbox
+include zathura-solarized-dark
 
 set recolor-keephue false
 set recolor-reverse-video false

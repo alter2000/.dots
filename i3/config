@@ -238,7 +238,7 @@ bindsym $mod+Return exec --no-startup-id termite
 # for inconspicuousness
 bindsym $mod+Shift+Return exec --no-startup-id SHELL=/bin/fish termite -e fish -c ~/.dots/termite_writing
 
-# IDE depends
+# IDE HK depends
 bindsym XF86Tools exec --no-startup-id atom
 
 # Endless Sky (game shortcut, yes)
@@ -252,8 +252,8 @@ bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
 bindsym XF86Explorer exec --no-startup-id nautilus
 
 # lock
-bindsym $mod+L exec --no-startup-id i3lock-fancy -pf Ubuntu -t "paswurd hint: GTFO"
+bindsym $mod+L exec --no-startup-id "i3lock -i ~/.img/solarized_instinct-logic.png -u && xset dpms force off"
 
-# pywal (wallpaper & colour scheme)
+# pywal (wallpaper & color scheme)
 exec --no-startup-id wal -t -i "$HOME/.img/mountain_valley.jpg"
 

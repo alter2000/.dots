@@ -25,6 +25,7 @@
         ~/.config/neofetch:        neofetch
         ~/.config/openbox/autostart: ob-autostart
         ~/.config/polybar:         polybar
+        ~/.config/powerline:       powerline
         ~/.config/qutebrowser:     qutebrowser
         ~/.config/ranger/rc.conf:  ranger.conf
         ~/.config/redshift.conf:   redshift.conf
@@ -161,6 +162,7 @@
         - bookworm
         - boostnote
         - canto-curses
+        - context-minimals-git
         - coffee-git
         - downgrade
         - endless-sky
@@ -170,8 +172,7 @@
         - gimagereader
         - git-spindle
         - i3-gaps
-        - i3lock-fancy-git
-        - i3status-rust
+        - i3lock-next-git
         - indicator-kdeconnect
         - latex-homework-git
         - latex-solarized-git
@@ -194,9 +195,7 @@
         - rtv
         - rxvt-unicode-pixbuf
         - terminess-powerline-font-git
-        - texlive-latexextra
-        - texlive-moderncv-git
-        - texlive-pictures
+        - texlive-most
         - tmuxline-git
         - tor-browser
         - touchpad-toggle

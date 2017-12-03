@@ -1,15 +1,8 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
+; vim: ft=dosini
 
 [colors]
-foreground = ${xrdb:foreground}
-background = ${xrdb:background}
+foreground = ${xrdb:color7}
+background = ${xrdb:color0}
 black = #cc0c0d0e
 white = #8fa1b3
 transparent = #00000000
@@ -37,7 +30,18 @@ bmagenta = #9a5feb
 bcyan    = #67fff0
 bwhite   = #ffffff
 
-color0  = ${xrdb.color0}
+[settings]
+screenchange-reload = true
+; TODO fill fallback values
+; format-foreground =
+; format-background =
+; format-underline =
+; format-overline =
+; format-spacing =
+; format-padding =
+; format-margin =
+; format-offset =
+
 
 [global/wm]
 margin-top = 5
@@ -45,12 +49,13 @@ margin-bottom = 5
 
 
 [bar/i3bar-master]
+monitor = eDP-1
 override-redirect = false
 width = 100%
 height = 25
 fixed-center = true
 background = ${colors.transparent}
-foreground = ${colors.white}
+foreground = ${colors.foreground-alt}
 spacer = "  "
 
 font-0 = Roboto Mono:pixelsize=8
@@ -74,7 +79,7 @@ padding-left = 3
 padding-right = 3
 module-margin-left = 1
 module-margin-right = 2
-modules-left = i3 down-speed up-speed battery weather redshift mpd
+modules-left = i3 battery down-speed up-speed weather redshift mpd
 modules-center =
 modules-right = xwindow backlight volume memory cpu temperature date
 scroll-up = i3wm-wsprev
@@ -83,29 +88,60 @@ scroll-down = i3wm-wsnext
 
 [bar/i3bar2]
 inherit = bar/i3bar-master
+;monitor = VGA1
+monitor-strict = false
 override-redirect = true
+wm-restack = i3
+bottom = true
 fixed-center = false
+height = 34
+width = 65%
 padding-left = 10
 padding-right = 10
-modules-center = apps
-foreground = ${xrdb.color15}
-background = ${xrdb.color0}
+modules-center = apps xworkspaces
+foreground = ${xrdb:color15}
+background = ${xrdb:color0}
 font-0 = FontAwesome:pixelsize=20
 font-1 = Material Icons:pixelsize=20
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:100:...%
 
 
-[module/filesystem]
-type = internal/fs
-interval = 300
-mount-0 = /
-mount-1 = /home
-label-mounted = %mountpoint%: %percentage_free%
-label-unmounted = %mountpoint%: umount'd
-label-unmounted-foreground = ${colors.foreground-alt}
+[module/backlight]
+type = internal/xbacklight
+format = <label> <bar>
+label = 
+bar-width = 10
+bar-indicator = │
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #19defa
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = #19defa
+format-full-prefix = 
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
 
 
 [module/bspwm]
@@ -127,14 +163,34 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.purple}
+label = %percentage%
+click-left = termite -e htop &
+
+
+[module/date]
+type = internal/date
+interval = 5
+date = %d
+date-alt = "%Y-%m-%d"
+time = %H:%M
+time-alt = %H:%M:%S
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+label = %date% %time%
+
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = false
 wrapping-scroll = false
 strip-wsnumbers = false
-
-
 ws-icon-0 = 1 ffox;
 ws-icon-1 = 2 ide;
 ws-icon-2 = 3 files;
@@ -165,18 +221,27 @@ label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = <label-indicator> <label-layout>
+format-spacing = 0
+label-layout = %name%
+label-layout-padding = 2
+label-indicator = %name%
+label-indicator-padding = 2
+
+
 [module/mpd]
 type = internal/mpd
 host = 0.0.0.0
 port = 6600
 password = idk
 interval = 2
-
 format-online = <icon-prev> <icon-seekb> <icon-stop> <label-song> <toggle> <icon-seekf> <icon-next>   	 <icon-repeat> <icon-random>
-
 ;label-song-maxlen = 20
 label-song-ellipsis = true
-
 icon-prev = 
 icon-seekb = 
 icon-stop = 
@@ -190,63 +255,18 @@ toggle-on-foreground = ${colors.white}
 toggle-off-foreground = #66
 
 
-[module/backlight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = 
-bar-width = 10
-bar-indicator = │
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-;format-prefix-font = font-3
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.purple}
-label = %percentage%
-click-left = termite -e htop &
-
-
 [module/memory]
 type = internal/memory
-interval = 5.0
+interval = 5
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label =  %percentage_used%
 
 
-[module/wlan]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-format-disconnected-underline = ${self.format-connected-underline}
-label-connected = %essid%
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
-;ramp-signal-0 = 
-;ramp-signal-1 = 
-;ramp-signal-2 = 
-;ramp-signal-3 = 
-;ramp-signal-4 = 
-;ramp-signal-foreground = ${colors.foreground-alt}
-
 [module/network]
 type = internal/network
 interface = wlp3s0
-ping-interval = 2.5
+ping-interval = 3
 format-connected-padding = 1
 label-connected-padding-left = 1
 accumulate-stats = true
@@ -255,7 +275,7 @@ accumulate-stats = true
 [module/eth]
 type = internal/network
 interface = enp0s25
-interval = 3.0
+interval = 3
 ping-interval = 2
 format-connected-padding = 1
 label-connected-padding-left =1
@@ -268,14 +288,12 @@ format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
 
-
 [module/up-speed]
 inherit = module/network
 format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.blue}
 format-connected-underline = ${colors.blue}
 label-connected = %upspeed%
-
 
 [module/down-speed]
 inherit = module/network
@@ -284,27 +302,25 @@ format-connected-prefix-foreground = ${colors.green}
 format-connected-underline = ${colors.green}
 label-connected = %downspeed%
 
-
 [module/up-speed_eth]
 inherit = module/up-speed
 interface = enp0s25
-
-
 [module/down-speed_eth]
 inherit = module/down-speed
 interface = enp0s25
 
 
-[module/date]
-type = internal/date
-interval = 5
-date = %d
-date-alt = "%Y-%m-%d"
-time = %H:%M
-time-alt = %H:%M:%S
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
-label = %date% %time%
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+format = <label>
+format-underline = ${colors.red}
+format-warn = <label-warn>
+format-warn-underline = ${colors.bred}
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.dark-gray}
 
 
 [module/volume]
@@ -342,84 +358,63 @@ bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #19defa
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = #19defa
-
-format-full-prefix = 
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
 
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 70
+[module/xworkspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
 
-format = <label>
-format-underline = #f50a4d
-format-warn = <label-warn>
-format-warn-underline = ${self.format-underline}
+icon-0 = 1 ffox;
+icon-1 = 2 ide;
+icon-2 = 3 files;
+icon-3 = 4 random;
+icon-4 = 5 random;
+icon-5 = 6 random;
+icon-6 = 7 random;
+icon-7 = 8 random;
+icon-8 = 9 aux;
+icon-9 = 10 media;
+icon-default = O
 
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.dark-gray}
+format = <label-monitor> <label-state>
 
 
-[module/powermenu]
+[module/apps]
 type = custom/menu
-
-label-open = power
-label-open-foreground = ${colors.dark-gray}
-label-close = cancel
-label-close-foreground = ${colors.dark-gray}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-0-2 = exit
-menu-0-2-exec = i3-msg exit
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = systemctl reboot
-
-menu-2-0 = off
-menu-2-0-exec = systemctl poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+label-open = Apps
+expand-right = false
+menu-0 = 
+menu-1 = 
+;menu-2 =
+;menu-3 =
+;menu-4 = 
+menu-0-exec = firefox &
+menu-1-exec = tor-browser &
+;menu-2-exec =  &
+;menu-3-exec =  &
+;menu-4-exec = media_n_shite
 
 
-[module/weather]
+[module/mail]
 type = custom/script
-tail = true
-interval = 1800
+interval = 10
 format = <label>
-label = %output%
-format-padding = 2
-format-underline = ${colors.yellow}
-exec = ~/.dots/polybar/weather -i
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+exec = ~/git/stuffs/mail.sh
+
+
+[module/reddit]
+type = custom/script
+interval = 10
+format = <label>
+exec = ~/.config/polybar/reddit.sh
+click-left = xdg-open https://reddit.com/message/unread & disown
 
 
 [module/redshift]
@@ -433,16 +428,13 @@ label = "%output%"
 format-underline = ${colors.orange}
 
 
-[module/apps]
-type = custom/menu
-menu-0 = 
-menu-1 = 
-menu-2 = 
-menu-3 = 
-;menu-4 = 
-menu-0-exec = firefox &
-menu-1-exec =  &
-menu-2-exec =  &
-menu-3-exec =  &
-;menu-4-exec = media_n_shite
+[module/weather]
+type = custom/script
+tail = true
+interval = 1800
+format = <label>
+label = %output%
+format-padding = 2
+format-underline = ${colors.yellow}
+exec = ~/.dots/polybar/weather -i
 

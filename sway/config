@@ -204,15 +204,7 @@ bar {
   output eDP-1
   strip_workspace_numbers yes
   icon_theme Papirus
-  colors {
-    background #fdf6e3
-    #foreground #657b83
-    active_workspace   # # #
-    inactive_workspace # #93a1a1 #
-    urgent_workspace   # #cb4b16 #657b3
-    binding_mode       # # #657b3
-  }
-  status_command i3status-rs ~/.dots/sway/i3status-rs.toml
+  status_command python /usr/lib/python3.6/site-packages/powerline/bindings/i3/powerline-i3.py
 }
 
 #exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
