@@ -436,5 +436,5 @@ format = <label>
 label = %output%
 format-padding = 2
 format-underline = ${colors.yellow}
-exec = ~/.dots/polybar/weather -i
+exec = "~/.dots/polybar/weather -i"
 

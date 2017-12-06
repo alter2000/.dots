@@ -14,7 +14,6 @@
         ~/.zshrc:       zshrc
         ~/.mailcap:     mailcap
 
-        ~/.calcurse:               calcurse
         ~/.newsboat:               newsboat
         ~/.config/gtk-3.0:         gtk-3.0
         ~/.config/compton.conf:    compton
@@ -119,7 +118,9 @@
         - openshot
         - openssh
         - otf-overpass
+        - pass
         - pavucontrol
+        - qrencode
         - redshift
         - rofi
         - rsync

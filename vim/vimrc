@@ -55,8 +55,8 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vimwiki/vimwiki'
 Plug 'itchyny/calendar.vim'
+Plug 'jceb/vim-orgmode'
 
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
@@ -70,7 +70,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'severin-lemaignan/vim-minimap'
 
 Plug 'junegunn/goyo.vim'
-Plug 'gabrielelana/vim-markdown', {'for':'markdown'}
+Plug 'gabrielelana/vim-markdown'
 Plug 'euclio/vim-markdown-composer', {'do':function('BuildComposer'), 'for':'markdown'}
 
 Plug '4Evergreen4/vim-hardy', {'for':'arduino'}
@@ -89,14 +89,10 @@ let g:gundo_width = 60
 let g:gundo_preview_bottom = 1
 
 let g:startify_list_order = [
-        \ ['     ### MRU'],
-        \ 'files',
-        \ ['     ## Bookmarks'],
-        \ 'bookmarks',
-        \ ['     ## Sessions'],
-        \ 'sessions',
-        \ ['     ## Commands'],
-        \ 'commands' ]
+        \ ['     ### MRU'],      'files',
+        \ ['     ## Bookmarks'], 'bookmarks',
+        \ ['     ## Sessions'],  'sessions',
+        \ ['     ## Commands'],  'commands' ]
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
@@ -143,6 +139,18 @@ let g:netrw_ftp_sizelist_cmd = 'ls -slhF'
 let g:netrw_browse_split = 1
 let g:netrw_hide = 1
 let g:netrw_keepdir = 0
+
+let g:vimtex_view_use_temp_files = 1
+let g:vimtex_view_forward_search_on_start = 1
+let g:vimtex_view_zathura_options = 'set recolor=false'
+
+let g:calendar_first_day = 'monday'
+let g:calendar_week_number = 1
+let g:calendar_task = 1
+let g:calendar_event_start_time = 1
+let g:calendar_cyclic_view = 1
+let g:calendar_google_calendar = 1
+let g:delimitMate_nesting_quotes = ['"','`']
 
 " I need to put this in a colorscheme conditional for terminal
 "let g:gruvbox_italic=1
@@ -197,20 +205,22 @@ if exists(":GundoToggle")
 endif
 
 " Autocommands
-"autocmd BufRead,BufNewFile *.md        setlocal spell spelllang=en
-autocmd BufRead,BufNewFile *.txt        setlocal spell spelllang=en
-autocmd BufRead,BufNewFile *.tex        setlocal spell spelllang=en
-autocmd BufRead,BufNewFile *.lyx        set filetype=tex
-"autocmd BufRead,BufNewFile *.md        setlocal textwidth=80
-"autocmd BufRead,BufNewFile *.txt       setlocal textwidth=80
+"autocmd BufRead,BufNewFile *.md  setlocal spell spelllang=en
+autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en
+autocmd BufRead,BufNewFile *.lyx set filetype=tex
+"autocmd BufRead,BufNewFile *.md  setlocal textwidth=80
+"autocmd BufRead,BufNewFile *.txt setlocal textwidth=80
 
-autocmd! FileType c,cpp                 setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=make
-autocmd! FileType python                setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=python\ %
-autocmd! FileType sh                    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=./%
-autocmd! FileType tex                   setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=pdflatex\ %
-autocmd! BufNewFile,BufRead *.ino,*.pde setlocal filetype=arduino
-autocmd! BufNewFile,BufRead PKGBUILD    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=makepkg
+autocmd FileType *.ino,*.pde set filetype=arduino
+autocmd FileType PKGBUILD    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=makepkg
 
+autocmd FileType c,cpp  setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=make
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=python\ %
+autocmd FileType sh     setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=./%
+autocmd FileType tex    setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=pdflatex\ %
+
+autocmd FileType *mail set nospell
+autocmd FileType mail let b:loaded_delimitMate = 1
 
 """ FUNCTIONS """
 

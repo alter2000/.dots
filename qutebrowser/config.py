@@ -58,7 +58,7 @@ c.content.plugins = True
 
 # c.content.netrc_file = None
 # c.content.private_browsing = False
-c.content.user_stylesheets = ['~/.img/ffox/solarized-everything-css/css/solarized-all-sites-light.css']
+#c.content.user_stylesheets = ['~/.img/ffox/solarized-everything-css/css/solarized-all-sites-light.css']
 # c.downloads.location.directory = None
 # c.downloads.location.prompt = True
 # c.downloads.location.remember = True

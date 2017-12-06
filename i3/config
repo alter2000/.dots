@@ -252,7 +252,7 @@ bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
 bindsym XF86Explorer exec --no-startup-id nautilus
 
 # lock
-bindsym $mod+L exec --no-startup-id "i3lock -i ~/.img/solarized_instinct-logic.png -u && xset dpms force off"
+bindsym $mod+L exec --no-startup-id ~/.dots/bin/lock.sh
 
 # pywal (wallpaper & color scheme)
 exec --no-startup-id wal -t -i "$HOME/.img/mountain_valley.jpg"
