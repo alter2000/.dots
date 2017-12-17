@@ -104,6 +104,7 @@
         - menumaker
         - mosh
         - mpv
+        - msmtp
         - nautilus
         - nautilus-image-converter
         - neomutt
@@ -114,6 +115,7 @@
         - ntfs-3g
         - ntp
         - numix-gtk-theme
+        - offlineimap
         - openra
         - openshot
         - openssh

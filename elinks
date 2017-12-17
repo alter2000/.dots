@@ -40,9 +40,9 @@
     ## terminal.xterm-termite.transparency [0|1]
     set terminal.xterm-termite.transparency = 1
     ## terminal.xterm-termite.colors <num>
-    set terminal.xterm-termite.colors = 1
+    set terminal.xterm-termite.colors = 3
     ## terminal.xterm-termite.m11_hack [0|1]
-    set terminal.xterm-termite.m11_hack = 0
+    set terminal.xterm-termite.m11_hack = 1
     ## terminal.xterm-termite.type <num>
     set terminal.xterm-termite.type = 2
 
@@ -324,5 +324,22 @@
     #  2 means always
     set ui.tabs.show_bar = 1
 
+
+
+
+
+
+##############################
+# Automatically saved options
+#
+
+## terminal 
+#  Terminal options.
+
+  ## terminal.xterm-termite 
+  #  Options specific to this terminal type (according to $TERM value).
+
+    ## terminal.xterm-termite.block_cursor [0|1]
+    set terminal.xterm-termite.block_cursor = 1
 
 

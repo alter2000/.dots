@@ -22,3 +22,9 @@
 [submodule "img/ffox/solarized-everything-css"]
 	path = img/ffox/solarized-everything-css
 	url = https://github.com/alphapapa/solarized-everything-css/
+[submodule "YouCompleteMe"]
+	path = YouCompleteMe
+	url = /home/alter2000/.dots/vim/plugs/YouCompleteMe
+[submodule "Colorizer"]
+	path = Colorizer
+	url = /home/alter2000/.dots/vim/plugs/Colorizer

@@ -6,6 +6,7 @@ export PAGER='less'
 export EDITOR='vim'
 export ZDOTDIR="$HOME/.zsh"
 export ARCHFLAGS='-arch x86_64'
+export MAKEFLAGS='-j3'
 export GITHUB_USER='alter2000'
 #export VMAIL_BROWSER='elinks'
 export VMAIL_HTML_PART_READER='elinks -dump'

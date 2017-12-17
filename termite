@@ -35,7 +35,7 @@ filter_unmatched_urls = true
 #cursor = #586e75
 #cursor_foreground = #586e75
 foreground = #93a1a1
-#foreground_bold = #f3f3f3
+foreground_bold = #93a1a1
 background = #3f3f3f
 
 # 5% background transparency (requires a compositor)

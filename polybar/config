@@ -59,10 +59,9 @@ foreground = ${colors.foreground-alt}
 spacer = "  "
 
 font-0 = Roboto Mono:pixelsize=8
-font-1 = FontAwesome:pixelsize=10
-font-2 = Meslo LG S:pixelsize=9
-font-3 = Material Icons:pixelsize=14;+4
-font-4 = FontAwesome:pixelsize=14;+2
+font-1 = Meslo LG S:pixelsize=9
+font-2 = Material Icons:pixelsize=14;+3
+font-3 = FontAwesome:pixelsize=14;+2
 
 
 [bar/i3bar1]
@@ -88,21 +87,18 @@ scroll-down = i3wm-wsnext
 
 [bar/i3bar2]
 inherit = bar/i3bar-master
-;monitor = VGA1
 monitor-strict = false
 override-redirect = true
 wm-restack = i3
 bottom = true
 fixed-center = false
-height = 34
-width = 65%
-padding-left = 10
+height = 40
+width = 50%
+padding-left = 100
 padding-right = 10
-modules-center = apps xworkspaces
+modules-left = reddit mail apps
 foreground = ${xrdb:color15}
-background = ${xrdb:color0}
-font-0 = FontAwesome:pixelsize=20
-font-1 = Material Icons:pixelsize=20
+background = ${colors.transparent}
 
 
 
@@ -110,15 +106,15 @@ font-1 = Material Icons:pixelsize=20
 type = internal/xbacklight
 format = <label> <bar>
 label = 
-bar-width = 10
+bar-width = 14
 bar-indicator = │
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
+bar-indicator-foreground = ${colors.foreground-alt}
+bar-indicator-font = 8
 bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-font = 8
+bar-fill-foreground = ${colors.purple}
 bar-empty = ─
-bar-empty-font = 2
+bar-empty-font = 8
 bar-empty-foreground = ${colors.foreground-alt}
 
 
@@ -327,8 +323,7 @@ label-warn-foreground = ${colors.dark-gray}
 type = internal/volume
 ;master-mixer = Master
 format-volume = <ramp-volume> <bar-volume>
-label-volume = vol
-click-right = termite -e alsamixer &
+click-right = pavucontrol
 scroll-up = amixer -D pulse set Master 5%+ unmute
 scroll-down = amixer -D pulse set Master 5%- unmute
 interval = 0.5
@@ -339,7 +334,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-bar-volume-width = 10
+bar-volume-width = 14
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -349,12 +344,12 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = │
-bar-volume-indicator-font = 1
+bar-volume-indicator-font = 8
 bar-volume-indicator-foreground = #ff
 bar-volume-fill = ─
-bar-volume-fill-font = 1
+bar-volume-fill-font = 8
 bar-volume-empty = ─
-bar-volume-empty-font = 1
+bar-volume-empty-font = 8
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 
@@ -386,15 +381,21 @@ format = <label-monitor> <label-state>
 
 [module/apps]
 type = custom/menu
+format-foreground = ${colors.foreground-alt}
+format-background = ${colors.transparent}
 label-open = Apps
-expand-right = false
+label-close = tf
+label-separator = " / "
+;expand-right = false
 menu-0 = 
+menu-0-exec = firefox &
+menu-0-foreground = {colors.foreground-alt}
 menu-1 = 
+menu-1-exec = tor-browser &
+menu-1-foreground = {colors.foreground-alt}
 ;menu-2 =
 ;menu-3 =
 ;menu-4 = 
-menu-0-exec = firefox &
-menu-1-exec = tor-browser &
 ;menu-2-exec =  &
 ;menu-3-exec =  &
 ;menu-4-exec = media_n_shite

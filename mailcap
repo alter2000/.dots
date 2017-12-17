@@ -8,11 +8,11 @@
 ############
 # TEXT FILES
 ############
-#text/html ; elinks '%s'    ; needsterminal
-text/html ; qutebrowser '%s'; test=test -n "$DISPLAY"
-text/html ; chromium '%s'   ; test=test -n "$DISPLAY"
-text/tex  ; vim '%s'        ; needsterminal
-text/*    ; less -R '%s'    ; needsterminal
+text/html ; qutebrowser '%s' ; test=test -n "$DISPLAY"
+text/html ; firefox '%s'     ; test=test -n "$DISPLAY"
+text/html ; elinks -dump '%s'; needsterminal
+text/tex  ; vim '%s'         ; needsterminal
+text/*    ; less -R '%s'     ; needsterminal
 ############
 # VIEWABLES
 ############
@@ -30,3 +30,5 @@ image/*         ; curl -s '%s' | convert - jpg:/tmp/rtv.jpg && img2txt -f utf8 /
 # need framebuffer
 video/x-youtube ; mpv -vo drm -quiet '%s'; needsterminal
 video/*         ; mpv -vo drm -quiet '%s'; needsterminal
+
+# documents

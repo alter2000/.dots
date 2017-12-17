@@ -8,18 +8,20 @@ source ~/.zsh/completions/completions.zsh
 alias mu="TERM=xterm-truecolor micro"
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+# weather
+alias wttr="curl -s wttr.in/Tirana | head -37 | tail -30"
 
 alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
 alias ll="ls -Alh"
 alias la="ls -Ah"
 
-alias gst="git status"
+alias gst="git status -sb"
 alias gaa="git add -A"
-alias gc="git commit "
+alias gc="git commit"
 alias gp="git push"
-alias gh="git hub "
-alias gb="git bb "
+alias gh="git hub"
+alias gb="git bb"
 
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
@@ -98,7 +100,7 @@ bindkey -M isearch . self-insert # history search fix
 
 
 ### EYECANDY ###
-# might prep homemade prompt to learn some shell, but powerline is _soo_ good
+# might prep homemade prompt to learn some shell, but powerlevel9k is _soo_ good
 #autoload -U colors && colors
 #autoload -U promptinit && promptinit
 (wal -r &)
