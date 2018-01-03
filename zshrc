@@ -1,3 +1,5 @@
+[[ $- != *i* ]] && return
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/powerlevel9k/powerlevel9k.zsh-theme
 source ~/.zsh/vars.zsh
@@ -103,7 +105,7 @@ bindkey -M isearch . self-insert # history search fix
 # might prep homemade prompt to learn some shell, but powerlevel9k is _soo_ good
 #autoload -U colors && colors
 #autoload -U promptinit && promptinit
-(wal -r &)
+(cat ~/.cache/wal/sequences)
 
 ### HISTORY ###
 HISTSIZE=10000

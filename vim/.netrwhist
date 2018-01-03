@@ -1,6 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/usr/share/doc/ranger'
-let g:netrw_dirhist_2='/usr/share/doc/ranger/config'
-let g:netrw_dirhist_3='/usr/share/doc/ranger/config/colorschemes'
-let g:netrw_dirhist_4='/usr/share/doc/ranger/config'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/alter2000/git/alter2000.github.io/_posts'
+let g:netrw_dirhist_2='/home/alter2000/git/alter2000.github.io'
+let g:netrw_dirhist_3='/home/alter2000/git/alter2000.github.io/_drafts'

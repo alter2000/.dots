@@ -13,8 +13,8 @@
         ~/.zsh:         zsh
         ~/.zshrc:       zshrc
         ~/.mailcap:     mailcap
+        ~/.ssh/config:  ssh_config
 
-        ~/.newsboat:               newsboat
         ~/.config/gtk-3.0:         gtk-3.0
         ~/.config/compton.conf:    compton
         ~/.config/dunst:           dunst
@@ -108,6 +108,7 @@
         - nautilus
         - nautilus-image-converter
         - neomutt
+        - newsboat
         - nodejs
         - noto-fonts
         - noto-fonts-emoji
@@ -132,9 +133,11 @@
         - subtitleeditor
         - supertux
         - supertuxkart
+        - sxiv
         - teeworlds
         - termite
         - texlive-most
+        - the_silver_searcher
         - tlp
         - tmux
         - transmission-gtk
@@ -149,16 +152,17 @@
         - vino
         - virt-manager
         - w3m
+        - weechat
         - wkhtmltopdf
         - xarchiver
+        - xbindkeys
         - xdotool
         - xclip
         - youtube-dl
         - zsh
-        - zsh-syntax-highlighting
+        - zsh-fast-syntax-highlighting-git
 
 - pacaur:
-        - adbfs-git
         - ant-gtk-theme
         - android-studio-canary
         - bash-pipes
@@ -166,7 +170,6 @@
         - boostnote
         - canto-curses
         - context-minimals-git
-        - coffee-git
         - downgrade
         - endless-sky
         - etcher
@@ -187,16 +190,19 @@
         - nautilus-send-to-bluetooth
         - neofetch
         - nerd-fonts-complete
-        - pplatex-git
+        - out2html-git
         - paper-gtk-theme-git
         - papirus-icon-theme-git
         - papirus-libreoffice-theme
+        - passff-host
         - plotinus-git
         - polybar
+        - pplatex-git
         - python-conda
         - python-pywal
         - rtv
         - rxvt-unicode-pixbuf
+        - ssb-patchwork
         - terminess-powerline-font-git
         - texlive-most
         - tmuxline-git
@@ -210,6 +216,7 @@
         - ttf-ubuntu-mono-derivative-powerline-git
         - vlc-git
         - wordgrinder
+        - wpgtk-git
         - xf86-input-joystick
         - xfwm4-better-smartplacement
         - zotero

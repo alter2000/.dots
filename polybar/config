@@ -1,7 +1,7 @@
 ; vim: ft=dosini
 
 [colors]
-foreground = ${xrdb:color7}
+foreground = ${colors.dark-gray}
 background = ${xrdb:color0}
 black = #cc0c0d0e
 white = #8fa1b3
@@ -10,8 +10,8 @@ purple = #756bb1
 orange = #de935f
 yellow = #d7a645
 light-gray = #D3D3D3
-dark-gray = #A9A9A9
-foreground-alt = ${colors.light-gray}
+dark-gray = #A0A0A0
+foreground-alt = ${colors.dark-gray}
 background-alt = ${colors.bblack}
 
 red     = #ff000f
@@ -33,8 +33,9 @@ bwhite   = #ffffff
 [settings]
 screenchange-reload = true
 ; TODO fill fallback values
-; format-foreground =
-; format-background =
+format-foreground = ${colors.dark-gray}
+format-foreground-alt = ${colors.dark-gray}
+; format-background = ${colors.bblack}
 ; format-underline =
 ; format-overline =
 ; format-spacing =
@@ -61,7 +62,8 @@ spacer = "  "
 font-0 = Roboto Mono:pixelsize=8
 font-1 = Meslo LG S:pixelsize=9
 font-2 = Material Icons:pixelsize=14;+3
-font-3 = FontAwesome:pixelsize=14;+2
+font-3 = Font Awesome 5 Free:pixelsize=14;+2
+font-4 = Font Awesome 5 Brands:pixelsize=14;+2
 
 
 [bar/i3bar1]
@@ -96,26 +98,27 @@ height = 40
 width = 50%
 padding-left = 100
 padding-right = 10
-modules-left = reddit mail apps
+modules-left = reddit mail app_firefox app_tor app_steam app_fritzing
 foreground = ${xrdb:color15}
 background = ${colors.transparent}
+spacer = "                       "
 
 
 
 [module/backlight]
 type = internal/xbacklight
 format = <label> <bar>
-label = 
+label = " "
 bar-width = 14
 bar-indicator = │
 bar-indicator-foreground = ${colors.foreground-alt}
 bar-indicator-font = 8
 bar-fill = ─
 bar-fill-font = 8
-bar-fill-foreground = ${colors.purple}
+bar-fill-foreground = ${colors.foreground-alt}
 bar-empty = ─
 bar-empty-font = 8
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${colors.purple}
 
 
 [module/battery]
@@ -123,11 +126,12 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 98
+format-background = ${colors.cyan}
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #19defa
+format-charging-underline = ${colors.cyan}
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = #19defa
+format-discharging-underline = ${colors.cyan}
 format-full-prefix = 
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
@@ -235,7 +239,7 @@ host = 0.0.0.0
 port = 6600
 password = idk
 interval = 2
-format-online = <icon-prev> <icon-seekb> <icon-stop> <label-song> <toggle> <icon-seekf> <icon-next>   	 <icon-repeat> <icon-random>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <label-song> <toggle> <icon-seekf> <icon-next>     <icon-repeat> <icon-random>
 ;label-song-maxlen = 20
 label-song-ellipsis = true
 icon-prev = 
@@ -247,8 +251,8 @@ icon-next = 
 icon-seekf = 
 icon-random = 
 icon-repeat = 
-toggle-on-foreground = ${colors.white}
-toggle-off-foreground = #66
+toggle-on-foreground = ${colors.background}
+toggle-off-foreground = ${colors.background}
 
 
 [module/memory]
@@ -379,28 +383,6 @@ icon-default = O
 format = <label-monitor> <label-state>
 
 
-[module/apps]
-type = custom/menu
-format-foreground = ${colors.foreground-alt}
-format-background = ${colors.transparent}
-label-open = Apps
-label-close = tf
-label-separator = " / "
-;expand-right = false
-menu-0 = 
-menu-0-exec = firefox &
-menu-0-foreground = {colors.foreground-alt}
-menu-1 = 
-menu-1-exec = tor-browser &
-menu-1-foreground = {colors.foreground-alt}
-;menu-2 =
-;menu-3 =
-;menu-4 = 
-;menu-2-exec =  &
-;menu-3-exec =  &
-;menu-4-exec = media_n_shite
-
-
 [module/mail]
 type = custom/script
 interval = 10
@@ -439,3 +421,31 @@ format-padding = 2
 format-underline = ${colors.yellow}
 exec = "~/.dots/polybar/weather -i"
 
+
+[module/app_firefox]
+type = custom/text
+content-foreground = ${colors.foreground-alt}
+content-background = ${colors.transparent}
+click-left = firefox &
+content = 
+
+[module/app_tor]
+type = custom/text
+content-foreground = ${colors.foreground-alt}
+content-background = ${colors.transparent}
+click-left = tor-browser &
+content = 
+
+[module/app_steam]
+type = custom/text
+content-foreground = ${colors.foreground-alt}
+content-background = ${colors.transparent}
+click-left = steam-runtime &
+content = 
+
+[module/app_fritzing]
+type = custom/text
+content-foreground = ${colors.foreground-alt}
+content-background = ${colors.transparent}
+click-left = Fritzing &
+content = 

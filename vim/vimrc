@@ -6,7 +6,7 @@ set shell=zsh
 set incsearch nohlsearch ignorecase smartcase
 
 " useful shiz
-set number relativenumber hidden cursorline nocursorcolumn
+set number relativenumber hidden nocursorline nocursorcolumn
 set splitright splitbelow laststatus=2
 set mouse=a mousefocus clipboard=unnamedplus
 set smarttab autoindent copyindent
@@ -55,7 +55,6 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/calendar.vim'
-Plug 'jceb/vim-orgmode'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer'}
 Plug 'vim-syntastic/syntastic'
 
@@ -71,7 +70,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'severin-lemaignan/vim-minimap'
 
 Plug 'gabrielelana/vim-markdown'
-Plug 'euclio/vim-markdown-composer', {'do':function('BuildComposer')}
+"Plug 'euclio/vim-markdown-composer', {'do':function('BuildComposer')}
 
 Plug '4Evergreen4/vim-hardy', {'for':'arduino'}
 Plug 'jplaut/vim-arduino-ino', {'for':'arduino'}
@@ -100,8 +99,9 @@ let g:airline_theme = 'angr'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
+let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline_detect_spell = 0
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
@@ -152,14 +152,14 @@ let g:calendar_google_calendar = 1
 let g:delimitMate_nesting_quotes = ['"','`']
 
 " I need to put this in a colorscheme conditional for terminal
-"let g:gruvbox_italic=1
+let g:gruvbox_italic=1
 
 """ CONDITIONALS """
 
-" Set solarized on fish
+" Set gruvbox on fish
 if $SHELL == '/bin/fish'
   set background=light
-  let g:airline_theme = 'gruvbox'
+  let g:airline_theme = 'alduin'
 endif
 
 " Gruvbox on GUI
@@ -198,21 +198,10 @@ noremap <C-H> <C-W><C-H>
 noremap <F3> :set list!<CR>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 
-if exists(":GundoToggle")
-  nnoremap <F2> :GundoToggle<CR>
-endif
-
-if exists(":ColorHighlight")
-  nnoremap <F4> :ColorHighlight<CR>
-endif
-
-if exists(":Calendar")
-  nnoremap <F12> :Calendar<CR>
-endif
-
-if exists(":MinimapToggle")
-	nnoremap <F10> :MinimapToggle<CR>
-endif
+map <F2>  :GundoToggle<CR>
+map <F10> :ColorHighlight<CR>
+map <F12> :Calendar<CR>
+map <F4>  :MinimapToggle<CR>
 
 " Autocommands
 autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en

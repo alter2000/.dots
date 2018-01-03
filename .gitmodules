@@ -28,3 +28,6 @@
 [submodule "Colorizer"]
 	path = Colorizer
 	url = /home/alter2000/.dots/vim/plugs/Colorizer
+[submodule "tmux/tmux-resurrect"]
+	path = tmux/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect

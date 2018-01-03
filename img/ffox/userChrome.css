@@ -1,8 +1,8 @@
-/* Remove tab close and new tab button */
+/* Remove tab close and new tab button
 .tabbrowser-tab:not([pinned])
 .tab-close-button {display: none !important;}
 .tabs-newtab-button {display: none !important;}
-/* Hide the three dots thing in the address bar */
+ Hide the three dots thing in the address bar */
 #pageActionButton {visibility: hidden;}
 /* Set "inherit" to restore sidebar header */
 #sidebar-header {display: none !important;}
@@ -18,20 +18,6 @@
 .tab-line{ background-color: -- }*/
 /* Transparent non-loaded tabs */
 .tab.discarded {opacity: 0.75;}
-/* Numbered tabs */
-#tabbar {counter-reset: tabs;}
-.tab:not(.collapsed) {counter-increment: tabs;}
-.tab .active-marker::before {
-  background: Highlight;
-  color: HighlightText;
-  content: counter(tabs);
-  font-size: x-small;
-  right: 0.2em;
-  padding: 0.2em;
-  pointer-events none;
-  position: absolute;
-  bottom: 0.2em;
-}
 
 /* Color the URL bar if there's something wrong with the SSL certificate or if it doesn't exist. */
 #urlbar {

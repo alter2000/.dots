@@ -10,6 +10,7 @@
 ############
 text/html ; qutebrowser '%s' ; test=test -n "$DISPLAY"
 text/html ; firefox '%s'     ; test=test -n "$DISPLAY"
+text/html ; pandoc -f html -t markdown ; copiousoutput ; compose=vim %s
 text/html ; elinks -dump '%s'; needsterminal
 text/tex  ; vim '%s'         ; needsterminal
 text/*    ; less -R '%s'     ; needsterminal

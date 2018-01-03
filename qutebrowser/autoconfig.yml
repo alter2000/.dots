@@ -6,6 +6,10 @@ global:
   bindings.commands:
     normal:
       ',n': set ui user-stylesheet ~/.img/ffox/solarized-everything-css/css/solarized-all-sites-light.css
+  input.links_included_in_focus_chain: false
   prompt.filebrowser: true
-  scrolling.bar: true
-  scrolling.smooth: true
+  scrolling.bar: false
+  scrolling.smooth: false
+  statusbar.hide: false
+  tabs.show: switching
+  zoom.default: '140'

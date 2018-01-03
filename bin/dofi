@@ -2,12 +2,12 @@
 
 # default settings
 _rofi () {
-    rofi -regex -tokenize -i -lines 30 -width 1500 -no-levenshtein-sort "$@"
+    rofi -regex -tokenize -i -fullscreen true -no-levenshtein-sort "$@"
 }
-noteroot="$HOME/Documents/bashtodo"
+noteroot="$HOME/Documents/todo"
 done_notes="${noteroot}/done"
-BROWSER=chromium
-url_length=100
+BROWSER=firefox
+url_length=150
 
 # hotkeys
 switch="Alt+Tab"
@@ -18,7 +18,7 @@ title_color="#2d7ed8"
 date_color="#FF00FF"
 
 # load custom settings
-source $HOME/.config/dofi/config
+source $HOME/.dots/dofi.conf
 
 agenda=0
 
@@ -55,9 +55,9 @@ Use <span color='${title_color}'>${switch}</span> to switch between active/done 
     fi
     file=""
     if [[ -n ${done} ]]; then
-        mainmenu=$(echo -e "< Exit\n---\n${list}" | _rofi -kb-custom-1 "Alt+n" -kb-custom-2 "Alt+Tab" -kb-custom-3 "Alt+a" -mesg "${HELP}" -dmenu -p ""${view}" > ")
+        mainmenu=$(echo -e "< Exit\n---\n${list}" | _rofi -kb-custom-1 "Alt+n" -kb-custom-2 "Alt+Tab" -kb-custom-3 "Alt+a" -mesg "${HELP}" -dmenu -p ""${view}"  ")
     else
-        mainmenu=$(echo -e "< Exit\n---\n${list}" | _rofi -kb-custom-1 "Alt+n" -kb-custom-2 "Alt+Tab" -kb-custom-3 "Alt+a" -u "${high}" -a "${medium}" -mesg "${HELP}" -dmenu -p ""${view}" > ")
+        mainmenu=$(echo -e "< Exit\n---\n${list}" | _rofi -kb-custom-1 "Alt+n" -kb-custom-2 "Alt+Tab" -kb-custom-3 "Alt+a" -u "${high}" -a "${medium}" -mesg "${HELP}" -dmenu -p ""${view}"  ")
     fi
     val=$?
     if [[ $val -eq 12 ]]; then
@@ -90,7 +90,7 @@ Use <span color='${title_color}'>${switch}</span> to switch between active/done 
 }
 
 newitem () {
-    title=$(echo -e "< Cancel" | _rofi -dmenu -mesg "Title for new task" -p "> ")
+    title=$(echo -e "< Cancel" | _rofi -dmenu -mesg "Title for new task" -p "   ")
     val=$?
     if [[ $val -eq 1 ]]; then exit
     else
@@ -98,7 +98,7 @@ newitem () {
         else :
         fi
     fi
-    group=$(echo -e "< Cancel\n---\n$(grep -how '\+.*' *.todo | sort -u | sed 's/, /\n/g')" | _rofi -dmenu -p "> " -mesg "Enter Group or chose one below")
+    group=$(echo -e "< Cancel\n---\n$(grep -how '\+.*' *.todo | sort -u | sed 's/, /\n/g')" | _rofi -dmenu -p "   " -mesg "Enter Group or chose one below")
     val=$?
     if [[ $val -eq 1 ]]; then exit
     else
@@ -106,7 +106,7 @@ newitem () {
         else :
         fi
     fi
-    tags=$(echo -e "< Cancel\nNOTAG\n$(grep -how '\@.*' *.todo | sed 's/, /\n/g' | sort -u)" | _rofi -dmenu -p "> " -mesg "Enter Tags (comma separated) or chose below (Use <span color='${title_color}'>Space+Enter</span> to multi-select)")
+    tags=$(echo -e "< Cancel\nNOTAG\n$(grep -how '\@.*' *.todo | sed 's/, /\n/g' | sort -u)" | _rofi -dmenu -p "   " -mesg "Enter Tags (comma separated) or chose below (Use <span color='${title_color}'>Space+Enter</span> to multi-select)")
     val=$?
     if [[ $val -eq 1 ]]; then exit
     else
@@ -128,7 +128,7 @@ editmenu () {
         file=$(echo ${mainmenu} | awk -F 'file: ' '{ print $2 }')
     fi
     sort "${file}"
-    listitems=$(echo -e "< Return\n---\n$(sort ${notes}/${file})" | _rofi -dmenu -p "> ")
+    listitems=$(echo -e "< Return\n---\n$(sort ${notes}/${file})" | _rofi -dmenu -p "   ")
     val=$?
     if [[ $val -eq 1 ]]; then exit
     elif [[ $val -eq 0 ]]; then
@@ -137,7 +137,7 @@ editmenu () {
         else
             field=$(echo ${listitems} | awk -F ': ' '{ print $1 }')
             value=$(echo ${listitems} | awk -F ': ' '{ print $2 }')
-            inputmenu=$(echo "" | _rofi -dmenu -p "> " -mesg "Enter new value for ${field}" -filter "${value}")
+            inputmenu=$(echo "" | _rofi -dmenu -p "   " -mesg "Enter new value for ${field}" -filter "${value}")
             val=$?
             if [[ $val -eq 1 ]]; then exit
             else
@@ -167,22 +167,22 @@ optionsmenu () {
     if [[ -z $url ]]; then
         if [[ -z $deadline ]]; then
             HELP="Item: <span color='${title_color}'>${title}</span>"
-            doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Set Deadline\n5. Edit\n---\n5. Add URL"| _rofi -mesg "${HELP}" -dmenu -p "> ")
+            doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Set Deadline\n5. Edit\n---\n5. Add URL"| _rofi -mesg "${HELP}" -dmenu -p "   ")
         else
             HELP="Item: <span color='${title_color}'>${title}</span>
 Deadline: <span color='${date_color}'>${deadline}</span>"
-        doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Unset Deadline\n5. Edit\n---\n5. Add URL"| _rofi -mesg "${HELP}" -dmenu -p "> ")
+        doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Unset Deadline\n5. Edit\n---\n5. Add URL"| _rofi -mesg "${HELP}" -dmenu -p "   ")
         fi
     else
         if [[ -z $deadline ]]; then
             HELP="Item: <span color='${title_color}'>${title}</span>
 URL:  <span color='${title_color}'>${help_url}</span>"
-            doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Set Deadline\n5. Edit\n---\n5. Open URL\n6. Delete URL"| _rofi -mesg "${HELP}" -dmenu -p "> ")
+            doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Set Deadline\n5. Edit\n---\n5. Open URL\n6. Delete URL"| _rofi -mesg "${HELP}" -dmenu -p "   ")
         else
             HELP="Item: <span color='${title_color}'>${title}</span>
 URL:  <span color='${title_color}'>${help_url}</span>
 Deadline: <span color='${date_color}'>${deadline}</span>"
-        doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Unset Deadline\n5. Edit\n---\n5. Open URL\n6. Delete URL"| _rofi -mesg "${HELP}" -dmenu -p "> ")
+        doopt=$(echo -e "< Return\n---\n1. Mark Done\n2. Delete\n3. Set Priority\n4. Unset Deadline\n5. Edit\n---\n5. Open URL\n6. Delete URL"| _rofi -mesg "${HELP}" -dmenu -p "   ")
         fi
     fi
     val=$?
@@ -225,11 +225,11 @@ donemenu () {
     help_url="$(echo "${url:0:${url_length}}" | out2html -p)"
     if [[ -z $url ]]; then
         HELP="Item: <span color='${title_color}'>${title}</span>"
-        doopt=$(echo -e "< Return\n---\n1. Mark Active\n2. Delete" | _rofi -mesg "${HELP}" -dmenu -p "> ")
+        doopt=$(echo -e "< Return\n---\n1. Mark Active\n2. Delete" | _rofi -mesg "${HELP}" -dmenu -p "   ")
     else
         HELP="Item: <span color='${title_color}'>${title}</span>
 URL:  <span color='${title_color}'>${help_url}</span>"
-        doopt=$(echo -e "< Return\n---\n1. Mark Active\n2. Delete\n---\n3. Open URL"| _rofi -mesg "${HELP}" -dmenu -p "> ")
+        doopt=$(echo -e "< Return\n---\n1. Mark Active\n2. Delete\n---\n3. Open URL"| _rofi -mesg "${HELP}" -dmenu -p "   ")
     fi
     val=$?
     if [[ $val -eq 1 ]]; then exit
@@ -247,7 +247,7 @@ addURL () {
     if [[ -z $file ]]; then
         file=$(echo ${mainmenu} | awk -F 'file: ' '{ print $2 }')
     fi
-    urlmenu=$(echo -e "< Cancel" | _rofi -dmenu -mesg "Add URL to ${title}" -p "> ")
+    urlmenu=$(echo -e "< Cancel" | _rofi -dmenu -mesg "Add URL to ${title}" -p "   ")
     val=$?
     if [[ $val -eq 1 ]]; then
         exit
@@ -265,7 +265,7 @@ delURL () {
     if [[ -z $file ]]; then
         file=$(echo ${mainmenu} | awk -F 'file: ' '{ print $2 }')
     fi
-    urlmenu=$(echo -e "1. Yes\n2. No" | _rofi -dmenu -mesg "Delete URL ${url}?" -p "> ")
+    urlmenu=$(echo -e "1. Yes\n2. No" | _rofi -dmenu -mesg "Delete URL ${url}?" -p "   ")
     val=$?
     if [[ $val -eq 1 ]]; then
         exit
