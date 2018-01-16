@@ -1,0 +1,7 @@
+pane	alter2000-2341	1	:chat	1	:*	1	:/home/alter2000	1	weechat	:weechat
+pane	alter2000-2341	2	:mail	0	:	1	:/home/alter2000	1	zsh	:
+pane	alter2000-2341	3	:musiq	0	:-	1	:/home/alter2000	1	ncmpcpp	:ncmpcpp -s visualizer
+window	alter2000-2341	1	1	:*	ca40,174x47,0,0,3
+window	alter2000-2341	2	0	:	ca41,174x47,0,0,4
+window	alter2000-2341	3	0	:-	ca42,174x47,0,0,5
+state	alter2000-2341	

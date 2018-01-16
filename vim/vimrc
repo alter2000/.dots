@@ -49,8 +49,9 @@ function! BuildComposer(info)
 endfunction
 
 call plug#begin('~/.vim/plugs')
-Plug 'lervag/vimtex', {'for':'tex'}
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'jamessan/vim-gnupg'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -189,6 +190,10 @@ map <Down> gj
 map <Up>   gk
 map <Home> g^
 map <End>  g$
+vnoremap [1;5C w
+vnoremap [1;5D b
+nnoremap [1;5C w
+nnoremap [1;5D b
 
 noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
@@ -197,7 +202,6 @@ noremap <C-H> <C-W><C-H>
 
 noremap <F3> :set list!<CR>
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
-
 map <F2>  :GundoToggle<CR>
 map <F10> :ColorHighlight<CR>
 map <F12> :Calendar<CR>
@@ -248,13 +252,4 @@ function! ToggleWrap()
     inoremap <buffer> <silent> <End>  <C-o>g<End>
   endif
 endfunction
-
-
-""" RETIRED """
-
-"let g:powerline_pycmd="py3"
-"let $PYTHONPATH='/usr/lib/python3.6/site-packages'
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
 

@@ -231,7 +231,7 @@ bindsym $mod+Return exec --no-startup-id termite
 bindsym $mod+Shift+Return exec --no-startup-id SHELL=/bin/fish termite -e fish -c ~/.dots/termite_writing
 
 # IDE HK depends
-bindsym XF86Tools exec --no-startup-id atom
+bindsym XF86Tools exec --no-startup-id gvim
 
 # Endless Sky (game shortcut, yes)
 bindsym XF86LaunchA exec --no-startup-id endless-sky

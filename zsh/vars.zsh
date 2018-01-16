@@ -13,6 +13,14 @@ export VMAIL_HTML_PART_READER='elinks -dump'
 export fpath=(/home/alter2000/.zsh/completions/ $fpath)
 
 
+export MDP_LIST_HEAD1=' ▶ '
+export MDP_LIST_HEAD2=' ▸ '
+export MDP_LIST_HEAD3=' ▹ '
+export MDP_LIST_OPEN1=' ¦ '
+export MDP_LIST_OPEN2=' ¦ '
+export MDP_LIST_OPEN3=' ¦ '
+
+
 ### POWERLEVEL9K ###
 DEFAULT_USER="alter2000"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir vcs custom_wifi_signal)
