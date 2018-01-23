@@ -236,13 +236,17 @@ bindsym XF86Tools exec --no-startup-id gvim
 # Endless Sky (game shortcut, yes)
 bindsym XF86LaunchA exec --no-startup-id endless-sky
 
-# browser - Firefox/Vivaldi depending on mood
+# browser - Firefox
 bindsym XF86Search exec --no-startup-id firefox
 bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
+bindsym $mod+5 exec --no-startup-id qutebrowser
 
 # File manager
 bindsym XF86Explorer exec --no-startup-id nautilus
+bindsym $mod+6 exec --no-startup-id thunar
 
+# LibreOffice Writer
+bindsym $mod+7 exec --no-startup-id soffice --writer
 # lock
 bindsym $mod+L exec --no-startup-id ~/.dots/bin/lock.sh
 

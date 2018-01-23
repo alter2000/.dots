@@ -1,0 +1,9 @@
+pane	0	1	:mail	1	:*	1	:/home/alter2000	1	zsh	:
+pane	0	2	:musiq	0	:	1	:/home/alter2000	1	ncmpcpp	:ncmpcpp --slave-screen visualizer
+pane	0	3	:reddit	0	:	1	:/home/alter2000	1	zsh	:
+pane	0	4	:mosh	0	:-	1	:/home/alter2000	1	mosh-client	:mosh-client -# perdorimtari@172.104.250.231 --ssh=ssh -p 40 -p 60006 | 172.104.250.231 60006
+window	0	1	1	:*	c63d,174x46,0,0,0
+window	0	2	0	:	c63e,174x46,0,0,1
+window	0	3	0	:	c640,174x46,0,0,3
+window	0	4	0	:-	e350,174x46,0,0,40
+state	0	
