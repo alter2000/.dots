@@ -4,9 +4,6 @@
 [submodule "dotbot-pacaur"]
 	path = dotbot-pacaur
 	url = https://github.com/ajlende/dotbot-pacaur
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh
 [submodule "Solarized-Acidalia"]
 	path = Solarized--Acidalia
 	url = https://github.com/ma-santoso/dotfiles.git
@@ -22,12 +19,9 @@
 [submodule "img/ffox/solarized-everything-css"]
 	path = img/ffox/solarized-everything-css
 	url = https://github.com/alphapapa/solarized-everything-css/
-[submodule "YouCompleteMe"]
-	path = YouCompleteMe
-	url = /home/alter2000/.dots/vim/plugs/YouCompleteMe
-[submodule "Colorizer"]
-	path = Colorizer
-	url = /home/alter2000/.dots/vim/plugs/Colorizer
 [submodule "tmux/tmux-resurrect"]
 	path = tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "rofi/rofi-scripts"]
+	path = rofi/rofi-scripts
+	url = https://github.com/carnager/rofi-scripts

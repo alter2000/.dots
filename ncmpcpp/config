@@ -256,7 +256,7 @@ message_delay_time = 2
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-#execute_on_song_change = "~/.ncmpcpp/album_art.sh"
+execute_on_song_change = "~/.ncmpcpp/album_art.sh"
 #
 ##
 ## Note: Custom command that will be executed each time player state
@@ -272,7 +272,7 @@ message_delay_time = 2
 #
 #playlist_shorten_total_times = no
 #
-#playlist_separate_albums = no
+playlist_separate_albums = no
 #
 ##
 ## Note: Possible display modes: classic, columns.
@@ -281,7 +281,7 @@ message_delay_time = 2
 #
 browser_display_mode = columns
 #
-#search_engine_display_mode = classic
+search_engine_display_mode = columns
 #
 #playlist_editor_display_mode = classic
 #
@@ -291,7 +291,7 @@ browser_display_mode = columns
 #
 #incremental_seeking = yes
 #
-#seek_time = 1
+#seek_time = 3
 #
 #volume_change_step = 2
 #
@@ -345,7 +345,7 @@ follow_now_playing_lyrics = yes
 #
 fetch_lyrics_for_current_song_in_background = yes
 #
-#store_lyrics_in_song_dir = no
+store_lyrics_in_song_dir = yes
 #
 #generate_win32_compatible_filenames = yes
 #
@@ -397,9 +397,9 @@ startup_slave_screen_focus = no
 #
 #ask_for_locked_screen_width_part = yes
 #
-#jump_to_now_playing_song_at_start = yes
+jump_to_now_playing_song_at_start = yes
 #
-#ask_before_clearing_playlists = yes
+ask_before_clearing_playlists = no
 #
 clock_display_seconds = yes
 #
@@ -411,7 +411,7 @@ clock_display_seconds = yes
 #
 ## Available values: none, basic, extended, perl.
 ##
-#regular_expressions = perl
+#regular_expressions = basic
 #
 ##
 ## Note: if below is enabled, ncmpcpp will ignore leading "The" word while

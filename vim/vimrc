@@ -49,38 +49,41 @@ function! BuildComposer(info)
 endfunction
 
 call plug#begin('~/.vim/plugs')
-Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview'
-Plug 'jamessan/vim-gnupg'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/calendar.vim'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer'}
-Plug 'vim-syntastic/syntastic'
+Plug 'jamessan/vim-gnupg'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'dhruvasagar/vim-table-mode'
+"Plug 'fmoralesc/vim-pad'
+"Plug 'xolox/vim-notes'
 
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
 Plug 'mhinz/vim-startify'
 
-Plug 'godlygeek/tabular'
-Plug 'sjl/gundo.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer'}
+Plug 'junegunn/goyo.vim'
+
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview'
+
+Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
+Plug 'sjl/gundo.vim'
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
-Plug 'chrisbra/Colorizer'
 Plug 'severin-lemaignan/vim-minimap'
-
-Plug 'gabrielelana/vim-markdown'
-"Plug 'euclio/vim-markdown-composer', {'do':function('BuildComposer')}
-
-Plug '4Evergreen4/vim-hardy', {'for':'arduino'}
-Plug 'jplaut/vim-arduino-ino', {'for':'arduino'}
-""Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 call plug#end()
+
 
 " Plugin options
 
 let g:livepreview_previewer = 'zathura'
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#folding#mode = 'relative'
 
 let g:gundo_preview_height = 10
 let g:gundo_width = 25

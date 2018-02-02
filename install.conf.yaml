@@ -37,6 +37,7 @@
         ~/.gtkrc-2.0:              gtkrc2
         ~/.img:                    img
         ~/.local/bin:              bin
+        ~/.local/share/fonts:      fonts
         ~/.pandoc:                 pandoc
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]

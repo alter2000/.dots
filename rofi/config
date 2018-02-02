@@ -1,4 +1,3 @@
-rofi.location:          3
 rofi.color-enabled:     true
 !                       'background', 'border'
 !rofi.color-window:      argb:ff000000, argb:ff000000
@@ -16,6 +15,7 @@ rofi.modi:              window,run,drun
 rofi.monitor:           0
 rofi.lines:             12
 rofi.line-margin:       0
+rofi.location:          0
 rofi.opacity:           40
 rofi.padding:           40
 rofi.run-command:       zsh -c "{cmd}"
