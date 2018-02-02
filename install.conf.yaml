@@ -24,7 +24,6 @@
         ~/.config/neofetch:        neofetch
         ~/.config/openbox/autostart: ob-autostart
         ~/.config/polybar:         polybar
-        ~/.config/powerline:       powerline
         ~/.config/qutebrowser:     qutebrowser
         ~/.config/ranger/rc.conf:  ranger.conf
         ~/.config/redshift.conf:   redshift.conf

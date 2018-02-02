@@ -251,5 +251,5 @@ bindsym $mod+7 exec --no-startup-id soffice --writer
 bindsym $mod+L exec --no-startup-id ~/.dots/bin/lock.sh
 
 # pywal (wallpaper & color scheme)
-exec --no-startup-id wal -t -i "$HOME/.img/mountain_valley.jpg"
+exec --no-startup-id wal -t -i "$HOME/.img/deltawing_ships.png"
 
