@@ -218,7 +218,7 @@ autocmd BufRead,BufNewFile *.lyx set filetype=tex
 autocmd FileType *.ino,*.pde set filetype=arduino
 autocmd FileType PKGBUILD    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=makepkg
 
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 makeprg=python\ %
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 textwidth=79 expandtab autoindent makeprg=python\ %
 autocmd FileType sh     setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=./%
 
 autocmd FileType *mail set nospell

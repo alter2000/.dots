@@ -49,7 +49,7 @@ margin-top = 5
 margin-bottom = 5
 
 
-[bar/i3bar-master]
+[template/i3bar]
 monitor = eDP-1
 override-redirect = false
 width = 100%
@@ -60,14 +60,12 @@ foreground = ${colors.foreground-alt}
 spacer = "  "
 
 font-0 = Roboto Mono:pixelsize=8
-font-1 = Meslo LG S:pixelsize=9
-font-2 = Material Icons:pixelsize=14;+3
-font-3 = Font Awesome 5 Free:pixelsize=14;+2
-font-4 = Font Awesome 5 Brands:pixelsize=14;+2
+font-1 = Material Icons:pixelsize=14;+3
+font-2 = Knack Nerd Font:pixelsize=14;+2
 
 
 [bar/i3bar1]
-inherit = bar/i3bar-master
+inherit = template/i3bar
 fixed-center = false
 overline-size = 0
 ;overline-color = #000
@@ -88,7 +86,7 @@ scroll-down = i3wm-wsnext
 
 
 [bar/i3bar2]
-inherit = bar/i3bar-master
+inherit = template/i3bar
 monitor-strict = false
 override-redirect = true
 wm-restack = i3

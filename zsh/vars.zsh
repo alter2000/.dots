@@ -1,4 +1,4 @@
-export PATH="$HOME/.local/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export GEM_HOME=$HOME/.gem
 export CLICOLOR=1
 export LESS='--ignore-case --raw-control-chars'
