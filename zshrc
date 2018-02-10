@@ -31,7 +31,7 @@ alias egrep="egrep --color=auto"
 
 alias tree="tree -C"
 alias less="less -R"
-alias mutt="neomutt"
+alias wag="python ./manage.py"
 
 alias suffer="pacaur -Syu"
 alias pain="pacaur -S"

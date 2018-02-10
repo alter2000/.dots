@@ -71,6 +71,7 @@ Plug 'xuhdev/vim-latex-live-preview'
 
 Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
 Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
@@ -82,7 +83,6 @@ call plug#end()
 " Plugin options
 
 let g:livepreview_previewer = 'zathura'
-let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#folding#mode = 'relative'
 
 let g:gundo_preview_height = 10

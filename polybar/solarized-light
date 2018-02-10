@@ -22,7 +22,7 @@ icon-wlan = ${xrdb:color6}
 icon-wm = ${xrdb:color7}
 icon-xbacklight = ${xrdb:color7}
 
-background = ${xrdb:background}
+background = ${xrdb:color0}
 background-alt = ${xrdb:color10}
 foreground = ${xrdb:color15}
 
@@ -30,9 +30,8 @@ foreground = ${xrdb:color15}
 padding = 2
 
 [res/fonts]
-font-0 = "xos4 Terminus:size=9;2"
-font-1 = Knack Nerd Font:pixelsize=14;+2
-font-2 = "Material Design Icons:size=11;3"
+font-0 = "Knack Nerd Font:pixelsize=14;+2"
+font-1 = "Material Design Icons:size=11;3"
 
 #========================================
 # BARS
@@ -73,7 +72,7 @@ inherit = template/bar
 tray-position = right
 
 modules-left = i3 bspwm cpu memory fs-home update-arch
-modules-center = 
+modules-center =
 modules-right = wlan xbacklight volume battery date
 
 [bar/secondary-top]
@@ -90,8 +89,8 @@ modules-right =
 inherit = template/bar
 
 modules-left = cpu
-modules-center = 
-modules-right = 
+modules-center =
+modules-right =
 
 #========================================
 # MODULES

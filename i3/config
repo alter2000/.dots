@@ -15,6 +15,8 @@ bindsym $mod+F4 kill
 new_window pixel 3
 gaps inner 7
 gaps outer 9
+set $gap_width_o 9
+set $gap_width_i 7
 smart_gaps on
 smart_borders no_gaps
 
@@ -27,7 +29,7 @@ smart_borders no_gaps
 # move floating windows with $mod+mouse
 floating_modifier $mod
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 # split in vertical orientation
 bindsym $mod+v split v
 # enter fullscreen mode for the focused container
@@ -40,12 +42,27 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+# remove outer and inner gaps
+#bindsym $mod+g gaps inner all 7, gaps outer 9 all
 
+bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
+    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
+        i3-msg gaps inner all set 0; \
+        i3-msg gaps outer all set 0; \
+    else \
+        i3-msg gaps inner all set $gap_width_i; \
+        i3-msg gaps outer all set $gap_width_o; \
+    fi"
 # change focus
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+Left  move left
@@ -157,7 +174,6 @@ assign [class="Atom"] 2 ide
 assign [class="Boostnote"] 9 aux
 
 assign [class="Nautilus"]  3 files
-assign [class="Thunar"]    3 files
 assign [instance="*.epub"] 3 files
 
 assign [class="ncmpcpp"]      10 media
@@ -248,7 +264,7 @@ bindsym $mod+6 exec --no-startup-id thunar
 # LibreOffice Writer
 bindsym $mod+7 exec --no-startup-id soffice --writer
 # lock
-bindsym $mod+L exec --no-startup-id ~/.dots/bin/lock.sh
+bindsym $mod+p exec --no-startup-id ~/.dots/bin/lock.sh
 
 # pywal (wallpaper & color scheme)
 exec --no-startup-id wal -t -i "$HOME/.img/deltawing_ships.png"

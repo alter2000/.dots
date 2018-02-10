@@ -1,0 +1,11 @@
+pane	0	1	:mail	0	:	1	:/home/alter2000/.vmail/default	1	zsh	:
+pane	0	2	:musiq	1	:*	1	:/home/alter2000	1	ncmpcpp	:ncmpcpp --slave-screen visualizer
+pane	0	2	:musiq	1	:*	2	:/home/alter2000	0	python	:/usr/bin/python /usr/bin/mpsyt
+pane	0	3	:reddit	0	:	1	:/home/alter2000	1	zsh	:
+pane	0	4	:mosh	0	:-	1	:/home/alter2000	0	mosh-client	:mosh-client -# perdorimtari@172.104.250.231 --ssh=ssh -p 40 -p 60006 | 172.104.250.231 60006
+pane	0	4	:mosh	0	:-	2	:/home/alter2000	1	zsh	:
+window	0	1	0	:	b23e,174x41,0,0,1
+window	0	2	1	:*	0802,174x41,0,0[174x23,0,0,2,174x17,0,24,3]
+window	0	3	0	:	b241,174x41,0,0,4
+window	0	4	0	:-	4d5c,174x41,0,0{87x41,0,0,5,86x41,88,0,12}
+state	0	
