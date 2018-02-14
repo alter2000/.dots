@@ -68,7 +68,7 @@ color7  = #7c6f64
 color15 = #3c3836
 
 [hints]
-font = Monospace 12
+font = Knack Nerd Font 10
 foreground = #dcdccc
 background = #3f3f3f
 active_foreground = #e68080

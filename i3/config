@@ -43,8 +43,6 @@ bindsym $mod+e layout toggle split
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 # remove outer and inner gaps
-#bindsym $mod+g gaps inner all 7, gaps outer 9 all
-
 bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
         i3-msg gaps inner all set 0; \
@@ -53,6 +51,7 @@ bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
         i3-msg gaps inner all set $gap_width_i; \
         i3-msg gaps outer all set $gap_width_o; \
     fi"
+
 # change focus
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down

@@ -30,6 +30,11 @@ set noshowmode showcmd
 highlight ColorColumn ctermbg=240
 highlight CursorColumn ctermbg=235
 
+" gvim options
+set guioptions=  " remove cruft
+set guifont="KnackNerdFont 13"
+
+
 """ VIM-PLUG """
 
 " install vim-plug if it's not already there
@@ -51,19 +56,22 @@ endfunction
 call plug#begin('~/.vim/plugs')
 Plug 'itchyny/calendar.vim'
 Plug 'jamessan/vim-gnupg'
+Plug 'fmoralesc/vim-pad'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'tpope/vim-vinegar'
 "Plug 'fmoralesc/vim-pad'
 "Plug 'xolox/vim-notes'
 
 Plug 'morhetz/gruvbox'
+Plug 'therubymug/vim-pyte'
 Plug 'mhinz/vim-startify'
 
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang --racer-completer'}
 Plug 'junegunn/goyo.vim'
 
 Plug 'lervag/vimtex'
@@ -71,12 +79,17 @@ Plug 'xuhdev/vim-latex-live-preview'
 
 Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
-Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-commentary'
 Plug 'severin-lemaignan/vim-minimap'
 "Plug 'airblade/vim-gitgutter'
+"Plug 'johngrib/vim-game-snake'
+
+Plug 'johngrib/vim-game-snake'
+
 call plug#end()
 
 
@@ -86,7 +99,7 @@ let g:livepreview_previewer = 'zathura'
 let g:pandoc#folding#mode = 'relative'
 
 let g:gundo_preview_height = 10
-let g:gundo_width = 25
+let g:gundo_width = 23
 let g:gundo_preview_bottom = 1
 
 let g:startify_list_order = [
@@ -157,6 +170,8 @@ let g:delimitMate_nesting_quotes = ['"','`']
 
 " I need to put this in a colorscheme conditional for terminal
 let g:gruvbox_italic=1
+let g:gruvbox_guisp_fallback='fg'
+let g:gruvbox_termcolors=256
 
 """ CONDITIONALS """
 
