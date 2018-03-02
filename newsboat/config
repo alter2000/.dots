@@ -20,7 +20,7 @@ download-path "~/Downloads"
 download-retries 3
 download-timeout 15
 error-log ""
-external-url-viewer ""
+external-url-viewer "xdg-open %u"
 feed-sort-order "none-desc"
 feedhq-flag-share ""
 feedhq-flag-star ""
@@ -99,7 +99,7 @@ show-read-articles yes
 show-read-feeds yes
 ssl-verifyhost true
 ssl-verifypeer true
-suppress-first-reload no
+suppress-first-reload yes
 swap-title-and-hints no
 text-width 0
 toggleitemread-jumps-to-next-unread false

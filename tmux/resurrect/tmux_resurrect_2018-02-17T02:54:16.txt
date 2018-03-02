@@ -1,0 +1,10 @@
+pane	0	1	:mail	1	:*	1	:/home/alter2000/.vmail/default	1	ruby	:/usr/bin/ruby /home/alter2000/.gem/ruby/2.5.0/bin/vmail
+pane	0	2	:musiq	0	:-	1	:/home/alter2000	1	ncmpcpp	:ncmpcpp --slave-screen visualizer
+pane	0	3	:reddit	0	:	1	:/home/alter2000	1	zsh	:
+pane	0	4	:mosh	0	:Z	1	:/home/alter2000	1	zsh	:
+pane	0	4	:mosh	0	:Z	2	:/home/alter2000	0	zsh	:
+window	0	1	1	:*	b23e,174x41,0,0,1
+window	0	2	0	:-	b23f,174x41,0,0,2
+window	0	3	0	:	b241,174x41,0,0,4
+window	0	4	0	:Z	1a0c,174x41,0,0{87x41,0,0,5,86x41,88,0,6}
+state	0	

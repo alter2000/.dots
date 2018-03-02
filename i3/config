@@ -160,7 +160,7 @@ bindsym Ctrl+XF86Display exec --no-startup-id xrandr --output eDP1 --auto --prim
 ########################################
 
 for_window [class="sxiv"] floating enable
-for_window [class="Budgie-polkit-dialog" instance="budgie-polkit-dialog"] floating enable
+for_window [class="dde-polkit-dialog" instance="dde-polkit-dialog"] floating enable
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Dia" instance="dia"] floating enable
 for_window [class="Com.github.nick92.coffee" instance="com.github.nick92.coffee"] floating enable
@@ -219,8 +219,8 @@ client.background       $bg     $bg     $fg  $bg        $bg
 exec synclient tapbutton1=1; synclient tapbutton2=2; synclient horiztwofingerscroll=1;
 exec --no-startup-id keynav
 
-# Budgie polkit dialog
-exec_always --no-startup-id budgie-polkit-dialog
+# Deepin polkit dialog
+exec_always --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
 
 # Compton for fancy nancy
 exec_always --no-startup-id compton

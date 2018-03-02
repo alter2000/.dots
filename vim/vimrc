@@ -12,8 +12,8 @@ set mouse=a mousefocus clipboard=unnamedplus
 set smarttab autoindent copyindent
 set scrolloff=4	  " 4 lines of context when scrolling
 syntax enable
-set history=1000 undolevels=1000
-set autoread
+set history=1000 undolevels=1000 updatecount=100
+set autoread nospell
 " non-printable and double-width chars
 set ambiwidth=single showbreak=↪\ 
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
@@ -25,7 +25,7 @@ set directory=/tmp   " store swap files here
 filetype on
 filetype indent plugin on
 set ttimeoutlen=10
-set noshowmode showcmd
+set noshowmode showcmd noerrorbells visualbell
 "set colorcolumn=80
 highlight ColorColumn ctermbg=240
 highlight CursorColumn ctermbg=235
@@ -54,14 +54,12 @@ function! BuildComposer(info)
 endfunction
 
 call plug#begin('~/.vim/plugs')
-Plug 'itchyny/calendar.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'fmoralesc/vim-pad'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-vinegar'
-"Plug 'fmoralesc/vim-pad'
 "Plug 'xolox/vim-notes'
 
 Plug 'morhetz/gruvbox'
@@ -186,7 +184,7 @@ if has('gui_running')
   let g:gruvbox_italic = 1
   set background=dark
   colorscheme gruvbox
-  let g:gruvbox_contrast_dark='soft'
+  let g:gruvbox_contrast_dark='oft'
 endif
 
 
@@ -201,6 +199,9 @@ let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
 """ KEYBINDS
+nnoremap p ]p
+nnoremap : ;
+nnoremap ; :
 set whichwrap+=<,>,[,] " after reaching line end, move to next/prev line, except for h and l
 map j gj
 map k gk
@@ -236,7 +237,7 @@ autocmd FileType PKGBUILD    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makep
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 textwidth=79 expandtab autoindent makeprg=python\ %
 autocmd FileType sh     setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=./%
 
-autocmd FileType *mail set nospell
+autocmd FileType *mail setlocal spell
 autocmd FileType mail let b:loaded_delimitMate = 1
 
 """ FUNCTIONS """
