@@ -4,6 +4,7 @@ export CLICOLOR=1
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 export EDITOR='vim'
+export VISUAL='vim'
 export ZDOTDIR="$HOME/.zsh"
 export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
@@ -12,14 +13,14 @@ export GITHUB_USER='alter2000'
 export VMAIL_HTML_PART_READER='elinks -dump'
 export fpath=(/home/alter2000/.zsh/completions/ $fpath)
 
-
-export MDP_LIST_HEAD1=' ▶ '
-export MDP_LIST_HEAD2=' ▸ '
-export MDP_LIST_HEAD3=' ▹ '
-export MDP_LIST_OPEN1=' ¦ '
-export MDP_LIST_OPEN2=' ¦ '
-export MDP_LIST_OPEN3=' ¦ '
-
+## colored-man-pages from gh/imkira
+#export LESS_TERMCAP_mb=$'\E[01;31m'
+#export LESS_TERMCAP_md=$'\E[01;38;5;74m'
+#export LESS_TERMCAP_me=$'\E[0m'
+#export LESS_TERMCAP_se=$'\E[0m'
+#export LESS_TERMCAP_so=$'\E[38;33;246m'
+#export LESS_TERMCAP_ue=$'\E[0m'
+#export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
 ### POWERLEVEL9K ###
 DEFAULT_USER="alter2000"
@@ -37,4 +38,9 @@ POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_STATUS_HIDE_SIGNAME=true
 POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="p9k_wifi_signal"
+
+### HISTORY ###
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
 

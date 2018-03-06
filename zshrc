@@ -2,47 +2,10 @@
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/powerlevel9k/powerlevel9k.zsh-theme
-source ~/.zsh/vars.zsh
-source ~/.zsh/functions.zsh
 source ~/.zsh/completions/completions.zsh
-
-### ALIASES ###
-alias mu="TERM=xterm-truecolor micro"
-# fuck the law with the dick in my hand
-alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
-# weather
-alias wttr="curl -s wttr.in/Tirana | head -37 | tail -30"
-
-alias ls="ls --color=auto --group-directories-first"
-alias l="ls -AlhF"
-alias ll="ls -Alh"
-alias la="ls -Ah"
-
-alias gst="git status -sb"
-alias gaa="git add -A"
-alias gc="git commit"
-alias gp="git push"
-alias gh="git hub"
-alias gb="git bb"
-
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-
-alias tree="tree -C"
-alias less="less -R"
-alias wag="python ./manage.py"
-
-alias suffer="pacaur -Syu"
-alias pain="pacaur -S"
-alias painl="pacaur -U"
-alias paind="pacaur -S --asdeps"
-alias pare="pacaur -R"
-alias parm="pacaur -Rsn"
-alias parmorphans="sudo pacman -Rns $(pacman -Qtdq)"
-
-eval $(thefuck --alias)
-
+source ~/.zsh/aliases.zsh
+source ~/.zsh/functions.zsh
+source ~/.zsh/vars.zsh
 
 ### SETOPTS ###
 # remove beep
@@ -74,19 +37,33 @@ setopt prompt_subst
 
 
 ### KEYBINDS ###
-autoload -U up-line-or-beginning-search; zle -N up-line-or-beginning-search
-autoload -U down-line-or-beginning-search; zle -N down-line-or-beginning-search
-bindkey -e
-bindkey "^[[H"  beginning-of-line               # Home
-bindkey "^[[F"  end-of-line                     # End
-bindkey "^[[2~" overwrite-mode                  # Insert
-bindkey "^[[3~" delete-char                     # Delete
-bindkey "^[[D"  backward-char                   # Left
-bindkey "^[[C"  forward-char                    # Right
-bindkey "^[[A"  up-line-or-beginning-search     # Up
-bindkey "^[[B"  down-line-or-beginning-search   # Down
-bindkey "^[[5~" history-search-backward         # PageUp
-bindkey "^[[6~" history-search-forward          # PageDown
+autoload -U up-line-or-beginning-search && zle -N up-line-or-beginning-search
+autoload -U down-line-or-beginning-search && zle -N down-line-or-beginning-search
+
+typeset -A key
+
+key[Home]=${terminfo[khome]}
+key[End]=${terminfo[kend]}
+key[Insert]=${terminfo[kich1]}
+key[Delete]=${terminfo[kdch1]}
+key[Up]=${terminfo[kcuu1]}
+key[Down]=${terminfo[kcud1]}
+key[Left]=${terminfo[kcub1]}
+key[Right]=${terminfo[kcuf1]}
+key[PageUp]=${terminfo[kpp]}
+key[PageDown]=${terminfo[knp]}
+
+[[ -n "${key[Home]}"     ]] && bindkey  "${key[Home]}"     beginning-of-line
+[[ -n "${key[End]}"      ]] && bindkey  "${key[End]}"      end-of-line
+[[ -n "${key[Insert]}"   ]] && bindkey  "${key[Insert]}"   overwrite-mode
+[[ -n "${key[Delete]}"   ]] && bindkey  "${key[Delete]}"   delete-char
+[[ -n "${key[Up]}"       ]] && bindkey  "${key[Up]}"       up-line-or-beginning-search
+[[ -n "${key[Down]}"     ]] && bindkey  "${key[Down]}"     down-line-or-beginning-search
+[[ -n "${key[Left]}"     ]] && bindkey  "${key[Left]}"     backward-char
+[[ -n "${key[Right]}"    ]] && bindkey  "${key[Right]}"    forward-char
+[[ -n "${key[PageUp]}"   ]] && bindkey  "${key[PageUp]}"   beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}" ]] && bindkey  "${key[PageDown]}" end-of-buffer-or-history
+
 bindkey "^[[1;5D" backward-word                 # Ctrl+Left
 bindkey "^[[1;5C" forward-word                  # Ctrl+Right
 bindkey "^[[1;3D" backward-word                 # Alt+Left
@@ -106,8 +83,3 @@ bindkey -M isearch . self-insert # history search fix
 #autoload -U colors && colors
 #autoload -U promptinit && promptinit
 (cat ~/.cache/wal/sequences)
-
-### HISTORY ###
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history

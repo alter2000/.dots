@@ -12,7 +12,6 @@ yellow = #d7a645
 light-gray = #D3D3D3
 dark-gray = #A0A0A0
 foreground-alt = ${colors.dark-gray}
-background-alt = ${colors.bblack}
 
 red     = #ff000f
 green   = #8ce10b
@@ -90,16 +89,50 @@ inherit = template/i3bar
 monitor-strict = false
 override-redirect = true
 wm-restack = i3
-bottom = true
+bottom = false
 fixed-center = false
 height = 40
 width = 50%
 padding-left = 100
 padding-right = 10
-modules-left = reddit mail app_firefox app_tor app_steam app_fritzing
+modules-left = reddit mail
 foreground = ${xrdb:color15}
 background = ${colors.transparent}
-spacer = "                       "
+spacer = "  "
+
+
+[bar/i3bar3]
+inherit = template/i3bar
+monitor-strict = false
+override-redirect = true
+wm-restack = i3
+bottom = false
+fixed-center = false
+height = 40
+width = 50%
+padding-left = 100
+padding-right = 10
+modules-left = reddit mail
+foreground = ${xrdb:color15}
+background = ${colors.transparent}
+spacer = "  "
+
+
+[bar/i3bar4]
+inherit = template/i3bar
+monitor-strict = false
+override-redirect = true
+wm-restack = i3
+bottom = false
+fixed-center = false
+height = 40
+width = 50%
+padding-left = 100
+padding-right = 10
+modules-left = reddit mail
+foreground = ${xrdb:color15}
+background = ${colors.transparent}
+spacer = "  "
 
 
 
@@ -148,7 +181,7 @@ ws-icon-default = x
 enable-click = true
 enable-scroll = true
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.bblack}
 label-focused-underline= ${colors.transparent}
 label-focused-padding = 2
 label-occupied = %index%

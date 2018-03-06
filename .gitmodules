@@ -16,9 +16,6 @@
 [submodule "bin/creative-cloud-linux"]
 	path = bin/creative-cloud-linux
 	url = https://github.com/corbindavenport/creative-cloud-linux/
-[submodule "img/ffox/solarized-everything-css"]
-	path = img/ffox/solarized-everything-css
-	url = https://github.com/alphapapa/solarized-everything-css/
 [submodule "tmux/tmux-resurrect"]
 	path = tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect

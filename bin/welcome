@@ -1,0 +1,127 @@
+#-*- mode: shell-script -*-
+
+# Load colours
+if tput setaf 1 &> /dev/null; then
+	tput sgr0; # Reset colours
+	bold=$(tput bold);
+	reset=$(tput sgr0);
+	black=$(tput setaf 16); #000000
+	white=$(tput setaf 188); #d7d7d7
+	red=$(tput setaf 160); #d70000
+	green=$(tput setaf 42); #00d787
+	yellow=$(tput setaf 214); #ffaf00
+	blue=$(tput setaf 32); #0097d7
+	magenta=$(tput setaf 37); #d75faf
+	cyan=$(tput setaf 103); #8787af
+	teal=$(tput setaf 30); #008787
+else
+	bold='';
+	reset="\e[0m";
+	black="\e[1;38;5;16m";
+	white="\e[1;38;5;188m";
+	red="\e[1;38;5;160m";
+	green="\e[1;38;5;42m";
+	yellow="\e[1;38;5;214m";
+	blue="\e[1;38;5;32m";
+	magenta="\e[1;38;5;169m";
+	cyan="\e[1;38;5;103m";
+	teal="\e[1;38;5;30m";
+fi;
+
+# Generate uptime and load
+seconds="$(< /proc/uptime)"
+seconds="${seconds/.*}"
+days="$((seconds / 60 / 60 / 24)) days"
+hours="$((seconds / 60 / 60 % 24)) hours"
+mins="$((seconds / 60 % 60)) minutes"
+# Format the days, hours and minutes.
+strip_date() {
+	case "$1" in
+		"0 "*) unset "${1/* }" ;;
+		"1 "*) printf "%s" "${1/s}" ;;
+		*)     printf "%s" "$1" ;;
+	esac
+}
+days="$(strip_date "$days")"
+hours="$(strip_date "$hours")"
+mins="$(strip_date "$mins")"
+uptime="${days:+$days, }${hours:+$hours, }${mins}"
+uptime="${uptime%', '}"
+uptime="${uptime:-${seconds} seconds}"
+load="$(uptime | awk /'up/ {print $6,$7,$8,$9,$10}')"
+
+# Gather CPU Information
+cpu="$(awk -F ': | @' '/model name|Processor|^cpu model|chip type|^cpu type/\
+	{printf $2; exit}' "/proc/cpuinfo")"
+cpu="${cpu//(TM)}"
+cpu="${cpu//(R)}"
+cpu="${cpu//CPU}"
+cpu="${cpu//Core }"
+
+# Gather GPU information
+gpu="$(lspci -mm | awk -F '\\"|\\" \\"|\\(' \
+	'/"Display|"3D|"VGA/ {a[$0] = $3 " " $4} END{for(i in a)
+	{if(!seen[a[i]]++) print a[i]}}')"
+gpu="${gpu/*\[}"
+gpu="${gpu/\]*}"
+gpu="NVIDIA $gpu"
+
+# Gather RAM information
+while IFS=":" read -r a b; do
+	case "$a" in
+		"MemTotal") mem_used="$((mem_used+=${b/kB}))"; mem_total="${b/kB}" ;;
+		"Shmem") mem_used="$((mem_used+=${b/kB}))"  ;;
+		"MemFree" | "Buffers" | "Cached" | "SReclaimable")
+		mem_used="$((mem_used-=${b/kB}))"
+		;;
+	esac
+done < /proc/meminfo
+mem_used="$((mem_used / 1024))"
+mem_total="$((mem_total / 1024))"
+memory="${mem_used}${mem_label:- MiB} / ${mem_total}${mem_label:- MiB}"
+
+# Get weather if the wttr file has been downloaded more than 1 hour ago or doesn't exist
+if [ -f ~/.cache/wttr ]; then
+	file_time=$(stat --format='+%Y' "/home/alter2000/.cache/wttr")
+	current_time=$(date +%s)
+	if (( file_time < ( current_time - ( 60 * 60 * 1 ) ) )); then
+	wget -q -O ~/.cache/wttr wttr.in/Tirana?qn1
+fi
+else
+	wget -q -O ~/.cache/wttr wttr.in/Tirana?qn1
+	touch ~/wttr_warning_$(date +%Y-%m-%d-%H-%M)
+fi
+
+# Print results
+echo -e "${blue}----------------------H E L L O  T H E R E----------------------${reset}"
+echo ""
+echo -e "${blue}Host:${reset} \t\t\t ${bold}$(whoami)@$(uname -n)${reset}"
+echo -e "${blue}Shell:${reset} \t\t\t $SHELL"
+echo -e "${blue}CPU:${reset} \t\t\t $cpu"
+echo -e "${blue}GPU:${reset} \t\t\t 2x $gpu"
+echo ""
+echo -e "${cyan}------------------------- U P T I M E --------------------------"
+echo ""
+echo -e "Uptime is: $uptime, $load"
+echo "${reset}"
+echo -e "${yellow}-------------------------- D I S K S ---------------------------"
+echo ""
+df -H --total -t ext4 -t fuse.sshfs -t fat32
+echo "${reset}"
+echo -e "${reset}------------------------ W E A T H E R -------------------------${reset}"
+echo ""
+echo -e "                      $(head -n -2 ~/.cache/wttr)"
+echo ""
+echo -e "${blue}----------------------- C A L E N D A R ------------------------"
+echo ""
+cal -3m
+echo ""
+echo -e "           ==== $(date -R) ===="
+echo "${reset}"
+echo -e "${green}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++${reset}"
+echo ""
+
+# Delete used variables
+unset {cpu,gpu,mem_used,mem_total,memory,file_time,current_time}
+unset {seconds,mins,hours,days,uptime,load}
+unset {bold,reset,black,white,red,green,yellow,blue,magenta,cyan,teal}

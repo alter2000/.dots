@@ -17,7 +17,10 @@ if $(pgrep openbox); then
 fi
 
 # Launch bars
-polybar i3bar1 &
+polybar i3bar1 -c ~/.dots/polybar/config &
+#polybar one -c ~/.dots/polybar/solarized-light &
+#polybar two -c ~/.dots/polybar/solarized-light &
+#polybar three -c ~/.dots/polybar/solarized-light &
 #polybar i3bar2 &
 
 echo "Bars launched..."

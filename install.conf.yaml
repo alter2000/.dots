@@ -114,6 +114,7 @@
         - pavucontrol
         - qrencode
         - redshift
+        - rkhunter
         - rofi
         - rsync
         - ruby
@@ -138,6 +139,7 @@
         - unrar
         - unzip
         - usbutils
+        - vimpager
         - vino
         - virt-manager
         - w3m

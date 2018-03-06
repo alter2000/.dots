@@ -1,5 +1,7 @@
-*.log
+**.log
 *dump
 vim/plugs/*
 vim/.netrwhist
-tmux/resurrect/*
+tmux/resurrect
+**/*cache.*
+**/*cache/*

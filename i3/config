@@ -147,8 +147,8 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse set Capture toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id lux -m 1 -M 4794 -a 4%
 bindsym XF86MonBrightnessDown exec --no-startup-id lux -m 1 -M 4794 -s 4%
 
-# toggle touchpad via touchpad-toggle (AUR)
-bindsym XF86Display exec touchpad-toggle.sh
+# toggle touchpad
+bindsym XF86Display exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
 
 # set up TV as secondary monitor
 bindsym Ctrl+XF86Display exec --no-startup-id xrandr --output eDP1 --auto --primary --output VGA1 --gamma 0.8:0.8:0.8 --above eDP1
