@@ -28,7 +28,7 @@ else
 	teal="\e[1;38;5;30m";
 fi;
 
-# Generate uptime and load
+# Generate uptime and
 seconds="$(< /proc/uptime)"
 seconds="${seconds/.*}"
 days="$((seconds / 60 / 60 / 24)) days"
@@ -48,37 +48,6 @@ mins="$(strip_date "$mins")"
 uptime="${days:+$days, }${hours:+$hours, }${mins}"
 uptime="${uptime%', '}"
 uptime="${uptime:-${seconds} seconds}"
-load="$(uptime | awk /'up/ {print $6,$7,$8,$9,$10}')"
-
-# Gather CPU Information
-cpu="$(awk -F ': | @' '/model name|Processor|^cpu model|chip type|^cpu type/\
-	{printf $2; exit}' "/proc/cpuinfo")"
-cpu="${cpu//(TM)}"
-cpu="${cpu//(R)}"
-cpu="${cpu//CPU}"
-cpu="${cpu//Core }"
-
-# Gather GPU information
-gpu="$(lspci -mm | awk -F '\\"|\\" \\"|\\(' \
-	'/"Display|"3D|"VGA/ {a[$0] = $3 " " $4} END{for(i in a)
-	{if(!seen[a[i]]++) print a[i]}}')"
-gpu="${gpu/*\[}"
-gpu="${gpu/\]*}"
-gpu="NVIDIA $gpu"
-
-# Gather RAM information
-while IFS=":" read -r a b; do
-	case "$a" in
-		"MemTotal") mem_used="$((mem_used+=${b/kB}))"; mem_total="${b/kB}" ;;
-		"Shmem") mem_used="$((mem_used+=${b/kB}))"  ;;
-		"MemFree" | "Buffers" | "Cached" | "SReclaimable")
-		mem_used="$((mem_used-=${b/kB}))"
-		;;
-	esac
-done < /proc/meminfo
-mem_used="$((mem_used / 1024))"
-mem_total="$((mem_total / 1024))"
-memory="${mem_used}${mem_label:- MiB} / ${mem_total}${mem_label:- MiB}"
 
 # Get weather if the wttr file has been downloaded more than 1 hour ago or doesn't exist
 if [ -f ~/.cache/wttr ]; then
@@ -93,35 +62,25 @@ else
 fi
 
 # Print results
-echo -e "${blue}----------------------H E L L O  T H E R E----------------------${reset}"
+echo -e "${blue}${bold}----------------------H E L L O  T H E R E----------------------${reset}"
 echo ""
 echo -e "${blue}Host:${reset} \t\t\t ${bold}$(whoami)@$(uname -n)${reset}"
 echo -e "${blue}Shell:${reset} \t\t\t $SHELL"
-echo -e "${blue}CPU:${reset} \t\t\t $cpu"
-echo -e "${blue}GPU:${reset} \t\t\t 2x $gpu"
-echo ""
-echo -e "${cyan}------------------------- U P T I M E --------------------------"
-echo ""
-echo -e "Uptime is: $uptime, $load"
+echo -e "${blue}Uptime:${reset} \t\t $uptime"
 echo "${reset}"
-echo -e "${yellow}-------------------------- D I S K S ---------------------------"
 echo ""
-df -H --total -t ext4 -t fuse.sshfs -t fat32
+df -H --total -t ext4 -t fuse.sshfs -t fat32 -t ntfs -t btrfs -t xfs
 echo "${reset}"
-echo -e "${reset}------------------------ W E A T H E R -------------------------${reset}"
 echo ""
 echo -e "                      $(head -n -2 ~/.cache/wttr)"
 echo ""
-echo -e "${blue}----------------------- C A L E N D A R ------------------------"
 echo ""
-cal -3m
+echo "${magenta}$(calcurse --appointment --todo --quiet)${reset}"
 echo ""
 echo -e "           ==== $(date -R) ===="
 echo "${reset}"
-echo -e "${green}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++${reset}"
-echo ""
 
 # Delete used variables
-unset {cpu,gpu,mem_used,mem_total,memory,file_time,current_time}
-unset {seconds,mins,hours,days,uptime,load}
+unset {file_time,current_time}
+unset {seconds,mins,hours,days,uptime}
 unset {bold,reset,black,white,red,green,yellow,blue,magenta,cyan,teal}

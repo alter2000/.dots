@@ -6,7 +6,7 @@
 #pageActionButton {visibility: hidden;}
 /* Set "inherit" to restore sidebar header */
 #sidebar-header {display: none !important;}
-#sidebar {min-width: 80px !important;}
+#sidebar {min-width: 60px !important;}
 /* Hide horizontal tab bar */
 #TabsToolbar {visibility: collapse !important;}
 

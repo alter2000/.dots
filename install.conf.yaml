@@ -9,11 +9,11 @@
         ~/.gitconfig:   gitconfig
         ~/.vim:         vim/
         ~/.xbindkeysrc: xbindkeysrc
-        ~/.tmux:        tmux
         ~/.zsh:         zsh
         ~/.zshrc:       zshrc
         ~/.mailcap:     mailcap
         ~/.ssh/config:  ssh_config
+        ~/.tmux.conf:   tmux_skel
 
         ~/.config/gtk-3.0:         gtk-3.0
         ~/.config/compton.conf:    compton
@@ -22,7 +22,6 @@
         ~/.config/inkscape:        inkscape
         ~/.config/mpd:             mpd
         ~/.config/neofetch:        neofetch
-        ~/.config/openbox/autostart: ob-autostart
         ~/.config/polybar:         polybar
         ~/.config/qutebrowser:     qutebrowser
         ~/.config/ranger/rc.conf:  ranger.conf
@@ -178,6 +177,7 @@
         - nautilus-send-to-bluetooth
         - neofetch
         - out2html-git
+        - paperless
         - paper-gtk-theme-git
         - papirus-icon-theme-git
         - papirus-libreoffice-theme

@@ -1,5 +1,8 @@
 **.log
 *dump
+*.pyc
+*.gpg
+*.swp
 vim/plugs/*
 vim/.netrwhist
 tmux/resurrect

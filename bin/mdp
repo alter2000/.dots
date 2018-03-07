@@ -8,4 +8,4 @@ export MDP_LIST_OPEN1=' ¦ '
 export MDP_LIST_OPEN2=' ¦ '
 export MDP_LIST_OPEN3=' ¦ '
 
-mdp $@
+mdp $1

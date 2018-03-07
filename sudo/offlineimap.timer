@@ -1,0 +1,5 @@
+[Unit]
+Description=1 Minute timer
+
+[Timer]
+OnCalendar=*-*-* *:*:34

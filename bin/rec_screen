@@ -1,0 +1,17 @@
+#!/bin/sh
+# record the screen
+# needs xdotool and maybe something else
+
+# vars
+export res=$(xdotool "getdisplaygeometry" | sed 's/ /x/')
+export comment="recording...\n"
+export audioint=default
+export audio=alsa
+export enc=h264
+export pixfmt=yuv420p
+export pres=veryfast
+export crf=20
+export fps=50
+
+printf $comment
+ffmpeg -loglevel 16 -f $audio -i $audioint -f x11grab -framerate $fps -s $res -i :0.0 -c:v $enc -pix_fmt $pixfmt -preset $pres -crf $crf $XDG_PICTURES_DIR/$argv.mp4
