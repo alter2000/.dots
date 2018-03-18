@@ -15,29 +15,30 @@
         ~/.ssh/config:  ssh_config
         ~/.tmux.conf:   tmux_skel
 
-        ~/.config/gtk-3.0:         gtk-3.0
-        ~/.config/beets:           beets
-        ~/.config/compton.conf:    compton
-        ~/.config/dunst:           dunst
-        ~/.config/i3:              i3
-        ~/.config/inkscape:        inkscape
-        ~/.config/mpd:             mpd
-        ~/.config/neofetch:        neofetch
-        ~/.config/polybar:         polybar
-        ~/.config/qutebrowser:     qutebrowser
-        ~/.config/ranger/rc.conf:  ranger.conf
-        ~/.config/redshift.conf:   redshift.conf
-        ~/.config/rofi:            rofi
-        ~/.config/rtv/rtv.cfg:     rtv
-        ~/.config/sway:            sway
-        ~/.config/termite/config:  termite
-        ~/.config/user-dirs.dirs:  user-dirs.dirs
-        ~/.elinks/elinks.conf:     elinks
-        ~/.config/zathura:         zathura
-        ~/.gtkrc-2.0:              gtkrc2
+        $XDG_CONFIG_HOME/gtk-3.0:            gtk-3.0
+        $XDG_CONFIG_HOME/beets:              beets
+        $XDG_CONFIG_HOME/compton.conf:       compton
+        $XDG_CONFIG_HOME/dunst:              dunst
+        $XDG_CONFIG_HOME/elinks/elinks.conf: elinks
+        $XDG_CONFIG_HOME/gtkrc-2.0:          gtkrc2
+        $XDG_CONFIG_HOME/i3:                 i3
+        $XDG_CONFIG_HOME/inkscape:           inkscape
+        $XDG_CONFIG_HOME/mpd:                mpd
+        $XDG_CONFIG_HOME/neofetch:           neofetch
+        $XDG_CONFIG_HOME/newsboat:           newsboat
+        $XDG_CONFIG_HOME/polybar:            polybar
+        $XDG_CONFIG_HOME/qutebrowser:        qutebrowser
+        $XDG_CONFIG_HOME/ranger/rc.conf:     ranger.conf
+        $XDG_CONFIG_HOME/redshift.conf:      redshift.conf
+        $XDG_CONFIG_HOME/rofi:               rofi
+        $XDG_CONFIG_HOME/rtv/rtv.cfg:        rtv
+        $XDG_CONFIG_HOME/sway:               sway
+        $XDG_CONFIG_HOME/termite/config:     termite
+        $XDG_CONFIG_HOME/user-dirs.dirs:     user-dirs.dirs
+        $XDG_CONFIG_HOME/zathura:            zathura
+        $XDG_DATA_HOME/fonts:      fonts
         ~/.img:                    img
         ~/.local/bin:              bin
-        ~/.local/share/fonts:      fonts
         ~/.pandoc:                 pandoc
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
