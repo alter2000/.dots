@@ -4,12 +4,6 @@
 [submodule "dotbot-pacaur"]
 	path = dotbot-pacaur
 	url = https://github.com/ajlende/dotbot-pacaur
-[submodule "Solarized-Acidalia"]
-	path = Solarized--Acidalia
-	url = https://github.com/ma-santoso/dotfiles.git
-[submodule "dotfiles"]
-	path = rainbow-stalin
-	url = https://github.com/bryanbecker/dotfiles.git
 [submodule "bin/creative-cloud-linux"]
 	path = bin/creative-cloud-linux
 	url = https://github.com/corbindavenport/creative-cloud-linux/

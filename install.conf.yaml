@@ -16,6 +16,7 @@
         ~/.tmux.conf:   tmux_skel
 
         ~/.config/gtk-3.0:         gtk-3.0
+        ~/.config/beets:           beets
         ~/.config/compton.conf:    compton
         ~/.config/dunst:           dunst
         ~/.config/i3:              i3

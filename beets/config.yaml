@@ -1,0 +1,39 @@
+library: ~/.dots/beets/library.db
+directory: $XDG_MUSIC_DIR
+plugins: fromfilename lyrics fetchart scrub
+sort_case_insensitive: yes
+per_disc_numbering: no
+
+ignore_hidden: yes
+asciify_paths: yes
+
+format_item: $artist - $album - $title
+import:
+  write:  yes
+  copy:   yes
+  resume: no
+  languages: en
+  incremental:  yes
+  from_scratch: yes
+
+match:
+  strong_rec_thresh: 0.2
+  medium_rec_thresh: 0.5
+  ignored: missing_tracks
+
+paths:
+  default: $albumartist/$album%aunique{}/$track $title
+  singleton: Singles/$artist/$title
+  comp: Compilations/$album%aunique{}/$track $title
+
+fetchart:
+  sources: coverart itunes amazon albumart filesystem
+
+replaygain:
+  overwrite: yes
+  auto: yes
+
+bpd:
+  host: 0.0.0.0
+  port: 6600
+  password: idk
