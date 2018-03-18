@@ -1,10 +1,11 @@
 #!/bin/bash
 
-device=13
-state=`xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$"`
+state=`synclient -l | grep 'TouchpadOff' | awk '{print $3}'`
 
 if [ $state == '1' ];then
-  xinput --disable $device
+	synclient TouchpadOff=0
+	notify-send "pad enabled"  "gg scrub"
 else
-  xinput --enable $device
+	synclient TouchpadOff=1
+	notify-send "pad disabled" "rub meh"
 fi

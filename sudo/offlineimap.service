@@ -1,6 +1,0 @@
-[Unit]
-Description=offlineimap sync service
-
-[Service]
-Type=oneshot
-ExecStart=/usr/vin/offlineimap

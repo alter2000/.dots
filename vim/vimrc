@@ -228,7 +228,7 @@ autocmd FileType PKGBUILD    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makep
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 textwidth=79 expandtab autoindent makeprg=python\ %
 autocmd FileType sh     setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=./%
 
-autocmd FileType *mail setlocal nospell
+autocmd FileType *mail setlocal nospell number
 autocmd FileType mail let b:loaded_delimitMate = 1
 
 """ FUNCTIONS """

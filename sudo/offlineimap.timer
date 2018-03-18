@@ -1,5 +1,10 @@
 [Unit]
-Description=1 Minute timer
+Description=2 Minute timer
 
 [Timer]
+OnBootSec=1min
 OnCalendar=*-*-* *:*:34
+Unit=offlineimap-timer.target
+
+[Install]
+WantedBy=

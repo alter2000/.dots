@@ -1,0 +1,8 @@
+[Unit]
+Description=2 minute timer
+
+[Timer]
+OnBootSec=2min
+OnCalendar=*-*-* *:0/2
+Unit=offlineimap.service
+Persistent=yes

@@ -7,13 +7,13 @@ if tput setaf 1 &> /dev/null; then
 	reset=$(tput sgr0);
 	black=$(tput setaf 16); #000000
 	white=$(tput setaf 188); #d7d7d7
-	red=$(tput setaf 160); #d70000
-	green=$(tput setaf 42); #00d787
-	yellow=$(tput setaf 214); #ffaf00
-	blue=$(tput setaf 32); #0097d7
-	magenta=$(tput setaf 37); #d75faf
-	cyan=$(tput setaf 103); #8787af
-	teal=$(tput setaf 30); #008787
+	red=$(tput setaf red); #d70000
+	green=$(tput setaf green); #00d787
+	yellow=$(tput setaf yellow); #ffaf00
+	blue=$(tput setaf blue); #0097d7
+	magenta=$(tput setaf magenta); #d75faf
+	cyan=$(tput setaf cyan); #8787af
+	teal=$(tput setaf teal); #008787
 else
 	bold='';
 	reset="\e[0m";
@@ -73,7 +73,6 @@ df -H --total -t ext4 -t fuse.sshfs -t fat32 -t ntfs -t btrfs -t xfs
 echo "${reset}"
 echo ""
 echo -e "                      $(head -n -2 ~/.cache/wttr)"
-echo ""
 echo ""
 echo "${magenta}$(calcurse --appointment --todo --quiet)${reset}"
 echo ""

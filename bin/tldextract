@@ -1,8 +1,6 @@
 #!/usr/bin/python
-
 # -*- coding: utf-8 -*-
-import re
-import sys
+import re, sys
 
 from tldextract.cli import main
 

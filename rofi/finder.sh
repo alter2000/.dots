@@ -7,11 +7,11 @@ then
   then
     if [[ "$@" == *\?\? ]]
     then
-      coproc ( exo-open "${QUERY%\/* \?\?}"  > /dev/null 2>&1 )
+      coproc ( xdg-open "${QUERY%\/* \?\?}"  > /dev/null 2>&1 )
       exec 1>&-
       exit;
     else
-      coproc ( exo-open "$@"  > /dev/null 2>&1 )
+      coproc ( xdg-open "$@"  > /dev/null 2>&1 )
       exec 1>&-
       exit;
     fi

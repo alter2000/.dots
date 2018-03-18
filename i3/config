@@ -3,6 +3,9 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $i3-sensible-terminal termite
+set $i3-sensible-editor vim
+set $i3-sensible-pager less
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -13,10 +16,10 @@ bindsym $mod+F4 kill
 
 #i3-gaps
 new_window pixel 3
-gaps inner 7
-gaps outer 9
-set $gap_width_o 9
-set $gap_width_i 7
+#gaps inner 7
+#gaps outer 9
+#set $gap_width_o 9
+#set $gap_width_i 7
 smart_gaps on
 smart_borders no_gaps
 
@@ -148,7 +151,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id lux -m 1 -M 4794 -a 4%
 bindsym XF86MonBrightnessDown exec --no-startup-id lux -m 1 -M 4794 -s 4%
 
 # toggle touchpad
-bindsym XF86Display exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+bindsym XF86Display exec ~/.local/bin/toggle_clickpad.sh
 
 # set up TV as secondary monitor
 bindsym Ctrl+XF86Display exec --no-startup-id xrandr --output eDP1 --auto --primary --output VGA1 --gamma 0.8:0.8:0.8 --above eDP1
@@ -231,6 +234,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun -location 3
 bindsym $mod+w exec --no-startup-id rofi -show window -modi window -width 900
+bindsym $mod+= exec --no-startup-id ~/.dots/rofi/=
+bindsym $mod+- exec --no-startup-id ~/.dots/rofi/rofi-randr
 
 # Redshift
 exec --no-startup-id redshift

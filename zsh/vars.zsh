@@ -6,26 +6,26 @@ export PAGER='less'
 export EDITOR='vim'
 export VISUAL='vim'
 export ZDOTDIR="$HOME/.zsh"
+export WORDCHARS=''
 export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
 export GITHUB_USER='alter2000'
-#export VMAIL_BROWSER='elinks'
 export VMAIL_HTML_PART_READER='elinks -dump'
 export fpath=(/home/alter2000/.zsh/completions/ $fpath)
 
-## colored-man-pages from gh/imkira
-#export LESS_TERMCAP_mb=$'\E[01;31m'
-#export LESS_TERMCAP_md=$'\E[01;38;5;74m'
-#export LESS_TERMCAP_me=$'\E[0m'
-#export LESS_TERMCAP_se=$'\E[0m'
-#export LESS_TERMCAP_so=$'\E[38;33;246m'
-#export LESS_TERMCAP_ue=$'\E[0m'
-#export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+# colored-man-pages from gh/imkira
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[38;33;246m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
 ### POWERLEVEL9K ###
 DEFAULT_USER="alter2000"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context dir vcs custom_wifi_signal)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( background_jobs dir vcs custom_wifi_signal )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( status battery time )
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_BACKGROUND - 2 ))}|%f"
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""

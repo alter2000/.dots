@@ -11,9 +11,12 @@ usage() {
 
 case $1 in
     shrug)
-      printf "┐('-')┌"
+      printf "¯\_(ツ)_/¯"
     ;;
     shrug2)
+      printf "┐('-')┌"
+    ;;
+    shrug3)
       printf "┐('~'; )┌"
     ;;
     rage)

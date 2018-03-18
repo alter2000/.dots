@@ -82,6 +82,7 @@
         - handbrake
         - httrack
         - htop
+        - imv
         - inkscape
         - kdenlive
         - libreoffice-fresh
@@ -122,7 +123,6 @@
         - subtitleeditor
         - supertux
         - supertuxkart
-        - sxiv
         - teeworlds
         - termite
         - texlive-most
@@ -178,10 +178,10 @@
         - neofetch
         - out2html-git
         - paperless
-        - paper-gtk-theme-git
         - papirus-icon-theme-git
         - papirus-libreoffice-theme
         - passff-host
+        - pokoy
         - polybar
         - pplatex-git
         - python-pywal

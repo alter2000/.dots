@@ -10,15 +10,9 @@
 [submodule "dotfiles"]
 	path = rainbow-stalin
 	url = https://github.com/bryanbecker/dotfiles.git
-[submodule "zsh/powerlevel9k"]
-	path = zsh/powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
 [submodule "bin/creative-cloud-linux"]
 	path = bin/creative-cloud-linux
 	url = https://github.com/corbindavenport/creative-cloud-linux/
 [submodule "tmux/tmux-resurrect"]
 	path = tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
-[submodule "rofi/rofi-scripts"]
-	path = rofi/rofi-scripts
-	url = https://github.com/carnager/rofi-scripts

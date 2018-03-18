@@ -1,0 +1,12 @@
+[Unit]
+Description=offlineimap sync service
+BindsTo=### ay sum network service
+Wants=offlineimap.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/offlineimap -o
+TimeoutSec=100
+
+[Install]
+WantedBy=
