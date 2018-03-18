@@ -1,17 +1,7 @@
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export GEM_HOME=$HOME/.gem
-export CLICOLOR=1
-export LESS='--ignore-case --raw-control-chars'
-export PAGER='less'
-export EDITOR='vim'
-export VISUAL='vim'
-export ZDOTDIR="$HOME/.zsh"
-export WORDCHARS=''
-export ARCHFLAGS='-arch x86_64'
-export MAKEFLAGS='-j3'
-export GITHUB_USER='alter2000'
-export VMAIL_HTML_PART_READER='elinks -dump'
-export fpath=(/home/alter2000/.zsh/completions/ $fpath)
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+export TERMINAL=termite
+export BROWSER=firefox
 
 # colored-man-pages from gh/imkira
 export LESS_TERMCAP_mb=$'\E[01;31m'

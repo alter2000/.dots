@@ -13,7 +13,7 @@ let g:rofi_loaded = 1
 " Options
 " ----------------------------------------------------------------------------
 
-let s:theme = expand('<sfile>:h') . '/rofi.theme'
+let s:theme = $XDG_CONFIG_HOME . '/rofi/themes/term-dark.theme'
 
 let s:default_options = "-monitor '-2' -i -hide-scrollbar -show-match"
 let s:default_options .= " -theme " . fnameescape(s:theme)
@@ -37,7 +37,7 @@ command -nargs=0 RofiBuffers call <sid>buffers()
 " Code
 " ----------------------------------------------------------------------------
 
-" Determine the right rofi width according to predefined rules
+" Determine the right rofi witdth according to predefined rules
 func s:rofi_width() abort
 	let width = g:rofi_width_default
 	for rule in g:rofi_width_rules

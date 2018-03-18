@@ -5,25 +5,30 @@ rofi.color-enabled:     true
 !rofi.color-normal:     #f2e6d1, #ffffff, argb:00222222, argb:00555555, argb:ff00BCD4
 !rofi.color-urgent:     #f2e6d1, #ffffff, argb:00222222, argb:00222222, argb:ff00BCD4
 !rofi.color-active:     #f2e6d1, #ffffff, argb:00222222, argb:00222222, argb:ff00BCD4
+rofi.bw:                0
+rofi.eh:                1
+rofi.case-sensitive:    false
 rofi.cycle:             false
-rofi.hide-scrollbar:    true
-rofi.fake-transparency: false
-rofi.font:              roboto-Thin 16
+rofi.drun-match-fields: exec,name,categories
+rofi.font:              roboto-Thin 13
 rofi.fullscreen:        false
-rofi.matching:          fuzzy
+rofi.matching:          glob
 rofi.modi:              window,run,drun
-rofi.monitor:           0
+rofi.monitor:           -1
 rofi.lines:             12
-rofi.line-margin:       0
 rofi.location:          0
 rofi.opacity:           40
-rofi.padding:           40
 rofi.run-command:       zsh -c "{cmd}"
 rofi.run-shell-command: {terminal} --exec {cmd}
-rofi.separator-style:   dash
-rofi.sidebar-mode:      true
+rofi.sidebar-mode:      false
+rofi.show-icons:        false
 rofi.terminal:          termite
+rofi.threads:           0
 rofi.width:             500
 rofi.window-format:     {w}	{c}	{t}
+
 rofi.xoffset:           0
 rofi.yoffset:           0
+
+rofi.display-drun: apps
+!rofi.theme:             

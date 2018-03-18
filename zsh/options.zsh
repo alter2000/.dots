@@ -26,3 +26,7 @@ setopt complete_in_word
 #setopt prompt_subst
 # multiple redirections
 setopt multios
+# watch for tmux
+[ -n "$TMUX" ] && setopt ignoreeof
+# allow ctrl-s and ctrl-q bindings to be used
+stty -ixon

@@ -15,6 +15,8 @@ alias gp="git push"
 alias gh="git hub"
 alias gb="git bb"
 
+alias ipy="ipython"
+
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"

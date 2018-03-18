@@ -10,7 +10,7 @@
         ~/.vim:         vim/
         ~/.xbindkeysrc: xbindkeysrc
         ~/.zsh:         zsh
-        ~/.zshrc:       zshrc
+        ~/.zprofile:    zprofile
         ~/.mailcap:     mailcap
         ~/.ssh/config:  ssh_config
         ~/.tmux.conf:   tmux_skel
@@ -31,6 +31,7 @@
         ~/.config/rtv/rtv.cfg:     rtv
         ~/.config/sway:            sway
         ~/.config/termite/config:  termite
+        ~/.config/user-dirs.dirs:  user-dirs.dirs
         ~/.elinks/elinks.conf:     elinks
         ~/.config/zathura:         zathura
         ~/.gtkrc-2.0:              gtkrc2
