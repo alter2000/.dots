@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Ubuntu Mono derivative Powerline 11
+font = Ubuntu Mono derivative Powerline 10
 scrollback_lines = 10000
 search_wrap = true
 icon_name = termite
@@ -23,7 +23,7 @@ cursor_shape = block
 browser = firefox
 
 # set size hints for the window
-#size_hints = false
+size_hints = false
 
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
@@ -63,7 +63,7 @@ color14 = #93e0e3
 color15 = #ffffff
 
 [hints]
-font = Monospace 12
+font = Monospace 10
 foreground = #dcdccc
 background = #3f3f3f
 active_foreground = #e68080

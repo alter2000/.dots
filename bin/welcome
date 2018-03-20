@@ -1,4 +1,4 @@
-#-*- mode: shell-script -*-
+#!/bin/sh
 
 # Load colours
 if tput setaf 1 &> /dev/null; then

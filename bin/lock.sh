@@ -10,6 +10,8 @@ for RES in $SR; do
   rectangles+="rectangle $CX,$CY $((CX+300)),$((CY-80)) "
 done
 
+
+
 TMPBG=/tmp/screen.png
 scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000%  $TMPBG
 
@@ -18,12 +20,12 @@ i3lock \
   --timepos="x-90:h-ch-20" \
   --datepos="tx+24:ty+25" \
   --clock --datestr "Oi cunt" \
-  --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
+  --insidecolor=00000000 --ringcolor=f2e6d1ff --line-uses-inside \
   --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
-  --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
-  --ringvercolor=ffffffff --ringwrongcolor=ffffffff \
+  --insidevercolor=fecf4dff --insidewrongcolor=ffffffff \
+  --ringvercolor=ffffffff --ringwrongcolor=d23c3dff \
   --radius=20 --veriftext="" --wrongtext="" \
-  --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
+  --textcolor="821f5aff" --timecolor="8ab93fff" --datecolor="821f5aff"
 
 rm /tmp/screen.png
 

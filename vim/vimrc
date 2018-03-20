@@ -93,6 +93,7 @@ call plug#end()
 
 let g:livepreview_previewer = 'zathura'
 let g:pandoc#folding#mode = 'relative'
+let g:pandoc#folding#fdc = 0
 
 let g:gundo_preview_height = 10
 let g:gundo_width = 23
