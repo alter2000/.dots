@@ -36,3 +36,8 @@ bindkey "^[[3;5~" delete-word                   # Ctrl+Del
 bindkey "^[[3;3~" delete-word                   # Alt+Del
 bindkey "^H"      backward-delete-word          # Ctrl+Bksp
 bindkey "^[[Z"    reverse-menu-complete         # Shift+Tab backwards menu
+
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward

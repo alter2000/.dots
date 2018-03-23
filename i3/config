@@ -14,13 +14,16 @@ font pango:Ubuntu 9
 # kill focused window
 bindsym $mod+F4 kill
 
+default_border pixel 0
+hide_edge_borders both
+
 #i3-gaps
-new_window pixel 3
-#gaps inner 7
-#gaps outer 9
-#set $gap_width_o 9
-#set $gap_width_i 7
-smart_gaps on
+# new_window pixel 3
+# gaps inner 7
+# gaps outer 9
+# set $gap_width_o 9
+# set $gap_width_i 7
+# smart_gaps on
 smart_borders no_gaps
 
 ########################################
@@ -160,20 +163,20 @@ bindsym Ctrl+XF86Display exec --no-startup-id xrandr --output eDP1 --auto --prim
 
 ########################################
 
-for_window [class="sxiv"] floating enable
+for_window [class="imv"] floating enable
 for_window [class="dde-polkit-dialog" instance="dde-polkit-dialog"] floating enable
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Dia" instance="dia"] floating enable
 for_window [class="Com.github.nick92.coffee" instance="com.github.nick92.coffee"] floating enable
+
+for_window [class="Termite"] border pixel 1
 
 assign [class="Firefox"]  1 ffox
 assign [class="Chromium"] 1 ffox
 
 assign [class="Vim"]  2 ide
 assign [class="Atom"] 2 ide
-assign [class="Boostnote"] 9 aux
 
-assign [class="Nautilus"]  3 files
 assign [instance="*.epub"] 3 files
 
 assign [class="ncmpcpp"]      10 media
@@ -208,7 +211,7 @@ client.focused          $c1     $bg     $fg  $c1        $c3
 client.focused_inactive $c1     $bg     $fg  $c1        $c3
 client.unfocused        $c2     $bg     $fg  $c2        $c3
 client.urgent           $c13    $bg     $fg  $c13       $c14
-client.placeholder      $c0     $bg     $fg  $c0        $c12
+client.placeholder      $bg     $bg     $fg  $bg        $c12
 client.background       $bg     $bg     $fg  $bg        $bg
 
 ########################################
