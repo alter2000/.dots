@@ -46,7 +46,7 @@
         $XDG_DATA_HOME/systemd/user/offlineimap:      systemd/offlineimap
         $XDG_DATA_HOME/systemd/user/autolock.service: systemd/autolock.service
         $XDG_DATA_HOME/systemd/user/user.conf:        systemd/user.conf
-        $XDG_DATA_HOME/systemd/user
+        #$XDG_DATA_HOME/systemd/user
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
