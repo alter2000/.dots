@@ -1,0 +1,6 @@
+[Unit]
+Description = Bups backup manager service
+
+[Service]
+Type = simple
+

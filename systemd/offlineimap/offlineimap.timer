@@ -1,8 +1,10 @@
 [Unit]
-Description=2 minute timer
+Description=2 minute offlineimap timer
 
 [Timer]
 OnBootSec=2min
 OnCalendar=*-*-* *:0/2
-Unit=offlineimap.service
 Persistent=yes
+
+[Install]
+WantedBy=timers.target

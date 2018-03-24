@@ -3,7 +3,7 @@ Description=Autolocks the screen after inactivity
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/xautolock
+ExecStart=lock.sh
 Restart=always
 RestartSec=30
 

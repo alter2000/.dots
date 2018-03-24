@@ -32,4 +32,4 @@ alias paind="pacaur -S --asdeps"
 alias pare="pacaur -R"
 alias parm="pacaur -Rsn"
 alias parmorphans="sudo pacman -Rns $(pacman -Qtdq)"
-
+alias parmnew="sudo find / -name '*.pacnew' 2>/dev/null"

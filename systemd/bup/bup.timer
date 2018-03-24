@@ -1,0 +1,10 @@
+[Unit]
+Description = backup timer
+
+[Timer]
+OnCalendar = *-*-*
+Persistent = true
+
+[Install]
+WantedBy = timers.target
+

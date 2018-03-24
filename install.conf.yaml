@@ -19,6 +19,7 @@
         $XDG_CONFIG_HOME/beets:              beets
         $XDG_CONFIG_HOME/compton.conf:       compton
         $XDG_CONFIG_HOME/dunst:              dunst
+        $XDG_CONFIG_HOME/eidolon/config:     eidolon.conf
         $XDG_CONFIG_HOME/elinks/elinks.conf: elinks
         $XDG_CONFIG_HOME/gtkrc-2.0:          gtkrc2
         $XDG_CONFIG_HOME/i3:                 i3
@@ -36,10 +37,16 @@
         $XDG_CONFIG_HOME/termite/config:     termite
         $XDG_CONFIG_HOME/user-dirs.dirs:     user-dirs.dirs
         $XDG_CONFIG_HOME/zathura:            zathura
-        $XDG_DATA_HOME/fonts:      fonts
-        ~/.img:                    img
-        ~/.local/bin:              bin
-        ~/.pandoc:                 pandoc
+        $XDG_DATA_HOME/fonts:                fonts
+        ~/.img:                              img
+        ~/.local/bin:                        bin
+        ~/.pandoc:                           pandoc
+
+        # per-user systemd units for most daemons and repetitive jobs (including offlineimap, even though it has its own daemon mode)
+        $XDG_DATA_HOME/systemd/user/offlineimap:      systemd/offlineimap
+        $XDG_DATA_HOME/systemd/user/autolock.service: systemd/autolock.service
+        $XDG_DATA_HOME/systemd/user/user.conf:        systemd/user.conf
+        $XDG_DATA_HOME/systemd/user
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]

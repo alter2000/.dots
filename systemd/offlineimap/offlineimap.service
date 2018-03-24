@@ -1,6 +1,6 @@
 [Unit]
 Description=offlineimap sync service
-BindsTo=### ay sum network service
+BindsTo=network-online.target
 Wants=offlineimap.timer
 
 [Service]
@@ -9,4 +9,4 @@ ExecStart=/usr/bin/offlineimap -o
 TimeoutSec=100
 
 [Install]
-WantedBy=
+WantedBy=default.target
