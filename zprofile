@@ -1,2 +1,2 @@
-[[ -f ~/.zsh/zshrc ]] && source ~/.zsh/zshrc
+[[ -f $ZDOTDIR/vars.zsh ]] && source $ZDOTDIR/vars.zsh
 # vim ft=sh

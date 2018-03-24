@@ -11,6 +11,7 @@
         ~/.xbindkeysrc: xbindkeysrc
         ~/.zsh:         zsh
         ~/.zprofile:    zprofile
+        ~/.zshrc:       zshrc
         ~/.mailcap:     mailcap
         ~/.ssh/config:  ssh_config
         ~/.tmux.conf:   tmux_skel
