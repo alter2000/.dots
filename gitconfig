@@ -12,6 +12,6 @@
 [credential]
 	helper = cache --timeout=36000
 [core]
-	askpass = $(which pass) Gits/github.com
+	askpass = pass Gits/github.com | head -1
 	editor = vim
 	excludesfile = ~/.gitignore
