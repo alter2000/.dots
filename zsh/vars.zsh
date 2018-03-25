@@ -20,6 +20,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS=$HOME/.local/share/:/usr/local/share/:/usr/share/
 
+export GIT_ASKPASS='pass Gits/github.com | head -1'
 export GITHUB_USER='alter2000'
 export QT_QPA_PLATFORMTHEME=qt5ct
 export VMAIL_HTML_PART_READER='elinks -dump'
