@@ -3,6 +3,7 @@ Description=Autolocks the screen after inactivity
 
 [Service]
 Type=simple
+Environment="PATH=$HOME/.local/bin:$PATH"
 ExecStart=lock.sh
 Restart=always
 RestartSec=30

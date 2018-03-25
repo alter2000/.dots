@@ -8,29 +8,26 @@
 ############
 # TEXT FILES
 ############
-text/html ; pandoc -f html -t markdown ; copiousoutput ; compose=vim %s
 text/html ; firefox '%s'     ; test=test -n "$DISPLAY"
-text/html ; elinks -dump '%s'; copiousoutput; needsterminal
+text/html ; elinks -dump '%s'; copiousoutput
+text/html ; pandoc -f html -t markdown ; copiousoutput ; compose=vim %s
 text/tex  ; vim '%s'         ; needsterminal
-text/*    ; less -R '%s'     ; needsterminal
+text/*    ; view '%s'        ; needsterminal
 
 application/pdf    ; zathura '%s'; test=test -n "$DISPLAY"
 application/msword ; soffice '%s'; test=test -n "$DISPLAY"
 application/msword ; pandoc -f docx -t markdown;copiousoutput;compose=vim %s
+
 ############
 # VIEWABLES
 ############
-image/x-imgur-album ; feh -g 640x480 %s; test=test -n "$DISPLAY"
-image/gif       ; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
-image/*         ; feh -g 640x480 '%s'; test=test -n "$DISPLAY"
-video/x-youtube ; vlc '%s' --width 640 --height 480; test=test -n "$DISPLAY"
-video/x-youtube ; mpv --ytdl-format=best '%s' --autofit 640x480; test=test -n "$DISPLAY"
-video/*         ; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+image/gif           ; mpv '%s'    ; test = test -n "$DISPLAY"
+image/*             ; imv -s '%s' ; test = test -n "$DISPLAY"
+video/x-youtube     ; mpv --ytdl-format=best '%s' ; test = test -n "$DISPLAY"
+video/*             ; mpv '%s'    ; test = test -n "$DISPLAY"
 
 # terminal solutions
 image/*         ; w3m -o 'ext_image_viewer=off' '%s'; needsterminal
-# Display images in ascii using img2txt and lib-caca
-image/*         ; curl -s '%s' | convert - jpg:/tmp/rtv.jpg && img2txt -f utf8 /tmp/rtv.jpg; needsterminal; copiousoutput
 # need framebuffer
 video/x-youtube ; mpv -vo drm -quiet '%s'; needsterminal
 video/*         ; mpv -vo drm -quiet '%s'; needsterminal

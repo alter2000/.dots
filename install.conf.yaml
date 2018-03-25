@@ -16,38 +16,39 @@
         ~/.ssh/config:  ssh_config
         ~/.tmux.conf:   tmux_skel
 
-        $XDG_CONFIG_HOME/gtk-3.0:            gtk-3.0
-        $XDG_CONFIG_HOME/beets:              beets
-        $XDG_CONFIG_HOME/compton.conf:       compton
-        $XDG_CONFIG_HOME/dunst:              dunst
-        $XDG_CONFIG_HOME/eidolon/config:     eidolon.conf
-        $XDG_CONFIG_HOME/elinks/elinks.conf: elinks
-        $XDG_CONFIG_HOME/gtkrc-2.0:          gtkrc2
-        $XDG_CONFIG_HOME/i3:                 i3
-        $XDG_CONFIG_HOME/inkscape:           inkscape
-        $XDG_CONFIG_HOME/mpd:                mpd
-        $XDG_CONFIG_HOME/neofetch:           neofetch
-        $XDG_CONFIG_HOME/newsboat:           newsboat
-        $XDG_CONFIG_HOME/polybar:            polybar
-        $XDG_CONFIG_HOME/qutebrowser:        qutebrowser
-        $XDG_CONFIG_HOME/ranger/rc.conf:     ranger.conf
-        $XDG_CONFIG_HOME/redshift.conf:      redshift.conf
-        $XDG_CONFIG_HOME/rofi:               rofi
-        $XDG_CONFIG_HOME/rtv/rtv.cfg:        rtv
-        $XDG_CONFIG_HOME/sway:               sway
-        $XDG_CONFIG_HOME/termite/config:     termite
-        $XDG_CONFIG_HOME/user-dirs.dirs:     user-dirs.dirs
-        $XDG_CONFIG_HOME/zathura:            zathura
-        $XDG_DATA_HOME/fonts:                fonts
+        ${XDG_CONFIG_HOME}/gtk-3.0:            gtk-3.0
+        ${XDG_CONFIG_HOME}/beets:              beets
+        ${XDG_CONFIG_HOME}/compton.conf:       compton
+        ${XDG_CONFIG_HOME}/dunst:              dunst
+        ${XDG_CONFIG_HOME}/eidolon/config:     eidolon.conf
+        ${XDG_CONFIG_HOME}/elinks/elinks.conf: elinks
+        ${XDG_CONFIG_HOME}/gtkrc-2.0:          gtkrc2
+        ${XDG_CONFIG_HOME}/i3:                 i3
+        ${XDG_CONFIG_HOME}/inkscape:           inkscape
+        ${XDG_CONFIG_HOME}/mpd:                mpd
+        ${XDG_CONFIG_HOME}/neofetch:           neofetch
+        ${XDG_CONFIG_HOME}/newsboat:           newsboat
+        ${XDG_CONFIG_HOME}/polybar:            polybar
+        ${XDG_CONFIG_HOME}/qutebrowser:        qutebrowser
+        ${XDG_CONFIG_HOME}/ranger/rc.conf:     ranger.conf
+        ${XDG_CONFIG_HOME}/redshift.conf:      redshift.conf
+        ${XDG_CONFIG_HOME}/rofi:               rofi
+        ${XDG_CONFIG_HOME}/rtv/rtv.cfg:        rtv
+        ${XDG_CONFIG_HOME}/sway:               sway
+        ${XDG_CONFIG_HOME}/termite/config:     termite
+        ${XDG_CONFIG_HOME}/user-dirs.dirs:     user-dirs.dirs
+        ${XDG_CONFIG_HOME}/zathura:            zathura
+        ${XDG_DATA_HOME}/fonts:                fonts
         ~/.img:                              img
         ~/.local/bin:                        bin
         ~/.pandoc:                           pandoc
 
         # per-user systemd units for most daemons and repetitive jobs (including offlineimap, even though it has its own daemon mode)
-        $XDG_DATA_HOME/systemd/user/offlineimap:      systemd/offlineimap
-        $XDG_DATA_HOME/systemd/user/autolock.service: systemd/autolock.service
-        $XDG_DATA_HOME/systemd/user/user.conf:        systemd/user.conf
-        #$XDG_DATA_HOME/systemd/user
+        ${XDG_DATA_HOME}/systemd/user/offlineimap.service: systemd/offlineimap/offlineimap.service
+        ${XDG_DATA_HOME}/systemd/user/offlineimap.timer:   systemd/offlineimap/offlineimap.timer
+        ${XDG_DATA_HOME}/systemd/user/autolock.service:    systemd/autolock.service
+        ${XDG_DATA_HOME}/systemd/user/user.conf:           systemd/user.conf
+        #${XDG_DATA_HOME}/systemd/user
 - shell:
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
@@ -65,7 +66,6 @@
         - bash
         - beets
         - bsd-games
-        - budgie-desktop
         - calcurse
         - chromium
         - clamav
@@ -87,7 +87,6 @@
         - gnuplot
         - gpart
         - gparted
-        - guake
         - gucharmap
         - gvim
         - handbrake
@@ -95,12 +94,10 @@
         - htop
         - imv
         - inkscape
-        - kdenlive
         - libreoffice-fresh
         - libreoffice-fresh-sq
         - libreoffice-extension-writer2latex
         - lightdm-gtk-greeter
-        - lyx
         - maim
         - mosh
         - mpv
@@ -118,18 +115,15 @@
         - numix-gtk-theme
         - offlineimap
         - openra
-        - openshot
         - openssh
         - otf-overpass
         - pass
         - pavucontrol
         - qrencode
         - redshift
-        - rkhunter
         - rofi
         - rsync
         - ruby
-        - snapd
         - steam
         - subtitleeditor
         - supertux
@@ -141,7 +135,7 @@
         - tlp
         - tmux
         - transmission-gtk
-        - ttf-droid
+        # - ttf-droid
         - ttf-liberation
         - ttf-ubuntu-font-family
         - tree
@@ -163,19 +157,18 @@
         - zsh
 
 - pacaur:
-        - ant-gtk-theme
+        # - ant-gtk-theme
         - bash-pipes
         - bookworm
-        - boostnote
-        - canto-curses
-        - context-minimals-git
+        # - canto-curses
+        # - context-minimals-git
         - downgrade
         - endless-sky
         - etcher
         - folder-color-switcher
         - gnome-directory-thumbnailer
-        - gimagereader
-        - git-spindle
+        # - gimagereader
+        # - git-spindle
         - i3-gaps
         - i3lock-next-git
         - icdiff
@@ -186,10 +179,9 @@
         - micro
         - moon-buggy
         - nautilus-folder-icons
-        - nautilus-send-to-bluetooth
+        # - nautilus-send-to-bluetooth
         - neofetch
         - out2html-git
-        - paperless
         - papirus-icon-theme-git
         - papirus-libreoffice-theme
         - passff-host
@@ -198,8 +190,9 @@
         - pplatex-git
         - python-pywal
         - rtv
+        - snapd
         - ssb-patchwork
-        - terminess-powerline-font-git
+        # - terminess-powerline-font-git
         - texlive-most
         - tor-browser
         - touchpad-toggle

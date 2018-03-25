@@ -10,3 +10,4 @@ vim/.netrwhist
 tmux/resurrect
 **/*cache*
 **/*history
+**/*uuid
