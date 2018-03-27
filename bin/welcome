@@ -50,14 +50,15 @@ uptime="${uptime%', '}"
 uptime="${uptime:-${seconds} seconds}"
 
 # Get weather if the wttr file has been downloaded more than 1 hour ago or doesn't exist
+LOCATION="Tirana"
 if [ -f ~/.cache/wttr ]; then
 	file_time=$(stat --format='+%Y' "/home/alter2000/.cache/wttr")
 	current_time=$(date +%s)
 	if (( file_time < ( current_time - ( 60 * 60 * 1 ) ) )); then
-	wget -q -O ~/.cache/wttr wttr.in/Tirana?qn1
+	wget -q -O ~/.cache/wttr wttr.in/$LOCATION?qn1
 fi
 else
-	wget -q -O ~/.cache/wttr wttr.in/Tirana?qn1
+	wget -q -O ~/.cache/wttr wttr.in/$LOCATION?qn1
 	touch ~/wttr_warning_$(date +%Y-%m-%d-%H-%M)
 fi
 

@@ -1,0 +1,14 @@
+#!/bin/bash
+# get weather and put 
+
+LOCATION="Tirana"
+if [ -f ~/.cache/wttr_big then
+	file_time=$(stat --format='+%Y' "/home/alter2000/.cache/wttr")
+	current_time=$(date +%s)
+	if (( file_time < ( current_time - ( 60 * 60 * 1 ) ) )); then
+	curl -s wttr.in/$LOCATION | head -37 | tail -30
+fi
+else
+	curl -s wttr.in/$LOCATION | head -37 | tail -30
+	touch ~/wttr_warning_$(date +%Y-%m-%d-%H-%M)
+fi

@@ -2,8 +2,8 @@
 .tabbrowser-tab:not([pinned])
 .tab-close-button {display: none !important;}
 .tabs-newtab-button {display: none !important;}
- Hide the three dots thing in the address bar */
-#pageActionButton {visibility: hidden;}
+ Hide the three dots thing in the address bar
+#pageActionButton {visibility: hidden;}*/
 /* Set "inherit" to restore sidebar header */
 #sidebar-header {display: none !important;}
 #sidebar {min-width: 60px !important;}

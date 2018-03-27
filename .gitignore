@@ -7,7 +7,6 @@ beets/library.db
 beets/state.pickle
 vim/plugs/*
 vim/.netrwhist
-tmux/resurrect
 **/*cache*
 **/*history
 **/*uuid

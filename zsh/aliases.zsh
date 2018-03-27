@@ -1,7 +1,9 @@
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
-# weather
-alias wttr="curl -s wttr.in/Tirana | head -37 | tail -30"
+alias ipy="ipython"
+alias tree="tree -C"
+alias view="vimpager"
+alias wag="python ./manage.py"
 
 alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
@@ -15,15 +17,9 @@ alias gp="git push"
 alias gh="git hub"
 alias gb="git bb"
 
-alias ipy="ipython"
-
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
-
-alias tree="tree -C"
-alias view="vimpager"
-alias wag="python ./manage.py"
 
 alias suffer="pacaur -Syu"
 alias pain="pacaur -S"

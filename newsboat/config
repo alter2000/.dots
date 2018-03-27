@@ -77,7 +77,7 @@ oldreader-passwordfile ""
 oldreader-show-special-feeds true
 openbrowser-and-mark-jumps-to-next-unread false
 opml-url ""
-pager "less"
+pager "vim -R"
 player "mpv"
 podcast-auto-enqueue no
 prepopulate-query-feeds false
