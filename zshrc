@@ -9,8 +9,6 @@ source ~/.zsh/vars.zsh
 source ~/.zsh/options.zsh
 source ~/.zsh/kbd.zsh
 
-systemctl --user import-environment PATH
-
 zle -N rationalize-dot
 bindkey . rationalize-dot
 bindkey -M isearch . self-insert # history search fix
@@ -20,4 +18,4 @@ bindkey -M isearch . self-insert # history search fix
 # anyway, this may be a different file
 #autoload -U colors && colors
 #autoload -U promptinit && promptinit
-(cat ~/.cache/wal/sequences)
+# (cat ~/.cache/wal/sequences)

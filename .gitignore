@@ -5,8 +5,9 @@
 *.sw[aop]
 beets/library.db
 beets/state.pickle
-vim/plugs/*
+vim/plugs
 vim/.netrwhist
+vim/session
 **/*cache*
 **/*history
 **/*uuid

@@ -1,5 +1,5 @@
 library: ~/.dots/beets/library.db
-directory: $XDG_MUSIC_DIR
+directory: ~/Music
 plugins: fromfilename lyrics fetchart scrub
 sort_case_insensitive: yes
 per_disc_numbering: no
@@ -28,6 +28,7 @@ paths:
 
 fetchart:
   sources: coverart itunes amazon albumart filesystem
+  enforce_ratio: 5%
 
 replaygain:
   overwrite: yes

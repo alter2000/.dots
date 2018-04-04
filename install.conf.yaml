@@ -54,6 +54,7 @@
         - [cd dotbot && git checkout master && git pull, Moving dotbot submodule to branch master and pulling]
         - [git submodule update --recursive, Updating all submodules]
         - [vim -c 'PlugInstall | qa', Updating Vim plugins]
+        - [pip install --user vcspull, installing vcspull pip]
 
 - pacman:
         - alsa-utils
@@ -154,6 +155,7 @@
         - xbindkeys
         - xdotool
         - xclip
+        - xsel
         - youtube-dl
         - zsh
 
@@ -190,6 +192,7 @@
         - polybar
         - pplatex-git
         - python-pywal
+        - rig
         - rtv
         - snapd
         - ssb-patchwork

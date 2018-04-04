@@ -1,7 +1,7 @@
 #!/bin/sh
 # show colorful path
-fg_no_bold=( ["black"]="[30m;" ["red"]="[31m;" ["green"]="[32m;" ["yellow"]="[33m;" ["blue"]="[34m;" ["magenta"]="[35m;" ["cyan"]="[36m;" ["white"]="[37m;" )
-reset_color="0m;"
+fg_no_bold=( ["black"]="[30;;m;" ["red"]="[31;;m;" ["green"]="[32;;m;" ["yellow"]="[33;;m;" ["blue"]="[34;;m;" ["magenta"]="[35;;m;" ["cyan"]="[36;;m;" ["white"]="[37;;m;" )
+reset_color="[0m;"
 echo $PATH | tr ":" "\n" | \
 	awk "{ sub(\"/usr\",   \"${fg_no_bold[green]}/usr$reset_color\"); \
 				sub(\"/bin\",   \"${fg_no_bold[blue]}/bin$reset_color\"); \

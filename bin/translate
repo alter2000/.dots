@@ -1,0 +1,11 @@
+#!/bin/bash
+# translate via Google
+# usage: translate <src-lang> <dest-lang> <string>
+
+src=$1
+dest=$2
+str=$3
+
+curl -s -A "Mozilla/5.0 (Wayland; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0" \
+	"https://translate.google.com/m?sl=$src&tl=$dest&ie=UTF-8" --data-urlencode "q=$str" \
+	| grep -Po '<div dir="ltr" class="t0">\K[^<]*'

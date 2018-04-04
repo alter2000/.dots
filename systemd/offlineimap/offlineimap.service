@@ -1,12 +1,12 @@
 [Unit]
 Description=offlineimap sync service
-Wants=offlineimap.timer
 
 [Service]
-Type=simple
-ExecStart=/usr/bin/offlineimap -u basic
+Type=oneshot
+ExecStart=/usr/bin/offlineimap -o -u basic
 ExecStop=/usr/bin/pkill offlineimap
 TimeoutSec=100
+TimeoutStopSec=120
 Restart=on-failure
 RestartSec=60
 

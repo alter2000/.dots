@@ -1,10 +1,9 @@
 /* Remove tab close and new tab button
 .tabbrowser-tab:not([pinned])
 .tab-close-button {display: none !important;}
-.tabs-newtab-button {display: none !important;}
- Hide the three dots thing in the address bar
-#pageActionButton {visibility: hidden;}*/
-/* Set "inherit" to restore sidebar header */
+.tabs-newtab-button {display: none !important;}*/
+/* Hide the three dots thing in the address bar */
+/* #pageActionButton {visibility: hidden;}*/
 #sidebar-header {display: none !important;}
 #sidebar {min-width: 60px !important;}
 /* Hide horizontal tab bar */
@@ -14,8 +13,8 @@
 /* Hide the scrollbar */
 /* Purple navbar when private */
 
-/* Change thin line above tab to wal theme
-.tab-line{ background-color: -- }*/
+/* Change thin line above tab to wal theme */
+/* .tab-line{ background-color: -- } */
 /* Transparent non-loaded tabs */
 .tab.discarded {opacity: 0.75;}
 
@@ -57,8 +56,8 @@
 #identity-box.verifiedIdentity, #identity-icon-labels {color: #FFF !important;}
 
 
-/* Pocket style */
+/* Pocket style 
 @-moz-document domain("getpocket.com") {
     .page-renderdark {background: #424242;}
     #pkt-nav {background: #424242;}
-}
+} */

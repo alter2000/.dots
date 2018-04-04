@@ -1,5 +1,7 @@
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+alias webget="wget -mpP "
+
 alias ipy="ipython"
 alias tree="tree -C"
 alias view="vimpager"

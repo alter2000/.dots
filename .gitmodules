@@ -10,3 +10,12 @@
 [submodule "zsh/powerlevel9k"]
 	path = zsh/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
+[submodule "tmux/tmux-resurrect"]
+	path = tmux/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "tmux/tmux-continuum"]
+	path = tmux/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "tmux/tmux-open"]
+	path = tmux/tmux-open
+	url = https://github.com/tmux-plugins/tmux-open

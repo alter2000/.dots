@@ -32,35 +32,35 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [colors]
-#cursor = #586e75
-#cursor_foreground = #586e75
-foreground = #93a1a1
-foreground_bold = #93a1a1
-background = #3f3f3f
+cursor = #188A67
+cursor_foreground = #A3A19A
+foreground = #E9E6DC
+foreground_bold = #E9E6DC
+# background = #252127
 
 # 5% background transparency (requires a compositor)
-background = rgba(70,70,70,0.95)
+background = rgba(37,33,39,0.95)
 
 # if unset, will reverse foreground and background
-highlight = #073642
+# highlight = #073642
 
 # default termite colors; wal and solarized are added later
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+color0 = #252127
+color1 = #F19B38
+color2 = #188A67
+color3 = #AAB24A
+color4 = #3D9694
+color5 = #9D7186
+color6 = #C5BEA4
+color7 = #E9E6DC
+color8 = #A3A19A
+color9 = #F19B38
+color10 = #188A67
+color11 = #AAB24A
+color12 = #3D9694
+color13 = #9D7186
+color14 = #C5BEA4
+color15 = #E9E6DC
 
 [hints]
 font = Monospace 10

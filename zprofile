@@ -1,2 +1,3 @@
 [[ -f $ZDOTDIR/vars.zsh ]] && source $ZDOTDIR/vars.zsh
-# vim ft=sh
+systemctl --user import-environment PATH
+# vim:ft=sh

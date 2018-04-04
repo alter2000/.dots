@@ -1,0 +1,34 @@
+#!/bin/sh
+
+NOTES_PATH="$HOME/todo"
+usage() {
+cat << EOF
+USAGE:
+   $0
+      open all notes in $EDITOR
+
+   $0 ls
+      list notes
+
+   $0 help
+      show usage
+
+   $0 someNewNote
+      creates someNewNote.md and open it in $EDITOR
+EOF
+}
+
+case $1 in
+    help)
+        usage;
+        ;;
+    ls)
+        ls -l "$NOTES_PATH"
+        ;;
+    *)
+        if [ -f "$NOTES_PATH/$1.md" ]; then
+            $EDITOR "$NOTES_PATH/$1.md"
+        else
+            touch "$NOTES_PATH/$1.md" && $EDITOR "$NOTES_PATH/$1.md"
+        fi
+esac
