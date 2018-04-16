@@ -22,9 +22,14 @@ noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 noremap <C-H> <C-W><C-H>
 
+nnoremap <Up>    :resize +3<CR>
+nnoremap <Down>  :resize -3<CR>
+nnoremap <Left>  :vertical resize -3<CR>
+nnoremap <Right> :vertical resize +3<CR>
+
 nnoremap <F2>  :GundoToggle<CR>
 nnoremap <F3>  :set list!<CR>
-nnoremap <F4>  :MinimapToggle<CR>
+" nnoremap <F4>  :MinimapToggle<CR>
 nnoremap <F10> :ColorHighlight<CR>
 inoremap <F2>  <Esc>:GundoToggle<CR>
 inoremap <F3>  <Esc>:set list!<CR>
@@ -34,7 +39,6 @@ nnoremap <silent> <Leader>w :call ToggleWrap()<CR>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-cnoremap W w !sudo tee > /dev/null %
 
 " Tab navigation like Firefox.
 nnoremap <C-S-tab> :tabprevious<CR>

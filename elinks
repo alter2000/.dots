@@ -343,3 +343,28 @@
     set terminal.xterm-termite.block_cursor = 1
 
 
+
+
+
+##################################
+# Automatically saved keybindings
+#
+
+bind "main" "!" = "open-os-shell"
+bind "main" "Shift-Space" = "move-page-up"
+bind "main" "Up" = "move-link-up"
+bind "main" "Right" = "move-link-right"
+bind "main" "Left" = "move-link-left"
+bind "main" "Down" = "move-link-down"
+bind "main" "Ctrl-U" = "move-half-page-up"
+bind "main" "Ctrl-D" = "move-half-page-down"
+bind "main" "Ctrl-Home" = "move-document-start"
+bind "main" "Ctrl-End" = "move-document-end"
+bind "main" "G" = "move-document-end"
+bind "main" "k" = "move-cursor-up"
+bind "main" "h" = "move-cursor-left"
+bind "main" "l" = "move-cursor-right"
+bind "main" "^" = "move-cursor-line-start"
+bind "main" "j" = "move-cursor-down"
+bind "main" "Home" = "none"
+bind "main" "End" = "none"

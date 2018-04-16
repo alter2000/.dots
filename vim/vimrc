@@ -1,36 +1,33 @@
 " for when using elsewhere
 set fsync backspace=indent,eol,start updatetime=290
 set encoding=utf-8 fileencoding=utf-8
-set shell=zsh
+" set shell=zsh
 " search candy
 set incsearch nohlsearch ignorecase smartcase
 
 " useful shiz
-set number relativenumber nocursorline nocursorcolumn
-set splitright splitbelow laststatus=2
+set number relativenumber
+set splitright splitbelow
 set mouse=a mousefocus clipboard=unnamedplus
 set smarttab autoindent copyindent
 set scrolloff=4	  " 4 lines of context when scrolling
 syntax enable
 set history=1000 undolevels=1000 updatecount=100
 set autoread nospell
+set ttimeoutlen=10
 " non-printable and double-width chars
-set ambiwidth=single showbreak=↪\ "
+set ambiwidth=single "showbreak=↪\ "
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 " default tab->2 spaces, use multiples of 2 when autoindenting
 set tabstop=2 shiftwidth=2 shiftround
 " wrap shiz
 set wrap linebreak nolist
-set directory=/tmp   " store swap files here
-filetype on
+set whichwrap=b,s,~
 filetype indent plugin on
-set ttimeoutlen=10
-set noshowmode showcmd noerrorbells visualbell
-"set colorcolumn=80
-highlight ColorColumn ctermbg=240
-highlight CursorColumn ctermbg=235
+set directory=~/.cache/vim/tmp undodir=~/.cache/vim/undo viminfofile=~/.cache/vim/viminfo
 
-" gvim options
+set noshowmode showcmd noerrorbells visualbell
+set termguicolors conceallevel=2
 
 """ VIM-PLUG """
 
@@ -39,16 +36,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
 
 call plug#begin('~/.vim/plugs')
 Plug 'jamessan/vim-gnupg'
@@ -59,17 +46,25 @@ Plug 'dhruvasagar/vim-table-mode'
 "Plug 'jceb/vim-orgmode'
 
 Plug 'morhetz/gruvbox'
-Plug 'therubymug/vim-pyte'
 Plug 'mhinz/vim-startify'
+if !has('nvim')
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'roxma/nvim-completion-manager'
 
-"Plug 'vim-syntastic/syntastic'
+Plug 'calebeby/ncm-css'
+
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang --racer-completer'}
+Plug 'tpope/vim-surround'
+" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang --racer-completer'}
 Plug 'junegunn/goyo.vim'
 
-" Plug 'lervag/vimtex'
+" Plug 'python-mode/python-mode', {'branch': 'develop'}
+"Plug 'w0rp/ale'
+Plug 'google/yapf'
+
 " Plug 'xuhdev/vim-latex-live-preview'
 
 Plug 'chrisbra/colorizer'
@@ -78,11 +73,14 @@ Plug 'Raimondi/delimitMate'
 Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
-Plug 'severin-lemaignan/vim-minimap'
+"Plug 'severin-lemaignan/vim-minimap'
 
 Plug 'johngrib/vim-game-snake'
 
 call plug#end()
+
+set laststatus=2
+set shortmess=filnrxtWc
 
 " Gruvbox on GUI
 if has('gui_running')
@@ -95,9 +93,10 @@ if has('gui_running')
   let g:gruvbox_contrast_dark='oft'
   let g:gruvbox_guisp_fallback='fg'
   let g:gruvbox_termcolors=256
+else
+  colorscheme fruchtig
 endif
 
-""" TEXT PREFS """
 " set cursor shape on libvte-based terminals:
 " block in normal mode
 " I-beam in insert
@@ -107,49 +106,11 @@ let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
 " Autocommands
-autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en
-autocmd BufRead,BufNewFile *.lyx set filetype=tex
-"autocmd BufRead,BufNewFile *.txt setlocal textwidth=80
-
+autocmd BufRead,BufNewFile *.txt set spell spelllang=en textwidth=80
 autocmd FileType *.ino,*.pde set filetype=arduino
-autocmd FileType PKGBUILD    setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=makepkg
-
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 textwidth=79 expandtab autoindent makeprg=python\ %
-autocmd FileType python noremap <F4> :w !python
-autocmd FileType sh     setlocal shiftwidth=2 softtabstop=2 tabstop=2 makeprg=./%
-
-autocmd FileType *mail setlocal nospell number
+autocmd FileType *mail set nospell number
 autocmd FileType mail let b:loaded_delimitMate = 1
 
-
-""" FUNCTIONS """
-
-function! ToggleWrap()
-  if &wrap
-    echo "Wrap OFF"
-    setlocal nowrap
-    set virtualedit=all
-    silent! nunmap <buffer> <Up>
-    silent! nunmap <buffer> <Down>
-    silent! nunmap <buffer> <Home>
-    silent! nunmap <buffer> <End>
-    silent! iunmap <buffer> <Up>
-    silent! iunmap <buffer> <Down>
-    silent! iunmap <buffer> <Home>
-    silent! iunmap <buffer> <End>
-  else
-    echo "Wrap ON"
-    setlocal wrap linebreak nolist
-    set virtualedit=
-    setlocal display+=lastline
-    noremap  <buffer> <silent> <Up>   gk
-    noremap  <buffer> <silent> <Down> gj
-    noremap  <buffer> <silent> <Home> g<Home>
-    noremap  <buffer> <silent> <End>  g<End>
-    inoremap <buffer> <silent> <Up>   <C-o>gk
-    inoremap <buffer> <silent> <Down> <C-o>gj
-    inoremap <buffer> <silent> <Home> <C-o>g<Home>
-    inoremap <buffer> <silent> <End>  <C-o>g<End>
-  endif
-endfunction
-
+"function! RmWs()
+  "%s/\s\+$//e
+"endfunction

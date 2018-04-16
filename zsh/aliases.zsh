@@ -1,11 +1,17 @@
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
-alias webget="wget -mpP "
+alias webget="wget -mpP"
+alias wq="echo \"this isn't vim, autismo\""
+alias q="wq"
+alias e="$EDITOR"
 
 alias ipy="ipython"
 alias tree="tree -C"
 alias view="vimpager"
 alias wag="python ./manage.py"
+# alias kid="cheat ""| less"
+alias conc="source /opt/context-minimals/setuptex && context "
+alias pandoc="pandoc --reference-links --reference-location=block --atx-headers --slide-level=2 --email-obfuscation=references"
 
 alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"

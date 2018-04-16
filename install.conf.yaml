@@ -96,6 +96,7 @@
         - htop
         - imv
         - inkscape
+        - lftp
         - libreoffice-fresh
         - libreoffice-fresh-sq
         - libreoffice-extension-writer2latex
@@ -156,6 +157,7 @@
         - xdotool
         - xclip
         - xsel
+        - yapf
         - youtube-dl
         - zsh
 
@@ -165,6 +167,7 @@
         - bookworm
         # - canto-curses
         # - context-minimals-git
+        # - cozy-audiobooks
         - downgrade
         - endless-sky
         - etcher

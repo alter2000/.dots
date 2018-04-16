@@ -2,12 +2,12 @@
 Description=offlineimap sync service
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/offlineimap -o -u basic
-ExecStop=/usr/bin/pkill offlineimap
+Type=simple
+ExecStart=/usr/bin/offlineimap -u basic
+ExecStop=/usr/bin/pkill -f offlineimap
 TimeoutSec=100
 TimeoutStopSec=120
-Restart=on-failure
+; Restart=on-failure
 RestartSec=60
 
 [Install]

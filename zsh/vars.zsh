@@ -2,6 +2,7 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 typeset -U path
 path+=($HOME/.local/bin $HOME/.cargo/bin)
+fpath+=($ZDOTDIR/completions)
 
 export ZDOTDIR="~/.zsh"
 export ZDATADIR="~/.zsh"
@@ -12,6 +13,7 @@ export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 export EDITOR='vim'
 export VISUAL='vim'
+#export VIM="$HOME/.vim"
 export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
 
@@ -22,7 +24,7 @@ export XDG_DATA_DIRS=$HOME/.local/share/:/usr/local/share/:/usr/share/
 
 export GIT_ASKPASS='pass Gits/github.com | head -1'
 export GITHUB_USER='alter2000'
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME='qt5ct'
 export VMAIL_HTML_PART_READER='elinks -dump'
 
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
