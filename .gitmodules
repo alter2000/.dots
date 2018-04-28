@@ -19,3 +19,6 @@
 [submodule "tmux/tmux-open"]
 	path = tmux/tmux-open
 	url = https://github.com/tmux-plugins/tmux-open
+[submodule "pandoc/reveal.js"]
+	path = pandoc/reveal.js
+	url = https://github.com/hakimel/reveal.js

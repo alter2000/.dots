@@ -23,3 +23,32 @@ p9k_wifi_signal(){
 uptpb() {
 	curl -F c=@- https://ptpb.pw/ < $1
 }
+
+# get services (systemd)
+rc(){
+	systemctl list-unit-files --type=service |\
+	sed 's/.service//g' |\
+	sed '/static/d' |\
+	sed '/indirect/d' |\
+	sed '/systemd/d' |\
+	sed '/dbus-org/d' |\
+	sed '/canberra/d'|\
+	sed '/wpa_supplicant/d' |\
+	sed '/netctl/d' |\
+	sed '/rfkill/d' |\
+	sed '/krb5/d' |\
+	tail -n+2 |\
+	head -n -2 |\
+	sed 's/\(^.*enabled.*$\)/[x] \1/' |\
+	sed 's/enabled//g' |\
+	sed 's/\(^.*disabled.*$\)/[ ] \1/' |\
+	sed 's/disabled//g' |\
+	sed 's/[ \t]*$//' |\
+	while read line; do
+			if [[ $line == *'[x]'* ]]; then
+				printf "\033[0;32m$line\n"
+			else
+				printf "\033[1;30m$line\n"
+			fi
+	done
+}

@@ -7,6 +7,83 @@ settings:
     global:
       normal:
         ',n': set ui user-stylesheet ~/.img/ffox/solarized-everything-css/css/solarized-all-sites-light.css
+  colors.completion.category.bg:
+    global: '#F2E6D1'
+  colors.completion.category.border.bottom:
+    global: '#F2E6D1'
+  colors.completion.category.border.top:
+    global: '#F2E6D1'
+  colors.completion.category.fg:
+    global: '#70655B'
+  colors.completion.even.bg:
+    global: '#F2E6D1'
+  colors.completion.fg:
+    global:
+    - '#70655B'
+    - '#70655B'
+    - '#70655B'
+  colors.completion.item.selected.bg:
+    global: '#458588'
+  colors.completion.item.selected.border.bottom:
+    global: '#F2E6D1'
+  colors.completion.item.selected.border.top:
+    global: '#F2E6D1'
+  colors.completion.item.selected.fg:
+    global: '#70655B'
+  colors.completion.odd.bg:
+    global: '#FBF1C7'
+  colors.downloads.bar.bg:
+    global: '#F2E6D1'
+  colors.downloads.error.bg:
+    global: '#CC241D'
+  colors.downloads.error.fg:
+    global: '#2D595D'
+  colors.downloads.start.bg:
+    global: '#8AB93F'
+  colors.downloads.stop.bg:
+    global: '#006640'
+  colors.hints.bg:
+    global: rgba(138,185,63, 180)
+  colors.hints.fg:
+    global: '#38223B'
+  colors.hints.match.fg:
+    global: '#F0A43A'
+  colors.messages.error.bg:
+    global: '#CC241D'
+  colors.messages.error.border:
+    global: '#CC241D'
+  colors.messages.error.fg:
+    global: '#70655B'
+  colors.messages.info.bg:
+    global: '#38223B'
+  colors.messages.info.border:
+    global: '#38223B'
+  colors.messages.info.fg:
+    global: '#70655B'
+  colors.messages.warning.bg:
+    global: '#802152'
+  colors.messages.warning.border:
+    global: '#802152'
+  colors.messages.warning.fg:
+    global: '#70655B'
+  colors.tabs.even.bg:
+    global: '#F2E6D1'
+  colors.tabs.even.fg:
+    global: '#70655B'
+  colors.tabs.odd.bg:
+    global: '#F2E6D1'
+  colors.tabs.odd.fg:
+    global: '#70655B'
+  colors.tabs.selected.even.bg:
+    global: '#F2E6D1'
+  colors.tabs.selected.even.fg:
+    global: '#006640'
+  colors.tabs.selected.odd.bg:
+    global: '#F2E6D1'
+  colors.tabs.selected.odd.fg:
+    global: '#006640'
+  colors.webpage.bg:
+    global: '#F2E6D1'
   input.links_included_in_focus_chain:
     global: false
   prompt.filebrowser:

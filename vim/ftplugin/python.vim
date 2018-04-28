@@ -8,3 +8,6 @@ set textwidth=79
 set colorcolumn=80
 set formatprg="yapf --in-place %"
 noremap <F4> :w !python
+
+let b:ale_linters = ['flake8', 'pylint']
+let b:ale_fixers = ['yapf', 'autopep8']

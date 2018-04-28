@@ -2,11 +2,15 @@
 # remove beep
 unsetopt beep
 # allow extended globbing
-setopt extendedglob
+# setopt extendedglob
 # if not a command, move to typed directory
 setopt auto_cd
-# allow multiple sessions to append to same file
+# add to stack whenever cd'ing
+setopt autopushd
+setopt pushd_ignore_dups
+# allow multiple sessions to append to same file and read from it
 setopt append_history
+setopt share_history
 # more details on command execution
 setopt extended_history
 # drop oldest entries first

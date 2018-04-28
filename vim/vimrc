@@ -1,16 +1,15 @@
+""" MAIN {{{
 " for when using elsewhere
 set fsync backspace=indent,eol,start updatetime=290
 set encoding=utf-8 fileencoding=utf-8
-" set shell=zsh
-" search candy
 set incsearch nohlsearch ignorecase smartcase
+set shell=/bin/bash foldmethod=marker
 
-" useful shiz
 set number relativenumber
 set splitright splitbelow
 set mouse=a mousefocus clipboard=unnamedplus
 set smarttab autoindent copyindent
-set scrolloff=4	  " 4 lines of context when scrolling
+set scrolloff=4  " 4 lines of context when scrolling
 syntax enable
 set history=1000 undolevels=1000 updatecount=100
 set autoread nospell
@@ -21,15 +20,13 @@ set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 " default tab->2 spaces, use multiples of 2 when autoindenting
 set tabstop=2 shiftwidth=2 shiftround
 " wrap shiz
-set wrap linebreak nolist
+set linebreak nolist
 set whichwrap=b,s,~
 filetype indent plugin on
 set directory=~/.cache/vim/tmp undodir=~/.cache/vim/undo viminfofile=~/.cache/vim/viminfo
-
 set noshowmode showcmd noerrorbells visualbell
-set termguicolors conceallevel=2
-
-""" VIM-PLUG """
+" }}}
+""" VIM-PLUG {{{
 
 " install vim-plug if it's not already there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -38,49 +35,52 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugs')
+" docs
 Plug 'jamessan/vim-gnupg'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'dhruvasagar/vim-table-mode'
-" Plug 'tpope/vim-vinegar'
-"Plug 'jceb/vim-orgmode'
+" Plug 'xuhdev/vim-latex-live-preview'
+Plug 'jceb/vim-orgmode'
 
+" views + candy
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
-if !has('nvim')
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'w0rp/ale'
+Plug 'roxma/vim-hug-neovim-rpc'
+" if !has('nvim')
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 Plug 'roxma/nvim-completion-manager'
 
+" completion + linters
 Plug 'calebeby/ncm-css'
-
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-surround'
-" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang --racer-completer'}
-Plug 'junegunn/goyo.vim'
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
-"Plug 'w0rp/ale'
-Plug 'google/yapf'
-
-" Plug 'xuhdev/vim-latex-live-preview'
-
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+"Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
-"Plug 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
-"Plug 'severin-lemaignan/vim-minimap'
+Plug 'severin-lemaignan/vim-minimap'
 
 Plug 'johngrib/vim-game-snake'
 
-call plug#end()
+call plug#end() "}}}
+""" VISUALS {{{
 
 set laststatus=2
+set showtabline=2
 set shortmess=filnrxtWc
+set termguicolors conceallevel=2
 
 " Gruvbox on GUI
 if has('gui_running')
@@ -105,12 +105,28 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
-" Autocommands
+" set gcr=a:block
+
+" " mode aware cursors
+" set gcr+=o:hor50-Cursor
+" set gcr+=n:Cursor
+" set gcr+=i-ci-sm:InsertCursor
+" set gcr+=r-cr:ReplaceCursor-hor20
+" set gcr+=c:CommandCursor
+" set gcr+=v-ve:VisualCursor
+
+" set gcr+=a:blinkon0
+
+" hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+" hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+" hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+" hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
+" }}}
+" Autocommands TODO {{{
+
 autocmd BufRead,BufNewFile *.txt set spell spelllang=en textwidth=80
 autocmd FileType *.ino,*.pde set filetype=arduino
 autocmd FileType *mail set nospell number
 autocmd FileType mail let b:loaded_delimitMate = 1
 
-"function! RmWs()
-  "%s/\s\+$//e
-"endfunction
+" }}}

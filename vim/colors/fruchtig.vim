@@ -32,7 +32,7 @@ hi Pmenu        guifg=#FFFFFF guibg=#CB2F27 gui=NONE    "  elements
 hi PmenuThumb   guifg=NONE    guibg=#0086D2 gui=NONE    "
 hi SignColumn   guifg=NONE    guibg=NONE    gui=NONE    "
 hi StatusLine   guifg=#FFFFFF guibg=#43C464 gui=NONE    "
-hi StatusLineNC guifg=#9BD4A9 guibg=#51B069 gui=NONE    "
+hi StatusLineNC guifg=#FFFFFF guibg=#438EC3 gui=NONE    "
 hi VertSplit    guifg=#3687A2 guibg=#3687A2 gui=NONE    "
 hi WildMenu     guifg=#FFFFFF guibg=#FD8900 gui=NONE    " ----------------
 hi ErrorMsg     guifg=#FFFFFF guibg=#FF0007 gui=NONE    "  Messages

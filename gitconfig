@@ -6,6 +6,7 @@
 	user = alter2000
 [diff]
 	tool = vimdiff
+	autorefreshindex = true
 [merge]
 	tool = vimdiff
 [color]
@@ -15,3 +16,5 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+[pull]
+	rebase = true
