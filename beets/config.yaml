@@ -1,5 +1,5 @@
 library: ~/.dots/beets/library.db
-directory: ~/Music
+directory: ~/lfs/music
 plugins: fromfilename lyrics fetchart scrub
 sort_case_insensitive: yes
 per_disc_numbering: no
