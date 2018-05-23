@@ -1,0 +1,44 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+<CR>	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^inoremap <expr> <CR> (pumvisible() ? "\\<c-y>\\<cr>" : "\\<CR>")$/;"	m	language:Vim
+<S-Tab>	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m	language:Vim
+<Tab>	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m	language:Vim
+g:ale_completion_max_suggestions	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_completion_max_suggestions = 15$/;"	v	language:Vim
+g:ale_echo_msg_error_str	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_echo_msg_error_str = 'E'$/;"	v	language:Vim
+g:ale_echo_msg_format	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'$/;"	v	language:Vim
+g:ale_echo_msg_info_str	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_echo_msg_info_str = 'I'$/;"	v	language:Vim
+g:ale_echo_msg_warning_str	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_echo_msg_warning_str = 'W'$/;"	v	language:Vim
+g:ale_sign_column_always	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_sign_column_always = 1$/;"	v	language:Vim
+g:ale_sign_error	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_sign_error = '!!'$/;"	v	language:Vim
+g:ale_sign_warning	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:ale_sign_warning = '‽‽'$/;"	v	language:Vim
+g:delimitMate_nesting_quotes	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:delimitMate_nesting_quotes = ['"','`']$/;"	v	language:Vim
+g:easytags_dynamic_files	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim
+g:easytags_events	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:easytags_events = ['FileReadPre']$/;"	v	language:Vim
+g:easytags_file	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:easytags_file = '~\/.cache\/vimtags'$/;"	v	language:Vim
+g:easytags_syntax_keyword	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:easytags_syntax_keyword = 'always'$/;"	v	language:Vim
+g:gundo_preview_bottom	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:gundo_preview_bottom = 1$/;"	v	language:Vim
+g:gundo_preview_height	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:gundo_preview_height = 10$/;"	v	language:Vim
+g:gundo_width	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:gundo_width = 23$/;"	v	language:Vim
+g:netrw_browse_split	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_browse_split = 3$/;"	v	language:Vim
+g:netrw_dav_cmd	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_dav_cmd   = 'cadaver'$/;"	v	language:Vim
+g:netrw_file_cmd	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_file_cmd  = 'wget'$/;"	v	language:Vim
+g:netrw_ftp_list_cmd	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_ftp_list_cmd = 'ls -lhF'$/;"	v	language:Vim
+g:netrw_ftp_sizelist_cmd	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_ftp_sizelist_cmd = 'ls -slhF'$/;"	v	language:Vim
+g:netrw_ftp_timelist_cmd	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_ftp_timelist_cmd = 'ls -tlhF'$/;"	v	language:Vim
+g:netrw_hide	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_hide = 1$/;"	v	language:Vim
+g:netrw_http_cmd	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_http_cmd  = 'w3m'$/;"	v	language:Vim
+g:netrw_keepdir	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_keepdir = 0$/;"	v	language:Vim
+g:netrw_liststyle	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_liststyle = 2$/;"	v	language:Vim
+g:netrw_winsize	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:netrw_winsize = 40$/;"	v	language:Vim
+g:pandoc#filetypes#handled	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#filetypes#handled = ['markdown','rst','latex']$/;"	v	language:Vim
+g:pandoc#folding#fdc	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#folding#fdc = 0$/;"	v	language:Vim
+g:pandoc#folding#fold_yaml	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#folding#fold_yaml = 1$/;"	v	language:Vim
+g:pandoc#folding#mode	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#folding#mode = 'syntax'$/;"	v	language:Vim
+g:pandoc#formatting#mode	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#formatting#mode = 's'$/;"	v	language:Vim
+g:pandoc#modules#disabled	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#modules#disabled = ['keyboard']$/;"	v	language:Vim
+g:pandoc#spell#enabled	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:pandoc#spell#enabled = 0$/;"	v	language:Vim
+g:startify_change_to_dir	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:startify_change_to_dir = 0$/;"	v	language:Vim
+g:startify_change_to_vcs_root	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:startify_change_to_vcs_root = 1$/;"	v	language:Vim
+g:startify_fortune_use_unicode	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:startify_fortune_use_unicode = 1$/;"	v	language:Vim
+g:startify_list_order	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:startify_list_order = [$/;"	v	language:Vim
+g:startify_padding_left	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:startify_padding_left = 5$/;"	v	language:Vim
+g:tex_flavor	/home/alter2000/.dots/vim/plugin/plugopts.vim	/^let g:tex_flavor = 'context'$/;"	v	language:Vim

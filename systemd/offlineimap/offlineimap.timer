@@ -3,7 +3,7 @@ Description=2 minute offlineimap timer
 
 [Timer]
 OnBootSec=2min
-OnCalendar=*-*-* *:0/2
+OnUnitInactiveSec=15m
 Persistent=yes
 
 [Install]

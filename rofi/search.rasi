@@ -1,0 +1,22 @@
+* {
+	background-color:	#f2e6d1;
+	border-color:		#70655b;
+	text-color:		#2d595d;
+	font:	"Hasklug Nerd Font Bold 12";
+}
+
+#window {
+	anchor:		north;
+	location:	north;
+	orientation:	horizontal;
+	width:		20%;
+	padding:	6px 16px 6px 16px;
+	children:	[ entry ];
+}
+
+#entry {
+	/* padding:0px 4px; */
+	expand:	true;
+	font:	"Hasklug Nerd Font Bold 12";
+}
+/* vim:ft=css ts=8

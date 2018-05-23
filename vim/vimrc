@@ -3,7 +3,7 @@
 set fsync backspace=indent,eol,start updatetime=290
 set encoding=utf-8 fileencoding=utf-8
 set incsearch nohlsearch ignorecase smartcase
-set shell=/bin/bash foldmethod=marker
+set shell=bash foldmethod=marker
 
 set number relativenumber
 set splitright splitbelow
@@ -20,7 +20,7 @@ set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 " default tab->2 spaces, use multiples of 2 when autoindenting
 set tabstop=2 shiftwidth=2 shiftround
 " wrap shiz
-set linebreak nolist
+set linebreak nolist nowrap
 set whichwrap=b,s,~
 filetype indent plugin on
 set directory=~/.cache/vim/tmp undodir=~/.cache/vim/undo viminfofile=~/.cache/vim/viminfo
@@ -37,40 +37,47 @@ endif
 call plug#begin('~/.vim/plugs')
 " docs
 Plug 'jamessan/vim-gnupg'
+Plug 'junegunn/goyo.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'vim-scripts/DrawIt'
 " Plug 'xuhdev/vim-latex-live-preview'
-Plug 'jceb/vim-orgmode'
+" Plug 'reedes/vim-pencil'
+" Plug 'jceb/vim-orgmode'
+Plug 'godlygeek/tabular'
 
 " views + candy
-Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
-Plug 'w0rp/ale'
-Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'tpope/vim-surround'
+Plug 'wincent/ferret'
+Plug 'simnalamburt/vim-mundo'
+Plug 'severin-lemaignan/vim-minimap'
+" colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'mkarmona/materialbox'
+
+
+" completion + linters
 " if !has('nvim')
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
+Plug 'w0rp/ale'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'roxma/nvim-completion-manager'
-
-" completion + linters
 Plug 'calebeby/ncm-css'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
+
+Plug 'jreybert/vimagit'
 "Plug 'majutsushi/tagbar'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
-Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
-Plug 'sjl/gundo.vim'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
-Plug 'severin-lemaignan/vim-minimap'
 
 Plug 'johngrib/vim-game-snake'
 
@@ -80,8 +87,10 @@ call plug#end() "}}}
 set laststatus=2
 set showtabline=2
 set shortmess=filnrxtWc
-set termguicolors conceallevel=2
-
+set conceallevel=2
+if ($INSIDE_TMUX !=# 1)
+	set termguicolors 
+endif
 " Gruvbox on GUI
 if has('gui_running')
   set guioptions='PAciMg'  " remove cruft
@@ -124,9 +133,11 @@ let &t_EI = "\<Esc>[2 q"
 " }}}
 " Autocommands TODO {{{
 
-autocmd BufRead,BufNewFile *.txt set spell spelllang=en textwidth=80
-autocmd FileType *.ino,*.pde set filetype=arduino
-autocmd FileType *mail set nospell number
-autocmd FileType mail let b:loaded_delimitMate = 1
+augroup writing
+ autocmd BufRead,BufNewFile *.txt set spell spelllang=en textwidth=80
+ autocmd FileType *mail set nospell number
+ autocmd FileType mail let b:loaded_delimitMate = 1
+
+ autocmd FileType *.ino,*.pde set filetype=arduino
 
 " }}}

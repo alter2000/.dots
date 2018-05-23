@@ -1,4 +1,4 @@
-include zathura-solarized-dark
+include zathura-wal
 
 set recolor-keephue false
 set recolor-reverse-video false

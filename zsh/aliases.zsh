@@ -1,7 +1,7 @@
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
 alias webget="wget -mpP"
-alias wq="echo \"this isn't vim, autismo\""
+alias wq="toilet -f future \"this isn't vim, autismo\""
 alias q="wq"
 alias e="$EDITOR"
 # alias ranger="ranger-cd"
@@ -19,6 +19,7 @@ alias ll="ls -Alh"
 alias la="ls -Ah"
 
 alias gst="git status -sb"
+alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit"
 alias gp="git push"

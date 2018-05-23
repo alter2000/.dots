@@ -14,8 +14,8 @@ text/html ; pandoc -f html -t markdown ; copiousoutput ; compose=vim %s
 text/tex  ; vim '%s'         ; needsterminal
 text/*    ; view '%s'        ; needsterminal
 
-application/pdf    ; pandoc -f pdf -t markdown ; copiousoutput ; compose=vim %s
 application/pdf    ; zathura '%s' ; test=test -n "$DISPLAY"
+application/pdf    ; pandoc -f pdf -t markdown ; copiousoutput ; compose=vim %s
 application/msword ; soffice '%s' ; test=test -n "$DISPLAY"
 application/msword ; pandoc -f docx -t markdown;copiousoutput;compose=vim %s
 
@@ -23,7 +23,7 @@ application/msword ; pandoc -f docx -t markdown;copiousoutput;compose=vim %s
 # VIEWABLES
 ############
 image/gif           ; mpv '%s'    ; test = test -n "$DISPLAY"
-image/*             ; imv -s '%s' ; test = test -n "$DISPLAY"
+image/*             ; feh '%s' ; test = test -n "$DISPLAY"
 video/x-youtube     ; mpv --ytdl-format=best '%s' ; test = test -n "$DISPLAY"
 video/*             ; mpv '%s'    ; test = test -n "$DISPLAY"
 

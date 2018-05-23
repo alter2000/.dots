@@ -18,7 +18,7 @@
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-#lyrics_directory = ~/.lyrics
+lyrics_directory = ~/lfs/music/lyrics
 #
 ##### connection settings #####
 #
@@ -30,7 +30,7 @@ mpd_host = idk@localhost
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = ~/Music
+mpd_music_dir = ~/lfs/music
 #
 #mpd_crossfade_time = 5
 #

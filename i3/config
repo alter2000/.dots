@@ -40,6 +40,10 @@ bindsym $mod+b split h
 bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+# card mode
+bindsym $mod+Shift+f floating toggle; resize set 500px 670px; move absolute position center
+# Titlebars on floating windows.
+# bindsym $mod+s "mark --add _; [con_mark=f] floating disable, border none, mark --add --toggle _; [con_mark=_] floating enable, border normal 0; mark --add --toggle f;"
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # change container layout (stacked, tabbed, toggle split)
@@ -148,8 +152,8 @@ bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master toggle
 bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse set Capture toggle
 
 # brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id lux -m 1 -M 4794 -a 4%
-bindsym XF86MonBrightnessDown exec --no-startup-id lux -m 1 -M 4794 -s 4%
+bindsym XF86MonBrightnessUp exec --no-startup-id lux -m 1 -M 4794 -a 2%
+bindsym XF86MonBrightnessDown exec --no-startup-id lux -m 1 -M 4794 -s 2%
 
 # toggle touchpad
 bindsym XF86Display exec ~/.local/bin/toggle_clickpad.sh
@@ -167,7 +171,6 @@ for_window [class="imv"] floating enable
 for_window [class="dde-polkit-dialog" instance="dde-polkit-dialog"] floating enable
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Dia" instance="dia"] floating enable
-for_window [class="Com.github.nick92.coffee" instance="com.github.nick92.coffee"] floating enable
 
 for_window [class="Termite"] border pixel 1
 
@@ -175,8 +178,6 @@ assign [class="Firefox"]  1 ffox
 assign [class="Chromium"] 1 ffox
 
 assign [class="Vim"]  2 ide
-assign [class="Atom"] 2 ide
-
 assign [instance="*.epub"] 3 files
 
 assign [class="ncmpcpp"]      10 media
@@ -220,21 +221,6 @@ client.background       $bg     $bg     $fg  $bg        $bg
 
 ########################################
 
-exec --no-startup-id synclient TapButton1=1
-exec --no-startup-id synclient TapButton2=2
-exec --no-startup-id synclient HorizTwoFingerScroll=1
-exec --no-startup-id synclient VertTwoFingerScroll=1
-exec --no-startup-id keynav
-
-# Deepin polkit dialog
-exec_always --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
-
-# Compton for fancy nancy
-exec_always --no-startup-id compton
-
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # Rofi
 bindsym $mod+d     exec --no-startup-id rofi -show drun -location 3
 bindsym $mod+w     exec --no-startup-id rofi -show window -width 900
@@ -243,9 +229,6 @@ bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/rofi-randr
 
 # Redshift
 exec --no-startup-id redshift
-
-# KDE Connect
-#exec --no-startup-id /usr/bin/indicator-kdeconnect
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id termite
@@ -276,6 +259,3 @@ bindsym $mod+7 exec --no-startup-id soffice --writer
 
 # lock
 bindsym $mod+p exec --no-startup-id ~/.dots/bin/lock.sh
-
-# pywal (wallpaper & color scheme)
-exec --no-startup-id wal -t -i "$HOME/.img/deltawing_ships.png"

@@ -2,32 +2,33 @@
 # autoload -U up-line-or-beginning-search && zle -N up-line-or-beginning-search
 # autoload -U down-line-or-beginning-search && zle -N down-line-or-beginning-search
 
-typeset -g -A key
+# typeset -g -A key
 bindkey -e
+echoti rmkx && echoti smkx
 
-key[Home]="$terminfo[khome]"
-key[End]="$terminfo[kend]"
-key[Insert]="$terminfo[kich1]"
-key[Delete]="$terminfo[kdch1]"
-key[Backspace]="$terminfo[kbs]"
-key[Up]="$terminfo[kcuu1]"
-key[Down]="$terminfo[kcud1]"
-key[Left]="$terminfo[kcub1]"
-key[Right]="$terminfo[kcuf1]"
-key[PageUp]="$terminfo[kpp]"
-key[PageDown]="$terminfo[knp]"
+# key[Home]="$terminfo[khome]"
+# key[End]="$terminfo[kend]"
+# key[Insert]="$terminfo[kich1]"
+# key[Delete]="$terminfo[kdch1]"
+# key[Backspace]="$terminfo[kbs]"
+# key[Up]="$terminfo[kcuu1]"
+# key[Down]="$terminfo[kcud1]"
+# key[Left]="$terminfo[kcub1]"
+# key[Right]="$terminfo[kcuf1]"
+# key[PageUp]="$terminfo[kpp]"
+# key[PageDown]="$terminfo[knp]"
 
-[[ -n "$key[Home]"      ]] && bindkey -- "$key[Home]"      beginning-of-line
-[[ -n "$key[End]"       ]] && bindkey -- "$key[End]"       end-of-line
-[[ -n "$key[Insert]"    ]] && bindkey -- "$key[Insert]"    overwrite-mode
-[[ -n "$key[Backspace]" ]] && bindkey -- "$key[Backspace]" backward-delete-char
-[[ -n "$key[Delete]"    ]] && bindkey -- "$key[Delete]"    delete-char
-bindkey -- "[A"        history-substring-search-up
-bindkey -- "[B"        history-substring-search-down
-[[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
-[[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
-[[ -n "$key[PageUp]"    ]] && bindkey -- "$key[PageUp]"    beginning-of-buffer-or-history
-[[ -n "$key[PageDown]"  ]] && bindkey -- "$key[PageDown]"  end-of-buffer-or-history
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}"  end-of-line
+bindkey "${terminfo[kich1]}" overwrite-mode
+bindkey "${terminfo[kbs]}"   backward-delete-char
+bindkey "${terminfo[kdch1]}" delete-char
+bindkey "${terminfo[kcuu1]}" history-substring-search-up
+bindkey "${terminfo[kcud1]}" history-substring-search-down
+bindkey "${terminfo[kcub1]}" backward-char
+bindkey "${terminfo[kcuf1]}" forward-char
+bindkey "${terminfo[kpp]}"   history-incremental-search-backward
+bindkey "${terminfo[knp]}"   history-incremental-search-forward
 
 bindkey "^[[1;5D" backward-word                 # Ctrl+Left
 bindkey "^[[1;5C" forward-word                  # Ctrl+Right

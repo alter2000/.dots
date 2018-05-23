@@ -3,11 +3,11 @@
 export ZDOTDIR="$HOME/.zsh"
 export ZDATADIR="~/.zsh"
 
-source $ZDOTDIR/vars.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/zsh-history-substring-search.zsh
 source $ZDOTDIR/powerlevel9k/powerlevel9k.zsh-theme
 source $ZDOTDIR/completions.zsh
+source $ZDOTDIR/vars.zsh
 
 # Plugins
 source $ZDOTDIR/plugins/extract.plugin.zsh

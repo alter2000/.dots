@@ -1,5 +1,5 @@
 MEXT = md
-## All markdown files in the working directory
+# All markdown files in the working directory
 SRC = $(wildcard *.$(MEXT))
 PREFIX = $(HOME)/.pandoc
 BIB = $(HOME)/Documents/bibs/socbib-pandoc.bib

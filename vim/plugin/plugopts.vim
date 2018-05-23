@@ -7,10 +7,10 @@ let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#folding#fold_yaml = 1
 let g:pandoc#folding#fdc = 0
 
-""" Gundo """
-let g:gundo_preview_height = 10
-let g:gundo_width = 23
-let g:gundo_preview_bottom = 1
+""" Mundo (fork of gundo) """
+let g:mundo_preview_height = 10
+let g:mundo_width = 23
+let g:mundo_preview_bottom = 1
 
 """ ALE """
 let g:ale_sign_column_always = 1

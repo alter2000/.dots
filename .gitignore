@@ -1,4 +1,4 @@
-**.log
+**/*.log
 *dump
 *.pyc
 *.gpg
@@ -11,3 +11,4 @@ vim/session
 **/*cache*
 **/*history
 **/*uuid
+zathura/zathura-wal

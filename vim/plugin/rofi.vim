@@ -5,7 +5,7 @@
 " License: MIT
 " ============================================================================
 
-if !executable('rofi') || exists('g:rofi_loaded') || &cp
+if !executable('rofi') || exists('g:rofi_loaded') || &compatible
 	finish
 end
 let g:rofi_loaded = 1

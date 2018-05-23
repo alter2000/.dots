@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# pbpaste for lunix
 xclip -selection c "$@"

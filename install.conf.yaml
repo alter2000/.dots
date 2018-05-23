@@ -37,10 +37,10 @@
         ${XDG_CONFIG_HOME}/rtv/rtv.cfg:        rtv
         ${XDG_CONFIG_HOME}/sway:               sway
         ${XDG_CONFIG_HOME}/termite/config:     termite
+        ${XDG_CONFIG_HOME}/transmission/config.json: transmission.json
         ${XDG_CONFIG_HOME}/user-dirs.dirs:     user-dirs.dirs
         ${XDG_CONFIG_HOME}/zathura:            zathura
         ${XDG_DATA_HOME}/fonts:                fonts
-        ~/.img:                            img
         ~/.local/bin:                      bin
         ~/.pandoc:                         pandoc
 
@@ -62,6 +62,7 @@
         - alsa-utils
         - android-tools
         - android-udev
+        - ansible
         - ansible-lint
         - arc-gtk-theme
         - arc-icon-theme
@@ -76,7 +77,9 @@
         - clamav
         - clang
         - compton
+        - dfc
         - dia
+        - docker
         - dunst
         - elinks
         - exfat-utils
@@ -106,6 +109,7 @@
         - libreoffice-fresh-sq
         - libreoffice-extension-writer2latex
         - lightdm-gtk-greeter
+        - lxc
         - maim
         - mosh
         - mpv
@@ -127,6 +131,7 @@
         - otf-overpass
           #}}}
           #p-t{{{
+        - parallel
         - pass
         - pavucontrol
         # - qrencode
@@ -189,6 +194,7 @@
         # - latex-homework-git
         # - latex-solarized-git
         # - latex-wrapfig
+        - ldm
         - lux
         - micro
         - moon-buggy
@@ -207,11 +213,12 @@
         - rig
         - rtv
         - shfmt
-        - snapd
+        - sil
         # - ssb-patchwork
         # - terminess-powerline-font-git
         # - texlive-most
         - tor-browser
+        - tootstream
         - touchpad-toggle
         - ttf-font-awesome
         - ttf-material-design-icons
