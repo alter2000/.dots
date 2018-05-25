@@ -12,27 +12,28 @@
         ~/.tmux.conf:   tmux_skel
         ~/.vim:         vim/
         ~/.xinitrc:     xinitrc
+        ~/.xsession:    xinitrc
         ~/.zsh:         zsh
         ~/.zprofile:    zprofile
         ~/.zshrc:       zshrc
 
         ${XDG_CONFIG_HOME}/beets:              beets
+        ${XDG_CONFIG_HOME}/bspwm:              bspwm
         ${XDG_CONFIG_HOME}/compton.conf:       compton
         ${XDG_CONFIG_HOME}/dunst:              dunst
-        ${XDG_CONFIG_HOME}/eidolon/config:     eidolon.conf
         ${XDG_CONFIG_HOME}/elinks/elinks.conf: elinks
         ${XDG_CONFIG_HOME}/gtk-3.0:            gtk-3.0
         ${XDG_CONFIG_HOME}/i3:                 i3
         ${XDG_CONFIG_HOME}/mpd:                mpd
-        ${XDG_CONFIG_HOME}/neofetch:           neofetch
+        ${XDG_CONFIG_HOME}/neofetch:          neofetch
         ${XDG_CONFIG_HOME}/newsboat:           newsboat
-        ${XDG_CONFIG_HOME}/polybar:            polybar
         ${XDG_CONFIG_HOME}/qutebrowser:        qutebrowser
         ${XDG_CONFIG_HOME}/ranger:             ranger
         ${XDG_CONFIG_HOME}/redshift.conf:      redshift.conf
         ${XDG_CONFIG_HOME}/rofi:               rofi
         ${XDG_CONFIG_HOME}/rtv/rtv.cfg:        rtv
         ${XDG_CONFIG_HOME}/sway:               sway
+        ${XDG_CONFIG_HOME}/sxhkd:               sxhkd
         ${XDG_CONFIG_HOME}/termite/config:     termite
         ${XDG_CONFIG_HOME}/transmission/config.json: transmission.json
         ${XDG_CONFIG_HOME}/user-dirs.dirs:     user-dirs.dirs
@@ -70,6 +71,7 @@
         - bash
         - beets
         - bsd-games
+        - bspwm
         - calcurse
         - chromium
         - clamav
@@ -140,6 +142,7 @@
         - steam
         - supertux
         - supertuxkart
+        - sxhkd
         - teeworlds
         - termite
         - the_silver_searcher

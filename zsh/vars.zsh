@@ -7,7 +7,7 @@ fpath+=($ZDOTDIR/completions)
 export WORDCHARS=''
 export CLICOLOR=1
 
-export LESS='--ignore-case --status-column --quiet --window=-3'
+export LESS='--ignore-case --status-column --raw-control-chars --quiet --window=-3'
 export LESSHISTFILE="$HOME/.cache/lesshst"
 export PAGER='less'
 export EDITOR='vim'
@@ -61,7 +61,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 ### POWERLEVEL9K ###
 DEFAULT_USER="alter2000"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( background_jobs dir vcs custom_wifi_signal )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( vi_mode status battery time )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( vi_mode status time )
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_BACKGROUND - 2 ))}|%f"
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""

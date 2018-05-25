@@ -1,0 +1,75 @@
+# Reload functions
+alt + shift + Escape
+	pkill -USR1 -x sxhkd
+
+# Terminal
+# super + {_,shift} + enter
+# 	termite {_,-c ~/.dots/termite_writing -e fish}
+super + enter
+	termite
+
+# windows
+{super,alt} + F4
+	bspc window -{c,k}
+super + shift {h,j,k,l}
+	bspc window -w {left.manual,down.manual,up.manual,right.manual}
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f, window -d} $(bspc query -M -m)/{i,ii,iii,iv,v,vi,vii,viii,ix,x}
+
+# rofi
+super + @space
+	rofi -show drun
+super + w
+	rofi -show window
+super + equal
+	~/.dots/rofi/=
+super + minus
+	~/.dots/rofi/rofi-randr
+
+super + p
+	~/.dots/bin/lock.sh
+
+super + 5
+	SHELL=/bin/fish termite -c ~/.dots/termite_writing -e terminal_velocity
+super + 6
+	qutebrowser
+super + 7
+	soffice --writer
+
+XF86Tools
+	gvim
+{_,ctrl} + XF86Search
+	{firefox,qutebrowser}
+XF86LaunchA
+	endless-sky
+XF86Explorer
+	nautilus
+
+XF86AudioRaiseVolume
+	amixer -D pulse set Master 5%+ unmute
+ctrl + XF86AudioRaiseVolume
+	pactl set-sink-volume 1 160%
+XF86AudioLowerVolume
+	amixer -D pulse set Master 5%- unmute
+XF86AudioMute
+	amixer -D pulse set Master toggle
+XF86AudioMicMute
+	amixer -D pulse set Capture toggle
+
+XF86MonBrightnessUp
+	lux -m 1 -M 4794 -a 2%
+XF86MonBrightnessDown
+	lux -m 1 -M 4794 -s 2%
+XF86Display
+	~/.dots/bin/toggle_clickpad.sh
+ctrl + XF86Display
+	xrandr --output eDP1 --auto --primary \
+	--output VGA1 --gamma 0.8:0.8:0.8 --above eDP1
+
+# Move or resize window
+super + button{1-2}
+	bspc pointer -g {move,resize_corner}
+
+# Needed for ^^^^
+super + !button{1-2}
+bspc pointer -t %i %i

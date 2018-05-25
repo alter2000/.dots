@@ -1,23 +1,22 @@
 [[ $- != *i* ]] && return
 
-export ZDOTDIR="$HOME/.zsh"
-export ZDATADIR="~/.zsh"
+export ZDATADIR="$HOME/.zsh"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/zsh-history-substring-search.zsh
-source $ZDOTDIR/powerlevel9k/powerlevel9k.zsh-theme
-source $ZDOTDIR/completions.zsh
-source $ZDOTDIR/vars.zsh
+source $ZDATADIR/zsh-history-substring-search.zsh
+source $ZDATADIR/powerlevel9k/powerlevel9k.zsh-theme
+source $ZDATADIR/completions.zsh
+source $ZDATADIR/vars.zsh
 
 # Plugins
-source $ZDOTDIR/plugins/extract.plugin.zsh
-source $ZDOTDIR/plugins/git.plugin.zsh
-# source $ZDOTDIR/plugins/vi-mode.plugin.zsh
+source $ZDATADIR/plugins/extract.plugin.zsh
+source $ZDATADIR/plugins/git.plugin.zsh
+# source $ZDATADIR/plugins/vi-mode.plugin.zsh
 
-source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/functions.zsh
-source $ZDOTDIR/options.zsh
-source $ZDOTDIR/kbd.zsh
+source $ZDATADIR/aliases.zsh
+source $ZDATADIR/functions.zsh
+source $ZDATADIR/options.zsh
+source $ZDATADIR/kbd.zsh
 
 zle -N rationalize-dot
 bindkey . rationalize-dot

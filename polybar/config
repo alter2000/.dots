@@ -1,13 +1,11 @@
 [colors]
-foreground = ${colors.dark-gray}
 black  = #cc0c0d0e
 bblack = #444444
 white  = #ffffff
 mwhite = #fbf1c7
-; mainfg = #70655b
 dark = #70655b
-mainfg = #f2e6d1
 mainbg = #f2e6d1
+mainfg = #70655b
 transparent = #00000000
 light-gray = #D3D3D3
 dark-gray = #A0A0A0
@@ -27,13 +25,13 @@ darkpurple  = #38223b
 screenchange-reload = true
 ; TODO fill fallback values
 module-margin = "   "
-format-foreground = ${colors.mainfg}
+format-foreground = ${colors.mainbg}
 format-background = ${colors.mainbg}
-format-prefix-foreground = ${foreground}
+format-prefix-foreground = ${colors.mainbg}
 ; format-spacing = 3
 format-padding = 6
 ; format-margin = 3
-content-foreground = ${colors.mainfg}
+content-foreground = ${colors.mainbg}
 content-background = ${colors.transparent}
 ; format-offset =
 ; format-underline =
@@ -54,7 +52,12 @@ fixed-center = true
 spacer = "  "
 ; module-margin = "   "
 background = ${colors.mainbg}
-foreground = ${colors.mainfg}
+foreground = ${colors.dark}
+spacing = 1
+
+modules-left = xworkspaces battery down-speed up-speed weather redshift
+modules-center = mpd
+modules-right = backlight pulseaudio cpu temperature date
 
 font-0 = Roboto Mono:pixelsize=8;+1
 font-1 = Material Icons:pixelsize=14;+3
@@ -64,12 +67,9 @@ font-2 = Knack Nerd Font:pixelsize=12;+3
 [bar/i3bar1]
 inherit = template/i3bar
 fixed-center = false
-spacing = 1
-modules-left = i3 battery down-speed up-speed weather redshift
-modules-center = mpd
-modules-right = backlight pulseaudio cpu temperature date
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
+modules-left = i3 battery down-speed up-speed weather redshift
 
 
 [bar/i3bar2]
@@ -89,6 +89,14 @@ background = ${colors.transparent}
 spacer = "  "
 
 
+[bar/bspbar]
+inherit = template/i3bar
+spacing = 2
+modules-left = bspwm battery down-speed up-speed weather redshift
+scroll-up = bspwm-deskprev
+scroll-down = bspwm-desknext
+
+
 [module/backlight]
 type = internal/xbacklight
 format = <label> <bar>
@@ -96,7 +104,7 @@ label = " "
 format-background = ${colors.darkpurple}
 bar-width = 15
 bar-indicator = │
-bar-indicator-foreground = ${colors.mainfg}
+bar-indicator-foreground = ${colors.mainbg}
 bar-indicator-font = 8
 bar-fill = ─
 bar-fill-font = 8
@@ -111,17 +119,24 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <label-charging>
 format-charging-background = ${colors.orange}
+format-charging-foreground = ${colors.mwhite}
+
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-background = ${colors.orange}
+format-discharging-foreground = ${colors.mwhite}
+
 format-full-prefix = 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.mainfg}
-animation-charging-0 = 
-animation-charging-foreground = ${colors.mainfg}
+ramp-capacity-foreground = ${colors.mwhite}
+label-charging =  %percentage%
+label-discharging = %percentage%
+label-charging-foreground = ${colors.blue}
+label-discharging-foreground = ${colors.mwhite}
+animation-charging-foreground = ${colors.mwhite}
 animation-charging-framerate = 750
 
 
@@ -130,18 +145,65 @@ type = internal/bspwm
 ws-icon-default = x
 enable-click = true
 enable-scroll = true
-label-focused = %index%
-label-focused-background = ${colors.bblack}
+format = <label-state><label-mode>
+
+label-focused = %icon%
+label-focused-background = ${colors.green}
+label-focused-foreground = ${colors.bblack}
 label-focused-underline= ${colors.transparent}
 label-focused-padding = 2
-label-occupied = %index%
+
+label-occupied = %icon%
 label-occupied-padding = 2
-label-urgent = %index%!
+
+label-urgent = %icon%!
 label-urgent-background = ${colors.red}
 label-urgent-padding = 2
-label-empty = %index%
+
+label-empty = %icon%
 label-empty-foreground = ${colors.mainfg}
 label-empty-padding = 2
+
+; ws-icon-[0-9]+ = label;icon
+; Note that the label needs to correspond with the bspwm workspace name
+; ws-icon-0 = 1 ffox;
+; ws-icon-1 = 2 ide;
+; ws-icon-2 = 3 files;
+; ws-icon-3 = 4 random;
+; ws-icon-4 = 5 random;
+; ws-icon-5 = 6 random;
+; ws-icon-6 = 7 random;
+; ws-icon-7 = 8 random;
+; ws-icon-8 = 9 aux;
+; ws-icon-9 = 10 media;
+; ws-icon-default = 0
+
+;   when using >1 monitors
+;   label-dimmed-focused
+;   label-dimmed-occupied
+;   label-dimmed-urgent
+;   label-dimmed-empty
+
+; The following labels will be used to indicate the layout/mode
+; for the focused workspace. Requires <label-mode>
+;
+; Available tokens:
+;   None
+;label-monocle = 
+;label-tiled = 
+;label-fullscreen = 
+;label-floating = 
+;label-pseudotiled = P
+;label-locked = 
+;label-locked-foreground = #bd2c40
+;label-sticky = 
+;label-sticky-foreground = #fba922
+;label-private = 
+;label-private-foreground = #bd2c40
+
+label-separator = ""
+label-separator-padding = 2
+label-separator-foreground = #ffb52a
 
 
 [module/cpu]
@@ -166,30 +228,33 @@ format-background = ${colors.blue}
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
+format = <label-state>  <label-mode>
 strip-wsnumbers = true
 pin-workspaces = true
 index-sort = false
 wrapping-scroll = false
-ws-icon-0 = 1 ffox;
-ws-icon-1 = 2 ide;
-ws-icon-2 = 3 files;
-ws-icon-3 = 4 random;
-ws-icon-4 = 5 random;
-ws-icon-5 = 6 random;
-ws-icon-6 = 7 random;
-ws-icon-7 = 8 random;
-ws-icon-8 = 9 aux;
-ws-icon-9 = 10 media;
+
+ws-icon-0 = ffox;
+ws-icon-1 = ide;
+ws-icon-2 = files;
+ws-icon-3 = random;
+ws-icon-4 = random;
+ws-icon-5 = random;
+ws-icon-6 = random;
+ws-icon-7 = random;
+ws-icon-8 = aux;
+ws-icon-9 = media;
 ws-icon-default = 0
+
 format-background = ${colors.green}
+format-foreground = ${colors.mwhite}
 
 label-urgent-padding = 3
 label-focused-padding = 3
 label-unfocused-padding = 3
 label-visible-padding = 3
-label-mode-foreground = ${colors.green}
-label-mode-background = ${colors.green}
+; label-mode-foreground = ${colors.green}
+; label-mode-background = ${colors.green}
 label-focused = 
 label-focused-background = ${colors.dark}
 label-focused-foreground = ${colors.mwhite}
@@ -316,7 +381,7 @@ scroll-down = amixer -D pulse set Master 5%- unmute
 interval = 0.5
 
 format-background = ${colors.brightgreen}
-format-muted-foreground = ${colors.mainfg}
+format-muted-foreground = ${colors.dark}
 label-muted = 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -444,3 +509,4 @@ type = custom/text
 click-left = firefox &
 content = 
 
+; vim:ft=dosini

@@ -52,15 +52,6 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-# remove outer and inner gaps
-bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
-    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
-        i3-msg gaps inner all set 0; \
-        i3-msg gaps outer all set 0; \
-    else \
-        i3-msg gaps inner all set $gap_width_i; \
-        i3-msg gaps outer all set $gap_width_o; \
-    fi"
 
 # change focus
 bindsym $mod+Left  focus left
@@ -85,29 +76,29 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # switch to workspace
-bindsym $mod+1 workspace 1 ffox
-bindsym $mod+2 workspace 2 ide
-bindsym $mod+3 workspace 3 files
-bindsym $mod+4 workspace 4 random
-bindsym $mod+9 workspace 9 aux
-bindsym $mod+0 workspace 10 media
+bindsym $mod+1 workspace ffox
+bindsym $mod+2 workspace ide
+bindsym $mod+3 workspace files
+bindsym $mod+4 workspace random
+bindsym $mod+9 workspace aux
+bindsym $mod+0 workspace media
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1 ffox
-bindsym $mod+Shift+2 move container to workspace 2 ide
-bindsym $mod+Shift+3 move container to workspace 3 files
-bindsym $mod+Shift+4 move container to workspace 4 random
-bindsym $mod+Shift+9 move container to workspace 9 aux
-bindsym $mod+Shift+0 move container to workspace 10 media
+bindsym $mod+Shift+1 move container to workspace ffox
+bindsym $mod+Shift+2 move container to workspace ide
+bindsym $mod+Shift+3 move container to workspace files
+bindsym $mod+Shift+4 move container to workspace random
+bindsym $mod+Shift+9 move container to workspace aux
+bindsym $mod+Shift+0 move container to workspace media
 bindsym $mod+Q scratchpad show
 bindsym $mod+Shift+Q move scratchpad
 
 # move container to next monitor
 bindsym $mod+Ctrl+Shift+Left move container to output right
 
-bindsym $mod+r mode resize
+bindsym $mod+r mode r
 # resize window (you can also use the mouse for that)
-mode resize {
+mode R {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
@@ -126,7 +117,7 @@ mode resize {
         bindsym Return mode default
         bindsym Escape mode default
         bindsym $mod mode default
-        bindsym j mode default
+				bindsym $mod+R mode default
 }
 
 
@@ -156,7 +147,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id lux -m 1 -M 4794 -a 2%
 bindsym XF86MonBrightnessDown exec --no-startup-id lux -m 1 -M 4794 -s 2%
 
 # toggle touchpad
-bindsym XF86Display exec ~/.local/bin/toggle_clickpad.sh
+bindsym XF86Display exec ~/.dots/bin/toggle_clickpad.sh
 
 # set up TV as secondary monitor
 bindsym Ctrl+XF86Display exec --no-startup-id xrandr --output eDP1 --auto --primary --output VGA1 --gamma 0.8:0.8:0.8 --above eDP1
@@ -174,14 +165,14 @@ for_window [class="Dia" instance="dia"] floating enable
 
 for_window [class="Termite"] border pixel 1
 
-assign [class="Firefox"]  1 ffox
-assign [class="Chromium"] 1 ffox
+assign [class="Firefox"]  ffox
+assign [class="Chromium"] ffox
 
-assign [class="Vim"]  2 ide
-assign [instance="*.epub"] 3 files
+assign [class="Vim"] ide
+assign [instance="*.epub"] files
 
-assign [class="ncmpcpp"]      10 media
-assign [class="Transmission"] 10 media
+assign [class="ncmpcpp"] media
+assign [class="Transmission"] media
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use
@@ -220,6 +211,13 @@ client.background       $bg     $bg     $fg  $bg        $bg
 ##### (STARTUP) APPS AND SCRIPTS
 
 ########################################
+
+# polybar
+exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
+
+# colors
+exec --no-startup-id wal -t -i "$HOME/.dots/img/deltawing_ships.png" 
+exec --no-startup-id compton
 
 # Rofi
 bindsym $mod+d     exec --no-startup-id rofi -show drun -location 3
