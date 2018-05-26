@@ -1,0 +1,10 @@
+[Unit]
+Description=lightweight device mounter
+
+[Service]
+EnvironmentFile=/etc/ldm.conf
+ExecStart=/usr/bin/ldm -u alter2000 -p /home/alter2000/mnt -m 0022
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

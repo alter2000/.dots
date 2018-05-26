@@ -14,7 +14,16 @@ synclient VertTwoFingerScroll=1
 keynav &
 setxkbmap -option caps:ctrl_modifier
 
-xrdb -load "${HOME}/.Xresources"
+xrdb -load "$HOME/.Xresources"
 
-# exec i3
-# exec bspwm
+# case $DESKTOP_SESSION in
+#   i3)
+#     $HOME/.dots/polybar/launch.sh i3bar1 &
+#     # $HOME/.dots/polybar/launch.sh i3bar2 &
+#     ;;
+#   *)
+#     $HOME/.dots/polybar/launch.sh bspbar &
+#     exec bspwm
+#     ;;
+# esac
+exec i3

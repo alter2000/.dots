@@ -43,7 +43,7 @@ margin-top = 5
 margin-bottom = 5
 
 
-[template/i3bar]
+[template/mainbar]
 monitor = ${env:MONITOR:eDP-1}
 override-redirect = false
 width = 100%
@@ -65,7 +65,7 @@ font-2 = Knack Nerd Font:pixelsize=12;+3
 
 
 [bar/i3bar1]
-inherit = template/i3bar
+inherit = template/mainbar
 fixed-center = false
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
@@ -73,7 +73,7 @@ modules-left = i3 battery down-speed up-speed weather redshift
 
 
 [bar/i3bar2]
-inherit = template/i3bar
+inherit = template/mainbar
 monitor-strict = false
 override-redirect = true
 wm-restack = i3
@@ -90,7 +90,8 @@ spacer = "  "
 
 
 [bar/bspbar]
-inherit = template/i3bar
+inherit = template/mainbar
+wm-restack = bspwm
 spacing = 2
 modules-left = bspwm battery down-speed up-speed weather redshift
 scroll-up = bspwm-deskprev
@@ -134,7 +135,7 @@ ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.mwhite}
 label-charging =  %percentage%
 label-discharging = %percentage%
-label-charging-foreground = ${colors.blue}
+label-charging-foreground = ${colors.mwhite}
 label-discharging-foreground = ${colors.mwhite}
 animation-charging-foreground = ${colors.mwhite}
 animation-charging-framerate = 750
@@ -145,65 +146,50 @@ type = internal/bspwm
 ws-icon-default = x
 enable-click = true
 enable-scroll = true
-format = <label-state><label-mode>
+wrapping-scroll = false
+format = <label-mode> <label-state>
+format-background = ${colors.green}
+
+label-separator = " "
+label-separator-padding = 1
+label-separator-background = ${colors.green}
 
 label-focused = %icon%
-label-focused-background = ${colors.green}
-label-focused-foreground = ${colors.bblack}
-label-focused-underline= ${colors.transparent}
-label-focused-padding = 2
+label-focused-background = ${colors.dark}
+label-focused-foreground = ${colors.mwhite}
 
 label-occupied = %icon%
-label-occupied-padding = 2
-
-label-urgent = %icon%!
+label-occupied-background = ${colors.green}
+label-occupied-foreground = ${colors.mwhite}
+label-urgent = %icon%
 label-urgent-background = ${colors.red}
-label-urgent-padding = 2
+label-urgent-foreground = ${colors.mwhite}
+label-empty = 
+label-empty-background = ${colors.green}
+label-empty-foreground = ${colors.mwhite}
 
-label-empty = %icon%
-label-empty-foreground = ${colors.mainfg}
-label-empty-padding = 2
+label-monocle = 
+label-tiled = 
+label-floating = 
+label-locked = 
+label-locked-foreground = ${colors.red}
+label-sticky = 
+label-sticky-foreground = ${colors.orange}
+label-private = 
+label-private-foreground = ${colors.red}
 
-; ws-icon-[0-9]+ = label;icon
-; Note that the label needs to correspond with the bspwm workspace name
-; ws-icon-0 = 1 ffox;
-; ws-icon-1 = 2 ide;
-; ws-icon-2 = 3 files;
-; ws-icon-3 = 4 random;
-; ws-icon-4 = 5 random;
-; ws-icon-5 = 6 random;
-; ws-icon-6 = 7 random;
-; ws-icon-7 = 8 random;
-; ws-icon-8 = 9 aux;
-; ws-icon-9 = 10 media;
-; ws-icon-default = 0
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 
-;   when using >1 monitors
-;   label-dimmed-focused
-;   label-dimmed-occupied
-;   label-dimmed-urgent
-;   label-dimmed-empty
-
-; The following labels will be used to indicate the layout/mode
-; for the focused workspace. Requires <label-mode>
-;
-; Available tokens:
-;   None
-;label-monocle = 
-;label-tiled = 
-;label-fullscreen = 
-;label-floating = 
-;label-pseudotiled = P
-;label-locked = 
-;label-locked-foreground = #bd2c40
-;label-sticky = 
-;label-sticky-foreground = #fba922
-;label-private = 
-;label-private-foreground = #bd2c40
-
-label-separator = ""
-label-separator-padding = 2
-label-separator-foreground = #ffb52a
+; when using >1 monitors
+; label-dimmed-focused
+; label-dimmed-occupied
+; label-dimmed-urgent
+; label-dimmed-empty
 
 
 [module/cpu]
@@ -253,8 +239,6 @@ label-urgent-padding = 3
 label-focused-padding = 3
 label-unfocused-padding = 3
 label-visible-padding = 3
-; label-mode-foreground = ${colors.green}
-; label-mode-background = ${colors.green}
 label-focused = 
 label-focused-background = ${colors.dark}
 label-focused-foreground = ${colors.mwhite}

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+choice=$(mount | awk \
+  "\$3 ~ /\/run\/media\// \
+    || /\/mnt\// \
+    || /\/home\/alter2000\/mnt\// \
+    {print \$3}" | rofi -dmenu -p "what to pull out bby")
+
+if [[ $choice ]]; then
+  ldmc -r $choice
+fi

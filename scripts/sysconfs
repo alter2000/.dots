@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# set up LightDM to work with the mini-greeter
+sudo sed -i \
+  's/#greeter-session=/greeter-session=lightdm-mini-greeter #' \
+  /etc/lightdm/lightdm.conf
+
+# set up LemonBoy/ldm - enable service
+sudo ln -s /home/alter2000/.dots/systemd/ldm.service /etc/systemd/system/multi-user.target.wants/ldm.service

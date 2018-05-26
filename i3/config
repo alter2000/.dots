@@ -222,8 +222,9 @@ exec --no-startup-id compton
 # Rofi
 bindsym $mod+d     exec --no-startup-id rofi -show drun -location 3
 bindsym $mod+w     exec --no-startup-id rofi -show window -width 900
+bindsym $mod+m     exec --no-startup-id ~/.dots/rofi/umounts
 bindsym $mod+equal exec --no-startup-id ~/.dots/rofi/=
-bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/rofi-randr
+bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr
 
 # Redshift
 exec --no-startup-id redshift

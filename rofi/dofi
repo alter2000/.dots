@@ -4,7 +4,7 @@
 _rofi () {
     rofi -regex -tokenize -i -fullscreen true -no-levenshtein-sort "$@"
 }
-noteroot="$HOME/Documents/todo"
+noteroot="$HOME/todo"
 done_notes="${noteroot}/done"
 BROWSER=firefox
 url_length=150
@@ -18,7 +18,7 @@ title_color="#2d7ed8"
 date_color="#FF00FF"
 
 # load custom settings
-source $HOME/.dots/dofi.conf
+[[ -f $HOME/.dots/dofi.conf ]] && source $HOME/.dots/dofi.conf
 
 agenda=0
 

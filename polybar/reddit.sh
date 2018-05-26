@@ -3,7 +3,7 @@
 # Get Reddit JSON URL from https://www.reddit.com/prefs/feeds/
 # Click "your inbox" > "unread messages" > "JSON" and copy the link
 
-url='https://www.reddit.com/message/unread/.json?feed=41b0c8588728a821dda820205435c981f87913aa&user=alter2000'
+url="https://www.reddit.com/message/unread/.json?feed=$(pass Social/www.reddit.com | tail -1)&user=alter2000"
 
 # Set prefix icon
 

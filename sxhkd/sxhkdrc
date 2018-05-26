@@ -1,30 +1,40 @@
 # Reload functions
 alt + shift + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded" --urgency low
 
 # Terminal
-# super + {_,shift} + enter
-# 	termite {_,-c ~/.dots/termite_writing -e fish}
-super + enter
-	termite
+super + {_,shift + }Return
+	termite {_,-c ~/.dots/termite_writing -e fish}
 
 # windows
 {super,alt} + F4
-	bspc window -{c,k}
-super + shift {h,j,k,l}
-	bspc window -w {left.manual,down.manual,up.manual,right.manual}
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f, window -d} $(bspc query -M -m)/{i,ii,iii,iv,v,vi,vii,viii,ix,x}
+	bspc node -{c,k}
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+super + {_,shift + }{1,2,3,4,9,10}
+    bspc {desktop -f, node -d} {1,2,3,4,9,10}
+super + {q,e,f}
+	bspc node -t {tiled,floating,fullscreen}
 
-# rofi
+# Move or resize window
+# super + button{1-2}
+# 	bspc pointer -g {move,resize_corner}
+
+# Needed for ^^^^
+# super + !button{1-2}
+# 	bspc pointer -t %i %i
+
+# rofi + apps{{{
 super + @space
 	rofi -show drun
-super + w
+super + j
 	rofi -show window
+super + m
+	~/.dots/rofi/umounts
 super + equal
 	~/.dots/rofi/=
 super + minus
-	~/.dots/rofi/rofi-randr
+	~/.dots/rofi/randr
 
 super + p
 	~/.dots/bin/lock.sh
@@ -64,12 +74,4 @@ XF86Display
 	~/.dots/bin/toggle_clickpad.sh
 ctrl + XF86Display
 	xrandr --output eDP1 --auto --primary \
-	--output VGA1 --gamma 0.8:0.8:0.8 --above eDP1
-
-# Move or resize window
-super + button{1-2}
-	bspc pointer -g {move,resize_corner}
-
-# Needed for ^^^^
-super + !button{1-2}
-bspc pointer -t %i %i
+	--output VGA1 --gamma 0.8:0.8:0.8 --above eDP1/*}}}*/
