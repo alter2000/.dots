@@ -51,6 +51,7 @@ Plug 'godlygeek/tabular'
 " views + candy
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
+Plug 'spolu/dwm.vim'
 Plug 'wincent/ferret'
 Plug 'simnalamburt/vim-mundo'
 Plug 'severin-lemaignan/vim-minimap'

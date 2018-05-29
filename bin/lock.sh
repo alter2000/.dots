@@ -25,7 +25,7 @@ i3lock \
   --radius=20 --veriftext="" --wrongtext="" \
   --timecolor="8ab93fff" --datecolor="821f5aff"
 
-sleep 1
+sleep 0.3
 xset dpms force off
 rm /tmp/screen.png
 

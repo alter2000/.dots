@@ -41,6 +41,7 @@
         ${XDG_DATA_HOME}/fonts:                fonts
         ~/.local/bin:                      bin
         ~/.pandoc:                         pandoc
+        ~/.timrc:                          timrc
 
         # per-user systemd units for most daemons and repetitive jobs (including offlineimap, even though it has its own daemon mode)
         ${XDG_DATA_HOME}/systemd/user/offlineimap.service: systemd/offlineimap/offlineimap.service
@@ -119,6 +120,7 @@
         - neomutt
         - newsboat
         - nodejs
+        - nodm
         - noto-fonts
         - noto-fonts-emoji
         - ncmpcpp

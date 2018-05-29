@@ -229,6 +229,9 @@ bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr
 # Redshift
 exec --no-startup-id redshift
 
+# polkit
+exec --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id termite
 

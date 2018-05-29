@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-cmd=
+cmd="notify-send --urgency normal "
+
+case

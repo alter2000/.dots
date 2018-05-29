@@ -40,11 +40,10 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export GEM_HOME="$HOME/.gem"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
-export ATOM_HOME="$XDG_DATA_HOME/atom"
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
-export NVM_DIR="$XDG_DATA_HOME"/nvm
-export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 
 export TERMINAL=termite
 export BROWSER=firefox

@@ -26,4 +26,6 @@ xrdb -load "$HOME/.Xresources"
 #     exec bspwm
 #     ;;
 # esac
+/usr/lib/polkit-1-dde/dde-polkit-agent 2>/dev/null &
+$HOME/.dots/polybar/launch.sh i3bar1 &
 exec i3
