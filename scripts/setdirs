@@ -19,3 +19,4 @@ mkdir -p "$HOME/var/scrots"
 mkdir -p "$HOME/var/share"
 ln -s "$HOME/.compose-cache" "$XDG_CACHE_HOME"
 git clone https://bitbucket.org/alter2000/notes $HOME/todo
+git clone https://bitbucket.org/alter2000/docs $HOME/static/documents
