@@ -1,0 +1,18 @@
+[submodule "tmux/tmux-resurrect"]
+	path = tmux/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "tmux/tmux-continuum"]
+	path = tmux/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure
+[submodule "pandoc"]
+	path = pandoc
+	url = https://github.com/alter2000/pandoc
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/alter2000/fonts
+[submodule "ansible/plugins/modules/aur"]
+	path = ansible/plugins/modules/aur
+	url = https://github.com/kewlfft/ansible-aur
