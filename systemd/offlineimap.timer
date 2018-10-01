@@ -1,0 +1,14 @@
+[Unit]
+Description=1 minute offlineimap timer
+RefuseManualStart=no
+RefuseManualStop=no
+
+[Timer]
+# can't figure out for the life of me
+#OnBootSec= 5min
+#OnUnitActiveSec= 1min
+OnCalendar=*-*-* *:*:00
+Persistent=yes
+
+[Install]
+WantedBy=default.target

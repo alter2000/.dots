@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# honestly this is deprecated for me but free to steal
+function check_session() {
+	local postfix="$1"
+	shift
+
+	"${tmux[@]}" -S "/tmp/tmux-1000/session-$postfix" list-sessions -F "#S" 2>/dev/null | grep -q "$base_session-$postfix"
+}
+
+tmux=("tmux")
+base_session="0"
+
+if [[ "$XDG_SESSION_ID" ]] && check_session "$XDG_SESSION_ID"; then
+	tmux+=("-S" "/tmp/tmux-1000/session-$XDG_SESSION_ID")
+	base_session+="-$XDG_SESSION_ID"
+fi
+
+new_session="${base_session}-$$"
+
+# Count tmux sessions (1 master + N slaves).
+# If there are no slave sessions, do not create new windows.
+if (($("${tmux[@]}" ls | wc -l) > 1)); then
+	NEW_WINDOW_COMMAND=("new-window" "$*" ";")
+fi
+
+# Create a new session (without attaching it) and link to base session to share windows
+# Attach to the new session & kill it once orphaned
+exec "${tmux[@]}" new-session -d -t "$base_session" -s "$new_session" \; \
+                  attach-session -t "$new_session" \; \
+                  "${NEW_WINDOW_COMMAND[@]}" \
+                  set-option destroy-unattached

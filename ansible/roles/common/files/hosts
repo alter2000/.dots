@@ -1,0 +1,16 @@
+[alter]
+# main PC: thinkpad t440p
+alterpad  ansible_python_interpreter="/usr/bin/env python"
+# safety: some HPaq
+alterpaper
+# server
+#alterbox
+
+[alter:vars]
+ansible_user = ansible
+ansible_port = 40
+ansible_connection = local
+ansible_become = ansible
+ansible_become_method = sudo
+
+# vim:ft=dosini

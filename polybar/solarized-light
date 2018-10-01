@@ -1,0 +1,197 @@
+[colors]
+base00 = #212121
+base01 = #303030
+base02 = #353535
+base03 = #4a4a4a
+base04 = #b2ccd6
+base05 = #eeffff
+base06 = #eeffff
+base07 = #ffffff
+
+base08 = #f07178
+base09 = #f78c6c
+base0A = #ffcb6b
+base0B = #c3e88d
+base0C = #89ddff
+base0D = #82aaff
+base0E = #c792ea
+base0F = #ff5370
+
+background = ${self.base00}
+foreground = ${self.base05}
+
+secondary-background = ${self.base08}
+secondary-foreground = ${self.base07}
+
+border = ${self.background}
+transparent = #00000000
+
+underline = #212121
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+strip-wsnumbers = false
+ws-icon-0 = 1 ffox;
+ws-icon-1 = 2 ide;
+ws-icon-2 = 3 files;
+ws-icon-3 = 4 random;
+ws-icon-4 = 5 random;
+ws-icon-5 = 6 random;
+ws-icon-6 = 7 random;
+ws-icon-7 = 8 random;
+ws-icon-8 = 9 aux;
+ws-icon-9 = 10 media;
+ws-icon-default = O
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.transparent}
+label-focused = 
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+label-unfocused = %icon%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-urgent = %icon%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+
+[module/bspwm]
+type = internal/bspwm
+ws-icon-default = x
+enable-click = true
+enable-scroll = true
+label-focused = %index%
+label-focused-background = ${colors.base00}
+label-focused-underline= ${colors.transparent}
+label-focused-padding = 2
+label-occupied = %index%
+label-occupied-padding = 2
+label-urgent = %index%!
+label-urgent-background = ${colors.base0F}
+label-urgent-padding = 2
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.purple}
+label = %percentage%
+click-left = termite -e htop &
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <bar-volume>
+
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width = 14
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 8
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 8
+bar-volume-empty = ─
+bar-volume-empty-font = 8
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+label-time = "%elapsed% / %total% "
+format-online = "%{B#f07178}  %{B-}%{B#eeffff}%{F#212121} <label-time>%{B-}%{F-}"
+format-stopped = "%{B#f07178}  %{B-}%{B#eeffff}%{F#212121} No Playback %{B-}%{F-}"
+format-offline = "%{B#f07178}  %{B-}%{B#eeffff}%{F#212121} No Playback %{B-}%{F-}"
+
+
+[module/time]
+type = internal/date
+interval = 1.0
+time = " %H:%M:%S"
+label = "%{B#c792ea}  %{B-}%{B#eeffff}%{F#212121}%time% %{B-}%{F-}"
+
+
+[module/date]
+type = internal/date
+interval = 15 
+date = "%Y-%m-%d"
+label = "%{B#82aaff}  %{B-}%{B#eeffff}%{F#212121} %date% %{B-}%{F-}"
+
+
+[bar/base]
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-size = 13
+border-color = ${colors.border}
+padding-right = 0
+padding-left = 0
+module-margin = 1
+separator = 
+override-redirect = true
+
+font-0 = Roboto Mono:pixelsize=12;+4
+font-1 = Material Icons:pixelsize=20;+5
+font-2 = Knack Nerd Font:pixelsize=20;+4
+
+
+[bar/one]
+inherit = bar/base
+modules-left = i3
+width = 100
+height = 30
+offset-x = 210
+offset-y = 30
+bottom = false
+
+
+[bar/two]
+inherit = bar/base
+modules-left = pulseaudio mpd
+width = 250
+height = 30
+offset-x = 210
+offset-y = 110
+bottom = false
+click-left = $HOME/code/c/mpnotify/mpnotify -1
+click-right = mpc toggle
+
+
+[bar/three]
+inherit = bar/base
+modules-left = time date
+width = 380
+height = 30
+offset-x = 210
+offset-y = 190
+bottom = false
+
+; vim:ft=dosini

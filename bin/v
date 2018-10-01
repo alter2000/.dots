@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+	imv -b 'f2e6d1' './'
+else
+	imv -b 'f2e6d1' $@
+fi

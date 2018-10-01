@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+rofi -dmenu -theme search | xargs -I{} $BROWSER https://duckduckgo.com/?q={}

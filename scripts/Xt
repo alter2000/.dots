@@ -1,0 +1,8 @@
+pawn terminals interactively
+# requires slop
+
+read -r X Y W H < <(slop -f "%x %y %w %h" -b 4 -c 0.8,0.8,0.8,0.8 -t 0 )
+
+g=${W}x${H}+${X}+${Y}
+
+urxvt --geometry=$g --name='Xt'

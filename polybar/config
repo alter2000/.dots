@@ -1,0 +1,506 @@
+[colors]
+black  = #cc0c0d0e
+bblack = #444444
+white  = #ffffff
+mwhite = #fbf1c7
+dark = #70655b
+mainbg = #f2e6d1
+mainfg = #70655b
+transparent = #00000000
+light-gray = #D3D3D3
+dark-gray = #A0A0A0
+
+red         = #cc241d
+yellow      = #f0a43a
+orange      = #e85629
+lightgreen  = #8ab93f
+green       = #006640
+blue        = #458588
+darkblue    = #2d595d
+purple      = #802152
+darkpurple  = #38223b
+
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+compositing-background = over
+compositing-foreground = source
+compositing-overline = over
+compositing-underline = over
+compositing-border = overscreenchange-reload = true
+; TODO fill fallback values
+module-margin = "   "
+format-foreground = ${colors.mainbg}
+format-background = ${colors.mainbg}
+format-prefix-foreground = ${colors.mainbg}
+; format-spacing = 3
+format-padding = 4
+; format-margin = 3
+content-foreground = ${colors.mainbg}
+content-background = ${colors.transparent}
+; format-offset =
+; format-underline =
+; format-overline =
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
+[template/mainbar]
+monitor = ${env:MONITOR:eDP-1}
+override-redirect = false
+width = 100%
+height = 22
+fixed-center = true
+; spacer = " "
+; spacing = 1
+background = ${colors.mainbg}
+foreground = ${colors.dark}
+
+modules-left = xworkspaces battery down-speed up-speed weather redshift
+modules-center = mpd
+modules-right = backlight pulseaudio cpu temperature date
+
+font-0 = Roboto Mono:pixelsize=8;+1
+font-1 = Material Icons:pixelsize=14;+3
+font-2 = Knack Nerd Font:pixelsize=10;+3
+
+
+[bar/i3bar1]
+inherit = template/mainbar
+fixed-center = false
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
+modules-left = i3 battery down-speed up-speed weather redshift
+
+
+[bar/i3bar2]
+inherit = template/mainbar
+monitor-strict = false
+override-redirect = true
+wm-restack = i3
+bottom = false
+fixed-center = false
+height = 40
+width = 50%
+padding-left = 100
+padding-right = 10
+modules-left = reddit mail
+foreground = ${xrdb:color15}
+background = ${colors.transparent}
+spacer = " "
+
+
+[bar/bspbar]
+inherit = template/mainbar
+wm-restack = bspwm
+spacing = 2
+modules-left = bspwm battery down-speed up-speed weather redshift
+scroll-up = bspwm-deskprev
+scroll-down = bspwm-desknext
+
+
+[module/backlight]
+type = internal/xbacklight
+format = <label> <bar>
+label = ""
+format-background = ${colors.darkpurple}
+bar-width = 15
+bar-indicator = │
+bar-indicator-foreground = ${colors.mainbg}
+bar-indicator-font = 8
+bar-fill = ─
+bar-fill-font = 8
+bar-fill-foreground = ${colors.mainfg}
+bar-empty = ─
+bar-empty-font = 8
+bar-empty-foreground = ${colors.purple}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+
+format-charging = <label-charging>
+format-charging-background = ${colors.orange}
+format-charging-foreground = ${colors.mwhite}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${colors.orange}
+format-discharging-foreground = ${colors.mwhite}
+
+format-full-prefix = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.mwhite}
+label-charging =  %percentage%
+label-discharging = %percentage%
+label-charging-foreground = ${colors.mwhite}
+label-discharging-foreground = ${colors.mwhite}
+animation-charging-foreground = ${colors.mwhite}
+animation-charging-framerate = 750
+
+
+[module/bspwm]
+type = internal/bspwm
+ws-icon-default = x
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+format = <label-mode> <label-state>
+format-background = ${colors.green}
+
+label-separator = " "
+label-separator-padding = 1
+label-separator-background = ${colors.green}
+
+label-focused = %icon%
+label-focused-background = ${colors.dark}
+label-focused-foreground = ${colors.mwhite}
+
+label-occupied = %icon%
+label-occupied-background = ${colors.green}
+label-occupied-foreground = ${colors.mwhite}
+label-urgent = %icon%
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.mwhite}
+label-empty = 
+label-empty-background = ${colors.green}
+label-empty-foreground = ${colors.mwhite}
+
+label-monocle = 
+label-tiled = 
+label-floating = 
+label-locked = 
+label-locked-foreground = ${colors.red}
+label-sticky = 
+label-sticky-foreground = ${colors.orange}
+label-private = 
+label-private-foreground = ${colors.red}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+; when using >1 monitors
+; label-dimmed-focused
+; label-dimmed-occupied
+; label-dimmed-urgent
+; label-dimmed-empty
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-prefix = " "
+format-background = ${colors.purple}
+label = %percentage%
+click-left = termite -e htop &
+
+
+[module/date]
+type = internal/date
+interval = 5
+date = %d
+date-alt = "%Y-%m-%d"
+time = %H:%M
+time-alt = %H:%M:%S
+label = %date% %time%
+format-background = ${colors.blue}
+
+
+[module/i3]
+type = internal/i3
+format = <label-state>  <label-mode>
+strip-wsnumbers = true
+pin-workspaces = true
+index-sort = false
+wrapping-scroll = false
+
+ws-icon-0 = ffox;
+ws-icon-1 = ide;
+ws-icon-2 = files;
+ws-icon-3 = random;
+ws-icon-4 = random;
+ws-icon-5 = random;
+ws-icon-6 = random;
+ws-icon-7 = random;
+ws-icon-8 = aux;
+ws-icon-9 = media;
+ws-icon-default = 0
+
+format-background = ${colors.green}
+format-foreground = ${colors.mwhite}
+
+label-urgent-padding = 2
+label-focused-padding = 2
+label-unfocused-padding = 2
+label-visible-padding = 2
+label-focused = 
+label-focused-background = ${colors.dark}
+label-focused-foreground = ${colors.mwhite}
+label-unfocused = %icon%
+label-unfocused-background = ${colors.green}
+label-unfocused-foreground = ${colors.mwhite}
+label-urgent = %icon%
+label-urgent-background = ${colors.orange}
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+
+
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = <label-indicator> <label-layout>
+format-spacing = 0
+label-layout = %name%
+label-layout-padding = 2
+label-indicator = %name%
+label-indicator-padding = 2
+
+
+[module/mpd]
+type = internal/mpd
+host = 0.0.0.0
+;port = 6600
+password = idk
+interval = 2
+format-online = <icon-prev> <icon-seekb> <icon-stop> <label-song> <toggle> <icon-seekf> <icon-next>     <icon-repeat> <icon-random>
+;${colors.mwhite:#fbf1c7}
+format-online-background = ${colors.mainbg}
+format-online-foreground = ${colors.dark}
+;label-song-maxlen = 20
+label-song-ellipsis = true
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+toggle-on-foreground = ${colors.dark}
+toggle-off-foreground = ${colors.mwhite}
+; toggle-on-background = #ffffff
+; toggle-off-background = #ffffff
+
+
+[module/memory]
+type = internal/memory
+interval = 5
+label =  %percentage_used%
+
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+ping-interval = 3
+format-connected-padding = 1
+label-connected-padding-left = 1
+accumulate-stats = true
+
+[module/usb-ant]
+type = internal/network
+inherit = module/network
+interface = ra0
+
+[module/eth]
+type = internal/network
+interface = enp0s25
+interval = 3
+ping-interval = 2
+format-connected-padding = 1
+label-connected-padding-left =1
+accumulate-stats = true
+format-connected-underline = #55aa55
+;format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.mainfg}
+label-connected = %local_ip%
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.mainfg}
+
+[module/up-speed]
+inherit = module/network
+format-connected-prefix = "   "
+format-connected-suffix = "   "
+format-connected-background = ${colors.blue}
+label-connected = %upspeed%
+
+[module/down-speed]
+inherit = module/network
+format-connected-prefix = "   "
+format-connected-suffix = "   "
+format-connected-background = ${colors.lightgreen}
+label-connected = %downspeed%
+
+[module/up-speed_eth]
+inherit = module/up-speed
+interface = enp0s25
+[module/down-speed_eth]
+inherit = module/down-speed
+interface = enp0s25
+
+
+[module/temperature]
+type = internal/temperature
+interval = 1
+thermal-zone = 0
+warn-temperature = 65
+units = false
+format = <label>
+format-background = ${colors.red}
+format-warn-background = ${colors.red}
+label = " %temperature-c%"
+
+
+[module/volume]
+type = internal/volume
+;master-mixer = Master
+format-volume = <ramp-volume> <bar-volume>
+click-right = pavucontrol
+scroll-up = amixer -D pulse set Master 5%+ unmute
+scroll-down = amixer -D pulse set Master 5%- unmute
+interval = 0.5
+
+format-background = ${colors.brightgreen}
+format-muted-foreground = ${colors.dark}
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width = 14
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 8
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 8
+bar-volume-empty = ─
+bar-volume-empty-font = 8
+bar-volume-empty-foreground = ${colors.mainfg}
+bar-volume-background-6 = ${colors.lightgreen}
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <bar-volume>
+
+format-muted-foreground = ${colors.mainfg}
+label-muted = 
+
+bar-volume-indicator = │
+bar-volume-indicator-font = 10
+bar-volume-fill-foreground = ${colors.dark}
+bar-volume-fill = ─
+bar-volume-fill-font = 10
+bar-volume-empty = ─
+bar-volume-empty-font = 10
+bar-volume-empty-foreground = ${colors.dark}
+
+ramp-volume-foreground = ${colors.dark}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width = 15
+bar-volume-background = ${colors.dark}
+; bar-volume-foreground = ${colors.lightgreen:#55aa55}
+bar-volume-foreground-1 = ${colors.lightgreen:#55aa55}
+bar-volume-foreground-2 = ${colors.lightgreen:#55aa55}
+bar-volume-foreground-3 = ${colors.lightgreen:#55aa55}
+bar-volume-foreground-4 = ${colors.lightgreen:#55aa55}
+bar-volume-foreground-5 = ${colors.orange:#f5a70a}
+bar-volume-foreground-6 = ${colors.red:#ff5555}
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+format-foreground = #5f5f5f
+
+
+[module/xworkspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
+
+icon-0 = 1 ffox;
+icon-1 = 2 ide;
+icon-2 = 3 files;
+icon-3 = 4 random;
+icon-4 = 5 random;
+icon-5 = 6 random;
+icon-6 = 7 random;
+icon-7 = 8 random;
+icon-8 = 9 aux;
+icon-9 = 10 media;
+icon-default = O
+
+format = <label-monitor> <label-state>
+
+
+[module/mail]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = "  "
+exec = ~/git/stuffs/mail.sh
+
+
+[module/reddit]
+type = custom/script
+interval = 10
+format = <label>
+exec = ~/.config/polybar/reddit.sh
+click-left = xdg-open https://reddit.com/message/unread & disown
+
+
+[module/redshift]
+type = custom/script
+tail = true
+exec = ~/.dots/polybar/redshift
+click-left = systemctl --user start redshift
+click-right = systemctl --user stop redshift
+format = <label>
+label = "%output%"
+format-background = ${colors.orange}
+
+
+[module/weather]
+type = custom/script
+tail = true
+interval = 1800
+format =   <label>
+label = "   %output%   "
+format-padding = 1
+format-background = ${colors.yellow}
+exec = "~/.dots/polybar/weather -i"
+
+
+[module/app_firefox]
+type = custom/text
+click-left = firefox &
+content = 
+
+; vim:ft=dosini

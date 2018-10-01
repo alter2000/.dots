@@ -1,0 +1,77 @@
+# Reload functions
+alt + shift + Escape
+	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded" --urgency low
+
+# Terminal
+super + {_,shift + }Return
+	termite {_,-c ~/.dots/termite_writing -e fish}
+
+# windows
+{super,alt} + F4
+	bspc node -{c,k}
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+super + {_,shift + }{1,2,3,4,9,10}
+    bspc {desktop -f, node -d} {1,2,3,4,9,10}
+super + {q,e,f}
+	bspc node -t {tiled,floating,fullscreen}
+
+# Move or resize window
+# super + button{1-2}
+# 	bspc pointer -g {move,resize_corner}
+
+# Needed for ^^^^
+# super + !button{1-2}
+# 	bspc pointer -t %i %i
+
+# rofi + apps{{{
+super + @space
+	rofi -show drun
+super + j
+	rofi -show window
+super + m
+	~/.dots/rofi/umounts
+super + equal
+	~/.dots/rofi/=
+super + minus
+	~/.dots/rofi/randr
+
+super + p
+	~/.dots/bin/lock.sh
+
+super + 5
+	SHELL=/bin/fish termite -c ~/.dots/termite_writing -e "terminal_velocity -c ~/.dots/terminal_velocity"
+super + 6
+	qutebrowser
+super + 7
+	soffice --writer
+
+XF86Tools
+	gvim
+{_,ctrl} + XF86Search
+	{firefox,qutebrowser}
+XF86LaunchA
+	endless-sky
+XF86Explorer
+	nautilus
+
+XF86AudioRaiseVolume
+	amixer -D pulse set Master 5%+ unmute
+ctrl + XF86AudioRaiseVolume
+	pactl set-sink-volume 1 160%
+XF86AudioLowerVolume
+	amixer -D pulse set Master 5%- unmute
+XF86AudioMute
+	amixer -D pulse set Master toggle
+XF86AudioMicMute
+	amixer -D pulse set Capture toggle
+
+XF86MonBrightnessUp
+	lux -m 1 -M 4794 -a 2%
+XF86MonBrightnessDown
+	lux -m 1 -M 4794 -s 2%
+XF86Display
+	~/.dots/bin/toggle_clickpad.sh
+ctrl + XF86Display
+	xrandr --output eDP1 --auto --primary \
+	--output VGA1 --gamma 0.8:0.8:0.8 --above eDP1/*}}}*/

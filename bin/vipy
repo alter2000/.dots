@@ -1,0 +1,92 @@
+#!/usr/bin/env python
+# requires ~/.vim in a git repo
+# homemade package manager for vim8; supports:
+# - grouping packages
+# - installing/removing via submodules
+# - (batch) updating
+
+import os
+
+
+VIMPKG = os.path.expandvars('$HOME/.vim/pack/')
+# if vimdir is in a git repo, synchronize with remote?
+WANT_SYNC = True
+
+# folder groups, each having start/ and/or opt/ and some packages in there
+# if on github (fml), prepend proper URL
+folders = [
+        main = [
+            start = [
+                'chrisbra/colorizer'
+                'Raimondi/delimitMate',
+                'junegunn/goyo.vim',
+                'godlygeek/tabular',
+                'tpope/vim-commentary',
+                'jamessan/vim-gnupg',
+                'simnalamburt/vim-mundo'
+                'osyo-manga/vim-over'
+                'mhinz/vim-startify'
+                'tpope/vim-surround',
+                ],
+            opt = [
+                # 'wincent/ferret'
+                ]
+            ],
+        writing = [
+            start = [
+                'vim-pandoc/vim-pandoc',
+                'vim-pandoc/vim-pandoc-syntax',
+                'vim-pandoc/vim-pandoc-after',
+                'dhruvasagar/vim-table-mode',
+                ],
+            opt = [
+                'vim-scripts/DrawIt'
+                # 'reedes/vim-pencil',
+                # 'jceb/vim-orgmode',
+                # 'vimwiki/vimwiki',
+                # 'xuhdev/vim-latex-live-preview',
+                ]
+            ],
+        colors = [
+            start = [
+                'morhetz/gruvbox',
+                'mkarmona/materialbox',
+                'cseelus/vim-colors-lucid',
+                ]
+            # no opt because why packadd <colo> | colo <colo>
+            ],
+        completion = [
+            start = [
+                'Shougo/echodoc.vim',
+                'lifepillar/vim-mucomplete',
+                # 'w0rp/ale',
+                ],
+            opt = [
+                'jreybert/vimagit',
+                ]
+            ],
+        crap = [
+            start = [
+                'goldfeld/vim-seek',
+                ],
+            opt = [
+                'johngrib/vim-game-snake',
+                ]
+            ],
+        langs = [
+            start = [
+                'LnL7/vim-nix',
+                'jpalardy/vim-slime',
+                ],
+            opt = [
+                ]
+            ],
+        ]
+
+for f in folders:
+    path = VIM + f
+    os.mkdir(path)
+
+    # both http(s) and ssh
+    if '://' not in f and '@' not in f:
+            f = 'https://github.com/' + f

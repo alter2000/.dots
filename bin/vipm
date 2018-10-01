@@ -1,0 +1,135 @@
+#!/bin/sh
+# vim:fmr=(,)
+# requires ~/.vim in a git repo
+# homemade package manager for vim8; supports:
+# - grouping packages
+# - installing/removing via submodules
+# - (batch) updating
+export WANT_SYNC=yes
+
+# definitions (
+is_git() { git rev-parse --is-inside-work-tree; }
+
+pack () {
+  repo_url=$1
+  expected_repo=$(basename "$repo_url" .git)
+  if [ -d "$expected_repo" ]; then
+    cd "$expected_repo" || exit
+    result=$(git pull --force)
+    echo "$expected_repo: $result"
+  else
+    echo "$expected_repo: Installing..."
+    if is_git; then
+		git submodule add "$repo_url"
+	else
+		git clone "$repo_url"
+	fi
+  fi
+}
+
+set_group () {
+	package_group=$1
+	if [ $2 = "opt" ]; then
+		path="$HOME/.vim/pack/$package_group/opt"
+	else
+		path="$HOME/.vim/pack/$package_group/start"
+	fi
+	mkdir -p "$path"
+	cd "$path" || exit
+}
+
+update() {
+	( cd ~/.vim/pack
+		if is_git; then
+			git submodule update --recursive --init --force
+			git commit -m "updated plugins"
+			[ WANT_SYNC = "yes" ] && git push
+		else
+			for i in */.git; do
+			( echo $i; cd $i/..; git pull --force; )
+			done
+		fi
+	)
+}
+
+remove() {
+	( cd ~/.vim/pack
+		if is_git; then
+			# <group>/<start|opt>/<plugin>
+			# no checks for double download in separate dirs
+			# just why even bother with a pacman in the first place
+			git submodule deinit */*/$1
+			git rm -rf */*/$1
+			rm -rf $(git rev-parse --show-toplevel)/.git/modules/$1
+			git commit -m "removed $1"
+			[ WANT_SYNC = "yes" ] && git push
+		else
+			rm -rf */*/$1
+		fi
+	)
+}
+# )
+
+# installs my setup, no biggie
+install() {
+	set_group main
+	pack https://github.com/Raimondi/delimitMate
+	pack https://github.com/tpope/vim-commentary
+	pack https://github.com/tpope/vim-surround
+	pack https://github.com/jamessan/vim-gnupg
+	pack https://github.com/godlygeek/tabular
+	pack https://github.com/junegunn/goyo.vim
+
+	set_group writing
+	pack https://github.com/vim-pandoc/vim-pandoc
+	pack https://github.com/vim-pandoc/vim-pandoc-syntax
+	pack https://github.com/vim-pandoc/vim-pandoc-after
+	pack https://github.com/dhruvasagar/vim-table-mode
+	pack https://github.com/vimwiki/vimwiki
+	pack https://github.com/vim-scripts/DrawIt
+	# pack https://github.com/reedes/vim-pencil
+	# pack https://github.com/jceb/vim-orgmode
+	# pack https://github.com/xuhdev/vim-latex-live-preview
+
+	set_group candytax
+	pack https://github.com/mhinz/vim-startify
+	# pack https://github.com/wincent/ferret
+	pack https://github.com/simnalamburt/vim-mundo
+	# pack https://github.com/severin-lemaignan/vim-minimap
+	pack https://github.com/osyo-manga/vim-over
+	pack https://github.com/chrisbra/colorizer
+
+    set_group colors
+	pack https://github.com/morhetz/gruvbox
+	pack https://github.com/cseelus/vim-colors-lucid
+	pack https://github.com/mkarmona/materialbox
+
+    set_group completion
+	pack https://github.com/Shougo/echodoc.vim
+	pack https://github.com/lifepillar/vim-mucomplete
+	# pack https://github.com/w0rp/ale
+
+	pack https://github.com/jreybert/vimagit
+	# pack https://github.com/majutsushi/tagbar
+	# pack https://github.com/xolox/vim-misc
+	# pack https://github.com/xolox/vim-easytags
+
+    set_group crap
+	pack https://github.com/johngrib/vim-game-snake
+	pack https://github.com/goldfeld/vim-seek
+
+    set_group langspecific
+	pack https://github.com/jpalardy/vim-slime
+	pack https://github.com/LnL7/vim-nix
+
+	git commit -m "installed plugins"
+	[ WANT_SYNC = "yes" ] && git push
+}
+
+case $1 in
+	i*)  install   && echo "done boi" ;;
+	u*)  update    && echo "done boi" ;;
+	r*)  remove $2 && echo "done boi" ;;
+	*) echo "oi kunt add a help function" ;;
+esac
+

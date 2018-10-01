@@ -1,0 +1,26 @@
+- name: set up directory structure
+  file: path={{item}} state=directory recurse=yes
+  with_items:
+    - "~/git"
+    - "~/lfs/img"
+    - "~/lfs/music"
+    - "~/lfs/music/.playlists"
+    - "~/static/src"
+    - "~/static/documents"
+    - "~/static/templates"
+    - "~/var/mail"
+    - "~/var/backup"
+    - "~/var/desk"
+    - "~/var/download"
+    - "~/var/scrots"
+    - "~/var/share"
+    - "{{xdg.cache_home}}/mpd"
+    - "{{xdg.cache_home}}/tmux/tmux-resurrect"
+# - file: state=link src="$XDG_CACHE_HOME" dest="$HOME/.compose-cache"
+
+- name: git dots
+  git: repo=https://git@github.com/alter2000/.dots.git dest=~/.dots
+- name: git docs
+  git: repo=https://bitbucket.org/alter2000/docs dest=~/static/documents
+- name: git notes
+  git: repo=https://bitbucket.org/alter2000/notes dest=~/todo

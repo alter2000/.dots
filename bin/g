@@ -1,0 +1,126 @@
+#!/bin/bash
+# package manager wrapper for my systems
+# might add fancy shiz later
+# TODO: proper way to check filesystem for root mountpoint
+# TODO: btrfs subvolumes setup my way; edit if needed as I don't back /home up
+#       when updating only the system
+
+help() {
+	cat <<EOF
+	$0 -- wrapper for dnf, apt and pacman (+ AUR via yay)
+	usage:
+		$0 i[nstall] <package>
+		$0 r[emove] <package>
+		$0 u[pgrade] [<package>]
+		$0 su	# system upgrade
+EOF
+}
+
+btrfs_snapshot() {
+	sudo btrfs subvolume snapshot / /.snapshots/root_$(date -Iminutes)
+	sudo btrfs subvolume snapshot /var /.snapshots/var_$(date -Iminutes)
+}
+
+# feels quite hacky
+if [[ -f /etc/os-release ]]; then
+	export OS=$(grep 'ID=' /etc/os-release | cut -d= -f2)
+elif [[ -f /etc/void-release ]]; then
+	export OS=void
+else
+	echo "can't figure out the OS type \=\> package manager" && exit 1
+fi
+# pls add more
+
+# add commands here (extra if you want)
+case $OS in
+	arch) #{{{
+		install() {
+			[ $(command -v yay) ] && yay -S $@ || sudo pacman -S $@
+		}
+		remove() {
+			[ $(command -v yay) ] && yay -R $@ || sudo pacman -R $@
+		}
+		nuke() {
+			[ $(command -v yay) ] && yay -Rns $@ || sudo pacman -Rns $@
+		}
+		upgrade() {
+			[ $(command -v yay) ] && yay -Syu || pacman -Syu
+		}
+		full_update() {
+			[ $(command -v btrfs) ] && btrfs_snapshot
+			[ $(command -v yay) ] && yay -Syu --noconfirm || pacman -Syu --noconfirm
+		}
+	;; #}}}
+	fedora) #{{{
+		install() {
+			sudo dnf install $@
+		}
+		remove() {
+			sudo dnf remove $@
+		}
+		nuke() {
+			sudo dnf purge $@
+		}
+		upgrade() {
+			sudo dnf upgrade
+		}
+		full_update() {
+			[ $(command -v btrfs) ] && btrfs_snapshot
+			sudo dnf upgrade
+		}
+	;; #}}}
+	ubuntu|debian) #{{{
+		install() {
+			sudo apt install $@
+		}
+		remove() {
+			sudo apt remove $@
+		}
+		nuke() {
+			sudo apt purge $@
+		}
+		upgrade() {
+			sudo apt update && sudo apt upgrade
+		}
+		full_update() {
+			[ $(command -v btrfs) ] && btrfs_snapshot
+			sudo apt update && sudo apt dist-upgrade
+		}
+	;; #}}}
+	void) #{{{
+		install() {
+			sudo xbps-install $@
+		}
+		remove() {
+			sudo xbps-remove $@
+		}
+		nuke() {
+			echo 'halp idk void'
+		}
+		upgrade() {
+			echo 'halp idk void'
+		}
+		full_update() {
+			[ $(command -v btrfs) ] && btrfs_snapshot
+			echo 'halp idk void'
+		}
+	;; #}}}
+esac
+
+case $1 in
+	i*)
+		install $@ ;;
+	r*)
+		remove $@ ;;
+	u*)
+		upgrade $@ ;;
+	n*)
+		nuke $@ ;;
+	su)
+		full_update ;;
+	*)
+		help ;;
+esac
+
+[[ $(command -v toilet && command -v lolcat) ]] \
+	&& toilet -f future 'habe fun boiii' | lolcat

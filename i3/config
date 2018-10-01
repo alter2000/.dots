@@ -1,0 +1,268 @@
+# Should you change your keyboard layout some time, delete
+# this file and re-run i3-config-wizard(1).
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $term alacritty
+set $i3-sensible-terminal $term
+set $i3-sensible-editor vim
+set $i3-sensible-pager less
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Ubuntu 9
+
+# kill focused window
+bindsym $mod+F4 kill
+
+# default_border pixel 0
+hide_edge_borders both
+
+#i3-gaps
+new_window pixel 3
+# gaps inner 7
+# gaps outer 9
+smart_gaps on
+smart_borders no_gaps
+
+########################################
+
+##### KEYBINDINGS -- WINDOWS
+
+########################################
+
+# move floating windows with $mod+mouse
+floating_modifier $mod
+# split in horizontal orientation
+bindsym $mod+b split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# card mode
+bindsym $mod+Shift+f floating toggle; resize set 500px 670px; move absolute position center
+# Titlebars on floating windows.
+# bindsym $mod+s "mark --add _; [con_mark=f] floating disable, border none, mark --add --toggle _; [con_mark=_] floating enable, border normal 0; mark --add --toggle f;"
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# change focus
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# switch to workspace
+bindsym $mod+1 workspace ffox
+bindsym $mod+2 workspace ide
+bindsym $mod+3 workspace files
+bindsym $mod+4 workspace random
+bindsym $mod+9 workspace aux
+bindsym $mod+0 workspace media
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace ffox
+bindsym $mod+Shift+2 move container to workspace ide
+bindsym $mod+Shift+3 move container to workspace files
+bindsym $mod+Shift+4 move container to workspace random
+bindsym $mod+Shift+9 move container to workspace aux
+bindsym $mod+Shift+0 move container to workspace media
+bindsym $mod+Q scratchpad show
+bindsym $mod+Shift+Q move scratchpad
+
+# move container to next monitor
+bindsym $mod+Ctrl+Shift+Left move container to output right
+
+bindsym $mod+r mode r
+# resize window (you can also use the mouse for that)
+mode R {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode default
+        bindsym Escape mode default
+        bindsym $mod mode default
+				bindsym $mod+R mode default
+}
+
+
+########################################
+
+##### KEYBINDINGS -- ME
+
+########################################
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# take screenshot
+bindsym $mod+Print exec --no-startup-id maim -s -u ~/var/scrots/$(date +%s).png
+bindsym Mod3+Print exec --no-startup-id ~/.dots/bin/dpause -a 1>/dev/null 2>/dev/null
+
+# volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 160%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 4%
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -S 100%
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 4%
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -S 1%
+bindsym Ctrl+XF86MonBrightnessUp exec --no-startup-id light -A 1%
+bindsym Ctrl+XF86MonBrightnessDown exec --no-startup-id light -U 1%
+
+# toggle touchpad
+bindsym XF86Display exec ~/.dots/bin/toggle_clickpad.sh
+
+
+########################################
+
+##### WINDOWS AND COLOURS
+
+########################################
+
+for_window [class="imv"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="dde-polkit-dialog" instance="dde-polkit-dialog"] floating enable
+for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [class="Thunar" instance="file_progress"] floating enable
+for_window [class="Dia" instance="dia"] floating enable
+
+for_window [class="Termite"] border pixel 1
+for_window [class="Termite" instance="Xt"] border pixel 1
+for_window [class="Alacritty"] border pixel 1
+
+assign [class="Firefox"]  ffox
+assign [class="Chromium"] ffox
+
+assign [class="Vim"] ide
+assign [instance="*.epub"] files
+
+assign [class="ncmpcpp"] media
+assign [class="Transmission"] media
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources for some reason.
+
+set_from_resource $c1 i3wm.color1 #f0f0f0
+set_from_resource $c2 i3wm.color2 #f0f0f0
+set_from_resource $c3 i3wm.color3 #f0f0f0
+set_from_resource $c4 i3wm.color4 #f0f0f0
+set_from_resource $c5 i3wm.color5 #f0f0f0
+set_from_resource $c6 i3wm.color6 #f0f0f0
+set_from_resource $c7 i3wm.color7 #f0f0f0
+set_from_resource $c8 i3wm.color8 #f0f0f0
+set_from_resource $c9 i3wm.color9 #f0f0f0
+set_from_resource $c10 i3wm.color10 #f0f0f0
+set_from_resource $c11 i3wm.color11 #f0f0f0
+set_from_resource $c12 i3wm.color12 #f0f0f0
+set_from_resource $c13 i3wm.color13 #f0f0f0
+set_from_resource $c14 i3wm.color14 #f0f0f0
+
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $fg i3wm.color15 #000000
+
+# class                 border  backgr. text indicator child_border
+client.focused          $c1     $bg     $fg  $c1        $c3
+client.focused_inactive $c1     $bg     $fg  $c1        $c3
+client.unfocused        $c2     $bg     $fg  $c2        $c3
+client.urgent           $c13    $bg     $fg  $c13       $c14
+client.placeholder      $bg     $bg     $fg  $bg        $c12
+client.background       $bg     $bg     $fg  $bg        $bg
+
+########################################
+
+##### (STARTUP) APPS AND SCRIPTS
+
+########################################
+
+# polybar
+exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
+
+# colors
+exec --no-startup-id wal -t -i "$HOME/.dots/img/deltawing_ships.png" 
+exec --no-startup-id compton
+
+# Rofi
+bindsym $mod+d     exec --no-startup-id rofi -show drun
+bindsym $mod+w     exec --no-startup-id rofi -config ~/.dots/rofi/other.rasi
+bindsym $mod+m     exec --no-startup-id ~/.dots/rofi/umounts
+bindsym $mod+equal exec --no-startup-id ~/.dots/rofi/=
+bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr
+
+# Redshift
+# exec --no-startup-id redshift
+
+# polkit
+exec --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id $term
+
+# for inconspicuousness
+bindsym $mod+Shift+Return exec --no-startup-id termite
+
+# IDE HK depends
+bindsym XF86Tools exec --no-startup-id gvim
+
+# Endless Sky (game shortcut, yes)
+bindsym XF86LaunchA exec --no-startup-id endless-sky
+
+# File manager
+bindsym XF86Explorer exec --no-startup-id thunar
+
+# terminal velocity in scpad
+bindsym $mod+5 exec --no-startup-id SHELL=/bin/fish termite -c ~/.dots/termite_writing -e "terminal_velocity -c ~/.dots/terminal_velocity"
+
+# browser - Firefox
+bindsym XF86Search exec --no-startup-id firefox
+bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
+bindsym $mod+6 exec --no-startup-id qutebrowser
+
+# LibreOffice Writer
+bindsym $mod+7 exec --no-startup-id soffice --writer
+
+# lock
+bindsym $mod+p exec --no-startup-id ~/.dots/bin/lock.sh

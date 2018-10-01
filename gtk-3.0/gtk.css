@@ -1,0 +1,6 @@
+
+/* Padding for libvte-based terminals */
+VteTerminal, vte-terminal {
+        padding: 6px 6px 6px 6px;
+}
+

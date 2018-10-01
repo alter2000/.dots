@@ -1,0 +1,16 @@
+system:
+  user: alter2000
+
+dotrepo: "https://github.com/alter2000/.dots"
+dotdir: "~/.dots"
+desktop: yes
+
+git:
+  name: Jor Bashllari
+  email: altnate2000@gmail.com
+  github: alter2000
+
+xdg:
+  cache_home: ~/.cache
+  config_home: ~/.config
+  data_home: ~/.local/share

@@ -1,0 +1,4 @@
+- name: set up ansible user for config sync
+  user: name=ansible uid=900
+- name: add primary user
+  user: name=alter2000 uid=1000 createhome=yes

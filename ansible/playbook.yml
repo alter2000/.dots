@@ -1,0 +1,8 @@
+- hosts: localhost
+  become_user: "{{system.user}}"
+  # vars:
+  roles:
+    - common
+
+# will separate once everything is flying
+# probably during school

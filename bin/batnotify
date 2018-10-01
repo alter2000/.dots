@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# battery notifier
+
+if [[ -d /sys/class/power_supply/BAT0 ]]; then
+  state=$(cat /sys/class/power_supply/BAT0/status)
+  percent=$(cat /sys/class/power_supply/BAT0/capacity)
+  if [[ $state -eq 'Discharging' &&  $percent -le 30 ]]; then
+    notify-send "bing bong" "get a dong" --urgency=critical
+  elif [[ $state -eq 'Charging' && $percent -gt 96 ]]; then
+    notify-send "pull the plug honey"
+  fi
+fi

@@ -1,0 +1,4 @@
+- name: copy X-org config files
+  copy: "src={{item}} dest=/etc/X11/xorg.conf.d/{{item}}"
+  with_items:
+    - 30-pointers.conf

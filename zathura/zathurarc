@@ -1,0 +1,18 @@
+include zathura-wal
+
+set recolor-keephue false
+set recolor-reverse-video false
+set recolor false
+
+set selection-clipboard "clipboard"
+set guioptions s
+set font "Ubuntu Mono 11"
+
+# keybinds
+map [fullscreen] a adjust_window best-fit
+map [fullscreen] s adjust_window width
+map [fullscreen] f follow
+map [fullscreen] j scroll down
+map [fullscreen] k scroll up
+map [fullscreen] h navigate previous
+map [fullscreen] l navigate next

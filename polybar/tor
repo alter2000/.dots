@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sts=`systemctl status tor | grep Active | awk '{print $2}'`
+[ -n $sts ] && [ $sts = 'active' ] && echo ""
+[ -n $sts ] && [ $sts = 'inactive' ] && echo ""

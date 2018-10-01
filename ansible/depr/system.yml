@@ -1,0 +1,14 @@
+- block:
+  when: ansible_distribution == "NixOS"
+    - copy: 
+        src: ~/.dots/configuration.nix
+        dest: /etc/nixos/configuration.nix
+        owner: root
+        group: root
+        mode: 0755
+- block:
+  when: ansible_distribution == "Ubuntu"
+    - include: pkgs/ubuntu.yml
+- block:
+  when: ansible_distribution == "Fedora"
+    - include: pkgs/fedora.yml

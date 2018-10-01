@@ -1,0 +1,24 @@
+#!/bin/sh
+
+source $HOME/.dots/user-dirs.dirs
+[ !-h $XDG_CONFIG_HOME/user-dirs.dirs ] && ln -s $HOME/.dots/user-dirs.dirs $XDG_CONFIG_HOME/user-dirs.dirs
+mkdir -p "$HOME/git"
+mkdir -p "$HOME/lfs"
+mkdir -p "$HOME/lfs/music"
+mkdir -p "$HOME/lfs/music/.playlists"
+mkdir -p "$HOME/lfs/img"
+mkdir -p "$HOME/static"
+mkdir -p "$HOME/static/src"
+mkdir -p "$HOME/static/documents"
+mkdir -p "$HOME/static/templates"
+mkdir -p "$HOME/var"
+mkdir -p "$HOME/var/mail"
+mkdir -p "$HOME/var/backup"
+mkdir -p "$HOME/var/desk"
+mkdir -p "$HOME/var/download"
+mkdir -p "$HOME/var/scrots"
+mkdir -p "$HOME/var/share"
+mkdir -p "$XDG_CACHE_HOME/mpd"
+ln -s "$HOME/.compose-cache" "$XDG_CACHE_HOME"
+git clone https://bitbucket.org/alter2000/notes $HOME/todo
+git clone https://bitbucket.org/alter2000/docs $HOME/static/documents

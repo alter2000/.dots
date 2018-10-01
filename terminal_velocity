@@ -1,0 +1,5 @@
+[DEFAULT]
+editor = vim
+extension = .md
+extensions = .md, .txt, .markdown, .rst
+notes_dir = ~/todo

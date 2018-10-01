@@ -1,0 +1,171 @@
+- name: set up pacman
+  file: "src=pacman.conf dest=/etc/pacman.conf owner=root group=root mode=0644"
+- name: copy touchpad config
+  file: "src=30-pointers.conf dest=/etc/X11/xorg.conf.d/30-pointers.conf owner=root group=root mode=0644"
+- name: copy thinkfan config
+  file: "src=thinkfan.conf dest=/etc/thinkfan.conf owner=root group=root mode=0644"
+- name: install yay
+  aur: name=yay skip_pgp_check=true skip_installed=yes
+- name: install base packages
+  aur: name="{{item}}" use=yay skip_installed=yes
+  with_items:
+    - alacritty-git
+    - alacritty-terminfo-git
+    - alsa-utils
+    - ansible
+    - ansible-lint
+    # - ant-gtk-theme
+    - apulse
+    - arc-gtk-theme
+    - arc-icon-theme
+    - asciinema
+    - bash-pipes
+    - beets
+    - bleachbit
+    - bookworm
+    - bsd-games
+    - bspwm
+    - calcurse
+    # - canto-curses
+    - chromium
+    - clamav
+    - clang
+    - compton
+    # - context-minimals-git
+    - cozy-audiobooks
+    - ctags
+    - dia
+    - dunst
+    - elinks
+    - exfat-utils
+    - feh
+    - firefox
+    - fish
+    - folder-color-switcher
+    - gimp
+    - git
+    - gnome-directory-thumbnailer
+    - gnuplot
+    - gparted
+    - gpick
+    - gucharmap
+    - gvfs-mtp
+    - gvim
+    - handbrake
+    - hashcat
+    - htop
+    - i3-gaps
+    - i3lock-color
+    - icdiff
+    - imagemagick
+    - imv
+    - inkscape
+    - ipython
+    - keybase
+    - ldm
+    - lftp
+    - libnotify
+    - libreoffice-fresh
+    - light
+    - maim
+    - mesa
+    - mosh
+    - mpc
+    - mpd
+    - mpv
+    - msmtp
+    - nautilus
+    - nautilus-folder-icons
+    - ncmpcpp
+    - neofetch
+    - neomutt
+    - networkmanager
+    - newsboat
+    - ntfs-3g
+    - ntp
+    - numix-gtk-theme
+    - offlineimap
+    - openssh
+    - otf-overpass
+    - pamixer
+    - pandoc
+    - papirus-icon-theme
+    - papirus-libreoffice-theme
+    - parallel
+    - pass
+    - passff-host
+    - pavucontrol
+    - pinentry-rofi
+    - pokoy
+    - polybar
+    - pulseaudio-alsa
+    - pulsemixer
+    - python
+    - python-conda
+    - python-pip
+    - python-pywal
+    - python-vint
+    - python-virtualenv
+    - qutebrowser
+    - ranger
+    - redshift
+    - rig
+    - rofi
+    - rsync
+    - rtv
+    - ruby
+    - scrot
+    - shfmt
+    - sil
+    - slop
+    - slurm
+    - stdman
+    - steamcurses-git
+    - supertux
+    - supertuxkart
+    - sxhkd
+    - teeworlds
+    - terminal_velocity-git
+    - termite
+    - texlive-bin
+    - the_silver_searcher
+    - tig
+    - tlp
+    - tmux
+    - toilet
+    - tor-browser
+    - transmission-gtk
+    - ttf-liberation
+    - ttf-ubuntu-font-family
+    - tree
+    - unzip
+    - urlview
+    - usbutils
+    - vagrant
+    - virt-manager
+    - virt-viewer
+    - vulkan-intel
+    - w3m
+    - wget
+    - wikicurses
+    - wordgrinder
+    - xarchiver
+    - xcape
+    - xclip
+    - xdotool
+    - xorg-xev
+    - xsel
+    - xf86-input-libinput
+    - yapf
+    - youtube-dl
+    - zathura
+    - zathura
+    - zathura-cb
+    - zathura-pdf-mupdf
+    - zathura-ps
+    - zeal
+
+- pip: name="{{item}}" state=installed
+  with_items:
+    - neovim
+    - goobook

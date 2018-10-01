@@ -1,0 +1,15 @@
+- name: install ansible
+  package: name=ansible state=installed
+- name: copy ansible config
+  file: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
+- name: copy ansible hosts
+  file: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
+- name: set up work directory
+  file: path={{workdir}} state=directory owner=root group=root mode=0751
+# TODO: lul i habe no cron
+# - name: get cron running the OS.com way
+#   cron:
+#     user: "ansible"
+#     name: "pulling dots"
+#     minute: "*/45"
+#     job: "ansible-pull --only-if-changed --full --accept-host-key -U https://github.com/alter2000/.dots.git -d /home/alter2000/.dots >> /var/log/ansible-pull-dots 2>&1"

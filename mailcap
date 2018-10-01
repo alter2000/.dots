@@ -1,0 +1,37 @@
+#                              Mailcap 101
+# - The first entry with a matching MIME type will be executed, * is a wildcard
+# - %s will be replaced with the image/video url / file path
+# - Add ``test=test -n "$DISPLAY"`` if your command opens a new window
+# - Add ``needsterminal`` for interactive commands that use the terminal
+# - Add ``copiousoutput`` for non-interactive commands that dump text to stdout
+# - Add ``compose`` to define the tool to use to create such files
+
+############
+# TEXT FILES
+############
+text/html ; elinks -dump '%s'; copiousoutput
+text/html ; pandoc -f html -t markdown ; copiousoutput ; compose=vim %s
+text/html ; firefox '%s' >/dev/null    ; test=test -n "$DISPLAY"
+text/tex  ; vim '%s'         ; needsterminal           ; compose=vim %s
+text      ;                  ; needsterminal           ; compose=vim %s
+text      ; view '%s'        ; needsterminal
+
+application/pdf    ; pandoc -f pdf -t markdown ; copiousoutput ; compose=vim %s
+application/pdf    ; zathura '%s' ; test=test -n "$DISPLAY"
+application        ; xdg-open     ; test=test -n "$DISPLAY"
+application/msword ; soffice '%s' ; test=test -n "$DISPLAY"
+application/msword ; pandoc -f docx -t markdown ; copiousoutput ; compose=vim %s
+
+############
+# VIEWABLES
+############
+image/gif           ; mpv '%s' >/dev/null
+# image               ; imv '%s'   ; test = test -n "$DISPLAY"
+image               ; feh '%s'    ; test = test -n "$DISPLAY"
+# video/x-youtube     ; mpv --ytdl-format=best '%s'
+video               ; mpv '%s' >/dev/null
+
+# terminal solutions
+image           ; w3m -o 'ext_image_viewer=off' '%s'; needsterminal
+
+# documents

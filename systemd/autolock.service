@@ -1,0 +1,12 @@
+[Unit]
+Description=Autolocks the screen after inactivity
+
+[Service]
+Type=simple
+Environment="PATH=$HOME/.local/bin:$PATH"
+ExecStart=/home/alter2000/.dots/bin/lock.sh
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target

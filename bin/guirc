@@ -1,0 +1,4 @@
+#!/bin/sh
+
+alacritty -e "weechat $1"
+# 2>/dev/null

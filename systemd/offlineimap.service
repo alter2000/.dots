@@ -1,0 +1,14 @@
+[Unit]
+Description=offlineimap sync service
+RefuseManualStart=no
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/offlineimap -o -u basic
+TimeoutStopSec=60
+; Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target
