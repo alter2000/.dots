@@ -9,7 +9,7 @@
     comment: "Jor Bashllari"
     shell: "/bin/zsh"
     group: "alter2000"
-    groups: "docker,video,wheel"
+    #    groups: "docker,video,wheel"
     append: yes
 
 - name: set up directory structure
@@ -44,9 +44,9 @@
   # - name: copy ansible hosts
   #   copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
   # Packages and other things
-- block:
-    - import_tasks: arch.yml
-  when: ansible_distribution == "Archlinux"
+#  - block:
+#     - import_tasks: arch.yml
+#   when: ansible_distribution == "Archlinux"
 
 - block:
     - import_tasks: fedora.yml

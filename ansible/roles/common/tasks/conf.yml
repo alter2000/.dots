@@ -17,9 +17,9 @@
 - name: set up mailcap
   file: "force=yes state=link src={{dotdir}}/mailcap dest=~/.mailcap"
 - name: set up xinitrc
-  file: "force=yes state=link src={{dotdir}}/x/xinitrc dest=~/.xinitrc"
+  file: "force=yes state=link src={{dotdir}}/X/xinitrc dest=~/.xinitrc"
 - name: set up Xresources
-  file: "force=yes state=link src={{dotdir}}/x/Xresources dest=~/.Xresources"
+  file: "force=yes state=link src={{dotdir}}/X/Xresources dest=~/.Xresources"
 - name: set up pandoc
   file: "force=yes state=link src={{dotdir}}/pandoc dest=~/.pandoc"
 
@@ -66,8 +66,8 @@
   file: "force=yes state=link src={{dotdir}}/systemd dest={{xdg.config_home}}/systemd/user"
 - name: set up termite
   file: "force=yes state=link src={{dotdir}}/termite dest={{xdg.config_home}}/termite"
-- name: set up transmission
-  file: "force=yes state=link src={{dotdir}}/transmission/settings.json dest={{xdg.config_home}}/transmission/settings.json"
+  # - name: set up transmission
+  #   file: "force=yes state=link src={{dotdir}}/transmission/settings.json dest={{xdg.config_home}}/transmission/settings.json"
 - name: set up user-dirs.dirs
   file: "force=yes state=link src={{dotdir}}/user-dirs.dirs dest={{xdg.config_home}}/user-dirs.dirs"
 - name: set up zathura

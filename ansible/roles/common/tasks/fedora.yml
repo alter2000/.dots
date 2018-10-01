@@ -1,123 +1,160 @@
 - name: install base packages
-  apt: state=latest name="{{item}}"
+  become: yes
+  become_user: root
+  dnf: name="{{item}}" state=installed
   with_items:
-    - ag
-    - alsaUtils
-    - apulse
+    - alsa-utils
     - ansible
+    - ansible-lint
+    # - ant-gtk-theme
+    - apulse
+    - arc-gtk-theme
+    - arc-icon-theme
+    - asciinema
+    - bash-pipes
+    - beets
+    - bleachbit
+    - bookworm
+    - bsd-games
+    - bspwm
     - calcurse
+    # - canto-curses
     - chromium
     - clamav
     - clang
+    - compton
+    - cozy-audiobooks
     - ctags
     - dia
     - dunst
     - elinks
-    - exfat
-    - firefox
+    - exfat-utils
     - feh
+    - firefox
+    - fish
+    - folder-color-switcher
+    - gimp
     - git
+    - gnome-directory-thumbnailer
     - gnuplot
     - gparted
+    - gpick
+    - gucharmap
+    - gvfs-mtp
+    - gvim
     - handbrake
     - hashcat
     - htop
+    - i3-gaps
+    - i3lock-color
     - icdiff
     - imagemagick
     - imv
-    - kbfs
-    - keybase
-    - lftp
-    - ldm
-    - lxc
-    - libnotify
-    - mosh
-    - msmtp
-    - gnome3.nautilus
-    - networkmanager
-    - neomutt
-    - ntfs3g
-    - offlineimap
-    - pamixer
-    - pandoc
-    - parallel
-    - pass
-    - pinentry_ncurses
-    - python36Packages.python
-    - python36Packages.ipython
-    - ranger
-    - rsync
-    - ruby
-    - slurm
-    - stdman
-    - tlp
-    - tmux
-    - tree
-    - urlview
-    - usbutils
-    - virtmanager
-    - virt-viewer
-    - vimHugeX
-    - ansible-lint
-    - vim-vint
-    - shfmt
-    - w3m
-    - wget
-    - xarchiver
-    - xorg.xev
-    - xdotool
-    - xclip
-    - xsel
-    - zeal
-    - (python36.withPackages(pks:
-    - pip
-    - conda
-    - virtualenv
-    - yapf
-    - neovim
-    - terminal_velocity
-    - 
-    - alacritty
-    - arc-theme
-    - asciinema
-    - beets
-    - bsdgames
-    - bspwm
-    - compton
-    - gimp
-    - gucharmap
-    - handbrake
     - inkscape
+    - ipython
+    - keybase
+    - ldm
+    - lftp
+    - libnotify
     - libreoffice-fresh
+    - light
     - maim
+    - mesa
+    - mosh
+    - mpc
     - mpd
     - mpv
-    - neofetch
-    - newsboat
+    - msmtp
+    - nautilus
+    - nautilus-folder-icons
     - ncmpcpp
+    - neofetch
+    - neomutt
+    - networkmanager
+    - newsboat
+    - ntfs-3g
+    - ntp
     - numix-gtk-theme
+    - offlineimap
+    - openssh
+    - otf-overpass
+    - pamixer
+    - pandoc
     - papirus-icon-theme
+    - papirus-libreoffice-theme
+    - parallel
+    - pass
+    - passff-host
     - pavucontrol
-    - pipes
+    - pinentry-rofi
+    - pokoy
     - polybar
+    - pulseaudio-alsa
     - pulsemixer
-    - pywal
+    - python
+    - python-conda
+    - python-pip
+    - python-pywal
+    - python-vint
+    - python-virtualenv
+    - qutebrowser
+    - ranger
     - redshift
+    - rig
     - rofi
+    - rsync
     - rtv
+    - ruby
     - scrot
+    - shfmt
+    - sil
     - slop
+    - slurm
+    - stdman
+    - supertux
+    - supertuxkart
     - sxhkd
-    - superTuxKart
     - teeworlds
     - termite
+    - texlive-bin
+    - the_silver_searcher
     - tig
+    - tlp
+    - tmux
     - toilet
+    - tor-browser
     - transmission-gtk
-    - #torbrowser
+    - ttf-liberation
+    - ttf-ubuntu-font-family
+    - tree
     - unzip
+    - urlview
+    - usbutils
     - vagrant
+    - virt-manager
+    - virt-viewer
+    - vulkan-intel
+    - w3m
+    - wget
     - wikicurses
     - wordgrinder
+    - xarchiver
+    - xcape
+    - xclip
+    - xdotool
+    - xorg-xev
+    - xsel
+    - xf86-input-libinput
+    - yapf
     - youtube-dl
     - zathura
+    - zathura
+    - zathura-cb
+    - zathura-pdf-mupdf
+    - zathura-ps
+    - zeal
+
+- pip: name="{{item}}" state=installed
+  with_items:
+    - neovim
+    - goobook

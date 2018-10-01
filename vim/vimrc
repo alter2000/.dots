@@ -1,0 +1,214 @@
+""" MAIN {{{
+" for when using elsewhere
+set fsync backspace=indent,eol,start
+set updatetime=290
+set encoding=utf-8 fileencoding=utf-8
+set incsearch nohlsearch ignorecase smartcase
+set shell=zsh
+set foldmethod=marker
+set wildmenu
+
+set number relativenumber
+set splitright splitbelow
+set mouse=a mousefocus
+set clipboard+=unnamedplus
+set smarttab autoindent copyindent
+set scrolloff=4  " 4 lines of context when scrolling
+
+set ambiwidth=single
+set showbreak=↪\ "
+set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
+" default tab->2 spaces, use multiples of 2 when autoindenting
+set tabstop=2 shiftwidth=2 shiftround
+" wrap shiz
+set linebreak nolist nowrap
+set whichwrap=b,s,~
+set autoread nospell
+set virtualedit=block
+" set iskeyword-=_
+if !isdirectory(expand('$HOME/.cache/vim'))
+	call mkdir(expand('$HOME/.cache/vim'))
+endif
+set directory=~/.cache/vim/tmp
+set undodir=~/.cache/vim/undo undofile
+if !has('nvim')
+	set viminfofile=~/.cache/vim/viminfo
+	set viminfo=%10,\"50,'100,'0
+endif
+set history=1000 undolevels=1000 updatecount=100
+set timeoutlen=700 ttimeoutlen=10
+syntax enable
+filetype indent plugin on
+set noshowmode showcmd
+set noerrorbells visualbell
+" set autochdir
+set formatoptions=roqn21j
+let mapleader=' '
+if executable('rg')
+	set grepprg =rg\ --vimgrep
+endif
+" completion via mucomplete/ale
+set complete=.,w,kspell,k,d,t
+set completeopt=noinsert,menuone,noselect,preview
+" }}}
+""" PLUGINS {{{
+" disable some built-in plugins
+let g:loaded_2html_plugin = 1
+" let g:loaded_netrwPlugin = '000'
+let g:loaded_getscriptPlugin = 1
+let g:loaded_logipat = 1
+let g:loaded_matchparen = 1
+let g:loaded_vimballPlugin = 1
+packadd! matchit
+
+" install vim-plug if it's not already there
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/uggplugg')
+" docs
+Plug 'jamessan/vim-gnupg'
+Plug 'junegunn/goyo.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc-after'
+Plug 'fcpg/vim-waikiki'
+let maplocalleader = ','
+let g:waikiki_roots = ['~/notes/']
+let g:waikiki_default_maps = 1
+let g:waikiki_mkdir_prompt = 1
+let g:waikiki_done = '✘'
+Plug 'dhruvasagar/vim-table-mode'
+" Plug 'vim-scripts/DrawIt'
+Plug 'godlygeek/tabular'
+
+" Plug 'jpalardy/vim-slime',
+" let g:slime_target = "tmux"
+" let g:slime_no_mappings = 1
+" xnoremap <leader>s <Plug>SlimeRegionSend
+" nnoremap <leader>s <Plug>SlimeMotionSend
+" nnoremap <leader>ss <Plug>SlimeLineSend
+
+" views + candy
+Plug 'mhinz/vim-startify'
+Plug 'simnalamburt/vim-mundo'
+Plug 'osyo-manga/vim-over'
+
+" colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'mkarmona/materialbox'
+
+" completion + linters
+Plug 'LnL7/vim-nix'
+Plug 'Shougo/echodoc.vim'
+Plug 'lifepillar/vim-mucomplete'
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#delayed_completion = 0
+
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
+
+" Plug 'w0rp/ale'
+" let g:ale_completion_enabled = 1
+" let g:ale_completion_delay = 1
+" let g:ale_completion_max_suggestions = 1
+
+" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+" Plug 'python-mode/python-mode', {'branch': 'develop'}
+
+Plug 'jreybert/vimagit'
+" Plug 'majutsushi/tagbar'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+Plug 'chrisbra/colorizer'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-apathy'
+Plug 'goldfeld/vim-seek'
+
+Plug 'johngrib/vim-game-snake'
+
+call plug#end() "}}}
+""" VISUALS {{{
+
+set laststatus=2 showtabline=2
+set shortmess=filnrxtWc
+set fillchars=vert:│
+set conceallevel=2
+set termguicolors
+" tmux specific
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+if has('gui_running')
+	" set guioptions='PAciMg'  " remove cruft
+	set guifont="Knack 13,Hasklig 13"
+	set guipty
+	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
+	colorscheme lucid
+	" let g:gruvbox_italic = 1
+	" let g:gruvbox_contrast_dark='oft'
+	" let g:gruvbox_guisp_fallback='fg'
+	" let g:gruvbox_termcolors=256
+elseif &termguicolors == 1
+	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
+  " set background=light
+  colorscheme materialbox
+else
+	colorscheme elflord
+endif
+
+set wildignore+=*.swp,*.swo,*lock,._*
+set wildignore+=.git,.hg,.svn
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png
+" set wildignore+=*.avi,*.div,*.mp4,*.webm,*.mkv,*.mpg,*.mpeg
+" set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
+" set wildignore+=*.eot,*.otf,*.ttf,*.woff
+" set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
+" set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*.o,*.a,a.out,*.pyc
+
+" block in normal mode
+" I-beam in insert
+" Underline in replace
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
+" I'm not even using the gooey
+" set gcr=a:block
+" " mode aware cursors
+" set gcr+=o:hor50-Cursor
+" set gcr+=n:Cursor
+" set gcr+=i-ci-sm:InsertCursor
+" set gcr+=r-cr:ReplaceCursor-hor20
+" set gcr+=c:CommandCursor
+" set gcr+=v-ve:VisualCursor
+
+" set gcr+=a:blinkon0
+
+" hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+" hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+" hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+" hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
+" }}}
+" Autocommands TODO {{{
+augroup main
+	autocmd!
+	autocmd FileType *mail set nospell number ft=mail.pandoc
+	autocmd FileType mail let b:loaded_delimitMate = 1 | setlocal syntax=pandoc
+	autocmd FileType *.ino,*.pde set filetype=arduino syntax=c
+
+	" pandoc really needs this
+	autocmd ColorScheme highlight default link Conceal Special
+	" highlight trailing whitespace
+	autocmd ColorScheme match Error '\s\+$'
+
+	" open QFix window if makeprg has errors
+	autocmd QuickFixCmdPost [^l]* cwindow
+augroup end
+" }}}

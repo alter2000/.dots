@@ -1,0 +1,6 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+g:gruvbox_contrast_dark	/home/alter2000/.dots/vim/vimrc	/^  let g:gruvbox_contrast_dark='oft'$/;"	v	language:Vim
+g:gruvbox_guisp_fallback	/home/alter2000/.dots/vim/vimrc	/^  let g:gruvbox_guisp_fallback='fg'$/;"	v	language:Vim
+g:gruvbox_italic	/home/alter2000/.dots/vim/vimrc	/^  let g:gruvbox_italic = 1$/;"	v	language:Vim
+g:gruvbox_termcolors	/home/alter2000/.dots/vim/vimrc	/^  let g:gruvbox_termcolors=256$/;"	v	language:Vim
+writing	/home/alter2000/.dots/vim/vimrc	/^augroup writing$/;"	a	language:Vim
