@@ -11,7 +11,7 @@ set wildmenu
 set number relativenumber
 set splitright splitbelow
 set mouse=a mousefocus
-set clipboard+=unnamedplus
+set clipboard^=unnamedplus
 set smarttab autoindent copyindent
 set scrolloff=4  " 4 lines of context when scrolling
 
@@ -67,7 +67,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/uggplugg')
+call plug#begin('~/.vim/uggplug')
 " docs
 Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/goyo.vim'
