@@ -36,7 +36,7 @@ c.content.default_encoding = 'utf-8'
 # Enable extra tools for Web developers. This needs to be enabled for
 #`:inspector` to work and also adds an _Inspect_ entry to the context menu.
 #For QtWebEngine, see `--enable-webengine-inspector` in `qutebrowser --help`.
-c.content.developer_extras = True
+# c.content.developer_extras = True
 
 c.content.dns_prefetch = True
 c.content.geolocation = 'ask'
