@@ -11,14 +11,7 @@ fi
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.2
 # export GDK_SCALE=2
-# export GDK_DPI_SCALE=1.4
-Xft.dpi: 100
-Xft.autohint: 1
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+export GDK_DPI_SCALE=1.4
 
 synclient TapButton1=1
 synclient TapButton2=2

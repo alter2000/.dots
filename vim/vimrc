@@ -143,6 +143,9 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" highlight trailing whitespace
+match Error '\s\+$'
+
 if has('gui_running')
 	" set guioptions='PAciMg'  " remove cruft
 	set guifont="Knack 13,Hasklig 13"
@@ -205,8 +208,6 @@ augroup main
 
 	" pandoc really needs this
 	autocmd ColorScheme highlight default link Conceal Special
-	" highlight trailing whitespace
-	autocmd ColorScheme match Error '\s\+$'
 
 	" open QFix window if makeprg has errors
 	autocmd QuickFixCmdPost [^l]* cwindow
