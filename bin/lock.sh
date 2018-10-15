@@ -3,8 +3,9 @@
 
 rectangles=" "
 
-TMPBG=/tmp/screen.png
-scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% $TMPBG
+# TMPBG=/tmp/screen.png
+# scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% $TMPBG
+TMPBG="$HOME/git/img/loop-lock.png"
 
 pkill -u $USER -USR1 dunst
 

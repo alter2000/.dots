@@ -3,9 +3,11 @@
 set fsync backspace=indent,eol,start
 set updatetime=290
 set encoding=utf-8 fileencoding=utf-8
+set fileformat=unix
 set incsearch nohlsearch ignorecase smartcase
 set shell=zsh
 set foldmethod=marker
+set list
 set wildmenu
 
 set number relativenumber
@@ -81,20 +83,12 @@ let g:waikiki_default_maps = 1
 let g:waikiki_mkdir_prompt = 1
 let g:waikiki_done = '✘'
 Plug 'dhruvasagar/vim-table-mode'
-" Plug 'vim-scripts/DrawIt'
 Plug 'godlygeek/tabular'
 
-" Plug 'jpalardy/vim-slime',
-" let g:slime_target = "tmux"
-" let g:slime_no_mappings = 1
-" xnoremap <leader>s <Plug>SlimeRegionSend
-" nnoremap <leader>s <Plug>SlimeMotionSend
-" nnoremap <leader>ss <Plug>SlimeLineSend
-
-" views + candy
 Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'osyo-manga/vim-over'
+Plug 'kien/rainbow_parentheses.vim'
 
 " colorschemes
 Plug 'morhetz/gruvbox'
@@ -107,18 +101,11 @@ Plug 'Shougo/echodoc.vim'
 Plug 'lifepillar/vim-mucomplete'
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#delayed_completion = 0
-
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
-
-" Plug 'w0rp/ale'
-" let g:ale_completion_enabled = 1
-" let g:ale_completion_delay = 1
-" let g:ale_completion_max_suggestions = 1
+Plug 'w0rp/ale'
 
 " Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
 
-Plug 'jreybert/vimagit'
 " Plug 'majutsushi/tagbar'
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
@@ -130,6 +117,11 @@ Plug 'tpope/vim-apathy'
 Plug 'goldfeld/vim-seek'
 
 Plug 'johngrib/vim-game-snake'
+
+Plug 'Kyashar/vim-epitech'
+let g:epi_name  = 'Jor Bashllari'
+let g:epi_login = 'jori.bashllari@epitech.eu'
+let g:epi_mode_auto = 1
 
 call plug#end() "}}}
 """ VISUALS {{{
@@ -157,7 +149,7 @@ if has('gui_running')
 	" let g:gruvbox_guisp_fallback='fg'
 	" let g:gruvbox_termcolors=256
 elseif &termguicolors == 1
-	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
+	execute 'set background=' . ((strftime('%H') % 22) > 7 ? 'light' : 'dark')
   " set background=light
   colorscheme materialbox
 else

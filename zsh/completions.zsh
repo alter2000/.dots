@@ -10,6 +10,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:][:lower:]} r:|[._-]
 zstyle ':completion:*' max-errors 0
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' substitute 1
+zstyle ':completion:*:*:(vim|e):*' file-patterns '^*.(aux|log|pdf|o|gc):source-files' '*:all-files'
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh

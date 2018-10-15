@@ -39,20 +39,12 @@ nnoremap <Down>  :resize -3<CR>
 nnoremap <Left>  :vertical resize -3<CR>
 nnoremap <Right> :vertical resize +3<CR>
 
-function! Joana()
-	unmap <Up>
-	unmap <Down>
-	unmap <Left>
-	unmap <Right>
-endfunction
-command! Joana call Joana()
-
 " Emacs heresy
 cnoremap <C-a> <Home>
 inoremap <C-a> <Home>
 cnoremap <C-e> <End>
 inoremap <C-e> <End>
-"cnoremap <C-k> 
+"cnoremap <C-k>
 " }}}
 
 nmap ss ysiw

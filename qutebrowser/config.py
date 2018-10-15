@@ -17,7 +17,7 @@ c.completion.scrollbar.width = 12
 c.completion.timestamp_format = '%Y-%m-%d'
 
 # How many URLs to show in the web history. 0: no history / -1: unlimited
-c.completion.web_history_max_items = -1
+c.completion.web_history.max_items = -1
 
 # Valid values: always,multiple-tabs,downloads,never
 c.confirm_quit = ['downloads']
@@ -210,7 +210,7 @@ c.input.spatial_navigation = True
 ## running QtWebEngine on Wayland.
 # c.qt.force_platform = None
 
-c.scrolling.bar = False
+# c.scrolling.bar = False
 c.scrolling.smooth = True
 
 ## The name of the session to save by default. If this is set to null,
