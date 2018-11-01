@@ -7,7 +7,7 @@ alias wq="toilet -f future \"this isn't vim, autismo\" | lolcat \
 	sleep 616"
 alias q="wq"
 alias e="$EDITOR"
-alias ew="emacs"
+alias ew="zile"
 alias ffs="sudo"
 alias m,="nmtui-connect"
 test "hash taskell" && alias asd="taskell ~/notes/todo.md"

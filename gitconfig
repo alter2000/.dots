@@ -1,7 +1,7 @@
 [user]
 	email = altnate2000@gmail.com
 	name = Jor Bashllari
-	signingkey = altnate2000@gmail.com
+	signingkey = 352B7423BC3C59E4
 [color]
 	ui = true
 [color "branch"]
@@ -32,8 +32,8 @@
 	tool = vimdiff
 [pull]
 	rebase = true
-# [commit]
-# 	gpgsign = true
+[commit]
+	# gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

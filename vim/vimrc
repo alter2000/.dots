@@ -41,7 +41,7 @@ set history=1000 undolevels=1000 updatecount=100
 set timeoutlen=700 ttimeoutlen=10
 syntax enable
 filetype indent plugin on
-set noshowmode showcmd
+set showmode showcmd
 set noerrorbells visualbell
 " set autochdir
 set formatoptions=roqn21j
@@ -97,7 +97,7 @@ Plug 'mkarmona/materialbox'
 
 " completion + linters
 Plug 'LnL7/vim-nix'
-Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/echodoc.vim'
 Plug 'lifepillar/vim-mucomplete'
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#delayed_completion = 0
@@ -126,7 +126,7 @@ let g:epi_mode_auto = 1
 call plug#end() "}}}
 """ VISUALS {{{
 
-set laststatus=2 showtabline=2
+set laststatus=2 showtabline=1
 set shortmess=filnrxtWc
 set fillchars=vert:│
 set conceallevel=2

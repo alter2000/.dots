@@ -11,20 +11,31 @@ pkill -u $USER -USR1 dunst
 
 i3lock \
 	-i $TMPBG \
-	--timepos="x+w/2:y+h-90" \
-	--datepos="tx+24:ty+25" \
-	--indpos="x+w/2:y+h/2" --ring-width=13 \
-	--clock --datestr "Oi cunt" \
-	--insidecolor=00000000 --ringcolor=f2e6d1ff --line-uses-inside \
-	--keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
-	--insidevercolor=fecf4dff --insidewrongcolor=ffffffff \
-	--ringvercolor=f2e6d1ff --ringwrongcolor=d23c3dff \
-	--radius=30 --veriftext="" --wrongtext="" \
-	--timecolor="8ab93fff" --datecolor="821f5aff"
+	--timepos="x+w/2:y+h-90"    \
+	--datepos="tx+24:ty+25"     \
+	--indpos="x+w/2:y+h/2"      \
+	--ring-width=13             \
+	--clock                     \
+	--datestr "Oi cunt"         \
+	--insidecolor=00000000      \
+	--ringcolor=f2e6d1ff        \
+	--line-uses-inside          \
+	--keyhlcolor=d23c3dff       \
+	--bshlcolor=d23c3dff        \
+	--separatorcolor=00000000   \
+	--insidevercolor=fecf4dff   \
+	--insidewrongcolor=ffffffff \
+	--ringvercolor=f2e6d1ff     \
+	--ringwrongcolor=d23c3dff   \
+	--radius=30                 \
+	--timecolor="8ab93fff"      \
+	--datecolor="821f5aff"      \
+	--veriftext=""              \
+	--wrongtext=""
 
 pkill -u $USER -USR2 dunst
 
-sleep 0.3
+# sleep 0.3
 xset dpms force off
 rm /tmp/screen.png
 

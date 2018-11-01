@@ -3,7 +3,7 @@
 # probably author too
 
 AUTHOR='jori.bashllari@epitech.eu'
-SRCDIR="$HOME/epitheq/src"
+SRCDIR="$HOME/epitheq/CPE"
 YEAR=$(date +"%Y")
 PROJNAME=$(git remote -v | head -1 | cut -d'/' -f3 | cut -d' ' -f1)
 
@@ -12,13 +12,6 @@ cat << EOF
 ** EPITECH PROJECT, $YEAR
 ** $PROJNAME
 ** File description:
-** TODO: FILL THIS YO
+** TODO: FILL THIS YO ------- not forgetti makefiletti
 */
-EOF
-
-test -f $SRCDIR/$PROJNAME/.gitignore \
-    || cat << EOF >> $SRCDIR/$PROJNAME/.gitignore
-*
-!**/*.c
-!**/Makefile
 EOF

@@ -9,6 +9,11 @@ set guioptions s
 set font "Ubuntu Mono 11"
 
 # keybinds
+# unmap <C-d>
+# unmap <C-u>
+unmap d
+map d scroll half-down
+map u scroll half-up
 map [fullscreen] a adjust_window best-fit
 map [fullscreen] s adjust_window width
 map [fullscreen] f follow
@@ -16,3 +21,4 @@ map [fullscreen] j scroll down
 map [fullscreen] k scroll up
 map [fullscreen] h navigate previous
 map [fullscreen] l navigate next
+map [fullscreen] d zoom half-down

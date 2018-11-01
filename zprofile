@@ -48,15 +48,11 @@ if pgrep gpg-agent 1>/dev/null; then
 	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 else
 	eval `gpg-agent --daemon`
+	eval `ssh-agent`
 fi
 
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
-
-# if not inside a tmux session, and if no session is started, start a new session
-# if command -v tmux >/dev/null; then
-# 	test -z "$TMUX" && (tmux attach || tmux new-session -t 0)
+# if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#   exec startx
 # fi
 
 # vim:ft=zsh

@@ -84,12 +84,16 @@ settings:
     global: '#006640'
   colors.webpage.bg:
     global: '#F2E6D1'
+  input.insert_mode.auto_load:
+    global: true
   input.links_included_in_focus_chain:
     global: false
+  input.spatial_navigation:
+    global: true
   prompt.filebrowser:
     global: true
   scrolling.bar:
-    global: false
+    global: never
   scrolling.smooth:
     global: true
   statusbar.hide:
