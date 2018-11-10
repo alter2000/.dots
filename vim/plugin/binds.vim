@@ -49,6 +49,7 @@ inoremap <C-e> <End>
 
 nmap ss ysiw
 nmap sS ysiW
+nnoremap <Space> <NOP>
 
 " add empty lines up/down
 nnoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[

@@ -94,6 +94,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'morhetz/gruvbox'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'mkarmona/materialbox'
+Plug 'nerdypepper/agila.vim'
 
 " completion + linters
 Plug 'LnL7/vim-nix'
@@ -117,11 +118,6 @@ Plug 'tpope/vim-apathy'
 Plug 'goldfeld/vim-seek'
 
 Plug 'johngrib/vim-game-snake'
-
-Plug 'Kyashar/vim-epitech'
-let g:epi_name  = 'Jor Bashllari'
-let g:epi_login = 'jori.bashllari@epitech.eu'
-let g:epi_mode_auto = 1
 
 call plug#end() "}}}
 """ VISUALS {{{
@@ -160,11 +156,11 @@ set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.aux,*.out,*.toc
 set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png
-" set wildignore+=*.avi,*.div,*.mp4,*.webm,*.mkv,*.mpg,*.mpeg
-" set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
-" set wildignore+=*.eot,*.otf,*.ttf,*.woff
-" set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
-" set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*.avi,*.div,*.mp4,*.webm,*.mkv,*.mpg,*.mpeg
+set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
+set wildignore+=*.eot,*.otf,*.ttf,*.woff
+set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.o,*.a,a.out,*.pyc
 
 " block in normal mode
