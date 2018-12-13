@@ -35,7 +35,7 @@
 - name: set up dunst
   file: "force=yes state=link src={{dotdir}}/dunst dest={{xdg.config_home}}/dunst"
 - name: set up efiles
-  file: "force=yes state=link src={{dotdir}}/elinks dest={{xdg.config_home}}/elinks"
+  file: "force=yes state=link src={{dotdir}}/elinks dest={{xdg.config_home}}/elinks/elinks.conf"
 - name: set up gtk3
   file: "force=yes state=link src={{dotdir}}/gtk-3.0 dest={{xdg.config_home}}/gtk-3.0"
 - name: set up i3

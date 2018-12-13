@@ -3,7 +3,7 @@
 # probably author too
 
 AUTHOR='jori.bashllari@epitech.eu'
-SRCDIR="$HOME/epitheq/PSU"
+SRCDIR="$HOME/epitheq/"
 YEAR=$(date +"%Y")
 PROJNAME=$(git remote -v | head -1 | cut -d'/' -f3 | cut -d' ' -f1)
 

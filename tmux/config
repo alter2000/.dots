@@ -77,11 +77,11 @@ set -g message-attr bold
 set -g status-left "#[bg=blue,fg=black] #(date +%d/%H:%M) #[bg=black,fg=white,bold] #S "
 set -g status-left-length 20
 set -g window-status-format "#[fg=magenta] #W "
-set -g window-status-current-format "#[fg=magenta] #W "
+set -g window-status-current-format "#[fg=blue] #W "
 set -g status-right "#(~/.dots/tmux/status.sh #{client_width})"
 
 ### Plugins
-run-shell ~/.tmux/tmux-resurrect/resurrect.tmux
+run-shell ~/.dots/tmux/tmux-resurrect/resurrect.tmux
 set -g @resurrect-dir '$HOME/.cache/tmux/tmux-resurrect'
 # set -g @resurrect-capture-pane-contents 'on'
 # run-shell ~/.tmux/tmux-continuum/continuum.tmux

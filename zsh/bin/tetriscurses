@@ -1,26 +1,27 @@
+#!/usr/bin/env zsh
 # I noticed we don't ship any contrib and/or example scripts using the
 # zcurses module, and also that the builtin tetris is sort of boring, so
 # I figured I'd port it to curses. It works pretty well, but I noticed
 # two problems with the zcurses module in the process:
-# 
+#
 # 1. the HAVE_USE_DEFAULT_COLORS define seems to never be defined?
-# 
+#
 # 2a. resizing the window causes 'zcurses input' to wait forever for a
 # key, even with a timeout defined.
-# 
+#
 # Bart says:
 # >This probably has something to do with the special-casing around wgetch()
 # >for signals handled by the "trap" command.  See the big comment in
 # >Src/Modules/curses.c lines 1073-1103.
-# 
+#
 # >It may be problematic to mix curses with the generic signal handling in
 # >the main shell.  We may need to swap in a SIGWINCH handler wrapper while
 # >the curses UI is active, and restore the main handler when leaving it.
-# 
+#
 # 2b. resizing the window doesn't cause an event while running the
 # program, but if i resize before starting(?) i get an event RESIZE on
 # my first input call.
-# 
+#
 # Bart says:
 # >There's probably some state that needs to be cleared on entry to
 # >zccmd_input() so that curses doesn't see something left over from the

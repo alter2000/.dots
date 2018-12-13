@@ -54,20 +54,34 @@ nnoremap <Space> <NOP>
 " add empty lines up/down
 nnoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
 nnoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<CR>
+
 nnoremap <silent> <leader><leader> :w<cr>
 nnoremap <silent> <leader>w        :call func#toggleWrap()<CR>
-" nnoremap <silent> <leader>s        :call func#trimSpaces()<CR>
+nnoremap <silent> <leader>cw       :%s/\s+$//g<CR>
 nnoremap <silent> <leader>s        :setlocal spell!<CR>
+nnoremap <silent> <leader>n        :cnext<CR>
+nnoremap <silent> <leader>N        :cprevious<CR>
+nnoremap <silent> <leader>b        :bnext<CR>
+nnoremap <silent> <leader>B        :bprev<CR>
+nnoremap <silent> <leader>q        :Explore %:h<CR>
+" needs ctags
+nnoremap <silent> <leader>e        :execute "ltag " . expand("<cword>")<CR>
 " edit macros
 nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
+" FZF
+nnoremap <Leader>fe :Files .<CR>
+nnoremap <Leader>ff :GitFiles<CR>
+nnoremap <Leader>ft :Tags<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>/  :Rg<CR>
+
 " function keys {{{
-nnoremap <F1> <Esc>
-inoremap <F1> <Esc>
+noremap <F1> <Esc>
 
 if exists(':MundoToggle')
   nnoremap <F2> :MundoToggle<CR>
-  inoremap <F2> <Esc>:MundoToggle<CR>
+  inoremap <F2> <C-o>:MundoToggle<CR>
 endif
 
 nnoremap <F3> :set list!<CR>
@@ -75,16 +89,16 @@ inoremap <F3> <C-o>:set list!<CR>
 
 if exists(':ColorToggle')
   nnoremap <F10> :ColorToggle<CR>
-  inoremap <F10> <C-u>:ColorToggle<CR>
+  inoremap <F10> <C-o>:ColorToggle<CR>
 endif
 
 if exists(':Goyo')
 	nnoremap <F11> :Goyo<CR>
-	inoremap <F11> <C-u>:Goyo<CR>
+	inoremap <F11> <C-o>:Goyo<CR>
 endif
 " }}}
 
 " completion
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"

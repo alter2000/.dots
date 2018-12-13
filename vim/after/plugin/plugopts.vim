@@ -1,4 +1,4 @@
-""" Pandoc """
+" Pandoc {{{
 if exists('g:loaded_pandoc')
 	let g:pandoc#filetypes#handled = ['markdown','rst','latex']
 	let g:pandoc#modules#disabled = ['keyboard']
@@ -8,16 +8,19 @@ if exists('g:loaded_pandoc')
 	let g:pandoc#folding#fold_yaml = 1
 	let g:pandoc#folding#fdc = 0
 endif
-
-""" Mundo (fork of gundo) """
+" }}}
+" Mundo (fork of gundo) {{{
 if exists('g:loaded_mundo')
 	let g:mundo_preview_height = 10
 	let g:mundo_width = 23
 	let g:mundo_preview_bottom = 1
 endif
-
-""" ALE """
+" }}}
+" ALE {{{
 if exists('g:loaded_ale')
+	if !has('nvim')
+		let g:ale_set_balloons = 1
+	endif
 	let g:ale_lint_on_text_changed = 'never'
 	let g:ale_sign_column_always = 1
 	let g:ale_sign_error = '!!'
@@ -26,21 +29,31 @@ if exists('g:loaded_ale')
 	let g:ale_echo_msg_warning_str = 'W'
 	let g:ale_echo_msg_info_str = 'I'
 	let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
+	let g:ale_linters = {
+		\	'python': ['flake8', 'pylint'],
+		\	'c':      ['gcc', 'clangcheck'],
+		\	'cpp':    ['clangcheck', 'cquery'],
+		\	'rust':   ['rls', 'cargo'],
+		\	}
 	let g:ale_fixers = {
-	\	'c': [ 'clang-format' ],
-	\	}
+		\	'python': ['yapf', 'autopep8'],
+		\	'c':      ['clang-format'],
+		\	'cpp':    ['clang-format'],
+		\	'rust':   ['rustfmt'],
+		\	}
+	let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
 	" let g:ale_completion_enabled = 1
 	" let g:ale_completion_delay = 0.5
 	" let g:ale_completion_max_suggestions = 5
 endif
-
-""" YCM """
+" }}}
+" YCM {{{
 " let g:ycm_min_num_of_chars_for_completion = 4
 " let g:ycm_max_num_candidates = 6
 " let g:ycm_max_num_identifier_candidates = 3
 " let g:ycm_complete_in_comments = 1
-
-""" Startify """
+" }}}
+" Startify {{{
 if exists('g:loaded_startify')
 	let g:startify_list_order = [
 					\ ['     ### MRU'],      'files',
@@ -52,8 +65,8 @@ if exists('g:loaded_startify')
 	let g:startify_fortune_use_unicode = 1
 	let g:startify_padding_left = 5
 endif
-
-""" Netrw """
+" }}}
+" Netrw {{{
 if g:loaded_netrwPlugin !=# '000'
 	let g:netrw_dav_cmd   = 'cadaver'
 	let g:netrw_file_cmd  = 'wget'
@@ -72,8 +85,8 @@ if g:loaded_netrwPlugin !=# '000'
 	let g:netrw_keepdir = 0
 	let g:netrw_browsex_viewer = 'xdg-open'
 endif
-
-""" TeX """
+" }}}
+" TeX {{{
 " let g:tex_flavor = 'context'
 " let g:vimtex_view_use_temp_files = 1
 " let g:vimtex_view_forward_search_on_start = 1
@@ -88,15 +101,15 @@ if exists('g:loaded_slime')
 	let g:slime_paste_file = "$HOME/.cache/slime_paste"
 	let g:slime_python_ipython = 1
 endif
-
-""" Easytags """
+" }}}
+" Easytags {{{
 " let g:easytags_syntax_keyword = 'always'
 " let g:easytags_file = '~/.cache/vimtags'
 " set tags=./tags;
 " let g:easytags_dynamic_files = 2
 " let g:easytags_events = ['FileReadPre']
-
-""" mucomplete """
+" }}}
+" mucomplete {{{
 if exists('g:loaded_mucomplete')
 	" taken from mucomplete docs
 	function! IsBehindDir()
@@ -114,3 +127,4 @@ if exists('g:loaded_mucomplete')
 	let g:mucomplete#delayed_completion = 0
 	" let g:mucomplete#chains += {'default': ['omni', 'path', 'incl', 'dict', 'uspl']}
 endif
+" }}}

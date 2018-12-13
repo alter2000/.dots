@@ -29,11 +29,14 @@
 [github]
 	user = alter2000
 [merge]
-	tool = vimdiff
+	tool = vimdiffugitive
+[mergetool "vimdiffugitive"]
+	cmd = vim -f -c "Gdiff" "$MERGED"
 [pull]
 	rebase = true
 [commit]
-	# gpgsign = true
+	verbose = true
+	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

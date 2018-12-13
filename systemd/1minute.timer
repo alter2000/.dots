@@ -1,5 +1,5 @@
 [Unit]
-Description=1 minute offlineimap timer
+Description=1 minute timer
 RefuseManualStart=no
 RefuseManualStop=no
 
@@ -9,6 +9,7 @@ RefuseManualStop=no
 #OnUnitActiveSec= 1min
 OnCalendar=*-*-* *:*:00
 Persistent=yes
+Unit=offlineimap.service
 
 [Install]
 WantedBy=default.target

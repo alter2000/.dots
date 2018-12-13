@@ -1,0 +1,7 @@
+#!/bin/sh
+
+$HOME/.dots/scripts/reader.py -k $(pass web/mercury_api) $1 \
+    | jq -r '[(if .title then "# "+.title else empty end),
+              (if .author then .author else empty end), .content.text]
+    | join("\n\n")' \
+    | cat

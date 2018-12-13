@@ -32,7 +32,7 @@ if !isdirectory(expand('$HOME/.cache/vim'))
 	call mkdir(expand('$HOME/.cache/vim'))
 endif
 set directory=~/.cache/vim/tmp
-set undodir=~/.cache/vim/undo undofile
+set undofile undodir=~/.cache/vim/undo
 if !has('nvim')
 	set viminfofile=~/.cache/vim/viminfo
 	set viminfo=%10,\"50,'100,'0
@@ -47,11 +47,13 @@ set noerrorbells visualbell
 set formatoptions=roqn21j
 let mapleader=' '
 if executable('rg')
-	set grepprg =rg\ --vimgrep
+	set grepprg=rg\ --vimgrep
 endif
 " completion via mucomplete/ale
 set complete=.,w,kspell,k,d,t
 set completeopt=noinsert,menuone,noselect,preview
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
 " }}}
 """ PLUGINS {{{
 " disable some built-in plugins
@@ -59,7 +61,7 @@ let g:loaded_2html_plugin = 1
 " let g:loaded_netrwPlugin = '000'
 let g:loaded_getscriptPlugin = 1
 let g:loaded_logipat = 1
-let g:loaded_matchparen = 1
+" let g:loaded_matchparen = 1
 let g:loaded_vimballPlugin = 1
 packadd! matchit
 
@@ -103,13 +105,11 @@ Plug 'lifepillar/vim-mucomplete'
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#delayed_completion = 0
 Plug 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
 
-" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
 
-" Plug 'majutsushi/tagbar'
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
 Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -133,9 +133,10 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " highlight trailing whitespace
 match Error '\s\+$'
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 if has('gui_running')
-	" set guioptions='PAciMg'  " remove cruft
+	set guioptions='PAciMg'  " remove cruft
 	set guifont="Knack 13,Hasklig 13"
 	set guipty
 	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
@@ -161,7 +162,7 @@ set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
 set wildignore+=*.eot,*.otf,*.ttf,*.woff
 set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*.o,*.a,a.out,*.pyc
+set wildignore+=*.o,*.a,a.out,unit_tests,*.pyc,*.gcda,*.gcno
 
 " block in normal mode
 " I-beam in insert
@@ -190,13 +191,13 @@ let &t_EI = "\<Esc>[2 q"
 " Autocommands TODO {{{
 augroup main
 	autocmd!
-	autocmd FileType *mail set nospell number ft=mail.pandoc
-	autocmd FileType mail let b:loaded_delimitMate = 1 | setlocal syntax=pandoc
-	autocmd FileType *.ino,*.pde set filetype=arduino syntax=c
 
 	" pandoc really needs this
 	autocmd ColorScheme highlight default link Conceal Special
+	autocmd ColorScheme match Error '\s\+$'
+	autocmd ColorScheme match Error '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+	autocmd QuickFixCmdPost *grep* cwindow
 	" open QFix window if makeprg has errors
 	autocmd QuickFixCmdPost [^l]* cwindow
 augroup end

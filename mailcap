@@ -16,8 +16,9 @@ text/tex  ; vim '%s'         ; needsterminal           ; compose=vim %s
 text      ;                  ; needsterminal           ; compose=vim %s
 text      ; view '%s'        ; needsterminal
 
-application/pdf    ; pandoc -f pdf -t markdown ; copiousoutput ; compose=vim %s
 application/pdf    ; zathura '%s' ; test=test -n "$DISPLAY"
+application/pdf    ; pdftotext -l 9 -nopgbrk -q '%s'; copiousoutput ; compose=vim %s
+
 application        ; xdg-open     ; test=test -n "$DISPLAY"
 application/msword ; soffice '%s' ; test=test -n "$DISPLAY"
 application/msword ; pandoc -f docx -t markdown ; copiousoutput ; compose=vim %s

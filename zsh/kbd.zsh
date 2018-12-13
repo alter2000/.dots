@@ -1,9 +1,10 @@
 ### KEYBINDS ###
 autoload -U up-line-or-beginning-search && zle -N up-line-or-beginning-search
 autoload -U down-line-or-beginning-search && zle -N down-line-or-beginning-search
+autoload -Uz edit-command-line && zle -N edit-command-line
 
 # typeset -g -A key
-bindkey -e
+# bindkey -e
 echoti smkx && echoti rmkx
 
 # key[Home]="$terminfo[khome]"
@@ -43,3 +44,6 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+
+bindkey -M vicmd 'u' undo
+bindkey -M vicmd '^r' redo

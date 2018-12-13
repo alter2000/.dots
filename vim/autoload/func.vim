@@ -35,13 +35,14 @@ function! func#toggleWrap()
 	endif
 endfunction
 " }}}
-" " trim whitespace {{{
-" function func#trimSpaces() range
-"   let oldhlsearch=ShowSpaces(1)
-"   execute a:firstline.",".a:lastline."substitute ///gec"
-"   let &hlsearch=oldhlsearch
-" endfunction
-" " }}}
+" list commit files {{{
+function func#ListCommitFiles(...)
+    let a:filepath = get(a:, 1, '')
+    let l:file_list = systemlist("cd " . expand("%:p:h") . "; git show --pretty='' --name-only " . a:filepath)
+    let l:git_root = system("cd " . expand("%:p:h") . "; printf \"%s\" $(git rev-parse --show-toplevel)")
+    return map(l:file_list, '{"filename": "' . l:git_root . '/".v:val, "lnum": 1}')
+endfunction
+" }}}
 " " toggle explore netrw {{{
 " function! func#toggleExplore()
 " 	if &ft ==# "netrw"
@@ -51,3 +52,23 @@ endfunction
 " 	endif
 " endfunction
 " " }}}
+" redirect output to file {{{
+function! redir#redir(cmd)
+	for win in range(1, winnr('$'))
+		if getwinvar(win, 'scratch')
+			execute win . 'windo close'
+		endif
+	endfor
+	if a:cmd =~ '^!'
+		execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
+	else
+		redir => output
+		execute a:cmd
+		redir END
+	endif
+	vnew
+	let w:scratch = 1
+	setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+	call setline(1, split(output, "\n"))
+endfunction
+" }}}

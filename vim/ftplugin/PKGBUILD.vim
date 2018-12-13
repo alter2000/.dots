@@ -1,4 +1,4 @@
-setlocal shiftwidth=2
-setlocal softtabstop=2
-setlocal tabstop=2
-let &makeprg = 'sh -c "makepkg -s && makepkg --printsrcinfo > .SRCINFO"'
+setlocal shiftwidth=4
+setlocal softtabstop=4
+setlocal tabstop=4
+setlocal makeprg='sh -c "makepkg -sf && makepkg --printsrcinfo > .SRCINFO"'

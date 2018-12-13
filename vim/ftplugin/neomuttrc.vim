@@ -4,13 +4,13 @@
 " Latest Revision:      2017-09-17
 " Original version copied from ftplugin/muttrc.vim
 
-if exists("b:did_ftplugin")
+if exists('b:did_ftplugin')
   finish
 endif
 let b:did_ftplugin = 1
 
-let s:cpo_save = &cpo
-set cpo&vim
+let s:cpo_save = &cpoptions
+set cpoptions&vim
 
 let b:undo_ftplugin = "setl com< cms< inc< fo<"
 
@@ -19,5 +19,5 @@ setlocal formatoptions-=t formatoptions+=croql
 
 let &l:include = '^\s*source\>'
 
-let &cpo = s:cpo_save
+let &cpoptions = s:cpo_save
 unlet s:cpo_save

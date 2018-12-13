@@ -1,5 +1,5 @@
 if &compatible || v:version < 603
-    finish
+	finish
 endif
 
 augroup ftd

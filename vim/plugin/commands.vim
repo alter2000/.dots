@@ -2,6 +2,13 @@ command! -bar -nargs=* Ss call func#scratchEdit('split', <q-args>)
 command! -bar -nargs=* Svs call func#scratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Ste call func#scratchEdit('tabe', <q-args>)
 
+command -nargs=? -bar Gshow call setqflist(func#ListCommitFiles("<args>")) | copen | resize 12 | cc 1
+" command -bar -nargs=0 -range=% func#TrimSpaces <line1>,<line2>call TrimSpaces()
+" Usage:
+" 	:Redir hi ............. show the full output of command ':hi' in a scratch window
+" 	:Redir !ls -al ........ show the full output of command ':!ls -al' in a scratch window
+command! -nargs=1 -complete=command Redir silent call redir#redir(<f-args>)
+
 function! Joana()
 	unmap <Up>
 	unmap <Down>
@@ -17,5 +24,3 @@ function! Dejoana()
 	nnoremap <Right> :vertical resize +3<CR>
 endfunction
 command! Dejoana call Dejoana()
-
-" command -bar -nargs=0 -range=% func#TrimSpaces <line1>,<line2>call TrimSpaces()

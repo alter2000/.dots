@@ -28,12 +28,14 @@ rationalize-dot() {
 # https://github.com/zanshin/dotfiles/blob/master/zsh/functions.zsh
 path() {
 	echo $PATH | tr ":" "\n" | \
-		awk "{ sub(\"/usr\", \"$fg_no_bold[green]/usr$reset_color\"); \
-					 sub(\"/bin\", \"$fg_no_bold[blue]/bin$reset_color\"); \
-					 sub(\"/opt\", \"$fg_no_bold[cyan]/opt$reset_color\"); \
-					 sub(\"/sbin\", \"$fg_no_bold[magenta]/sbin$reset_color\"); \
-					 sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
-					 sub(\"/.rvm\", \"$fg_no_bold[red]/.rvm$reset_color\"); \
+		awk "{ sub(\"/usr\", \"[;32m/usr[0;m\"); \
+					 sub(\"/bin\", \"[;31m/bin[0;m\"); \
+					 sub(\"/opt\", \"[;36m/opt[0;m\"); \
+					 sub(\"/sbin\", \"[;35m/sbin[0;m\"); \
+					 sub(\"/local\", \"[;33m/local[0;m\"); \
+					 sub(\"/.rvm\", \"[;31m/.rvm[0;m\"); \
+					 sub(\"/.cargo\", \"[;31m/.rvm[0;m\"); \
+					 sub(\"/.perl\", \"[;31m/.rvm[0;m\"); \
 					 print }"
 }
 # }}}
@@ -65,4 +67,20 @@ cpv() {
 		rsync -pogbr -hhh --backup-dir=/tmp/rsync -e /dev/null --progress "$@"
 }
 compdef _files cpv
+# }}}
+# revealjs slides with pandoc {{{
+gib_slides() {
+	local out="${1/.md/.html}"
+
+	pandoc -s -t revealjs --mathjax \
+		-V revealjs-url=$HOME/.pandoc/reveal.js \
+		-V css=main.css \
+		-o $out \
+		$@
+
+	echo "$out out"
+	firefox $out
+	unset out
+}
+compdef _files gib_slides
 # }}}
