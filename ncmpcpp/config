@@ -32,7 +32,7 @@ mpd_host = idk@localhost
 ##
 mpd_music_dir = ~/lfs/music
 #
-#mpd_crossfade_time = 5
+mpd_crossfade_time = 3
 #
 ##### music visualizer #####
 ##
@@ -182,7 +182,7 @@ current_item_prefix = $4$r
 #
 current_item_suffix = $/r$(end)
 #
-current_item_inactive_column_prefix = $(white)$r
+current_item_inactive_column_prefix = $(yellow)$r
 #
 current_item_inactive_column_suffix = $/r$(end)
 #
@@ -248,7 +248,7 @@ browser_sort_format = {%t}{%a}|{%f} {(%l)}
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[black]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
@@ -256,7 +256,7 @@ browser_sort_format = {%t}{%a}|{%f} {(%l)}
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-execute_on_song_change = "~/.dots/scripts/notify.sh"
+#execute_on_song_change = "~/.ncmpcpp/album_art.sh"
 #
 ##
 ## Note: Custom command that will be executed each time player state

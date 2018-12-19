@@ -152,6 +152,11 @@
 #def_key "mouse"
 #  mouse_event
 #
+def_key "t"
+    find
+def_key "t"
+    find_item_forward
+
 def_key "up"
   scroll_up
 
@@ -166,37 +171,35 @@ def_key "shift-down"
   select_item
   scroll_down
 
+def_key "h"
+  previous_column
 def_key "H"
   replay_song
 
 def_key "j"
   scroll_down
-
 def_key "J"
   select_item
   scroll_down
 
 def_key "k"
   scroll_up
-
 def_key "K"
   select_item
   scroll_up
 
 def_key "l"
-  enter_directory
+  next_column
+def_key "L"
+	show_lyrics
 
-def_key "l"
-  toggle_output
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
 
-def_key "l"
-  run_action
-
-def_key "l"
-  play_item
-
-def_key ";"
-  execute_command
+def_key "/"
+  find
 #
 #def_key "["
 #  scroll_up_album
@@ -279,6 +282,8 @@ def_key ";"
 #def_key "-"
 #  volume_down
 #
+def_key ";"
+ execute_command
 #
 #def_key "tab"
 #  next_screen
@@ -417,9 +422,6 @@ def_key ";"
 #  select_found_items
 #
 #def_key "/"
-#  find
-#
-#def_key "/"
 #  find_item_forward
 #
 #def_key "?"
@@ -464,8 +466,6 @@ def_key ";"
 #def_key "g"
 #  jump_to_position_in_song
 #
-#def_key "l"
-#  show_lyrics
 #
 #def_key "ctrl-v"
 #  select_range

@@ -1,33 +1,60 @@
 ---
 - name: get systemd directory
-  file: "state=directory dest={{xdg.config_home}}/systemd/user"
+  daemon_reload: true
+  file:
+    state: directory
+    dest: "{{xdg.config_home}}/systemd/user"
 
 - name: set up services
-  file: "force=yes state=link src={{dotdir}}/systemd
-          dest={{xdg.config_home}}/systemd/user"
+  daemon_reload: true
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/systemd"
+    dest: "{{xdg.config_home}}/systemd/user"
 
 - name: set up user-dirs.dirs
-  file: "force=yes state=link src={{dotdir}}/user-dirs.dirs
-          dest={{xdg.config_home}}/user-dirs.dirs"
+  daemon_reload: true
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/user-dirs.dirs"
+    dest: "{{xdg.config_home}}/user-dirs.dirs"
 
+
+#  - name: ensure gpg-agent is running
+#    service:
+#      state: started
+#      enabled: true
+#      name: gpg-agent
 
 - name: ensure ntp is running
-  service: state=started enabled=yes name=ntpd
-
-  #- name: ensure gpg-agent is running
-  #service: state=started enabled=yes name=gpg-agent
-
-- name: ensure keybase agent is running
-  service: state=started enabled=yes name=keybase
+  daemon_reload: true
+  service:
+    state: started
+    enabled: true
+    name: ntpd
 
 - name: ensure pulse is up
-  service: state=started enabled=yes name=pulseaudio
+  service:
+    state: started
+    enabled: true
+    name: pulseaudio
 
 - name: ensure mpd is up
-  service: state=started enabled=yes name=mpd
+  service:
+    state: started
+    enabled: true
+    name: mpd
 
 - name: ensure dunst is up
-  service: state=started enabled=yes name=dunst
+  service:
+    state: started
+    enabled: true
+    name: dunst
 
 - name: ensure offlineimap is up
-  service: state=started enabled=yes name=offlineimap
+  service:
+    state: started
+    enabled: true
+    name: offlineimap
