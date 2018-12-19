@@ -8,8 +8,9 @@
           dest={{xdg.config_home}}/mpd"
 
 - name: set up ncmpcpp
-  flie: "force=yes state=link src={{dotdir}}/ncmpcpp
+  file: "force=yes state=link src={{dotdir}}/ncmpcpp
           dest=~/.ncmpcpp"
+
 # - name: set up transmission
 #   file: "force=yes state=link src={{dotdir}}/transmission/settings.json
 #           dest={{xdg.config_home}}/transmission/settings.json"

@@ -9,3 +9,25 @@
 - name: set up user-dirs.dirs
   file: "force=yes state=link src={{dotdir}}/user-dirs.dirs
           dest={{xdg.config_home}}/user-dirs.dirs"
+
+
+- name: ensure ntp is running
+  service: state=started enabled=yes name=ntpd
+
+  #- name: ensure gpg-agent is running
+  #service: state=started enabled=yes name=gpg-agent
+
+- name: ensure keybase agent is running
+  service: state=started enabled=yes name=keybase
+
+- name: ensure pulse is up
+  service: state=started enabled=yes name=pulseaudio
+
+- name: ensure mpd is up
+  service: state=started enabled=yes name=mpd
+
+- name: ensure dunst is up
+  service: state=started enabled=yes name=dunst
+
+- name: ensure offlineimap is up
+  service: state=started enabled=yes name=offlineimap

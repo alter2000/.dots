@@ -25,16 +25,20 @@
 #  - name: git docs
 #  git: repo=https://bitbucket.org/alter2000/docs dest=~/static/documents
 
-# - name: copy ansible config
-#   copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
+- name: copy ansible config
+  become_user: root
+  become: true
+  copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
 
-# - name: copy ansible hosts
-#   copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
+- name: copy ansible hosts
+  become_user: root
+  become: true
+  copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
 
 # Packages and other things
-- block:
-    - import_tasks: arch.yml
-  when: ansible_distribution == "Archlinux"
+# - block:
+#     - import_tasks: arch.yml
+#   when: ansible_distribution == "Archlinux"
 
 - block:
     - import_tasks: fedora.yml
@@ -53,25 +57,3 @@
 - block:
     - import_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
-
-
-- name: ensure ntp is running
-  service: state=started enabled=yes name=ntpd
-
-- name: ensure gpg-agent is running
-  service: state=started enabled=yes name=gpg-agent
-
-- name: ensure keybase agent is running
-  service: state=started enabled=yes name=keybase
-
-- name: ensure pulse is up
-  service: state=started enabled=yes name=pulseaudio
-
-- name: ensure mpd is up
-  service: state=started enabled=yes name=mpd
-
-- name: ensure dunst is up
-  service: state=started enabled=yes name=dunst
-
-- name: ensure offlineimap is up
-  service: state=started enabled=yes name=offlineimap
