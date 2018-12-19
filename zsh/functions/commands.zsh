@@ -42,6 +42,7 @@ gib_slides() {
 	pandoc -s -t revealjs --mathjax \
 		-V revealjs-url=$HOME/.pandoc/reveal.js \
 		-V css=main.css \
+		-V controls=false \
 		-o $out \
 		$@
 	echo "$out out"

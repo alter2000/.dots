@@ -13,7 +13,8 @@ source $ZDATADIR/plugins/extract.plugin.zsh
 source $ZDATADIR/plugins/vi-mode.plugin.zsh
 
 source $ZDATADIR/aliases.zsh
-source $ZDATADIR/functions.zsh
+source $ZDATADIR/functions/commands.zsh
+source $ZDATADIR/functions/background.zsh
 source $ZDATADIR/options.zsh
 source $ZDATADIR/kbd.zsh
 source $ZDATADIR/prompt.zsh

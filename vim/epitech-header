@@ -12,6 +12,6 @@ cat << EOF
 ** EPITECH PROJECT, $YEAR
 ** $PROJNAME
 ** File description:
-** TODO: FILL THIS YO ------- not forgetti makefiletti
+** something small
 */
 EOF

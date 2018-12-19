@@ -1,0 +1,40 @@
+---
+system:
+  user: alter2000
+
+dotrepo: "https://github.com/alter2000/.dots"
+dotdir: "~/.dots"
+desktop: true
+dirlist:
+  - "~/git"
+  - "~/lfs/img"
+  - "~/lfs/music"
+  - "~/lfs/music/.playlists"
+  - "~/static/src"
+  - "~/static/documents"
+  - "~/static/templates"
+  - "~/var/mail"
+  - "~/var/backup"
+  - "~/var/desk"
+  - "~/var/download"
+  - "~/var/scrots"
+  - "~/var/share"
+  - "{{xdg.cache_home}}/mpd"
+  - "{{xdg.cache_home}}/tmux/tmux-resurrect"
+
+git:
+  name: Jor Bashllari
+  email: altnate2000@gmail.com
+  github: alter2000
+
+xdg:
+  cache_home: "~/.cache"
+  config_home: "~/.config"
+  data_home: "~/.local/share"
+
+zsh:
+  dir: ~/.zsh
+
+vim:
+  dir: ~/.vim
+  plug: "{{ vim.dir }}/pack"

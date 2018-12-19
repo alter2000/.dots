@@ -11,8 +11,10 @@ alias ew="zile"
 alias ffs="sudo"
 alias m,="nmtui-connect"
 test "hash taskell" && alias asd="taskell ~/notes/todo.md"
-test "hash ranger"   && alias './'="ranger"
-test "hash neomutt"  && alias m="neomutt"
+test "hash ranger"  && alias './'="ranger"
+test "hash neomutt" && alias m="neomutt"
+test "hash wordgrinder" && test -f "$XDG_CONFIG_HOME/wordgrinder.lua" && \
+	alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
 
 alias ipy="ipython3"
 alias tree="tree -C"
@@ -37,8 +39,8 @@ alias gpull="git pull --rebase"
 
 alias ff='find ./ -name'
 alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
+alias fgrep="grep --color=auto -F"
+alias egrep="grep --color=auto -E"
 
 if command -v yay >/dev/null; then
 	alias suffer="yay -Syu"
@@ -48,7 +50,7 @@ if command -v yay >/dev/null; then
 	alias paind="yay -S --asdeps"
 	alias pare="yay -R"
 	alias parm="yay -Rsn"
-	alias parmorphans="sudo pacman -Rns $(pacman -Qtdq)"
+	alias parmorphans="sudo pacman -Rns $(pacman -Qtdq | tr '\n' ' ')"
 	alias parmnew="sudo find / -name '*.pacnew' 2>/dev/null"
 fi
 

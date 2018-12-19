@@ -1,4 +1,4 @@
-autoload -U promptinit && promptinit
+autoload -Uz promptinit && promptinit
 PURE_CMD_MAX_EXEC_TIME=180
 PURE_PROMPT_SYMBOL=δ #μ
 PURE_PROMPT_SYMBOL_COLOR=green

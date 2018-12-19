@@ -1,6 +1,6 @@
 ### KEYBINDS ###
-autoload -U up-line-or-beginning-search && zle -N up-line-or-beginning-search
-autoload -U down-line-or-beginning-search && zle -N down-line-or-beginning-search
+autoload -Uz up-line-or-beginning-search && zle -N up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search && zle -N down-line-or-beginning-search
 autoload -Uz edit-command-line && zle -N edit-command-line
 
 # typeset -g -A key
@@ -47,3 +47,4 @@ bindkey '^N' history-substring-search-down
 
 bindkey -M vicmd 'u' undo
 bindkey -M vicmd '^r' redo
+bindkey -M vicmd "." insert-last-word

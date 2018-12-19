@@ -1,10 +1,11 @@
 # export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
-typeset -U path
+typeset -Uz path
+typeset -Uz fpath
 path=($HOME/.dots/bin $HOME/epitheq/bin $HOME/.cargo/bin $HOME/.local/bin $path)
 path+=(/root/.gem/ruby/2.5.0/bin)
 path+=($HOME/.gem/ruby/2.5.0/bin)
-fpath+=($ZDATADIR/functions $ZDATADIR/completions)
+fpath+=($ZDATADIR/functions)
 
 export WORDCHARS=''
 export CLICOLOR=1

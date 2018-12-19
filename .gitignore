@@ -6,9 +6,10 @@
 ansible/playbook.retry
 beets/library.db
 beets/state.pickle
+systemd/*.target.wants
 transmission/
 !transmission/config.json
-systemd/*.target.wants
+tags
 vim/uggplug
 vim/.netrwhist
 vim/session/**

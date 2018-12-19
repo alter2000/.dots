@@ -2,13 +2,16 @@
 " for when using elsewhere
 set fsync backspace=indent,eol,start
 set updatetime=290
-set encoding=utf-8 fileencoding=utf-8
-set fileformat=unix
+if &modifiable
+	set encoding=utf-8 fileencoding=utf-8
+	set fileformat=unix
+endif
 set incsearch nohlsearch ignorecase smartcase
 set shell=zsh
 set foldmethod=marker
 set list
 set wildmenu
+set wildcharm=<C-f>
 
 set number relativenumber
 set splitright splitbelow
@@ -79,13 +82,14 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'fcpg/vim-waikiki'
-let maplocalleader = ','
-let g:waikiki_roots = ['~/notes/']
-let g:waikiki_default_maps = 1
-let g:waikiki_mkdir_prompt = 1
-let g:waikiki_done = '✘'
+	let maplocalleader = ','
+	let g:waikiki_roots = ['~/notes/']
+	let g:waikiki_default_maps = 1
+	let g:waikiki_mkdir_prompt = 1
+	let g:waikiki_done = '✘'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
+Plug 'hari-rangarajan/CCTree'
 
 Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
@@ -102,10 +106,11 @@ Plug 'nerdypepper/agila.vim'
 Plug 'LnL7/vim-nix'
 " Plug 'Shougo/echodoc.vim'
 Plug 'lifepillar/vim-mucomplete'
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#delayed_completion = 0
+	let g:mucomplete#enable_auto_at_startup = 1
+	let g:mucomplete#delayed_completion = 0
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 " Plug 'python-mode/python-mode', {'branch': 'develop'}
