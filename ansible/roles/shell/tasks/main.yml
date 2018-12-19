@@ -1,0 +1,25 @@
+---
+- name: set up bash
+  file: "force=yes state=link src={{dotdir}}/bashrc
+          dest=~/.bashrc"
+
+- name: set up zsh
+  file: "force=yes state=link src={{dotdir}}/zsh
+          dest=~/.zsh"
+
+- name: set up zshrc
+  # TODO: template
+  file: "force=yes state=link src={{dotdir}}/zshrc
+          dest=~/.zshrc"
+
+- name: set up zprofile
+  file: "force=yes state=link src={{dotdir}}/zprofile
+          dest=~/.zprofile"
+
+- name: set up zathura
+  file: "force=yes state=link src={{dotdir}}/zathura
+          dest={{xdg.config_home}}/zathura"
+
+- name: set up fonts
+  file: "force=yes state=link src={{dotdir}}/fonts
+          dest={{xdg.data_home}}/fonts"

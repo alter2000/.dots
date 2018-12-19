@@ -1,0 +1,3 @@
+---
+- name: set up pandoc
+  file: "force=yes state=link src={{dotdir}}/pandoc dest=~/.pandoc"

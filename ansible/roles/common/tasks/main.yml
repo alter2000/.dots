@@ -1,5 +1,6 @@
-# - name: set up ansible user for config sync
-#   user: name=ansible uid=900
+---
+- name: set up ansible user for config sync
+  user: name=ansible uid=900
 - name: add primary user
   user: 
     name: "alter2000"
@@ -14,39 +15,26 @@
 
 - name: set up directory structure
   file: path={{item}} state=directory recurse=yes
-  with_items:
-    - "~/git"
-    - "~/lfs/img"
-    - "~/lfs/music"
-    - "~/lfs/music/.playlists"
-    - "~/static/src"
-    - "~/static/documents"
-    - "~/static/templates"
-    - "~/var/mail"
-    - "~/var/backup"
-    - "~/var/desk"
-    - "~/var/download"
-    - "~/var/scrots"
-    - "~/var/share"
-    - "{{xdg.cache_home}}/mpd"
-    - "{{xdg.cache_home}}/tmux/tmux-resurrect"
+  with_items: "{{dirlist}}"
   become: true
-#or dont - file: state=link src="$XDG_CACHE_HOME" dest="$HOME/.compose-cache"
+# or dont - file: state=link src="$XDG_CACHE_HOME" dest="$HOME/.compose-cache"
 
 - name: git notes
   git: repo=https://bitbucket.org/alter2000/notes dest=~/notes
-- name: git docs
-  git: repo=https://bitbucket.org/alter2000/docs dest=~/static/documents
 
-- import_tasks: conf.yml
-  # - name: copy ansible config
-  #   copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
-  # - name: copy ansible hosts
-  #   copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
-  # Packages and other things
-#  - block:
-#     - import_tasks: arch.yml
-#   when: ansible_distribution == "Archlinux"
+#  - name: git docs
+#  git: repo=https://bitbucket.org/alter2000/docs dest=~/static/documents
+
+# - name: copy ansible config
+#   copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
+
+# - name: copy ansible hosts
+#   copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
+
+# Packages and other things
+- block:
+    - import_tasks: arch.yml
+  when: ansible_distribution == "Archlinux"
 
 - block:
     - import_tasks: fedora.yml
@@ -69,15 +57,21 @@
 
 - name: ensure ntp is running
   service: state=started enabled=yes name=ntpd
+
 - name: ensure gpg-agent is running
   service: state=started enabled=yes name=gpg-agent
+
 - name: ensure keybase agent is running
   service: state=started enabled=yes name=keybase
+
 - name: ensure pulse is up
   service: state=started enabled=yes name=pulseaudio
+
 - name: ensure mpd is up
   service: state=started enabled=yes name=mpd
+
 - name: ensure dunst is up
   service: state=started enabled=yes name=dunst
+
 - name: ensure offlineimap is up
   service: state=started enabled=yes name=offlineimap

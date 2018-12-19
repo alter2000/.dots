@@ -1,0 +1,11 @@
+---
+- name: get systemd directory
+  file: "state=directory dest={{xdg.config_home}}/systemd/user"
+
+- name: set up services
+  file: "force=yes state=link src={{dotdir}}/systemd
+          dest={{xdg.config_home}}/systemd/user"
+
+- name: set up user-dirs.dirs
+  file: "force=yes state=link src={{dotdir}}/user-dirs.dirs
+          dest={{xdg.config_home}}/user-dirs.dirs"
