@@ -1,4 +1,8 @@
 #!/bin/sh
 
-alacritty -e "weechat $1"
-# 2>/dev/null
+termite \
+    --name "IRC" \
+    --class "IRC" \
+    --title "IRC" \
+    --directory "$HOME/var/download/maymays" \
+    --exec "weechat $@"

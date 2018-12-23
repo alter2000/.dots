@@ -36,10 +36,10 @@ function! func#toggleWrap()
 endfunction
 " }}}
 " list commit files {{{
-function func#ListCommitFiles(...)
+function func#listCommitFiles(...)
     let a:filepath = get(a:, 1, '')
-    let l:file_list = systemlist("cd " . expand("%:p:h") . "; git show --pretty='' --name-only " . a:filepath)
-    let l:git_root = system("cd " . expand("%:p:h") . "; printf \"%s\" $(git rev-parse --show-toplevel)")
+    let l:file_list = systemlist('cd ' . expand('%:p:h') . '; git show --pretty='' --name-only ' . a:filepath)
+    let l:git_root = system('cd ' . expand('%:p:h') . '; printf \"%s\" $(git rev-parse --show-toplevel)')
     return map(l:file_list, '{"filename": "' . l:git_root . '/".v:val, "lnum": 1}')
 endfunction
 " }}}
@@ -52,8 +52,25 @@ endfunction
 " 	endif
 " endfunction
 " " }}}
+" trim whitespace {{{
+function func#showSpaces(...)
+	let @/='\v(\s+$)|( +\ze\t)'
+	let oldhlsearch=&hlsearch
+	if !a:0
+		let &hlsearch=!&hlsearch
+	else
+		let &hlsearch=a:1
+	end
+	return oldhlsearch
+endfunction
+function func#trimSpaces() range
+	let oldhlsearch=func#showSpaces(1)
+	execute a:firstline.','.a:lastline.'substitute ///gec'
+	let &hlsearch=oldhlsearch
+endfunction
+" }}}
 " redirect output to file {{{
-function! redir#redir(cmd)
+function! func#redir(cmd)
 	for win in range(1, winnr('$'))
 		if getwinvar(win, 'scratch')
 			execute win . 'windo close'

@@ -13,7 +13,7 @@ set list
 set wildmenu
 set wildcharm=<C-f>
 
-set number relativenumber
+set number relativenumber numberwidth=2
 set splitright splitbelow
 set mouse=a mousefocus
 set clipboard^=unnamedplus
@@ -26,7 +26,7 @@ set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 " default tab->2 spaces, use multiples of 2 when autoindenting
 set tabstop=2 shiftwidth=2 shiftround
 " wrap shiz
-set linebreak nolist nowrap
+set linebreak nowrap
 set whichwrap=b,s,~
 set autoread nospell
 set virtualedit=block
@@ -57,6 +57,10 @@ set complete=.,w,kspell,k,d,t
 set completeopt=noinsert,menuone,noselect,preview
 set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
+
+if has('win32')
+	set runtimepath+=~/.vim
+endif
 " }}}
 """ PLUGINS {{{
 " disable some built-in plugins
@@ -67,6 +71,7 @@ let g:loaded_logipat = 1
 " let g:loaded_matchparen = 1
 let g:loaded_vimballPlugin = 1
 packadd! matchit
+packadd! termdebug
 
 " install vim-plug if it's not already there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -89,7 +94,6 @@ Plug 'fcpg/vim-waikiki'
 	let g:waikiki_done = '✘'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
-Plug 'hari-rangarajan/CCTree'
 
 Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
@@ -119,7 +123,7 @@ Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-apathy'
+" Plug 'tpope/vim-apathy'
 Plug 'goldfeld/vim-seek'
 
 Plug 'johngrib/vim-game-snake'
@@ -142,7 +146,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 if has('gui_running')
 	set guioptions='PAciMg'  " remove cruft
-	set guifont="Knack 13,Hasklig 13"
+	set guifont=League\ Mono\ 13,Hasklig\ 13
 	set guipty
 	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
 	colorscheme lucid
@@ -199,8 +203,8 @@ augroup main
 
 	" pandoc really needs this
 	autocmd ColorScheme highlight default link Conceal Special
-	autocmd ColorScheme match Error '\s\+$'
-	autocmd ColorScheme match Error '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+	autocmd BufWinEnter * match Error '\s\+$'
+	" autocmd BufWinEnter * match Error '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 	autocmd QuickFixCmdPost *grep* cwindow
 	" open QFix window if makeprg has errors

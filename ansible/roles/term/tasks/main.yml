@@ -1,33 +1,58 @@
 ---
 - name: set up alacritty
-  file: "force=yes state=link src={{dotdir}}/alacritty
-          dest={{xdg.config_home}}/alacritty"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/alacritty"
+    dest: "{{xdg.config_home}}/alacritty"
 
 - name: set up termite
-  file: "force=yes state=link src={{dotdir}}/termite
-          dest={{xdg.config_home}}/termite"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/termite"
+    dest: "{{xdg.config_home}}/termite"
 
 - name: set up gitconfig
   # TODO: template
-  file: "force=yes state=link src={{dotdir}}/gitconfig
-          dest=~/.gitconfig"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/gitconfig"
+    dest: "~/.gitconfig"
 
 - name: set up mailcap
-  file: "force=yes state=link src={{dotdir}}/mailcap
-          dest=~/.mailcap"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/mailcap"
+    dest: "~/.mailcap"
 
 - name: set up ranger
-  file: "force=yes state=link src={{dotdir}}/ranger
-          dest={{xdg.config_home}}/ranger"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/ranger"
+    dest: "{{xdg.config_home}}/ranger"
 
 - name: set up rtv
-  file: "force=yes state=link src={{dotdir}}/rtv
-          dest={{xdg.config_home}}/rtv"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/rtv"
+    dest: "{{xdg.config_home}}/rtv"
 
 - name: set up tmux
-  file: "force=yes state=link src={{dotdir}}/tmux_skel
-          dest=~/.tmux.conf"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/tmux_skel"
+    dest: "~/.tmux.conf"
 
 - name: set up vim
-  file: "force=yes state=link src={{dotdir}}/vim
-          dest={{vim.dir}}"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/vim"
+    dest: "{{vim.dir}}"
+  shell: "vim +PlugInstall +qall"

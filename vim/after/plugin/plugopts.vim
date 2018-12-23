@@ -97,8 +97,8 @@ if exists('g:loaded_delimitMate')
 endif
 
 if exists('g:loaded_slime')
-	let g:slime_target = "tmux"
-	let g:slime_paste_file = "$HOME/.cache/slime_paste"
+	let g:slime_target = 'tmux'
+	let g:slime_paste_file = '$HOME/.cache/slime_paste'
 	let g:slime_python_ipython = 1
 endif
 " }}}

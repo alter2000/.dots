@@ -1,4 +1,0 @@
-#!/bin/sh
-# quick and dirty alarm with aplay
-
-aplay ~/.dots/audio/alarm.wav

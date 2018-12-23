@@ -79,7 +79,7 @@ set -g status-left "#[bg=blue,fg=black] #(date +%d/%H:%M) #[bg=black,fg=white,bo
 set -g status-left-length 20
 set -g window-status-format "#[fg=magenta] #W "
 set -g window-status-current-format "#[fg=blue] #W "
-set -g status-right "#(~/.dots/tmux/status.sh #{client_width})"
+set -g status-right "#[fg=green] #(~/.dots/tmux/status.sh #{client_width})"
 
 ### Plugins
 run-shell ~/.dots/tmux/tmux-resurrect/resurrect.tmux

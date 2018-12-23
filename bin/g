@@ -7,12 +7,12 @@
 
 help() {
 	cat <<EOF
-	$0 -- wrapper for dnf, apt and pacman (+ AUR via yay)
+    $(basename $0) -- wrapper for dnf, apt and pacman (+ AUR via yay)
 	usage:
-		$0 i[nstall] <package>
-		$0 r[emove] <package>
-		$0 u[pgrade] [<package>]
-		$0 su	# system upgrade
+		$(basename $0) i[nstall] <package>
+		$(basename $0) r[emove] <package>
+		$(basename $0) u[pgrade] [<package>]
+		$(basename $0) su	# system upgrade
 EOF
 }
 

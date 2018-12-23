@@ -26,6 +26,8 @@ alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
 alias ll="ls -Alh"
 alias la="ls -Ah"
+alias cp="cp -i"
+alias mv="mv -i"
 
 # alias gh="git hub"
 # alias gb="git bb"

@@ -39,10 +39,13 @@ zle -N sudo-command-line && bindkey "\e\e" sudo-command-line
 gib_slides() {
 	out="${1/.md/.html}"
 
-	pandoc -s -t revealjs --mathjax \
+	pandoc -w revealjs \
+		--mathjax \
+		--self-contained \
 		-V revealjs-url=$HOME/.pandoc/reveal.js \
 		-V css=main.css \
 		-V controls=false \
+		--slide-level=2 \
 		-o $out \
 		$@
 	echo "$out out"

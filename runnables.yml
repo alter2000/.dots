@@ -1,0 +1,23 @@
+# this thing goes wherever $XDG_CONFIG_HOME is defined,
+# ~/.config/runables.yml, or wherever you decide to put the script in
+---
+
+# the runner gets a string with entries separated by newlines and has to return
+# one of them unchanged, a la rofi/dmenu/dialog/fzf
+runner: rofi -dmenu
+
+commands:
+  # - name: text to be displayed
+  # - run: shell command to be executed
+
+  - name: Screenshot
+    run: maim -s
+
+  - name: Terminal
+    run: alacritty
+
+  - name: Firefox
+    run: Firefox
+
+  - name: Chromium
+    run: chromium

@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+# finds thing to do and does it
+# needs rofi/fzf and a "config" file
+# handmade by alter2000
+
+from os import environ
+from sys import argv, stderr
+from typing import Dict, List
+import subprocess
+import yaml
+
+def get_config():
+    """Runs over config locations to open the file."""
+    path_list = [
+                environ.get('XDG_CONFIG_HOME') + "runnables.yml",
+                environ.get('HOME') + ".config/runnables.yml",
+                environ.get('HOME') + ".dots/runnables.yml",
+                ]
+    for i in path_list:
+        try:
+            return open(i)
+        except:
+            pass
+    print("The script is XDG compliant and cannot find its config file. Wut?",
+            file=stderr)
+    exit(2)
+
+
+def get_command(yml) -> List[str]:
+    """Gets and executes finder, returns command."""
+    finder = yml['runner'].split(' ')
+    run = subprocess.Popen(finder,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True)
+    entries = ''.join([_['name'] + '\n' for _ in yml['commands']])
+    selected = run.communicate(input=entries)[0][:-1]
+    for i in yml['commands']:
+        if i['name'] == selected:
+            return i['run']
+
+
+if __name__ == "__main__":
+    try:
+        conf = yaml.safe_load(get_config())
+    except:
+        print("invalid config:", CONFIG, file=stderr)
+        exit(2)
+    command = get_command(conf)
+    if command is not None:
+        subprocess.Popen(command, cwd=environ.get('HOME'), shell=True)
+        exit(0)
+    else:
+        exit(1)

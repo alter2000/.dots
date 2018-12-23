@@ -30,8 +30,7 @@ while test $# -gt 0; do
 		*.zip)       unzip $1        ;;
 		*.Z)         uncompress $1   ;;
 		*.7z)        7z x $1         ;;
-		*)           echo "'$1' cannot be extracted via $(basename $0), skipping..." >&2 ;;
+		*) echo "'$1' cannot be extracted via $(basename $0), skipping..." >&2;;
 	esac
 	shift 1
 done
-
