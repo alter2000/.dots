@@ -51,6 +51,11 @@ nmap ss ysiw
 nmap sS ysiW
 nnoremap <Space> <NOP>
 
+nnoremap zc zC
+nnoremap zm zM
+nnoremap zo zO
+nnoremap zr zR
+
 " add empty lines up/down
 nnoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
 nnoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<CR>
@@ -70,10 +75,11 @@ nnoremap <silent> <leader>e        :execute "ltag " . expand("<cword>")<CR>
 nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " FZF
-nnoremap <Leader>fe :Files .<CR>
+if executable('rg')
+	nnoremap <Leader>fe call func#fzfFiles()
+endif
 nnoremap <Leader>ff :GitFiles<CR>
 nnoremap <Leader>ft :Tags<CR>
-nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>/  :Rg<CR>
 
 " function keys {{{
@@ -97,8 +103,3 @@ if exists(':Goyo')
 	inoremap <F11> <C-o>:Goyo<CR>
 endif
 " }}}
-
-" completion
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"

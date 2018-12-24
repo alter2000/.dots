@@ -54,7 +54,7 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
 " completion via mucomplete/ale
-set complete=.,w,kspell,k,d,t
+set complete=.,w,kspell,k,d,t,i
 set completeopt=noinsert,menuone,noselect,preview
 set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
@@ -87,18 +87,18 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'fcpg/vim-waikiki'
-	let maplocalleader = ','
-	let g:waikiki_roots = ['~/notes/']
-	let g:waikiki_default_maps = 1
-	let g:waikiki_mkdir_prompt = 1
-	let g:waikiki_done = '✘'
+			let maplocalleader = ','
+			let g:waikiki_roots = ['~/notes/']
+			let g:waikiki_default_maps = 1
+			let g:waikiki_mkdir_prompt = 1
+			let g:waikiki_done = '✘'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 
 Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'osyo-manga/vim-over'
-Plug 'kien/rainbow_parentheses.vim'
+" Plug 'kien/rainbow_parentheses.vim'
 
 " colorschemes
 Plug 'morhetz/gruvbox'
@@ -106,12 +106,19 @@ Plug 'mkarmona/materialbox'
 Plug 'nerdypepper/agila.vim'
 
 " completion + linters
-Plug 'LnL7/vim-nix'
-" Plug 'lifepillar/vim-mucomplete'
 Plug 'w0rp/ale'
+Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'haskell/haskell-ide-engine'
+Plug 'LnL7/vim-nix'
+
+" LSP
+" if !has('nvim')
+  " Plug 'roxma/nvim-yarp'
+  " Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
+" Plug 'haskell/haskell-ide-engine'
 
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
@@ -176,14 +183,14 @@ let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
 " I'm not even using the gooey
-" set gcr=a:block
+set guicursor=a:block
 " " mode aware cursors
-" set gcr+=o:hor50-Cursor
-" set gcr+=n:Cursor
-" set gcr+=i-ci-sm:InsertCursor
-" set gcr+=r-cr:ReplaceCursor-hor20
-" set gcr+=c:CommandCursor
-" set gcr+=v-ve:VisualCursor
+set guicursor+=o:hor50-Cursor
+set guicursor+=n:Cursor
+set guicursor+=i-ci-sm:InsertCursor
+set guicursor+=r-cr:ReplaceCursor-hor20
+set guicursor+=c:CommandCursor
+set guicursor+=v-ve:VisualCursor
 
 " set gcr+=a:blinkon0
 
@@ -204,5 +211,10 @@ augroup main
 	autocmd QuickFixCmdPost *grep* cwindow
 	" open QFix window if makeprg has errors
 	autocmd QuickFixCmdPost [^l]* cwindow
+
+	" autocmd FilterWritePre * if &diff | map <leader>{ :diffget LOCAL<cr> | endif
+	" autocmd FilterWritePre * if &diff | map <leader>} :diffget REMOTE<cr>| endif
+	" autocmd FilterWritePre * if &diff | map <leader>\| :diffget BASE<cr> | endif
+
 augroup end
 " }}}
