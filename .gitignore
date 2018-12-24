@@ -10,10 +10,6 @@ systemd/*.target.wants
 transmission/
 !transmission/config.json
 tags
-vim/uggplug
-vim/.netrwhist
-vim/session/**
-vim/autoload/plug.vim.old
 **/*cache*
 **/*history
 **/*uuid
