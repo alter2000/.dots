@@ -18,21 +18,20 @@ endif
 " }}}
 " ALE {{{
 if exists('g:loaded_ale')
-	if !has('nvim')
-		let g:ale_set_balloons = 1
-	endif
 	let g:ale_lint_on_text_changed = 'never'
-	let g:ale_sign_column_always = 1
+	let g:ale_set_loclist = 1
+	let g:ale_set_quickfix = 0
+
 	let g:ale_sign_error = '!!'
 	let g:ale_sign_warning = '‽‽'
+	let g:ale_echo_msg_info_str = 'I'
 	let g:ale_echo_msg_error_str = 'E'
 	let g:ale_echo_msg_warning_str = 'W'
-	let g:ale_echo_msg_info_str = 'I'
 	let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
 	let g:ale_linters = {
 		\	'python': ['flake8', 'pylint'],
-		\	'c':      ['gcc', 'clangcheck'],
-		\	'cpp':    ['clangcheck', 'cquery'],
+		\	'c':      ['gcc', 'clangcheck', 'clangd'],
+		\	'cpp':    ['clangcheck', 'cquery', 'clangd'],
 		\	'rust':   ['rls', 'cargo'],
 		\	}
 	let g:ale_fixers = {
@@ -42,16 +41,10 @@ if exists('g:loaded_ale')
 		\	'rust':   ['rustfmt'],
 		\	}
 	let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
-	" let g:ale_completion_enabled = 1
-	" let g:ale_completion_delay = 0.5
-	" let g:ale_completion_max_suggestions = 5
+	let g:ale_completion_enabled = 1
+	let g:ale_completion_delay = 0
+	let g:ale_completion_max_suggestions = 5
 endif
-" }}}
-" YCM {{{
-" let g:ycm_min_num_of_chars_for_completion = 4
-" let g:ycm_max_num_candidates = 6
-" let g:ycm_max_num_identifier_candidates = 3
-" let g:ycm_complete_in_comments = 1
 " }}}
 " Startify {{{
 if exists('g:loaded_startify')
@@ -91,11 +84,13 @@ endif
 " let g:vimtex_view_use_temp_files = 1
 " let g:vimtex_view_forward_search_on_start = 1
 " let g:vimtex_view_zathura_options = 'set recolor=false'
-
+" }}}
+" delimitMate {{{
 if exists('g:loaded_delimitMate')
 	let g:delimitMate_nesting_quotes = ['"','`']
 endif
-
+" }}}
+" SLIME {{{
 if exists('g:loaded_slime')
 	let g:slime_target = 'tmux'
 	let g:slime_paste_file = '$HOME/.cache/slime_paste'
@@ -112,19 +107,36 @@ endif
 " mucomplete {{{
 if exists('g:loaded_mucomplete')
 	" taken from mucomplete docs
-	function! IsBehindDir()
-		return strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
-	endfunction
-
-	imap <expr> / pumvisible() && IsBehindDir()
+	imap <expr> / pumvisible() && strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
 			\ ? "\<c-y>\<plug>(MUcompleteFwd)"
 			\ : '/'
 
 	inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+	let g:mucomplete#spel#max = 15
+
+	let g:clang_complete_auto = 1
+	let g:clang_user_options = '-std=c99'
+	let g:clang_library_path = '/usr/lib/libclang.so'
+
 	let g:mucomplete#enable_auto_at_startup = 1
 	let g:mucomplete#delayed_completion = 0
 	" let g:mucomplete#chains += {'default': ['omni', 'path', 'incl', 'dict', 'uspl']}
 endif
 " }}}
+" LanguageClient-neovim {{{
+let g:LanguageClient_serverCommands = {
+		\	'rust':   ['rls'],
+		\	'python': ['pyls'],
+		\	'c':      ['clangd', 'cquery'],
+		\	'cpp':    ['clangcheck', 'cquery', 'clangd'],
+		\	'vim':    [],
+		\ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>

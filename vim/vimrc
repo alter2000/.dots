@@ -50,7 +50,8 @@ set noerrorbells visualbell
 set formatoptions=roqn21j
 let mapleader=' '
 if executable('rg')
-	set grepprg=rg\ --vimgrep
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
 endif
 " completion via mucomplete/ale
 set complete=.,w,kspell,k,d,t
@@ -71,7 +72,6 @@ let g:loaded_logipat = 1
 " let g:loaded_matchparen = 1
 let g:loaded_vimballPlugin = 1
 packadd! matchit
-packadd! termdebug
 
 " install vim-plug if it's not already there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -102,29 +102,24 @@ Plug 'kien/rainbow_parentheses.vim'
 
 " colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'cseelus/vim-colors-lucid'
 Plug 'mkarmona/materialbox'
 Plug 'nerdypepper/agila.vim'
 
 " completion + linters
 Plug 'LnL7/vim-nix'
-" Plug 'Shougo/echodoc.vim'
-Plug 'lifepillar/vim-mucomplete'
-	let g:mucomplete#enable_auto_at_startup = 1
-	let g:mucomplete#delayed_completion = 0
+" Plug 'lifepillar/vim-mucomplete'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'haskell/haskell-ide-engine'
 
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-" Plug 'python-mode/python-mode', {'branch': 'develop'}
 
 Plug 'chrisbra/colorizer'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-apathy'
-Plug 'goldfeld/vim-seek'
 
 Plug 'johngrib/vim-game-snake'
 
@@ -149,7 +144,7 @@ if has('gui_running')
 	set guifont=League\ Mono\ 13,Hasklig\ 13
 	set guipty
 	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
-	colorscheme lucid
+	colorscheme agila
 	" let g:gruvbox_italic = 1
 	" let g:gruvbox_contrast_dark='oft'
 	" let g:gruvbox_guisp_fallback='fg'

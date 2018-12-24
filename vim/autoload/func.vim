@@ -1,22 +1,19 @@
 " scratchpad {{{
 function! func#scratchEdit(cmd, options)
 	exe a:cmd tempname()
-	setl buftype=nofile bufhidden=wipe nobuflisted
+	setlocal buftype=nofile bufhidden=wipe nobuflisted
 	if !empty(a:options) | exe 'setl' a:options | endif
 endfunction
 " }}}
+
 " (un)wrap {{{
 function! func#toggleWrap()
 	if &wrap
 		echo "Wrap OFF"
 		setlocal nowrap
 		" set virtualedit=all
-		silent! nunmap <buffer> <Up>
-		silent! nunmap <buffer> <Down>
 		silent! nunmap <buffer> <Home>
 		silent! nunmap <buffer> <End>
-		silent! iunmap <buffer> <Up>
-		silent! iunmap <buffer> <Down>
 		silent! iunmap <buffer> <Home>
 		silent! iunmap <buffer> <End>
 	else
@@ -24,25 +21,14 @@ function! func#toggleWrap()
 		setlocal wrap linebreak nolist
 		" set virtualedit=
 		setlocal display+=lastline
-		noremap  <buffer> <silent> <Up>   gk
-		noremap  <buffer> <silent> <Down> gj
 		noremap  <buffer> <silent> <Home> g<Home>
 		noremap  <buffer> <silent> <End>  g<End>
-		inoremap <buffer> <silent> <Up>   <C-o>gk
-		inoremap <buffer> <silent> <Down> <C-o>gj
 		inoremap <buffer> <silent> <Home> <C-o>g<Home>
 		inoremap <buffer> <silent> <End>  <C-o>g<End>
 	endif
 endfunction
 " }}}
-" list commit files {{{
-function func#listCommitFiles(...)
-    let a:filepath = get(a:, 1, '')
-    let l:file_list = systemlist('cd ' . expand('%:p:h') . '; git show --pretty='' --name-only ' . a:filepath)
-    let l:git_root = system('cd ' . expand('%:p:h') . '; printf \"%s\" $(git rev-parse --show-toplevel)')
-    return map(l:file_list, '{"filename": "' . l:git_root . '/".v:val, "lnum": 1}')
-endfunction
-" }}}
+
 " " toggle explore netrw {{{
 " function! func#toggleExplore()
 " 	if &ft ==# "netrw"
@@ -52,6 +38,7 @@ endfunction
 " 	endif
 " endfunction
 " " }}}
+
 " trim whitespace {{{
 function func#showSpaces(...)
 	let @/='\v(\s+$)|( +\ze\t)'
@@ -69,6 +56,7 @@ function func#trimSpaces() range
 	let &hlsearch=oldhlsearch
 endfunction
 " }}}
+
 " redirect output to file {{{
 function! func#redir(cmd)
 	for win in range(1, winnr('$'))
@@ -87,5 +75,43 @@ function! func#redir(cmd)
 	let w:scratch = 1
 	setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
 	call setline(1, split(output, "\n"))
+endfunction
+" }}}
+
+" run fzf with file preview {{{
+function! func#fzfFiles()
+	let l:fzf_files_options = '--preview "bat --theme="GitHub" --style=numbers,changes --color always {} | head -'.&lines.'"'
+
+	function! s:files()
+		return split(system($FZF_DEFAULT_COMMAND), '\n')
+	endfunction
+
+	function! s:edit_file(item)
+		let l:pos = stridx(a:item, ' ')
+		let l:file_path = a:item[pos + 1 : -1]
+		execute 'silent e' l:file_path
+	endfunction
+
+  call fzf#run({
+		\ 'source': <sid>files(),
+		\ 'sink':   function('s:edit_file'),
+		\ 'options': '-m '.l:fzf_files_options,
+		\ 'down':    '40%' })
+endfunction
+" }}}
+
+" remap arrows {{{
+function! func#Joana()
+	unmap <Up>
+	unmap <Down>
+	unmap <Left>
+	unmap <Right>
+endfunction
+
+function! func#Dejoana()
+	nnoremap <Up>    :resize +3<CR>
+	nnoremap <Down>  :resize -3<CR>
+	nnoremap <Left>  :vertical resize -3<CR>
+	nnoremap <Right> :vertical resize +3<CR>
 endfunction
 " }}}

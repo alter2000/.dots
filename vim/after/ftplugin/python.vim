@@ -17,5 +17,6 @@ setlocal equalprg="yapf --in-place"
 nnoremap <silent><buffer> <F4>  :w !python<CR>
 nnoremap <silent><buffer> <C-b> oimport ipdb; ipdb.set_trace()<Esc>
 
+let g:jedi#popup_on_dot = 1
 let b:ale_fixers  = ['yapf', 'autopep8']
 let b:ale_linters = ['flake8', 'pylint']
