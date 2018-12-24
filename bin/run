@@ -12,18 +12,16 @@ import yaml
 def get_config():
     """Runs over config locations to open the file."""
     path_list = [
-                environ.get('XDG_CONFIG_HOME') + "runnables.yml",
-                environ.get('HOME') + ".config/runnables.yml",
-                environ.get('HOME') + ".dots/runnables.yml",
+                environ.get('XDG_CONFIG_HOME') + "/runnables.yml",
+                environ.get('HOME') + "/.config/runnables.yml",
+                environ.get('HOME') + "/.dots/runnables.yml",
                 ]
     for i in path_list:
         try:
             return open(i)
         except:
             pass
-    print("The script is XDG compliant and cannot find its config file. Wut?",
-            file=stderr)
-    exit(2)
+    raise
 
 
 def get_command(yml) -> List[str]:
@@ -43,9 +41,11 @@ def get_command(yml) -> List[str]:
 
 if __name__ == "__main__":
     try:
-        conf = yaml.safe_load(get_config())
+        f = get_config()
+        if f is not None:
+            conf = yaml.safe_load(f)
     except:
-        print("invalid config:", CONFIG, file=stderr)
+        print("invalid config", file=stderr)
         exit(2)
     command = get_command(conf)
     if command is not None:
