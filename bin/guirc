@@ -1,8 +1,8 @@
 #!/bin/sh
 
-termite \
+(termite \
     --name "IRC" \
     --class "IRC" \
     --title "IRC" \
     --directory "$HOME/var/download/maymays" \
-    --exec "weechat $@"
+    --exec "weechat $@") &

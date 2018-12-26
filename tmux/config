@@ -57,6 +57,9 @@ bind -n M-_ split-window -v -c "#{pane_current_path}"
 bind -n M-- split-window -h -c "#{pane_current_path}"
 bind -n M-z resize-pane -Z
 bind b break-pane
+bind C-b capture-pane \; \
+	save-buffer /tmp/tmux-buffer \; \
+	split-window -fv -p 30 '$SHELL -c "urlscan --compact < /tmp/tmux-buffer"'
 
 ### Statusline
 bind -n M-down set -q status off

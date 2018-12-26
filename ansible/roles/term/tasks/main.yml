@@ -13,13 +13,21 @@
     src: "{{dotdir}}/termite"
     dest: "{{xdg.config_home}}/termite"
 
+- name: set up hgrc
+  # TODO: template
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/hgrc"
+    dest: "{{xdg.config_home}}/hg/hgrc"
+
 - name: set up gitconfig
   # TODO: template
   file:
     force: true
     state: link
     src: "{{dotdir}}/gitconfig"
-    dest: "~/.gitconfig"
+    dest: "{{xdg.config_home}}/git/config"
 
 - name: set up mailcap
   file:

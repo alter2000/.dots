@@ -1,0 +1,8 @@
+[ui]
+username = Jor Bashllari <altnate2000@gmail.com>
+
+[extensions]
+extdiff =
+
+[extdiff]
+cmd.vimdiff = vimdiff

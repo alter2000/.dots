@@ -1,0 +1,210 @@
+---
+- name: set up pacman
+  file:
+    src: pacman.conf
+    dest: /etc/pacman.conf
+    owner: root
+    group: root
+    mode: 0644"
+
+- name: copy touchpad config
+  file:
+    src: 30-pointers.conf
+    dest: /etc/X11/xorg.conf.d/30-pointers.conf
+    mode: 0644
+    owner: root
+    group: root
+
+- name: copy thinkfan config
+  file:
+    src: thinkfan.conf
+    dest: /etc/thinkfan.conf
+    mode: 0644
+    owner: root
+    group: root
+
+- name: install yay
+  aur:
+    name: yay
+    skip_pgp_check: true
+    skip_installed: true
+
+- name: install base packages
+  aur:
+    name: "{{item}}"
+    use: yay
+    skip_installed: true
+  with_items:
+    - alsa-utils
+    - arc-gtk-theme
+    - arc-icon-theme
+    - bash-pipes
+    - beets
+    - bsd-games
+    - calcurse
+    - chromium
+    - clamav
+    - compton
+    - dunst
+    - elinks
+    - exfat-utils
+    - feh
+    - firefox
+    - fish
+    - folder-color-switcher
+    - gopass
+    - gparted
+    - gpick
+    - gucharmap
+    - gvfs-mtp
+    - handbrake
+    - hashcat
+    - htop
+    - i3-gaps
+    - i3lock-color
+    - icdiff
+    - imagemagick
+    - imv
+    - lftp
+    - libnotify
+    - light
+    - maim
+    - mosh
+    - mpc
+    - mpd
+    - mpv
+    - msmtp
+    - nautilus-folder-icons
+    - ncmpcpp
+    - neofetch
+    - neomutt
+    - networkmanager
+    - newsboat
+    - ntfs-3g
+    - ntp
+    - numix-gtk-theme
+    - offlineimap
+    - openssh
+    - otf-overpass
+    - pamixer
+    - papirus-icon-theme
+    - papirus-libreoffice-theme
+    - git
+    - gnuplot
+    - pandoc
+    - pass
+    - passff-host
+    - pavucontrol
+    - pinentry-rofi
+    - pokoy
+    - polybar
+    - pulseaudio-alsa
+    - pulsemixer
+    - python-pywal
+    - qutebrowser
+    - ranger
+    - redshift
+    - rig
+    - rofi
+    - rsync
+    - rtv
+    - sil
+    - slop
+    - slurm
+    - steamcurses-git
+    - supertux
+    - supertuxkart
+    - teeworlds
+    - tlp
+    - toilet
+    - tor-browser
+    - transmission-gtk
+    - tree
+    - unzip
+    - urlscan
+    - usbutils
+    - w3m
+    - wget
+    - xarchiver
+    - xclip
+    - xdotool
+    - xorg-xev
+    - xsel
+    - xf86-input-libinput
+    - youtube-dl
+
+- name: install virt/containers
+  aur:
+    name: "{{item}}"
+    use: yay
+    skip_installed: true
+  with_items:
+    - ansible
+    - docker
+    - vagrant
+    - virt-manager
+    - virt-viewer
+
+- name: install dev env
+  aur:
+    name="{{item}}"
+    use=yay
+    skip_installed=true
+  with_items:
+    - alacritty
+    - ansible-lint
+    - asciinema
+    - clang
+    - ctags
+    - dia
+    - git
+    - gnuplot
+    - gvim
+    - ipython
+    - pandoc
+    - parallel
+    - python
+    - python-conda
+    - python-pip
+    - python-vint
+    - python-virtualenv
+    - ripgrep
+    - ruby
+    - shfmt
+    - stdman
+    - termite
+    - tig
+    - tmux
+    - yapf
+    - zeal
+
+- name: install writing/reading shiz
+  aur:
+    name: "{{item}}"
+    use: yay
+    skip_installed: true
+  with_items:
+    - context-minimals-git
+    - bookworm
+    - cozy-audiobooks
+    - gimp
+    - inkscape
+    - libreoffice-fresh
+    - texlive-bin
+    - ttf-liberation
+    - ttf-ubuntu-font-family
+    - wikicurses
+    - wordgrinder
+    - xcape
+    - zathura
+    - zathura-cb
+    - zathura-pdf-mupdf
+    - zathura-ps
+
+- name: install pips
+  pip:
+    name: "{{item}}"
+    state: installed
+  with_items:
+    - neovim
+    - goobook

@@ -39,6 +39,14 @@ alias gd="git diff"
 alias gp="git push"
 alias gpull="git pull --rebase"
 
+alias hst="hg status"
+alias ha="hg add"
+alias haa="hg addremove"
+alias hd="hg diff"
+alias hc="hg commit"
+alias hp="hg push"
+alias hpull="hg pull"
+
 alias ff='find ./ -name'
 alias grep="grep --color=auto"
 alias fgrep="grep --color=auto -F"
