@@ -13,6 +13,7 @@ export CLICOLOR=1
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=1.2
 
+export MAILPATH="$HOME/var/mail"
 # colored-man-pages from gh/imkira
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'

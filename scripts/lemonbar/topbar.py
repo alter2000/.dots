@@ -86,26 +86,23 @@ class Text(Widget):
 
 
 class Battery(Widget):
-    icons = [
-        chr(c) for c in ([int(0xe242)] + list(range(int(0xe24c), int(0xe255))))
-    ]
-    icon_charging = '\ue239'
+    icons = [ '', '', '', ]
+    icon_charging = ''
 
     @staticmethod
     def available():
         return sensors_battery() is not None
 
-
     def render(self):
         battery = sensors_battery()
         charge = battery.percent
-        c = color['bad'] if charge < 30 else color['good']
+        # c = color['bad'] if charge < 30 else color['good']
         if battery.power_plugged:
             icon = ' %%{T2}%s%%{T1} ' % self.icon_charging
         else:
             icon = ' %%{T2}%s%%{T1} ' % self.icons[round(
                 charge / 100 * (len(self.icons) - 1))]
-        return icon
+        return icon + ' ' + str(round(charge))
 
 
 class PulseAudio(Widget):
@@ -251,30 +248,49 @@ class Mail(Widget):
 
     @staticmethod
     def available():
-        return os.path.isdir(os.path.expanduser('~/.mutt')) and os.path.isdir(
-            os.path.expanduser('~/.password-store'))
+        if os.environ['MAILPATH']:
+            mailpath = (os.environ['MAILPATH'] + '/' + p + '/new'
+                    for p in os.listdir(os.environ['MAILPATH'])
+                    if p[0] != '.')
+        elif os.environ['MAIL']:
+            mailpath = (os.environ['MAIL'] + '/' + p + '/new'
+                        for p in os.listdir(os.environ['MAIL'])
+                        if p[0] != '.')
+        else:
+            mailpath = ''
+        return (os.path.isdir(p) for p in mailpath) \
+                and os.path.isdir(os.path.expanduser('~/.password-store'))
 
     def __init__(self, pipe, hooks):
-        from check_mail import MailChecker
-        self.checker = MailChecker()
+        if os.environ['MAILPATH']:
+            self.acct = (p for p in os.listdir(os.environ['MAILPATH'])
+                    if p[0] != '.')
+            self.mailpath = (os.environ['MAILPATH'] + '/' + p + '/INBOX/new'
+                    for p in self.acct)
+        elif os.environ['MAIL']:
+            self.acct = (p for p in os.listdir(os.environ['MAILPATH'])
+                    if p[0] != '.')
+            self.mailpath = (os.environ['MAIL'] + '/' + p + '/INBOX/new'
+                    for p in self.acct)
+        else:
+            self.acct = None
+            self.mailpath = None
 
     def render(self):
-        new = []
-        c = color['good']
-        for acct, mails in self.checker.current_status().items():
-            if mails is None:
-                c = color['bad']
-                new.append(acct + ' ' + fg(color['bad'], 'error'))
-            elif mails > 0:
-                new.append(acct + ' ' + fg(color['muted'], str(mails)))
-        if len(new) > 0:
-            return fg(c, self.icon) + ' ' + fg(color['muted'], ' | ').join(new)
-        else:
-            return ''
+        new = [os.listdir(p) for p in self.mailpath]
+        return self.icon + str(len(new)) + ' total '
 
 
 widgets = [
-    '%{l}', MPD, '%{c}', '%{r}', Wifi, Battery, PulseAudio, Clock
+    '%{l}',
+    Battery,
+    MPD,
+    Mail,
+    '%{c}',
+    '%{r}',
+    # PulseAudio,
+    Clock,
+    Wifi,
 ]
 
 if __name__ == '__main__':

@@ -4,5 +4,4 @@
 IFS=$'\t' read artist title \
 	<<< "$(mpc --format="%artist% - %title%")"
 
-notify-send --urgency=normal --expire-time=5000 --app-name=ncmpcpp \
-	--icon="♫" "♫  $artist $title"
+printf "%s\n" "♫ ♫  $artist $title"
