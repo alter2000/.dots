@@ -31,14 +31,17 @@ set -g renumber-windows on
 ### Keybindings
 
 ## Vi movement for pane movement keys
-set -g mode-keys vi
-bind ` copy-mode
 unbind p
 bind r source-file ~/.tmux.conf
 # bind p run "tmux save-buffer - | xclip -i"
 bind P paste-buffer
-bind -T copy-mode-vi 'v' send -X begin-selection
-bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'
+set -g mode-keys vi
+bind ` copy-mode
+unbind -T copy-mode-vi MouseDragEnd1Pane
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi vv send-keys -X select-line
+bind -T copy-mode-vi V send-keys -X rectangle-toggle
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'
 bind h resize-pane -L 5
 bind j resize-pane -D 3
 bind k resize-pane -U 5
@@ -56,8 +59,8 @@ bind < swap-window -t -1
 bind -n M-_ split-window -v -c "#{pane_current_path}"
 bind -n M-- split-window -h -c "#{pane_current_path}"
 bind -n M-z resize-pane -Z
-bind b break-pane
-bind C-b capture-pane \; \
+bind C-b break-pane
+bind b capture-pane \; \
 	save-buffer /tmp/tmux-buffer \; \
 	split-window -fv -p 30 '$SHELL -c "urlscan --compact < /tmp/tmux-buffer"'
 
@@ -80,8 +83,8 @@ set -g message-attr bold
 
 set -g status-left "#[bg=blue,fg=black] #(date +%d/%H:%M) #[bg=black,fg=white,bold] #S "
 set -g status-left-length 20
-set -g window-status-format "#[fg=magenta] #W "
-set -g window-status-current-format "#[fg=blue] #W "
+set -g window-status-format "#[fg=blue] #W "
+set -g window-status-current-format "#[fg=magenta] #W "
 set -g status-right "#[fg=green] #(~/.dots/tmux/status.sh #{client_width})"
 
 ### Plugins

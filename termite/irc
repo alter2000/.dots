@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = League Mono 8
+font = League Mono 13
 scrollback_lines = 10000
 search_wrap = true
 icon_name = termite
@@ -25,36 +25,54 @@ modify_other_keys = false
 
 
 [colors]
-foreground = #657b83
-foreground_bold = #073642
-#foreground_dim = #888888
-# 5% background transparency (requires a compositor)
-# background = rgba(253,246,227,0.95)
-background = #fdf6e3
-cursor = #586e75
+# Base16 Tomorrow
+# Author: Chris Kempson (http://chriskempson.com)
 
-# if unset, will reverse foreground and background
-#highlight = #839496
+foreground          = #4d4d4c
+foreground_bold     = #282a2e
+cursor              = #282a2e
+cursor_foreground   = #ffffff
+background          = rgba(255, 255, 255, 0.95)
 
-# colors from color0 to color254 can be set
-color0 = #073642
-color1 = #dc322f
-color2 = #859900
-color3 = #b58900
-color4 = #268bd2
-color5 = #d33682
-color6 = #2aa198
-color7 = #c8b79a
-color8 = #002b36
-color9 = #cb4b16
-color10 = #859900
-# color10 = #586e75
-color11 = #657b83
-color12 = #839496
-color13 = #6c71c4
-color14 = #93a1a1
-color15 = #c8b79a
+# 16 color space
 
+# Black, Gray, Silver, White
+color0  = #ffffff
+color8  = #8e908c
+color7  = #4d4d4c
+color15 = #1d1f21
+
+# Red
+color1  = #c82829
+color9  = #c82829
+
+# Green
+color2  = #718c00
+color10 = #718c00
+
+# Yellow
+color3  = #eab700
+color11 = #eab700
+
+# Blue
+color4  = #4271ae
+color12 = #4271ae
+
+# Purple
+color5  = #8959a8
+color13 = #8959a8
+
+# Teal
+color6  = #3e999f
+color14 = #3e999f
+
+# Extra colors
+color16 = #f5871f
+color17 = #a3685a
+color18 = #e0e0e0
+color19 = #d6d6d6
+color20 = #969896
+color21 = #282a2e
 [hints]
 font = Monospace 12
 foreground = #dcdccc
