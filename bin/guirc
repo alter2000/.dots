@@ -1,8 +1,25 @@
 #!/bin/sh
+#!/usr/bin/env python3
 
 (termite \
-    --name "IRC" \
-    --class "IRC" \
     --title "IRC" \
-    --directory "$HOME/var/download/maymays" \
-    --exec "weechat $@") &
+    --name "IRC" \
+    --class "termite" \
+    --config "$HOME/.dots/termite/irc" \
+    --exec "tmux new-session -A \
+        -c \"$HOME/var/download\" \
+            -s 'irc' weechat $@") &
+
+
+# import subprocess
+# import os
+
+# if __name__ == "__main__":
+#     subprocess.Popen(['termite',
+#                     '--name="IRC"',
+#                     '--class="IRC"',
+#                     '--title="IRC"',
+#                     '--directory="$HOME/var/download"',
+#                     '--config="$HOME/.dots/termite/irc"',
+#                     '--exec="weechat $@"',
+#                     ], shell=False)

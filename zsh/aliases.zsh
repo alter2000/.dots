@@ -10,11 +10,10 @@ alias e="$EDITOR"
 alias ew="zile"
 alias ffs="sudo"
 alias m,="nmtui-connect"
-test "hash taskell" && alias asd="taskell ~/notes/todo.md"
-test "hash ranger"  && alias './'="ranger"
-test "hash neomutt" && alias m="neomutt"
-test "hash wordgrinder" && test -f "$XDG_CONFIG_HOME/wordgrinder.lua" && \
-	alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
+alias asd="taskell ~/notes/todo.md"
+alias './'="ranger"
+alias m="neomutt"
+alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
 
 alias ipy="ipython3"
 alias tree="tree -C"
@@ -28,9 +27,11 @@ alias ll="ls -Alh"
 alias la="ls -Ah"
 alias cp="cp -i"
 alias mv="mv -i"
+alias apci="acpi"
 
 # alias gh="git hub"
 # alias gb="git bb"
+# convert from alias to function :s/alias // | s/="/() { / | s/"/ }
 alias gst="git status -sb"
 alias ga="git add"
 alias gaa="git add -A"
@@ -38,6 +39,11 @@ alias gc="git commit"
 alias gd="git diff"
 alias gp="git push"
 alias gpull="git pull --rebase"
+alias gsu="git submodule update"
+alias gts="git tag -s"
+alias grb="git rebase --interactive"
+gdv() { git diff -w "$@" | vim - }
+compdef _git gdv=git-diff
 
 alias hst="hg status"
 alias ha="hg add"
@@ -62,9 +68,20 @@ if command -v yay >/dev/null; then
 	alias parm="yay -Rsn"
 	alias parmorphans="sudo pacman -Rns $(pacman -Qtdq | tr '\n' ' ')"
 	alias parmnew="sudo find / -name '*.pacnew' 2>/dev/null"
+elif command -v apt >/dev/null; then
+	alias suffer="sudo apt update && sudo apt upgrade"
+	alias pain="sudo apt install"
+	alias painl="sudo apt upgrade"
+	alias pare="sudo apt remove"
+	alias parm="sudo apt purge"
+elif command -v dnf >/dev/null; then
+	alias suffer="sudo dnf upgrade"
+	alias pain="sudo dnf install"
+	alias parm="sudo dnf remove"
 fi
 
 # global aliases for reading
 alias -g LL="2>&1 | less"
 alias -g NE="2> /dev/null"
 alias -g P="2>&1| pygmentize -l pytb"
+alias -g QQ="2>/dev/null"

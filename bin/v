@@ -2,6 +2,8 @@
 
 if [ -z $1 ]; then
 	imv -b 'f2e6d1' './'
+    mpv './'
 else
 	imv -b 'f2e6d1' $@
+    mpv $@
 fi
