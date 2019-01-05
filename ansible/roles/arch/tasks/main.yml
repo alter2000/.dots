@@ -142,7 +142,10 @@
     skip_installed: true
   with_items:
     - ansible
+    - ansible-container
     - docker
+    - qemu
+    - qemu-arch-extra
     - vagrant
     - virt-manager
     - virt-viewer
