@@ -100,6 +100,7 @@
     - polybar
     - pulseaudio-alsa
     - pulsemixer
+    - python-psutil
     - python-pywal
     - qutebrowser
     - ranger
@@ -164,10 +165,8 @@
     - pandoc
     - parallel
     - python
-    - python-conda
-    - python-pip
+    - python-pipenv
     - python-vint
-    - python-virtualenv
     - ripgrep
     - ruby
     - shfmt

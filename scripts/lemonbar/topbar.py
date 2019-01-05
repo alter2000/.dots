@@ -1,6 +1,12 @@
 #!/usr/bin/python
 
-import os, sys, select, datetime, subprocess, atexit
+import atexit
+import os
+import select
+import subprocess
+import sys
+from datetime import datetime
+from psutil import sensors_battery
 
 color = {
     "foreground": "#ffffff",
@@ -12,11 +18,14 @@ color = {
     "muted": "#999999",
 }
 
+
 def fg(color, text):
     return '%{F' + color + '}' + text + '%{F-}'
 
+
 def bg(color, text):
     return '%{B' + color + '}' + text + '%{B-}'
+
 
 def file_contents(f):
     try:
@@ -27,152 +36,146 @@ def file_contents(f):
     except:
         return None
 
+
 def output_of(cmd):
     try:
-        return subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+        return subprocess.run(cmd.split(' '), stdout=subprocess.PIPE) \
+                            .stdout.decode('utf-8').strip()
     except:
         return None
+
 
 class Widget(object):
     @staticmethod
     def available():
         """Determines if widget is available/makes sense on this system."""
         return True
+
+
     def __init__(self, pipe, hooks):
-        """Initialize widget. The widget may spawn a subprocess and feed its stdout
-        into pipe. The main loop runs through all lines received on all widget pipes
-        and calls hooks based on the first word in a line. If
-
-        hooks["my_trigger"] = self
-
-        is set, this widget's update function will be called if the main loop sees
-        a line starting with 'my_trigger'."""
+        """Initialize widget. The widget may spawn a subprocess and feed its
+        stdout into pipe. The main loop runs through all lines received on all
+        widget pipes and calls hooks based on the first word in a line. If
+            hooks["my_trigger"] = self
+        is set, this widget's update function will be called if the main loop
+        sees a line starting with 'my_trigger'.
+        """
         pass
+
+
     def update(self, line):
-        """Update widget's internal state based on data received via the main loop."""
+        """Update widget's internal state based on data received via the main
+        loop.
+        """
         pass
+
+
     def render(self):
         """Render the widget."""
         return ''
+
 
 class Text(Widget):
     def __init__(self, text):
         super(Widget, self)
         self.text = text
+
+
     def render(self):
         return self.text
 
-class HLWM(Widget):
-    tagicons = ['\ue00e', '\ue1a8', '\ue1ce', '\ue1a0']
-
-    def __init__(self, pipe, hooks):
-        self.client = subprocess.Popen(['herbstclient', '--idle', 'tag_changed'], stdout=pipe)
-        atexit.register(self.client.kill)
-        self.tags = []
-        hooks['tag_changed'] = self
-    def update(self, line):
-        self.tags =  [t for t in output_of(['herbstclient', 'tag_status']).split() if t[1] != "!"]
-    def render(self):
-        out = '%{T2}'
-        empty = ' \ue0e6 '
-        for i, t in enumerate(self.tags):
-            full = ' ' + self.tagicons[i] + ' ' if len(self.tagicons) > i else ' \ue056 '
-            if t[0] == '#':
-                out += bg(color['lightbackground'], fg('-', '%{+u}' + full + '%{-u}'))
-            elif t[0] == '+':
-                out += fg(color['primary'], full)
-            elif t[0] == ':':
-                out += fg(color['muted'], full)
-            elif t[0] == '.':
-                out += fg(color['muted'], empty)
-            elif t[0] == '!':
-                out += fg(color['bad'], full)
-        out += '%{T1}'
-        return out
-
-class Filesystems(Widget):
-    dfcmd = ['df', '-h', '-x', 'tmpfs', '-x', 'devtmpfs', '--output=target,avail']
-    icon = fg(color['good'], ' %{T2}\ue1e1%{T1} ')
-    def render(self):
-        df = output_of(self.dfcmd).splitlines()[1:]
-        fs = ((f[0], f[1]) for f in (f.strip().split() for f in df) if not f[0].startswith('/boot'))
-        return self.icon + fg(color['muted'], ' | ').join('%s %s' % (f[0], fg(color['muted'], f[1])) for f in fs)
 
 class Battery(Widget):
-    icons = [chr(c) for c in ([int(0xe242)] + list(range(int(0xe24c), int(0xe255))))]
+    icons = [
+        chr(c) for c in ([int(0xe242)] + list(range(int(0xe24c), int(0xe255))))
+    ]
     icon_charging = '\ue239'
+
     @staticmethod
     def available():
-        return file_contents('/sys/class/power_supply/BAT0/present') == '1'
+        return sensors_battery() is not None
+
+
     def render(self):
-        try:
-            charge = int(file_contents('/sys/class/power_supply/BAT0/capacity'))
-        except:
-            charge = 0
+        battery = sensors_battery()
+        charge = battery.percent
         c = color['bad'] if charge < 30 else color['good']
-        if file_contents('/sys/class/power_supply/BAT0/status') != 'Discharging':
+        if battery.power_plugged:
             icon = ' %%{T2}%s%%{T1} ' % self.icon_charging
         else:
-            icon = ' %%{T2}%s%%{T1} ' % self.icons[round(charge / 100 * (len(self.icons) - 1))]
-        return fg(c, icon) + str(charge)
+            icon = ' %%{T2}%s%%{T1} ' % self.icons[round(
+                charge / 100 * (len(self.icons) - 1))]
+        return icon
+
 
 class PulseAudio(Widget):
     icon_loud = ' \ue05d '
     icon_mute = ' \ue04f '
+
     @staticmethod
     def available():
         try:
-            subprocess.run(['pactl', 'info'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            subprocess.run(['pactl', 'info'],
+                           check=True,
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE)
             return True
         except:
             return False
+
     def __init__(self, pipe, hooks):
         client = subprocess.Popen(['pactl', 'subscribe'], stdout=pipe)
         atexit.register(client.kill)
         self.volume = 0
         self.mute = False
         hooks["Event 'change' on sink"] = self
+
     def update(self, line):
-        painfo = output_of(['pactl', 'info']).splitlines()
-        look_for = None
+        painfo = output_of('pactl info').splitlines()
         for l in painfo:
             if l.startswith('Default Sink:'):
                 look_for = l.split(':')[1].strip()
                 break
         in_sink = False
         look_for = 'Name: ' + look_for
-        sink_list = output_of(['pactl', 'list', 'sinks']).splitlines()
-        for l in sink_list:
-            if not in_sink:
-                if look_for in l:
-                    in_sink = True
-            else:
-                if 'Mute:' in l:
-                    if l.split(':')[1].strip() == 'yes':
-                        self.mute = True
-                    else:
-                        self.mute = False
-                elif 'Volume:' in l:
-                    self.volume = int(l.split('/', 2)[1].strip()[:-1])
-                    return
+        sink_list = output_of('pactl list sinks').splitlines()
+        if not in_sink:
+            if look_for in l:
+                in_sink = True
+        else:
+            if 'Mute:' in l:
+                if l.split(':')[1].strip() == 'yes':
+                    self.mute = True
+                else:
+                    self.mute = False
+            elif 'Volume:' in l:
+                self.volume = int(l.split('/', 2)[1].strip()[:-1])
+                return
+
     def render(self):
         if self.mute:
             return fg(color['bad'], self.icon_mute) + '--'
         else:
             return fg(color['good'], self.icon_loud) + str(self.volume)
 
+
 class Clock(Widget):
     def render(self):
-        return '  ' + bg(color['lightbackground'], datetime.datetime.now().strftime('  %a %b %d  %H:%M  '))
+        return '  ' + bg(
+            color['lightbackground'],
+            datetime.now().strftime('  %a %b %d  %H:%M  '))
+
 
 class Wifi(Widget):
     icon = ' \ue048 '
+
     @staticmethod
     def available():
         try:
             return len(output_of(['iw', 'dev'])) > 0
         except:
             return False
+
     def render(self):
         strength = 0.0
         iw = output_of(['iwgetid']).split()
@@ -186,7 +189,8 @@ class Wifi(Widget):
             if profile == '':
                 profile = fg(color['muted'], 'disconnected')
             else:
-                for line in file_contents('/proc/net/wireless').splitlines()[2:]:
+                for line in file_contents(
+                        '/proc/net/wireless').splitlines()[2:]:
                     cols = line.split()
                     if cols[0][:-1] == iw[0]:
                         strength = float(cols[2])
@@ -197,23 +201,30 @@ class Wifi(Widget):
             profile += ' ' + fg(color['muted'], str(int(strength)))
         return profile
 
+
 class MPD(Widget):
     icon_paused = ' \ue059 '
     icon_playing = ' \ue05c '
     audio_files = ['mp3', 'ogg', 'flac', 'mp4', 'm4a']
+
     @staticmethod
     def available():
         try:
-            subprocess.run(['mpc'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            subprocess.run(['mpc'],
+                           check=True,
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE)
             return True
         except:
             return False
+
     def __init__(self, pipe, hooks):
         client = subprocess.Popen(['mpc', 'idleloop', 'player'], stdout=pipe)
         atexit.register(client.kill)
         self.song = ''
         self.status = 'stopped'
         hooks['player'] = self
+
     def update(self, line):
         status = output_of('mpc').splitlines()
         if len(status) < 3:
@@ -221,9 +232,12 @@ class MPD(Widget):
             self.status = 'stopped'
         else:
             self.song = status[0]
-            if '.' in self.song[-5:] and self.song.rsplit('.', 1)[1].lower() in self.audio_files and '/' in self.song:
+            if '.' in self.song[-5:] and self.song.rsplit(
+                    '.',
+                    1)[1].lower() in self.audio_files and '/' in self.song:
                 self.song = self.song.rsplit('/', 1)[1]
             self.status = status[1].split(None, 1)[0][1:-1]
+
     def render(self):
         if self.status == 'playing':
             return self.icon_playing + fg(color['muted'], self.song)
@@ -231,14 +245,19 @@ class MPD(Widget):
             return self.icon_paused + fg(color['muted'], self.song)
         return ''
 
+
 class Mail(Widget):
     icon = '\ue1a8'
+
     @staticmethod
     def available():
-        return os.path.isdir(os.path.expanduser('~/.mutt')) and os.path.isdir(os.path.expanduser('~/.password-store'))
+        return os.path.isdir(os.path.expanduser('~/.mutt')) and os.path.isdir(
+            os.path.expanduser('~/.password-store'))
+
     def __init__(self, pipe, hooks):
         from check_mail import MailChecker
         self.checker = MailChecker()
+
     def render(self):
         new = []
         c = color['good']
@@ -253,7 +272,10 @@ class Mail(Widget):
         else:
             return ''
 
-widgets = ['%{l}', HLWM, MPD, '%{c}', Mail, '%{r}', Filesystems, Wifi, Battery, PulseAudio, Clock]
+
+widgets = [
+    '%{l}', MPD, '%{c}', '%{r}', Wifi, Battery, PulseAudio, Clock
+]
 
 if __name__ == '__main__':
     sread, swrite = os.pipe()
@@ -291,4 +313,3 @@ if __name__ == '__main__':
         if updated:
             print(''.join(w.render() for w in ws))
             sys.stdout.flush()
-

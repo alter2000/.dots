@@ -5,7 +5,7 @@
 	font:	"Hasklig 12";
 }
 
-configuration {
+#configuration {
 	modi:		"run,drun";
 	window-format:	"{n}";
 	width:		50;
@@ -14,7 +14,6 @@ configuration {
 	hide-scrollbar:	false;
 	show-icons:	false;
 
-	/*drun-icon-theme: ;*/
 	drun-match-fields:	"name,exec";
 	cycle:	false;
 }
