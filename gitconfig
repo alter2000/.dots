@@ -44,3 +44,5 @@
 	required = true
 [cola]
 	spellcheck = false
+[gpg]
+	program = /usr/bin/gpg

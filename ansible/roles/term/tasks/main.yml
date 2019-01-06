@@ -13,6 +13,10 @@
     src: "{{dotdir}}/termite"
     dest: "{{xdg.config_home}}/termite"
 
+- file:
+    state: directory
+    path: "{{xdg.config_home}}/hg"
+
 - name: set up hgrc
   # TODO: template
   file:
@@ -63,4 +67,6 @@
     state: link
     src: "{{dotdir}}/vim"
     dest: "{{vim.dir}}"
+
+- name: set up vim plugins
   shell: "vim +PlugInstall +qall"

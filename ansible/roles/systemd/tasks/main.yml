@@ -1,12 +1,10 @@
 ---
 - name: get systemd directory
-  daemon_reload: true
   file:
     state: directory
     dest: "{{xdg.config_home}}/systemd/user"
 
 - name: set up services
-  daemon_reload: true
   file:
     force: true
     state: link
@@ -14,47 +12,55 @@
     dest: "{{xdg.config_home}}/systemd/user"
 
 - name: set up user-dirs.dirs
-  daemon_reload: true
   file:
     force: true
     state: link
     src: "{{dotdir}}/user-dirs.dirs"
     dest: "{{xdg.config_home}}/user-dirs.dirs"
 
+- name: reload systemd
+  systemd:
+    daemon_reload: true
+    force: true
+    scope: global
 
 #  - name: ensure gpg-agent is running
-#    service:
+#    systemd:
 #      state: started
 #      enabled: true
 #      name: gpg-agent
+#      scope: user
 
 - name: ensure ntp is running
-  daemon_reload: true
-  service:
+  systemd:
+    daemon_reload: true
     state: started
     enabled: true
     name: ntpd
 
 - name: ensure pulse is up
-  service:
+  systemd:
     state: started
     enabled: true
     name: pulseaudio
+    scope: user
 
 - name: ensure mpd is up
-  service:
-    state: started
+  systemd:
     enabled: true
     name: mpd
+    scope: user
 
 - name: ensure dunst is up
-  service:
+  systemd:
     state: started
     enabled: true
     name: dunst
+    scope: user
 
 - name: ensure offlineimap is up
-  service:
+  systemd:
     state: started
     enabled: true
     name: offlineimap
+    scope: user

@@ -4,7 +4,7 @@ system:
 
 dotrepo: "https://github.com/alter2000/.dots"
 dotdir: "~/.dots"
-desktop: true
+# list of directories to be created; don't forget to check the xdg list
 dirlist:
   - "~/git"
   - "~/lfs/img"
@@ -22,12 +22,15 @@ dirlist:
   - "~/var/scrots"
   - "~/var/share"
   - "{{xdg.cache_home}}/mpd"
+  - "{{xdg.cache_home}}/mutt"
   - "{{xdg.cache_home}}/tmux/tmux-resurrect"
+  - "{{xdg.cache_home}}/vim"
+  - "{{xdg.cache_home}}/zsh"
 
-git:
-  name: Jor Bashllari
-  email: altnate2000@gmail.com
-  github: alter2000
+# git:
+#   name: Jor Bashllari
+#   email: altnate2000@gmail.com
+#   github: alter2000
 
 xdg:
   cache_home: "~/.cache"
@@ -37,6 +40,7 @@ xdg:
 zsh:
   dir: ~/.zsh
 
+# vim.plug is the plugin directory for vim plugins (WIP)
 vim:
-  dir: ~/.vim
-  plug: "{{ vim.dir }}/pack"
+  dir: "~/.vim"
+  plug: "~/.vim/uggplug"

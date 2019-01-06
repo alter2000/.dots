@@ -52,6 +52,7 @@
     - firefox
     - fish
     - folder-color-switcher
+    - goobook
     - gopass
     - gparted
     - gpick
@@ -210,4 +211,3 @@
     state: installed
   with_items:
     - neovim
-    - goobook

@@ -20,22 +20,24 @@
 # or dont - file: state=link src="$XDG_CACHE_HOME" dest="$HOME/.compose-cache"
 
 - name: git notes
-  git: repo=https://bitbucket.org/alter2000/notes dest=~/notes
+  git:
+    repo: git@bitbucket.org:alter2000/notes
+    dest: ~/notes
 
 #  - name: git docs
 #  git: repo=https://bitbucket.org/alter2000/docs dest=~/static/documents
 
-- name: copy ansible config
-  become_user: root
-  become: true
-  copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
+# - name: copy ansible config
+#   become_user: root
+#   become: true
+#   copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
 
-- name: copy ansible hosts
-  become_user: root
-  become: true
-  copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
+# - name: copy ansible hosts
+#   become_user: root
+#   become: true
+#   copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
 
-# Packages and other things
+# # Packages and other things
 # - block:
 #     - import_tasks: arch.yml
 #   when: ansible_distribution == "Archlinux"
