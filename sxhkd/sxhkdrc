@@ -40,7 +40,7 @@ super + p
 	~/.dots/bin/lock.sh
 
 super + 5
-	SHELL=/bin/fish termite -c ~/.dots/termite_writing -e "terminal_velocity -c ~/.dots/terminal_velocity"
+	SHELL=/bin/fish termite -c ~/.dots/termite_writing -e "terminal_velocity -c ~/.dots/tv"
 super + 6
 	qutebrowser
 super + 7
