@@ -44,12 +44,7 @@ export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
 
 systemctl --user import-environment PATH
-if pgrep gpg-agent 1>/dev/null; then
-	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
-else
-	eval `gpg-agent --daemon`
-	eval `ssh-agent`
-fi
+eval `ssh-agent`
 
 # if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
