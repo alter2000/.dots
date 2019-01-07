@@ -44,10 +44,15 @@ export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
 
 systemctl --user import-environment PATH
-eval `ssh-agent`
+
+if ! pgrep gpg-agent 1>/dev/null; then
+	eval `gpg-agent`
+	echo 'hai -- dis gpg'
+fi
 
 # if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-#   exec startx
+# 	exec startx
 # fi
+
 
 # vim:ft=zsh
