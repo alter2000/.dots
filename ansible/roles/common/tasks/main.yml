@@ -1,23 +1,28 @@
 ---
 - name: set up ansible user for config sync
-  user: name=ansible uid=900
+  user:
+    name: ansible
+    uid: 900
 - name: add primary user
-  user: 
-    name: "alter2000"
+  user:
+    name: alter2000
     uid: 1000
-    state: "present"
-    createhome: yes
-    comment: "Jor Bashllari"
-    shell: "/bin/zsh"
-    group: "alter2000"
-    #    groups: "docker,video,wheel"
-    append: yes
+    state: present
+    createhome: true
+    comment: Jor Bashllari
+    shell: /bin/zsh
+    group: alter2000
+    groups: docker,video,wheel
+    append: true
 
 - name: set up directory structure
-  file: path={{item}} state=directory recurse=yes
+  file:
+    path: "{{item}}"
+    state: directory
+    recurse: true
   with_items: "{{dirlist}}"
   become: true
-# or dont - file: state=link src="$XDG_CACHE_HOME" dest="$HOME/.compose-cache"
+# or dont - file: state: link src=$XDG_CACHE_HOME dest=$HOME/.compose-cache
 
 - name: git notes
   git:
@@ -25,37 +30,54 @@
     dest: ~/notes
 
 #  - name: git docs
-#  git: repo=https://bitbucket.org/alter2000/docs dest=~/static/documents
+#  git:
+#    repo: https://bitbucket.org/alter2000/docs
+#    dest: ~/static/documents
 
 # - name: copy ansible config
 #   become_user: root
 #   become: true
-#   copy: src=ansible.cfg dest=/etc/ansible.cfg owner=root group=root mode=755
+#   copy:
+#     src: ansible.cfg
+#     dest: /etc/ansible.cfg
+#     owner: root
+#     group: root
+#     mode: 755
 
 # - name: copy ansible hosts
 #   become_user: root
 #   become: true
-#   copy: src=hosts dest=/etc/ansible/hosts owner=root group=root mode=755
+#   copy:
+#     src: hosts
+#     dest: /etc/ansible/hosts
+#     owner: root
+#     group: root
+#     mode: 755
 
 # # Packages and other things
 # - block:
 #     - import_tasks: arch.yml
-#   when: ansible_distribution == "Archlinux"
+#   when: ansible_distribution : = Archlinux
 
 - block:
     - import_tasks: fedora.yml
-  when: ansible_distribution == "Fedora"
+  when: ansible_distribution == Fedora
 
 - block:
     - name: copy nix configuration
-      copy: src="{{dotdir}}/{{item}} dest=/etc/nixos/{{item}} owner=root group=root mode=0755"
+      copy:
+        src: "{{dotdir}}/{{item}}"
+        dest: /etc/nixos/"{{item}}"
+        owner: root
+        group: root
+        mode: 0755
       with_items:
-              - configuration.nix
-              - services.nix
-              - systemd.nix
-              - pkgs.nix
-  when: ansible_distribution == "NixOS"
+        - configuration.nix
+        - services.nix
+        - systemd.nix
+        - pkgs.nix
+  when: ansible_distribution == NixOS
 
 - block:
     - import_tasks: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == Ubuntu

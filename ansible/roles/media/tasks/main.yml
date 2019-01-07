@@ -1,16 +1,28 @@
 ---
 - name: set up beets
-  file: "force=yes state=link src={{dotdir}}/beets
-          dest={{xdg.config_home}}/beets"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/beets"
+    dest: "{{xdg.config_home}}/beets"
 
 - name: set up mpd
-  file: "force=yes state=link src={{dotdir}}/mpd
-          dest={{xdg.config_home}}/mpd"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/mpd"
+    dest: "{{xdg.config_home}}/mpd"
 
 - name: set up ncmpcpp
-  file: "force=yes state=link src={{dotdir}}/ncmpcpp
-          dest=~/.ncmpcpp"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/ncmpcpp"
+    dest: ~/.ncmpcpp
 
 # - name: set up transmission
-#   file: "force=yes state=link src={{dotdir}}/transmission/settings.json
-#           dest={{xdg.config_home}}/transmission/settings.json"
+#   file:
+#     force: true
+#     state: link
+#     src: "{{dotdir}}/transmission/settings.json"
+#     dest: "{{xdg.config_home}}/transmission/settings.json"

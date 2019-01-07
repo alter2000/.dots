@@ -1,12 +1,21 @@
 ---
 - name: set up elinks files
-  file: "force=yes state=link src={{dotdir}}/elinks
-          dest={{xdg.config_home}}/elinks/elinks.conf"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/elinks"
+    dest: "{{xdg.config_home}}/elinks/elinks.conf"
 
 - name: set up newsboat
-  file: "force=yes state=link src={{dotdir}}/newsboat
-          dest={{xdg.config_home}}/newsboat"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/newsboat"
+    dest: "{{xdg.config_home}}/newsboat"
 
 - name: set up qutebrowser
-  file: "force=yes state=link src={{dotdir}}/qutebrowser
-          dest={{xdg.config_home}}/qutebrowser"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/qutebrowser"
+    dest: "{{xdg.config_home}}/qutebrowser"

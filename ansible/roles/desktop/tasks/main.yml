@@ -1,47 +1,84 @@
 ---
 - name: set up xinitrc
-  file: "force=yes state=link src={{dotdir}}/X/xinitrc
-          dest=~/.xinitrc"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/X/xinitrc"
+    dest: ~/.xinitrc
 
 - name: set up Xresources
-  file: "force=yes state=link src={{dotdir}}/X/Xresources
-          dest=~/.Xresources"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/X/Xresources"
+    dest: ~/.Xresources
 
 - name: set up compton
-  file: "force=yes state=link src={{dotdir}}/compton.conf
-          dest={{xdg.config_home}}/compton.conf"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/compton.conf"
+    dest: "{{xdg.config_home}}/compton.conf"
 
 - name: set up dunst
-  file: "force=yes state=link src={{dotdir}}/dunst
-          dest={{xdg.config_home}}/dunst"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/dunst"
+    dest: "{{xdg.config_home}}/dunst"
 
 - name: set up gtk3
-  file: "force=yes state=link src={{dotdir}}/gtk-3.0
-          dest={{xdg.config_home}}/gtk-3.0"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/gtk-3.0"
+    dest: "{{xdg.config_home}}/gtk-3.0"
 
 - name: set up i3
-  file: "force=yes state=link src={{dotdir}}/i3
-          dest={{xdg.config_home}}/i3"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/i3"
+    dest: "{{xdg.config_home}}/i3"
 
 - name: set up redshift
-  file: "force=yes state=link src={{dotdir}}/redshift.conf
-          dest={{xdg.config_home}}/redshift.conf"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/redshift.conf"
+    dest: "{{xdg.config_home}}/redshift.conf"
 
 - name: set up rofi
-  file: "force=yes state=link src={{dotdir}}/rofi
-          dest={{xdg.config_home}}/rofi"
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/rofi"
+    dest: "{{xdg.config_home}}/rofi"
 
 # - name: set up neofetch
-#   file: "force=yes state=link src={{dotdir}}/tmp dest=~/.tmp"
+#   file:
+#     force: true
+#     state: link
+#     src: "{{dotdir}}/tmp"
+#     dest: ~/.tmp
 
 #  - name: set up bspwm
-#   file: "force=yes state=link src={{dotdir}}/bspwm
-#           dest={{xdg.config_home}}/bspwm"
+#   file:
+#     force: true
+#     state: link
+#     src: "{{dotdir}}/bspwm"
+#     dest: "{{xdg.config_home}}/bspwm"
 
 # - name: set up sway
-#   file: "force=yes state=link src={{dotdir}}/sway
-#           dest={{xdg.config_home}}/sway"
+#   file:
+#     force: true
+#     state: link
+#     src: "{{dotdir}}/sway"
+#     dest: "{{xdg.config_home}}/sway"
 
 # - name: set up sxhkd
-#   file: "force=yes state=link src={{dotdir}}/sxhkd
-#           dest={{xdg.config_home}}/sxhkd"
+#   file:
+#     force: true
+#     state: link
+#     src: "{{dotdir}}/sxhkd"
+#     dest: "{{xdg.config_home}}/sxhkd"
