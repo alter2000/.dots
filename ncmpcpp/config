@@ -248,7 +248,7 @@ browser_sort_format = {%t}{%a}|{%f} {(%l)}
 ##   available.
 ##
 #
-song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[black]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[default]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
