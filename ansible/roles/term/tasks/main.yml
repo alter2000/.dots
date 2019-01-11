@@ -69,4 +69,4 @@
     dest: "{{vim.dir}}"
 
 - name: set up vim plugins
-  shell: "vim +PlugInstall +qall"
+  command: "vim '+PlugInstall' '+qall'"

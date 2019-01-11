@@ -18,9 +18,12 @@ synclient TapButton2=2
 synclient HorizTwoFingerScroll=1
 synclient VertTwoFingerScroll=1
 keynav &
-setxkbmap -option caps:ctrl_modifier
-xcape -e ‘Caps_Lock=Escape’
 
+setxkbmap -option caps:ctrl_modifier
+# PrtSc in Thinkpad is shit
+xmodmap -e 'keycode 0xff61 = Control_R'
+xcape -e 'Print=Control_R'
+# xcape -e 'Caps_Lock=Escape'
 xrdb -load "$HOME/.Xresources"
 
 # case $DESKTOP_SESSION in

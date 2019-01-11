@@ -9,6 +9,7 @@ alias q="wq"
 alias e="$EDITOR"
 alias ew="zile"
 alias ffs="sudo"
+alias sudont=""
 alias m,="nmtui-connect"
 alias asd="taskell ~/notes/todo.md"
 alias './'="ranger"
@@ -21,6 +22,7 @@ alias wag="python ./manage.py"
 # alias kid="cheat ""| less"
 # alias conc="source /opt/context-minimals/setuptex && context "
 
+# coreutils
 alias ls="ls --color=auto --group-directories-first"
 alias l="ls -AlhF"
 alias ll="ls -Alh"
@@ -29,6 +31,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias apci="acpi"
 
+# git
 # alias gh="git hub"
 # alias gb="git bb"
 # convert from alias to function :s/alias // | s/="/() { / | s/"/ }
