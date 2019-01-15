@@ -2,10 +2,10 @@
 	background-color:	#f2e6d1;
 	border-color:		#70655b;
 	text-color:		#802152;
-	font:	"Hasklig";
+	font:		"Hasklig";
 }
 
-configuration {
+#configuration {
 	modi:		"window";
 	window-format:	"{w} || {n}";
 	width:		50;
@@ -13,7 +13,7 @@ configuration {
 
 	hide-scrollbar:	false;
 	show-icons:	false;
-	/*drun-icon-theme: ;*/
+	/* drun-icon-theme: gruvbox-soft; */
 	cycle:	false;
 }
 

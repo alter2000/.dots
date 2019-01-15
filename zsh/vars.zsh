@@ -3,8 +3,8 @@
 typeset -Uz path
 typeset -Uz fpath
 path=($HOME/.dots/bin $HOME/epitheq/bin $HOME/.cargo/bin $HOME/.local/bin $path)
-path+=(/root/.gem/ruby/2.5.0/bin)
-path+=($HOME/.gem/ruby/2.5.0/bin)
+path+=(/root/.gem/ruby/2.6.0/bin)
+path+=($HOME/.gem/ruby/2.6.0/bin)
 fpath+=($ZDATADIR/functions)
 
 export WORDCHARS=''
@@ -13,7 +13,6 @@ export CLICOLOR=1
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=1.2
 
-export MAILPATH="$HOME/var/mail"
 # colored-man-pages from gh/imkira
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'

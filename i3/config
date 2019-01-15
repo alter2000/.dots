@@ -19,7 +19,7 @@ bindsym $mod+F4 kill
 hide_edge_borders both
 
 #i3-gaps
-new_window pixel 3
+new_window pixel 5
 # gaps inner 7
 # gaps outer 9
 smart_gaps on
@@ -103,20 +103,20 @@ mode R {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode default
         bindsym Escape mode default
         bindsym $mod mode default
-				bindsym $mod+R mode default
+        bindsym $mod+R mode default
 }
 
 
@@ -136,22 +136,22 @@ bindsym $mod+Shift+Delete exec --no-startup-id maim -s -u ~/var/scrots/$(date +%
 bindsym Mod3+Shift+Delete exec --no-startup-id ~/.dots/bin/dpause -a 1>/dev/null 2>/dev/null
 
 # volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume      exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume      exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 160%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute             exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute          exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 4%
-bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -S 100%
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 4%
+bindsym XF86MonBrightnessUp         exec --no-startup-id light -A 4%
+bindsym XF86MonBrightnessDown       exec --no-startup-id light -U 4%
+bindsym Shift+XF86MonBrightnessUp   exec --no-startup-id light -S 100%
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -S 1%
-bindsym Ctrl+XF86MonBrightnessUp exec --no-startup-id light -A 1%
-bindsym Ctrl+XF86MonBrightnessDown exec --no-startup-id light -U 1%
+bindsym Ctrl+XF86MonBrightnessUp    exec --no-startup-id light -A 1%
+bindsym Ctrl+XF86MonBrightnessDown  exec --no-startup-id light -U 1%
 
 # toggle touchpad
-bindsym XF86Display exec ~/.dots/bin/toggle_clickpad.sh
+bindsym XF86Display exec --no-startup-id ~/.dots/bin/toggle_clickpad.sh
 
 
 ########################################
@@ -229,20 +229,15 @@ exec --no-startup-id compton
 bindsym $mod+d     exec --no-startup-id rofi -show drun
 bindsym $mod+w     exec --no-startup-id rofi -config ~/.dots/rofi/other.rasi
 bindsym $mod+m     exec --no-startup-id ~/.dots/rofi/umounts
-bindsym $mod+equal exec --no-startup-id ~/.dots/rofi/=
-bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr
-
-# Redshift
-# exec --no-startup-id redshift
+bindsym $mod+equal exec --no-startup-id ~/.dots/rofi/= -config ~/.dots/rofi/other.rasi
+bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr -config ~/.dots/rofi/other.rasi
 
 # polkit
 exec --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id $term
-
-# for inconspicuousness
-bindsym $mod+Shift+Return exec --no-startup-id termite
+bindsym $mod+Return       exec --no-startup-id $term
+bindsym $mod+Shift+Return exec --no-startup-id termite --config ~/.dots/termite/base16-tomorrow
 
 # IDE HK depends
 bindsym XF86Tools exec --no-startup-id gvim
@@ -251,14 +246,14 @@ bindsym XF86Tools exec --no-startup-id gvim
 bindsym XF86LaunchA exec --no-startup-id endless-sky
 
 # File manager
-bindsym XF86Explorer exec --no-startup-id thunar
+bindsym XF86Explorer      exec --no-startup-id thunar
 bindsym Ctrl+XF86Explorer exec --no-startup-id soffice --writer
 
 # terminal velocity in scpad
 # bindsym $mod+5 exec --no-startup-id SHELL=/bin/fish termite -c ~/.dots/termite_writing -e "terminal_velocity -c ~/.dots/tv"
 
 # browser - Firefox
-bindsym XF86Search exec --no-startup-id firefox
+bindsym XF86Search      exec --no-startup-id firefox
 bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
 
 # lock
