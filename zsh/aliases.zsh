@@ -1,6 +1,6 @@
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
-alias webget="wget -mpP"
+alias webget="wget -mPp"
 alias wq="toilet -f future \"this isn't vim, autismo\" | lolcat \
 	|| echo 'kek u forgot the shitbox'; \
 	echo 'now shit shtill roight here and rot in hell'; \
@@ -11,7 +11,7 @@ alias ew="zile"
 alias ffs="sudo"
 alias sudont=""
 alias m,="nmtui-connect"
-alias asd="taskell ~/notes/todo.md"
+alias asd="taskell ~/notes/epitech/daily.md"
 alias './'="ranger"
 alias m="neomutt"
 alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
@@ -24,6 +24,7 @@ alias wag="python ./manage.py"
 
 # coreutils
 alias ls="ls --color=auto --group-directories-first"
+alias sl="ls"
 alias l="ls -AlhF"
 alias ll="ls -Alh"
 alias la="ls -Ah"

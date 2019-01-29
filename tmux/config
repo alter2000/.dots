@@ -62,7 +62,7 @@ bind -n M-z resize-pane -Z
 bind C-b break-pane
 bind b capture-pane \; \
 	save-buffer /tmp/tmux-buffer \; \
-	split-window -fv -p 30 '$SHELL -c "urlscan --compact < /tmp/tmux-buffer"'
+	split-window -fv -p 30 '$SHELL -c "urlscan --compact --dedupe < /tmp/tmux-buffer"'
 
 ### Statusline
 bind -n M-down set -q status off
@@ -94,6 +94,7 @@ set -g @resurrect-dir '$HOME/.cache/tmux/tmux-resurrect'
 # run-shell ~/.tmux/tmux-continuum/continuum.tmux
 # set -g @open-editor 'O'
 # run-shell ~/.tmux/tmux-open/open.tmux
+source ~/.dots/tmux/tmux-select-pane
 
 new-session -s 0
 # vim:ft=tmux

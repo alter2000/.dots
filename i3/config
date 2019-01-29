@@ -166,6 +166,7 @@ for_window [class="dde-polkit-dialog" instance="dde-polkit-dialog"] floating ena
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="Dia" instance="dia"] floating enable
+for_window [class="Sourcetrail"] floating enable
 
 for_window [class="Termite"] border pixel 1
 for_window [class="Termite" instance="Xt"] border pixel 1
