@@ -17,8 +17,8 @@ synclient TapButton1=1
 synclient TapButton2=2
 synclient HorizTwoFingerScroll=1
 synclient VertTwoFingerScroll=1
-keynav &
 xbanish &
+keynav &
 
 setxkbmap -option caps:ctrl_modifier
 # PrtSc in Thinkpad is shit

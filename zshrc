@@ -8,7 +8,6 @@ source $ZDATADIR/completions.zsh
 source $ZDATADIR/vars.zsh
 
 # Plugins
-source $ZDATADIR/plugins/extract.plugin.zsh
 # source $ZDATADIR/plugins/git.plugin.zsh
 source $ZDATADIR/plugins/vi-mode.plugin.zsh
 
