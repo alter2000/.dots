@@ -12,7 +12,7 @@
 #
 
 vim_navigation_timeout=0.05 # number of seconds we give Vim to navigate
-navigate='                                                             \
+tmux_select_pane='                                                             \
   pane_is_zoomed() {                                                   \
     test #{window_zoomed_flag} -eq 1;                                  \
   };                                                                   \
@@ -32,7 +32,7 @@ navigate='                                                             \
       (*) false ;;                                                     \
     esac;                                                              \
   };                                                                   \
-  navigate() {                                                         \
+  tmux_select_pane() {                                                         \
     tmux_navigation_command=$1;                                        \
     vim_navigation_command=$2;                                         \
     vim_navigation_only_if=${3:-true};                                 \
@@ -51,11 +51,11 @@ navigate='                                                             \
       eval "$tmux_navigation_command";                                 \
     fi;                                                                \
   };                                                                   \
-navigate '
+tmux_select_pane '
 
 # QWERTY keys - comment these out if you don't use QWERTY layout!
-bind-key -n M-h run-shell "$navigate 'tmux select-pane -L' 'tmux send-keys C-w h'"
-bind-key -n M-j run-shell "$navigate 'tmux select-pane -D' 'tmux send-keys C-w j'"
-bind-key -n M-k run-shell "$navigate 'tmux select-pane -U' 'tmux send-keys C-w k'"
-bind-key -n M-l run-shell "$navigate 'tmux select-pane -R' 'tmux send-keys C-w l'"
-bind-key -n M-; run-shell "$navigate 'tmux select-pane -l || tmux select-pane -t 1' 'tmux send-keys C-w p' 'pane_is_zoomed'"
+bind-key -n M-h run-shell "$tmux_select_pane 'tmux select-pane -L' 'tmux send-keys C-w h'"
+bind-key -n M-j run-shell "$tmux_select_pane 'tmux select-pane -D' 'tmux send-keys C-w j'"
+bind-key -n M-k run-shell "$tmux_select_pane 'tmux select-pane -U' 'tmux send-keys C-w k'"
+bind-key -n M-l run-shell "$tmux_select_pane 'tmux select-pane -R' 'tmux send-keys C-w l'"
+# bind-key -n M-; run-shell "$tmux_select_pane 'tmux select-pane -l || tmux select-pane -t 1' 'tmux send-keys C-w p' 'pane_is_zoomed'"

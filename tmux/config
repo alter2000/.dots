@@ -92,8 +92,7 @@ run-shell ~/.dots/tmux/tmux-resurrect/resurrect.tmux
 set -g @resurrect-dir '$HOME/.cache/tmux/tmux-resurrect'
 # set -g @resurrect-capture-pane-contents 'on'
 # run-shell ~/.tmux/tmux-continuum/continuum.tmux
-# set -g @open-editor 'O'
-# run-shell ~/.tmux/tmux-open/open.tmux
+
 source ~/.dots/tmux/tmux-select-pane
 
 new-session -s 0

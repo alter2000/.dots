@@ -92,8 +92,9 @@ bindsym $mod+Shift+0 move container to workspace media
 bindsym $mod+Q scratchpad show
 bindsym $mod+Shift+Q move scratchpad
 
-# move container to next monitor
-bindsym $mod+Ctrl+Shift+Left move container to output right
+# move workspace to next monitor
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
 
 bindsym $mod+r mode r
 # resize window (you can also use the mouse for that)
