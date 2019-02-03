@@ -1,0 +1,14 @@
+set editing-mode vi
+
+set show-mode-in-prompt on
+set vi-ins-mode-string "λ  "
+set vi-cmd-mode-string ":: "
+
+set keymap vi-command
+# j and k should search for the string of characters preceding the cursor
+"k": history-search-backward
+"j": history-search-forward
+
+# set keymap vi-insert
+# inoremap jk <Esc>
+# "jk": vi-movement-mode

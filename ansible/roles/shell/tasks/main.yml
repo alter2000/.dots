@@ -6,6 +6,13 @@
     src: "{{dotdir}}/bashrc"
     dest: ~/.bashrc
 
+- name: set up readline
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/inputrc"
+    dest: ~/.inputrc
+
 - name: set up zsh
   file:
     force: true
