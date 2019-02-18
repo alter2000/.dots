@@ -51,7 +51,6 @@ class Widget(object):
         """Determines if widget is available/makes sense on this system."""
         return True
 
-
     def __init__(self, pipe, hooks):
         """Initialize widget. The widget may spawn a subprocess and feed its
         stdout into pipe. The main loop runs through all lines received on all
@@ -62,13 +61,11 @@ class Widget(object):
         """
         pass
 
-
     def update(self, line):
         """Update widget's internal state based on data received via the main
         loop.
         """
         pass
-
 
     def render(self):
         """Render the widget."""
@@ -80,13 +77,12 @@ class Text(Widget):
         super(Widget, self)
         self.text = text
 
-
     def render(self):
         return self.text
 
 
 class Battery(Widget):
-    icons = [ '', '', '', ]
+    icons = ['', '', '', ]
     icon_charging = ''
 
     @staticmethod
@@ -135,7 +131,7 @@ class PulseAudio(Widget):
                 break
         in_sink = False
         look_for = 'Name: ' + look_for
-        sink_list = output_of('pactl list sinks').splitlines()
+        # sink_list = output_of('pactl list sinks').splitlines()
         if not in_sink:
             if look_for in l:
                 in_sink = True
@@ -250,8 +246,8 @@ class Mail(Widget):
     def available():
         if os.environ['MAILPATH']:
             mailpath = (os.environ['MAILPATH'] + '/' + p + '/new'
-                    for p in os.listdir(os.environ['MAILPATH'])
-                    if p[0] != '.')
+                        for p in os.listdir(os.environ['MAILPATH'])
+                        if p[0] != '.')
         elif os.environ['MAIL']:
             mailpath = (os.environ['MAIL'] + '/' + p + '/new'
                         for p in os.listdir(os.environ['MAIL'])
@@ -259,19 +255,19 @@ class Mail(Widget):
         else:
             mailpath = ''
         return (os.path.isdir(p) for p in mailpath) \
-                and os.path.isdir(os.path.expanduser('~/.password-store'))
+            and os.path.isdir(os.path.expanduser('~/.password-store'))
 
     def __init__(self, pipe, hooks):
         if os.environ['MAILPATH']:
             self.acct = (p for p in os.listdir(os.environ['MAILPATH'])
-                    if p[0] != '.')
+                         if p[0] != '.')
             self.mailpath = (os.environ['MAILPATH'] + '/' + p + '/INBOX/new'
-                    for p in self.acct)
+                             for p in self.acct)
         elif os.environ['MAIL']:
             self.acct = (p for p in os.listdir(os.environ['MAILPATH'])
-                    if p[0] != '.')
+                         if p[0] != '.')
             self.mailpath = (os.environ['MAIL'] + '/' + p + '/INBOX/new'
-                    for p in self.acct)
+                             for p in self.acct)
         else:
             self.acct = None
             self.mailpath = None

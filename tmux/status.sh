@@ -23,7 +23,7 @@ bat() {
 wif() {
   wif=`iwgetid --raw`
   sig=$( cat /proc/net/wireless | tail -1 | cut -d' ' -f7 | sed 's/\.//' )
-  [[ $sig -eq 'level' ]] && wif='' && sig='no wife kek' 
+  [[ $sig -eq 'level' ]] && wif='' && sig='no wife kek'
 }
 
 # $1 is from tmux supplying column width.

@@ -4,4 +4,4 @@
 IFS=$'\t' read artist title \
 	<<< "$(mpc --format="%artist% - %title%")"
 
-printf "%s\n" "♫ ♫  $artist $title"
+notify-send "$(printf "%s\n" "♫ ♫  $artist $title")"
