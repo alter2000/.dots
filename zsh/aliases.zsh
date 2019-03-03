@@ -36,8 +36,8 @@ alias apci="acpi"
 # git
 # alias gh="git hub"
 # alias gb="git bb"
+# alias gst="git status -sb"
 # convert from alias to function :s/alias // | s/="/() { / | s/"/ }
-alias gst="git status -sb"
 alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit"

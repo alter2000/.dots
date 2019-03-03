@@ -174,7 +174,6 @@ for_window [class="Termite" instance="Xt"] border pixel 1
 for_window [class="Alacritty"] border pixel 1
 
 assign [class="Firefox"]  ffox
-assign [class="Chromium"] ffox
 
 assign [class="Vim"] ide
 assign [instance="*.epub"] files

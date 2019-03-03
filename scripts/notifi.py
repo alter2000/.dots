@@ -11,6 +11,7 @@ except ImportError:
         return ""
 
 MAILPATH = env['MAILPATH'] if env['MAILPATH'] else env['MAIL']
+# TODO
 COLOR = {
     "foreground": "#ffffff",
     "background": "#282f3a",
