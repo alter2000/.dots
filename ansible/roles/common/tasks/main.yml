@@ -3,6 +3,7 @@
   user:
     name: ansible
     uid: 900
+
 - name: add primary user
   user:
     name: alter2000

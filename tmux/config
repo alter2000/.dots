@@ -1,4 +1,4 @@
-set -sa terminal-overrides ",xterm-termite:Tc"
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 set -g default-terminal "tmux-256color"
 # set -g default-command "/bin/zsh"
 # set -sg default-shell "/bin/zsh"
@@ -14,8 +14,8 @@ set -g display-time 3000
 setw -g aggressive-resize on  # resize current window not session to smallest term's size
 
 unbind C-b
-set -g prefix C-x
-bind C-x send-prefix
+set -g prefix C-s
+bind C-s send-prefix
 set -sg escape-time 1  # command escape time
 # indices start at 1
 set -g base-index 1

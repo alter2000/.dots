@@ -38,9 +38,7 @@ xdg:
   data_home: "~/.local/share"
 
 zsh:
-  dir: ~/.zsh
+  dir: "~/.zsh"
 
-# vim.plug is the plugin directory for vim plugins (WIP)
 vim:
   dir: "~/.vim"
-  plug: "~/.vim/uggplug"

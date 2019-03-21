@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 # kanged from an extract.plugin.zsh somewhere
 
 usage() {
@@ -36,7 +36,9 @@ extract() {
 		success=0
 		extract_dir="${1:t:r}"
 		case "$1" in
-			(*.tar.gz|*.tgz) (( $+commands[pigz] )) && { pigz -dc "$1" | tar xv } || tar zxvf "$1" ;;
+			(*.tar.gz|*.tgz) (( $+commands[pigz] )) \
+				&& { pigz -dc "$1" | tar xv } \
+				|| tar zxvf "$1" ;;
 			(*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$1" ;;
 			(*.tar.xz|*.txz)
 				tar --xz --help &> /dev/null \

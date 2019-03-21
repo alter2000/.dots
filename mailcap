@@ -13,8 +13,8 @@ text/html ; elinks -dump '%s'; copiousoutput
 text/html ; pandoc -f html -t markdown ; copiousoutput ; compose=vim %s
 text/html ; firefox '%s' >/dev/null    ; test=test -n "$DISPLAY"
 text/tex  ; vim '%s'         ; needsterminal           ; compose=vim %s
+text/*    ; vim '%s'         ; needsterminal           ; compose=vim %s
 text      ;                  ; needsterminal           ; compose=vim %s
-text      ; view '%s'        ; needsterminal
 
 application/pdf    ; zathura '%s' ; test=test -n "$DISPLAY"
 application/pdf    ; pdftotext -l 9 -nopgbrk -q '%s'; copiousoutput ; compose=vim %s

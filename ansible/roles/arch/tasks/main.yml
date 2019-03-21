@@ -1,11 +1,11 @@
 ---
-- name: set up pacman
+- name: copy pacman config
   file:
     src: pacman.conf
     dest: /etc/pacman.conf
     owner: root
     group: root
-    mode: 0644"
+    mode: 0644
 
 - name: copy touchpad config
   file:
@@ -167,6 +167,7 @@
     - git
     - gnuplot
     - gvim
+    - ipcalc
     - ipython
     - pandoc
     - parallel
@@ -180,6 +181,7 @@
     - termite
     - tig
     - tmux
+    - whois
     - yapf
     - zeal
 
