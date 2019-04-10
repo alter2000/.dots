@@ -21,7 +21,6 @@
 *.Z
 
 *.log
-*.sql
 *.sqlite
 
 .DS_Store
@@ -35,6 +34,7 @@ Thumbs.db
 ehthumbs.db
 tags
 
+__pycache__
 *.pyc
 *.swp
 .*.swp

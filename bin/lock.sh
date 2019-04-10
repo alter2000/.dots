@@ -36,7 +36,7 @@ i3lock \
 pkill -u $USER -USR2 dunst
 
 # sleep 0.3
-xset dpms force off
+# xset dpms force off
 rm /tmp/screen.png
 
 

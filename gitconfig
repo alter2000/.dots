@@ -46,3 +46,5 @@
 	spellcheck = false
 [gpg]
 	program = /usr/bin/gpg
+[http]
+	proxy = socks5://127.0.0.1:9050

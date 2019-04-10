@@ -4,6 +4,10 @@ set show-mode-in-prompt on
 set vi-ins-mode-string "λ  "
 set vi-cmd-mode-string ":: "
 
+set bell-style none
+set blink-matching-paren on
+set completion-ignore-case on
+
 set keymap vi-command
 # j and k should search for the string of characters preceding the cursor
 "k": history-search-backward

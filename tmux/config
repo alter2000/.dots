@@ -65,8 +65,8 @@ bind b capture-pane \; \
 	split-window -fv -p 30 '$SHELL -c "urlscan --compact --dedupe < /tmp/tmux-buffer"'
 
 ### Statusline
-bind -n M-down set -q status off
-bind -n M-up set -q status on
+bind -n M-up set -q status off
+bind -n M-down set -q status on
 set -g status on
 set -g status-interval 7
 set -g status-justify centre

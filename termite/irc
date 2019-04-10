@@ -74,7 +74,7 @@ color19 = #d6d6d6
 color20 = #969896
 color21 = #282a2e
 [hints]
-font = Monospace 12
+font = Hasklig 9
 foreground = #dcdccc
 background = #3f3f3f
 active_foreground = #e68080
