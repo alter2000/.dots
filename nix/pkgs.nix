@@ -28,7 +28,7 @@
     xarchiver xorg.xev xdotool xclip xsel
     zeal
 
-    (python36.withPackages(pks: with pks; [
+    (python37.withPackages(pks: with pks; [
       pip
       conda
       virtualenv
@@ -66,7 +66,6 @@
             i3GapsSupport = true;
             mpdSupport = true;
           };
-          
         };
     };
 }

@@ -17,7 +17,7 @@
       layout = "gb";
       xkbOptions = "caps:ctrl_modifier";
       autoRepeatDelay = 220;
-      autoRepeatInterval = 40;
+      autoRepeatInterval = 34;
       synaptics = {
         enable = true;
         twoFingerScroll = true;
