@@ -63,7 +63,7 @@ foreground = ${colors.dark}
 
 modules-left = xworkspaces battery down-speed up-speed weather redshift
 modules-center = mpd
-modules-right = backlight pulseaudio cpu temperature date
+modules-right = pulseaudio cpu temperature date
 
 font-0 = Roboto Mono:pixelsize=8;+1
 font-1 = Material Icons:pixelsize=14;+3
@@ -76,6 +76,7 @@ fixed-center = false
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
 modules-left = i3 battery down-speed up-speed weather redshift
+monitor = eDP-1
 
 
 [bar/i3bar2]
