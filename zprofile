@@ -36,7 +36,7 @@ export PAGER='less'
 export EDITOR='vim'
 export VISUAL='vim'
 # export MAIL="$HOME/var/mail/main/INBOX"
-export MAILPATH="$HOME/var/mail/main/INBOX"
+export MAILPATH="$HOME/var/mail"
 export BROWSER=firefox
 export LESS='--ignore-case --status-column --raw-control-chars --quiet --window=-3'
 export LESSHISTFILE="$HOME/.cache/lesshst"

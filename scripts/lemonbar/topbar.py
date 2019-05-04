@@ -225,9 +225,9 @@ class MPD(Widget):
             self.status = 'stopped'
         else:
             self.song = status[0]
-            if '.' in self.song[-5:] and self.song.rsplit(
-                    '.',
-                    1)[1].lower() in self.audio_files and '/' in self.song:
+            if '.' in self.song[-5:] and \
+                    self.song.rsplit('.', 1)[1].lower() in self.audio_files \
+                    and '/' in self.song:
                 self.song = self.song.rsplit('/', 1)[1]
             self.status = status[1].split(None, 1)[0][1:-1]
 
@@ -273,7 +273,7 @@ class Mail(Widget):
             self.mailpath = None
 
     def render(self):
-        new = [os.listdir(p) for p in self.mailpath]
+        new = [os.listdir(p) for p in self.mailpath if os.path.isdir(p)]
         return self.icon + str(len(new)) + ' total '
 
 
