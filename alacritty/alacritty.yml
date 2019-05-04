@@ -40,9 +40,6 @@ window:
   #     - none: Neither borders nor title bar
   decorations: none
 
-  # When true, alacritty starts maximized.
-  start_maximized: false
-
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -99,7 +96,7 @@ font:
     # family: Material Icons
     style: Regular
   bold:
-    family: League Mono
+    family: IBM Plex Mono
     # family: Powerline Extra Symbols
     style: Bold
   italic:

@@ -42,6 +42,13 @@
     src: "{{dotdir}}/zathura"
     dest: "{{xdg.config_home}}/zathura"
 
+- name: set up font config
+  file:
+    force: true
+    state: link
+    src: "{{dotdir}}/fontconfig"
+    dest: "{{xdg.config_home}}/fontconfig"
+
 - name: set up fonts
   file:
     force: true
