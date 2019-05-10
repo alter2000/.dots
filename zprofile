@@ -21,7 +21,6 @@ export GITHUB_USER='alter2000'
 export CHEATPATH='$HOME/static/documents/chsheets'
 export CHEATCOLORS=true
 
-export QT_QPA_PLATFORMTHEME='qt5ct'
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
@@ -36,7 +35,7 @@ export PAGER='less'
 export EDITOR='vim'
 export VISUAL='vim'
 # export MAIL="$HOME/var/mail/main/INBOX"
-export MAILPATH="$HOME/var/mail"
+export MAILPATH="$HOME/var/mail/main/INBOX"
 export BROWSER=firefox
 export LESS='--ignore-case --status-column --raw-control-chars --quiet --window=-3'
 export LESSHISTFILE="$HOME/.cache/lesshst"

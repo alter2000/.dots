@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # Arch
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -9,36 +8,30 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   unset f
 fi
 
+export QT_QPA_PLATFORMTHEME='qt5ct'
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.2
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=1.4
 
-synclient TapButton1=1
-synclient TapButton2=2
-synclient HorizTwoFingerScroll=1
-synclient VertTwoFingerScroll=1
-xbanish &
-keynav &
+if command -v synclient >/dev/null 2>&1; then
+    synclient TapButton1=1
+    synclient TapButton2=2
+    synclient HorizTwoFingerScroll=1
+    synclient VertTwoFingerScroll=1
+fi
+
+(while true; do xbanish; done) &
+(while true; do keynav; done) &
 
 setxkbmap -option caps:ctrl_modifier
-# PrtSc in Thinkpad is shit
-xmodmap -e 'keycode 0xff61 = Control_R'
-xcape -e 'Print=Control_R'
+
+# # PrtSc in Thinkpad is shit
+# xmodmap -e 'keycode 0xff61 = Control_R'
+# xcape -e 'Print=Control_R'
 # xcape -e 'Caps_Lock=Escape'
 xrdb -load "$HOME/.Xresources"
 
-# case $DESKTOP_SESSION in
-#   i3)
-#     $HOME/.dots/polybar/launch.sh i3bar1 &
-#     # $HOME/.dots/polybar/launch.sh i3bar2 &
-#     ;;
-#   *)
-#     $HOME/.dots/polybar/launch.sh bspbar &
-#     exec bspwm
-#     ;;
-# esac
-/usr/lib/polkit-1-dde/dde-polkit-agent 2>/dev/null &
-eval `gpg-agent --daemon`
+/usr/lib/polkit-1-dde/dde-polkit-agent >/dev/null &
 
 $HOME/.dots/polybar/launch.sh i3bar1 &
 [ -z $1 ] && exec i3 || exec $1

@@ -121,6 +121,18 @@ case $1 in
     iotek)
       printf "⇌"
     ;;
+    oof)
+      printf "oof"
+    ;;
+    f)
+      printf "(っ◕‿◕)っ♥"
+    ;;
+    b)
+      printf "🅱"
+    ;;
+    commie)
+      printf "☭"
+    ;;
     # add more as you please
     *)
       usage
