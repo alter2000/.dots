@@ -466,7 +466,7 @@ type = custom/script
 interval = 10
 format = <label>
 format-prefix = "  "
-exec = ~/git/stuffs/mail.sh
+exec = ~/git/me/stuffs/mail.sh
 
 
 [module/reddit]

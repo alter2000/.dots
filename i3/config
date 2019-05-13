@@ -136,16 +136,21 @@ bindsym $mod+Shift+r restart
 
 # take screenshot
 bindsym $mod+Shift+Delete exec --no-startup-id maim -s -u ~/var/scrots/$(date +%s).png
-bindsym Mod3+Shift+Delete exec --no-startup-id ~/.dots/bin/dpause -a 1>/dev/null 2>/dev/null
+bindsym Mod1+Shift+Delete exec --no-startup-id ~/.dots/bin/dpause -a 1>/dev/null 2>/dev/null
 
 # volume
-bindsym Mod3+F2                   exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym Mod3+F3                   exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume      exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioRaiseVolume      exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 160%
-bindsym XF86AudioMute             exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute          exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym Mod1+F2                    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Mod1+F3                    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+bindsym XF86AudioRaiseVolume       exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume       exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Ctrl+XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym Ctrl+XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 155%
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 20%
+
+bindsym XF86AudioMute              exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute           exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # brightness
 bindsym XF86MonBrightnessUp         exec --no-startup-id light -A 4%
@@ -176,10 +181,10 @@ for_window [class="Termite"] border pixel 1
 for_window [class="Termite" instance="Xt"] border pixel 1
 for_window [class="Alacritty"] border pixel 1
 
-assign [class="Firefox"]  ffox
+assign [instance="Navigator" class="Firefox"]  ffox
 
 assign [class="Vim"] ide
-assign [instance="*.epub"] files
+# assign [instance="*.epub"] files
 
 assign [class="ncmpcpp"] media
 assign [class="Transmission"] media
@@ -226,7 +231,7 @@ client.background       $bg     $bg     $fg  $bg        $bg
 exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
 
 # colors
-exec --no-startup-id wal -t -i "$HOME/git/img/deltawing_ships.png"
+exec --no-startup-id wal -t -i "$HOME/git/me/img/deltawing_ships.png"
 exec --no-startup-id compton
 
 # Rofi

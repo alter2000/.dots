@@ -7,7 +7,7 @@ Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-
+Xcursor.size: 16
 /* colors {{{ */
 #define base00 #282828
 #define base01 #3c3836
