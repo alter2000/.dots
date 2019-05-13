@@ -22,7 +22,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-# export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
 ### HISTORY + SUBSTRING SEARCH ###
 HISTSIZE=10000

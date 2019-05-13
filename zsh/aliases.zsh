@@ -18,6 +18,8 @@ alias m="neomutt"
 alias epim="neomutt -e 'set smtp_url = \"smtp://jori.bashllari@epitech.eu@smtp.office365.com:587\"'"
 alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
 
+alias calc="autoload -Uz zcalc && zcalc"
+
 alias ipy="ipython3"
 alias tree="tree -C"
 alias wag="python ./manage.py"
