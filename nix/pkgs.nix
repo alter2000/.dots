@@ -2,33 +2,33 @@
 
 {
   environment.systemPackages = with pkgs; [
-    ag alsaUtils apulse ansible
+    ag alsaUtils ansible
     calcurse chromium clang ctags
     dia dunst
     elinks exfat
     firefox feh
-    git gnuplot gparted
-    handbrake hashcat htop
+    git gparted
+    htop
     icdiff imagemagick imv
-    kbfs keybase keynav
-    lftp ldm lxc libnotify
+    keynav
+    libnotify
     mosh msmtp
-    gnome3.nautilus networkmanager neomutt ntfs3g
+    networkmanager neomutt ntfs3g
     offlineimap
-    pamixer pandoc parallel pass pinentry_ncurses
-    python36Packages.python python36Packages.ipython
+    pamixer pandoc parallel pass
     ranger rsync ruby
     slurm stdman
     tlp tmux tree
     urlview usbutils
     virtmanager virt-viewer
     ( vimHugeX.override { python = python3; })
-      ansible-lint vim-vint shfmt
+      ansible-lint vim-vint shfmt mypy
     w3m wget
     xarchiver xorg.xev xdotool xclip xsel
-    zeal
 
     (python37.withPackages(pks: with pks; [
+      ipython
+      python
       pip
       conda
       virtualenv
@@ -38,34 +38,35 @@
       # terminal_velocity
     ]))
 
-    alacritty arc-theme asciinema
-    beets bsdgames bspwm
-    compton
-    gimp gucharmap gvfs
-    handbrake
-    inkscape
-    libreoffice-fresh
+    alacritty
+    beets
+    gucharmap gvfs
     maim moon-buggy mpc_cli mpd mpv
-    neofetch newsboat ncdu ncmpcpp numix-gtk-theme
-    papirus-icon-theme pavucontrol pipes pulsemixer pywal
-    redshift rofi rtv
-    scrot slop sxhkd superTuxKart
+    neofetch newsboat ncdu ncmpcpp
+    pavucontrol pipes pulsemixer pywal
+    redshift rofi
+    slop sxhkd
     teeworlds termite tig toilet transmission-gtk torbrowser
     unzip
     vagrant
-    wikicurses wordgrinder
     youtube-dl
-    zathura ];
+    zathura
+  ];
 
-    nixpkgs.config = {
+  nixpkgs = {
+    config = {
       allowUnfree = true;
-        packageOverrides = pkgs: {
-          polybar = pkgs.polybar.override {
-            githubSupport = true;
+      packageOverrides = pkgs: {
+        polybar = pkgs.polybar.override {
+          githubSupport = true;
             # i3Support = true;
             i3GapsSupport = true;
             mpdSupport = true;
           };
         };
+      };
+
+      overlays = {
+      };
     };
-}
+  }
