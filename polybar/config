@@ -76,7 +76,6 @@ fixed-center = false
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
 modules-left = i3 battery down-speed up-speed weather redshift
-monitor = eDP-1
 
 
 [bar/i3bar2]

@@ -9,7 +9,9 @@ TMPBG="$HOME/git/me/img/loop-lock.png"
 
 pkill -u $USER -USR1 dunst
 
-i3lock \
+test -n `which i3lock-color` && I3L="i3lock-color" || I3L="i3lock"
+
+$I3L \
 	-i $TMPBG \
 	--timepos="x+w/2:y+h-90"    \
 	--datepos="tx+24:ty+25"     \
@@ -37,7 +39,4 @@ pkill -u $USER -USR2 dunst
 
 # sleep 0.3
 # xset dpms force off
-rm /tmp/screen.png
-
-
-
+# rm /tmp/screen.png
