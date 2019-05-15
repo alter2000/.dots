@@ -6,12 +6,13 @@
 
 {
   imports = [
-      ./hw-configuration.nix
-      ./pkgs.nix
-      ./progs.nix
-      ./services.nix
-      ./systemd.nix
-    ];
+    ./hw-configuration.nix
+    ./pkgs.nix
+    ./progs.nix
+    ./services.nix
+    ./systemd.nix
+    ./users.nix
+  ];
 
   security = {
     pam = {
@@ -37,11 +38,11 @@
     maxJobs = 3;
     gc = {
       automatic = true;
-      dates = ["wed" "sun"];
+      # dates = ["wed" "sun"];
     };
     optimise = {
       automatic = true;
-      dates = ["wed" "sun"];
+      # dates = ["wed" "sun"];
     };
   };
 

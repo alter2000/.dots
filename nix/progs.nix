@@ -5,8 +5,9 @@
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     mtr.enable = true;
-    gnupg.agent = { enable = true; enableSSHSupport = true; };
     adb.enable = true;
+    less.enable = true;
+    light.enable = true;
 
     bash.enableCompletion = true;
     fish = {
@@ -17,9 +18,17 @@
         functions.enable = true;
       };
     };
-    zsh = { enable = true; enableAutosuggestions = true; };
-    less.enable = true;
-    light.enable = true;
+    zsh = { enable = true; autosuggestions.enable = true; };
+
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+        enableBrowserSocket = true;
+      };
+      dirmngr.enable = true;
+    };
+
   };
 
   fonts = {

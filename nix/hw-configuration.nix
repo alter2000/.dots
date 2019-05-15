@@ -15,11 +15,11 @@
       device = "/dev/disk/by-partlabel/esp";
       fsType = "vfat";
     };
-    # "/home" = {
-    #   device = "/dev/disk/by-label/lunix";
-    #   fsType = "btrfs";
-    #   options = ["discard" "relatime" "subvol=@home"];
-    # };
+    "/home" = {
+      device = "/dev/disk/by-label/lunix";
+      fsType = "btrfs";
+      options = ["discard" "relatime" "subvol=@home"];
+    };
 
   };
 
@@ -77,32 +77,50 @@
   } ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_5_0;
-    kernelModules = [
-      "btrfs"
-      "crc32c_intel"
-      "nvme"
-      "rfkill"
-      "scsi_mod"
-      "sd_mod"
-      "usb_storage"
-      "usbhid"
-      "xhci_pci"
-    ];
+
+    initrd = {
+      # kernelPackages = pkgs.linuxPackages_5_0;
+      # checkJournalingFS = true;
+      supportedFilesystems = [
+        "btrfs"
+        "vfat"
+        "ext4"
+        "exfat"
+      ];
+      availableKernelModules = [
+        "btrfs"
+        "crc32c_intel"
+        "nvme"
+        "rfkill"
+        "scsi_mod"
+        "sd_mod"
+        "usb_storage"
+        "usbhid"
+        "xhci_pci"
+      ];
+    };
+
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      # grub.enable = false;
+      systemd-boot = {
+        enable = true;
+        # editor = false;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub.enable = false;
+      timeout = 2;
     };
     tmpOnTmpfs = true;
+    # earlyVconsoleSetup = true;
   };
 
   nix.maxJobs = lib.mkDefault 3;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "powersave";
+    cpuFreqGovernor = lib.mkDefault "powersave";
     powertop.enable = true;
   };
 

@@ -3,7 +3,7 @@
 {
   systemd.user = {
     services = {
-      powertop = {
+      "powertop" = {
         enable = true;
         description = "powertop autotune service";
         wantedBy = [ "multi-user.target" ];
@@ -14,8 +14,8 @@
         };
       };
 
-      dunst = {
-        enable = false;
+      "dunst" = {
+        enable = true;
         description = "dunst service";
         wantedBy = [ "default.target" ];
         path = [ pkgs.dunst ];
@@ -24,8 +24,25 @@
           Restart = "always";
         };
       };
+
     };
 
-    timers = { };
+    timers = {
+      "1minute" = {
+        enable = true;
+        description = "1 minute timer";
+        wantedBy = [ "default.target" ];
+        timerConfig = {
+          Persistent = true;
+          OnCalendar = "";
+          Unit = "offlineimap.service";
+        };
+        unitConfig = {
+          refuseManualStart = false;
+          refuseManualStop = false;
+        };
+      };
+
+    };
   };
 }
