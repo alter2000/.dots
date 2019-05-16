@@ -16,7 +16,7 @@
       calcurse chromium clang ctags curl
       dia dunst
       elinks exfat
-      firefox feh
+      file firefox feh
       git
       gnupg
       gparted
@@ -32,8 +32,7 @@
       slurm stdman
       tlp tmux tree
       urlview usbutils
-      virtmanager virt-viewer
-      (vimHugeX.override { python = python3; })
+      virtmanager virt-viewer vimHugeX
       ansible-lint vim-vint shfmt mypy
       w3m wget wirelesstools
       xarchiver xorg.xev xdotool xclip xsel
@@ -64,19 +63,25 @@
       vagrant
       youtube-dl
       zathura
-      (polybar.override {
-        githubSupport = true;
-        i3Support = true;
-        # i3GapsSupport = true;
-        nlSupport = true;
-        mpdSupport = true;
-        pulseSupport = true;
-        })
-      ];
-    };
+      polybar
+    ];
+  };
 
   nixpkgs = {
     config = {
+      packageOverrides = pkgs: rec {
+        polybar = pkgs.polybar.override {
+          githubSupport = true;
+          i3Support = true;
+          # i3GapsSupport = true;
+          nlSupport = true;
+          mpdSupport = true;
+          pulseSupport = true;
+        };
+        vimHugeX = pkgs.vimHugeX.override {
+          python = pkgs.python3;
+        };
+      };
       allowUnfree = true;
       firefox = {
       };

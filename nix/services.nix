@@ -25,14 +25,13 @@
       lidSwitchDocked = "ignore";
     };
 
-    mpd = {
-      enable = true;
-      systemWide = false;
-      user = "alter2000";
-      musicDirectory = "~/lfs/music";
-      playlistDirectory = "~/lfs/music/.playlists";
-      dataDir = "~/.dots/mpd";
-    };
+    # mpd = {
+    #   enable = true;
+    #   user = "alter2000";
+    #   musicDirectory = /home/alter2000/lfs/music;
+    #   playlistDirectory = "/home/alter2000/lfs/music/.playlists";
+    #   dataDir = /home/alter2000/.dots/mpd;
+    # };
 
     offlineimap = {
       enable = true;

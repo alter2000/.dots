@@ -17,7 +17,15 @@
       "alter2000" = {
         isNormalUser = true;
         uid = 1000;
-        extraGroups = ["alter2000" "adbusers" "ansible" "libvirtd" "networkmanager" "video" "wheel"];
+        extraGroups = [
+          "alter2000"
+          "adbusers"
+          "ansible"
+          "docker"
+          "libvirtd"
+          "networkmanager"
+          "video"
+          "wheel"];
         home = "/home/alter2000";
         createHome = true;
         shell = pkgs.zsh;
@@ -27,7 +35,7 @@
   };
 
   virtualisation = {
-    # docker = { enable = true; };
+    docker = { enable = true; };
     # libvirtd = { enable = true; };
     # virtualbox.host = { enable = true; headless = true; };
   };

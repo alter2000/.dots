@@ -45,15 +45,6 @@ export MAKEFLAGS='-j3'
 
 systemctl --user import-environment PATH
 
-if ! pgrep gpg-agent 1>/dev/null; then
-	eval `gpg-agent` && echo 'hai -- dis gpg'
-fi
-
-if ! pgrep ssh-agent 1>/dev/null; then
-	eval `ssh-agent` && echo 'hai -- dis ssh'
-fi
-
-
 # if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 # 	exec startx
 # fi
