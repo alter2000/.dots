@@ -23,7 +23,7 @@
       htop
       icdiff imagemagick imv iproute
       keynav
-      libnotify
+      libnotify lolcat
       mosh msmtp
       networkmanager neomutt ntfs3g
       offlineimap
@@ -60,6 +60,7 @@
       slop sxhkd
       teeworlds termite tig toilet transmission-gtk torbrowser
       unzip
+      xfce.thunar-bare
       vagrant
       youtube-dl
       zathura
