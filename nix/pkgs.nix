@@ -14,30 +14,28 @@
     systemPackages = with pkgs; [
       alsaUtils ansible
       calcurse chromium clang ctags curl
-      dia dunst
+      # dunst
       elinks exfat
       file firefox feh
-      git
-      gnupg
-      gparted
+      git gnupg gparted
       htop
       icdiff imagemagick imv iproute
       keynav
       libnotify lolcat
       mosh msmtp
-      networkmanager neomutt ntfs3g
+      neomutt nixops ntfs3g
       offlineimap
       pamixer pandoc parallel pass
       ranger ripgrep rsync ruby
       slurm stdman
       tlp tmux tree
       urlview usbutils
-      virtmanager virt-viewer vimHugeX
+      virtmanager vimHugeX
       ansible-lint vim-vint shfmt mypy
       w3m wget wirelesstools
       xarchiver xorg.xev xdotool xclip xsel
 
-      (python37.withPackages(pks: with pks; [
+      (python37.withPackages(ps: with ps; [
         ipython
         python
         pip

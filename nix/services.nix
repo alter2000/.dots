@@ -85,7 +85,7 @@
       # '';
     };
 
-  xserver = (import ./xserver.nix {pkgs = pkgs;});
+  xserver = (import ./xserver.nix { pkgs = pkgs; });
 
   };
 }
