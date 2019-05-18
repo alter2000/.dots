@@ -51,7 +51,7 @@ margin-bottom = 5
 
 
 [template/mainbar]
-monitor = ${env:MONITOR:eDP-1}
+# monitor = ${env:MONITOR:eDP-1}
 override-redirect = false
 width = 100%
 height = 22
