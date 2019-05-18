@@ -79,8 +79,7 @@
   boot = {
 
     initrd = {
-      # kernelPackages = pkgs.linuxPackages_5_0;
-      # checkJournalingFS = true;
+      checkJournalingFS = true;
       supportedFilesystems = [
         "btrfs"
         "vfat"
