@@ -77,7 +77,7 @@
   } ];
 
   boot = {
-
+    kernelPackages = pkgs.linuxPackages_latest;
     initrd = {
       checkJournalingFS = true;
       supportedFilesystems = [

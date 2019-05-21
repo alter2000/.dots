@@ -12,7 +12,29 @@
 
     compton = {
       enable = true;
-      extraOptions = (builtins.readFile /home/alter2000/.dots/compton.conf);
+      vSync = "opengl";
+      backend = "glx";
+      inactiveOpacity = "0.97";
+      extraOptions = ''
+          shadow-exclude = [
+            "name    =  'bar'",
+            "name    =  'Notification'",
+            "class_g ?= 'Notify-osd'",
+            "class_g =  'Conky'",
+            "class_g =  'Polybar'",
+          ];
+          inactive-dim = 0.1;
+          inactive-opacity-override = false;
+
+          mark-wmwin-focused = true;
+          mark-ovredir-focused = true;
+          detect-rounded-corners = true;
+          detect-client-opacity = true;
+          wintypes: {
+            tooltip = { fade = true; shadow = true; opacity = 0.8; };
+          };
+          opacity-rule = [ "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
+        '';
     };
 
     locate = {

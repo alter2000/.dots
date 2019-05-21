@@ -26,7 +26,7 @@
       enable = true;
       extraConfig = ''
         Defaults	insults
-        Defaults	rootpw
+        # Defaults	rootpw
       '';
     };
   };

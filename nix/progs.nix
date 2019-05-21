@@ -11,14 +11,18 @@
 
     bash.enableCompletion = true;
     fish = {
-      enable = true;
+      enable = false;
       vendor = {
         config.enable = true;
         completions.enable = true;
         functions.enable = true;
       };
     };
-    zsh = { enable = true; autosuggestions.enable = true; };
+    zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+      promptInit = "";
+    };
 
     gnupg = {
       agent = {

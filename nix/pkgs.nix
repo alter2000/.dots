@@ -12,7 +12,7 @@
     };
 
     systemPackages = with pkgs; [
-      alsaUtils ansible
+      acpi alsaUtils ansible
       calcurse chromium clang ctags curl
       # dunst
       elinks exfat
@@ -29,11 +29,14 @@
       ranger ripgrep rsync ruby
       slurm stdman
       tlp tmux tree
-      urlview usbutils
+      urlscan usbutils
       virtmanager vimHugeX
       ansible-lint vim-vint shfmt mypy
       w3m wget wirelesstools
       xarchiver xorg.xev xdotool xclip xsel
+
+      gnumake
+      nodejs
 
       (python37.withPackages(ps: with ps; [
         ipython
@@ -55,7 +58,7 @@
       neofetch newsboat ncdu ncmpcpp
       pavucontrol pipes pulsemixer pywal
       redshift rofi
-      slop sxhkd
+      slop sourcetrail sxhkd
       teeworlds termite tig toilet transmission-gtk torbrowser
       unzip
       xfce.thunar-bare
