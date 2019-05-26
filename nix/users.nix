@@ -9,7 +9,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Tirana";
+  time.timeZone = "Europe/Tirane";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
