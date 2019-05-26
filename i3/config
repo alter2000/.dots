@@ -232,37 +232,3 @@ exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
 
 # colors
 exec --no-startup-id wal -t -i "$HOME/git/me/img/deltawing_ships.png"
-
-# Rofi
-bindsym $mod+d     exec --no-startup-id rofi -show drun
-bindsym $mod+w     exec --no-startup-id rofi -config ~/.dots/rofi/other.rasi
-bindsym $mod+m     exec --no-startup-id ~/.dots/rofi/umounts
-bindsym $mod+equal exec --no-startup-id ~/.dots/rofi/= -config ~/.dots/rofi/other.rasi
-bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr -config ~/.dots/rofi/other.rasi
-
-# polkit
-# exec --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
-
-# start a terminal
-bindsym $mod+Return       exec --no-startup-id $term
-bindsym $mod+Shift+Return exec --no-startup-id termite --config ~/.dots/termite/base16-tomorrow
-
-# IDE HK depends
-bindsym XF86Tools exec --no-startup-id gvim
-
-# Endless Sky (game shortcut, yes)
-bindsym XF86LaunchA exec --no-startup-id endless-sky
-
-# File manager
-bindsym XF86Explorer      exec --no-startup-id thunar
-bindsym Ctrl+XF86Explorer exec --no-startup-id soffice --writer
-
-# terminal velocity in scpad
-# bindsym $mod+5 exec --no-startup-id SHELL=/bin/fish termite -c ~/.dots/termite_writing -e "terminal_velocity -c ~/.dots/tv"
-
-# browser - Firefox
-bindsym XF86Search      exec --no-startup-id firefox
-bindsym Ctrl+XF86Search exec --no-startup-id qutebrowser
-
-# lock
-bindsym $mod+p exec --no-startup-id ~/.dots/bin/lock.sh
