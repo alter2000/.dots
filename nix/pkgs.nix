@@ -22,20 +22,20 @@
       icdiff imagemagick imv iproute
       keynav
       libnotify lolcat
-      mosh msmtp
+      manpages mosh msmtp
       neomutt nixops ntfs3g
       offlineimap
       pamixer pandoc parallel pass
       ranger ripgrep rsync ruby
-      slurm stdman
-      tlp tmux tree
+      slurm stdman stdmanpages
+      taskell tcsh tmux tree
       urlscan usbutils
       virtmanager vimHugeX
-      ansible-lint vim-vint shfmt mypy
+        ansible-lint vim-vint shfmt mypy
       w3m wget wirelesstools
       xarchiver xorg.xev xdotool xclip xsel
 
-      gnumake
+      gnumake gcc
       nodejs
 
       (python37.withPackages(ps: with ps; [
