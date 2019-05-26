@@ -2,13 +2,19 @@
 
 {
   services = {
+    fstrim.enable = true;
+    ntp.enable = true;
+    tlp.enable = true;
+
     acpid.enable = true;
     fprintd.enable = true;
-    fstrim.enable = true;
     gpm.enable = true;
-    ntp.enable = true;
-
     xbanish.enable = true;
+
+    # flatpak = {
+    #   enable = true;
+    #   # extraPortals = [  ];
+    # };
 
     compton = {
       enable = true;
@@ -24,8 +30,8 @@
             "class_g =  'Polybar'",
           ];
           inactive-dim = 0.1;
+          inactive-dim-fixed = 0.1;
           inactive-opacity-override = false;
-
           mark-wmwin-focused = true;
           mark-ovredir-focused = true;
           detect-rounded-corners = true;
@@ -107,7 +113,7 @@
       # '';
     };
 
-  xserver = (import ./xserver.nix { inherit pkgs; });
+    xserver = (import ./xserver.nix { inherit pkgs; });
 
   };
 }

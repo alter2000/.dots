@@ -21,6 +21,7 @@
           "alter2000"
           "adbusers"
           "ansible"
+          "dialout"
           "docker"
           "libvirtd"
           "networkmanager"

@@ -57,7 +57,6 @@
       maim moon-buggy mpc_cli mpd mpv
       neofetch newsboat ncdu ncmpcpp
       pavucontrol pipes pulsemixer pywal
-      redshift rofi
       slop sourcetrail sxhkd
       teeworlds termite tig toilet transmission-gtk torbrowser
       unzip
