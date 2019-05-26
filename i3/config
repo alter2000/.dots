@@ -232,7 +232,6 @@ exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
 
 # colors
 exec --no-startup-id wal -t -i "$HOME/git/me/img/deltawing_ships.png"
-exec --no-startup-id compton
 
 # Rofi
 bindsym $mod+d     exec --no-startup-id rofi -show drun
@@ -242,7 +241,7 @@ bindsym $mod+equal exec --no-startup-id ~/.dots/rofi/= -config ~/.dots/rofi/othe
 bindsym $mod+minus exec --no-startup-id ~/.dots/rofi/randr -config ~/.dots/rofi/other.rasi
 
 # polkit
-exec --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
+# exec --no-startup-id /usr/lib/polkit-1-dde/dde-polkit-agent
 
 # start a terminal
 bindsym $mod+Return       exec --no-startup-id $term

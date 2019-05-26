@@ -13,7 +13,6 @@ alias sudont=""
 alias m,="nmtui-connect"
 alias asd="taskell ~/notes/epitech/daily.md"
 alias aux="pulsemixer"
-alias './'="ranger"
 alias m="neomutt"
 alias epim="neomutt -e 'set smtp_url = \"smtp://jori.bashllari@epitech.eu@smtp.office365.com:587\"'"
 alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
@@ -36,6 +35,12 @@ alias la="ls -Ah"
 alias cp="cp -i"
 alias mv="mv -i"
 alias apci="acpi"
+
+alias './'="ranger"
+# alias '..'='cd ..'
+# alias '...'='cd ../..'
+# alias '....'='cd ../../..'
+# alias '-'='cd -'
 
 # git
 # alias gh="git hub"
