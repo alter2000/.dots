@@ -85,6 +85,7 @@
       };
       allowUnfree = true;
       firefox = {
+        enableAdobeFlash = true;
       };
     };
     # overlays = {

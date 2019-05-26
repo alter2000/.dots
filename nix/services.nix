@@ -43,6 +43,15 @@
         '';
     };
 
+    redshift = {
+      enable = true;
+      latitude = "50";
+      longitude = "10";
+      temperature.day = 6300;
+      temperature.night = 4200;
+      extraOptions = [ "-g 0.8" ];
+    };
+
     locate = {
       enable = true;
       interval = "30min";
