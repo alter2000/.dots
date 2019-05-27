@@ -9,7 +9,7 @@ TMPBG="$HOME/git/me/img/loop-lock.png"
 
 pkill -u $USER -USR1 dunst
 
-test -n `which i3lock-color` && I3L="i3lock-color" || I3L="i3lock"
+[ `command -v i3lock-color` ] >/dev/null 2>&1 && I3L="i3lock-color" || I3L="i3lock"
 
 $I3L \
 	-i $TMPBG \

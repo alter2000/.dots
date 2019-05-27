@@ -13,19 +13,10 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1.2
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=1.4
 
-if command -v synclient >/dev/null 2>&1; then
-    synclient TapButton1=1
-    synclient TapButton2=2
-    synclient HorizTwoFingerScroll=1
-    synclient VertTwoFingerScroll=1
-fi
-
 (while true; do xbanish; done) &
 (while true; do keynav; done) &
 
 setxkbmap -option caps:ctrl_modifier
-
-sxhkd &
 
 # # PrtSc in Thinkpad is shit
 # xmodmap -e 'keycode 0xff61 = Control_R'
@@ -46,4 +37,6 @@ fi
 
 $HOME/.dots/polybar/launch.sh i3bar1 &
 
-[ -z $1 ] && exec i3 || exec $1
+sxhkd &
+
+exec i3

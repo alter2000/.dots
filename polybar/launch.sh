@@ -13,7 +13,7 @@ while pgrep -x polybar >/dev/null; do sleep 0.2; done
 CONMON=$(command -v xrandr && xrandr || exit 1 | grep ' connected ' | head -n 1 | cut -d' ' -f1)
 
 # Launch bars
-MONITOR=${CONMON-"eDP-1"} polybar "$bar" -c ~/.dots/polybar/config \
+MONITOR=${CONMON:-"eDP-1"} polybar "$bar" -c ~/.dots/polybar/config \
     >/tmp/polybar.log 2>&1 &
 
 echo "Bars launched..."
