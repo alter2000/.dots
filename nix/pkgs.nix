@@ -23,7 +23,7 @@
       ntfs3g
       parallel
       ranger ripgrep rsync ruby
-      stdman stdmanpages
+      stdmanpages
       tmux tree
       w3m wget wirelesstools
       xarchiver xorg.xev xdotool xclip xsel
@@ -44,5 +44,16 @@
       allowUnfree = true;
       firefox = { enableAdobeFlash = true; };
     };
+    overlays = [
+      (self: super: {
+        polybar = super.polybar.override {
+          githubSupport = true;
+          i3Support = true;
+          # i3GapsSupport = true;
+          nlSupport = true;
+          mpdSupport = true;
+          pulseSupport = true;
+      };})
+    ];
   };
 }

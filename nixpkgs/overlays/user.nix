@@ -6,6 +6,7 @@ self: super:
 
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
+    skype = self.skype;
 
     calcurse = self.calcurse;
     gnupg = self.gnupg;
