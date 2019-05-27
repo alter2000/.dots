@@ -11,7 +11,7 @@ self: super:
 
     jrnl = self.jrnl;
     xbanish = self.xbanish;
-    xorg.xinit = self.fws;
+    xorg.xinit = self.xorg.xinit;
 
     feedreader = self.feedreader;
     fractal = self.fractal;
