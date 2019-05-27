@@ -1,6 +1,8 @@
 {
   allowUnfree = true;
   overlays = [
-    ./lnl-overlay.nix
+    ./user.nix
+    ./pkgmods.nix
+    ./epitech.nix
   ];
 }
