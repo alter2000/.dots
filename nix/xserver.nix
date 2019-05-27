@@ -23,7 +23,28 @@
   };
 
   displayManager = {
-    auto = { enable = true; user = "alter2000"; };
+    sessionCommands = ''
+      source ~/.xsession
+    '';
+    lightdm = {
+      enable = true;
+      autoLogin = {
+        enable = false;
+        user = "alter2000";
+      };
+      greeters.mini = {
+        enable = true;
+        user = "alter2000";
+        extraConfig = ''
+          [greeter]
+          password-label-text = open me up daddy
+
+          [greeter-theme]
+          background-image = ""
+          font = Iosevka
+        '';
+      };
+    };
   };
 
   desktopManager.xterm.enable = false;
