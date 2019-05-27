@@ -232,3 +232,5 @@ exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
 
 # colors
 exec --no-startup-id wal -t -i "$HOME/git/me/img/deltawing_ships.png"
+
+bindsym $mod+d exec --no-startup-id rofi -show drun
