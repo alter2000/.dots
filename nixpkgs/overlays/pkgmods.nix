@@ -27,6 +27,9 @@ in
   };
 
   unstablePackages = super.unstablePackages or {} // {
+    nasm = self.nasm;
+    netpbm = self.netpbm;
+    squashfsTools = self.squashfsTools;
   };
 
 }

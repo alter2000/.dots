@@ -4,6 +4,8 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
 
+    fatcat = (import ../pkgs/fatcat.nix);
+
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
     skype = self.skype;
