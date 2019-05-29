@@ -22,6 +22,10 @@ in
     python = self.python3;
   };
 
+  compton = super.compton.override {
+    configFile = ~/.dots/compton.conf;
+  };
+
   unstablePackages = super.unstablePackages or {} // {
   };
 

@@ -3,6 +3,17 @@
 {
   systemd.user = {
     services = {
+      "xbanish" = {
+        enable = true;
+        wantedBy = [ "graphical-session.target" ];
+        path = [ pkgs.xbanish ];
+        serviceConfig = {
+          ExecStart = "${pkgs.xbanish}/bin/xbanish";
+          Restart = "always";
+          RestartSec = 3;
+        };
+      };
+
       "powertop" = {
         enable = true;
         description = "powertop autotune service";
@@ -17,18 +28,19 @@
       "dunst" = {
         enable = true;
         description = "dunst service";
-        wantedBy = [ "default.target" ];
+        wantedBy = [ "graphical-session.target" ];
         path = [ pkgs.dunst ];
         serviceConfig = {
           ExecStart = "${pkgs.dunst}/bin/dunst";
           Restart = "always";
+          RestartSec = 1;
         };
       };
 
       "mpd" = {
         enable = true;
         description = "music player daemon";
-        wantedBy = [ "default.target" ];
+        wantedBy = [ "multi-user.target" ];
         path = [ pkgs.mpd ];
         serviceConfig = {
           ExecStart = "${pkgs.mpd}/bin/mpd --no-daemon";

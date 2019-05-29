@@ -20,7 +20,7 @@
       enable = true;
       vSync = "opengl";
       backend = "glx";
-      inactiveOpacity = "0.97";
+      # inactiveOpacity = "0.97";
       extraOptions = ''
           shadow-exclude = [
             "name    =  'bar'",
