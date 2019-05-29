@@ -13,8 +13,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1.2
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=1.4
 
-(while true; do xbanish; done) &
-(while true; do keynav; done) &
+xbanish &
+keynav &
 
 setxkbmap -option caps:ctrl_modifier
 
@@ -27,13 +27,13 @@ xrdb -load "$HOME/.Xresources"
 
 /usr/lib/polkit-1-dde/dde-polkit-agent >/dev/null &
 
-if ! pgrep gpg-agent 1>/dev/null; then
-	eval `gpg-agent` && echo 'hai -- dis gpg'
-fi
+# if ! pgrep gpg-agent 1>/dev/null; then
+# 	eval `gpg-agent` && echo 'hai -- dis gpg'
+# fi
 
-if ! pgrep ssh-agent 1>/dev/null; then
-	eval `ssh-agent` && echo 'hai -- dis ssh'
-fi
+# if ! pgrep ssh-agent 1>/dev/null; then
+# 	eval `ssh-agent` && echo 'hai -- dis ssh'
+# fi
 
 $HOME/.dots/polybar/launch.sh i3bar1 &
 

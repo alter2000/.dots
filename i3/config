@@ -231,6 +231,6 @@ client.background       $bg     $bg     $fg  $bg        $bg
 exec --no-startup-id wal -t -i "$HOME/git/me/img/deltawing_ships.png"
 
 # polybar
-exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1
+exec --no-startup-id ~/.dots/polybar/launch.sh i3bar1 &
 
 bindsym $mod+d exec --no-startup-id rofi -show drun
