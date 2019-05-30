@@ -70,7 +70,7 @@ bind -n M-down set -q status on
 set -g status on
 set -g status-interval 7
 set -g status-justify centre
-set -g status-position top
+set -g status-position bottom
 # set -g status-fg default
 set -g status-bg default
 

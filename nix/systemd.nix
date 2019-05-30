@@ -59,6 +59,18 @@
         };
       };
 
+      "compton" = {
+        enable = true;
+        description = "custom compton service";
+        wantedBy = [ "graphical-session.target" ];
+        path = [ pkgs.compton ];
+        serviceConfig = {
+          ExecStart = "${pkgs.compton}/bin/compton";
+          Restart = "always";
+          RestartSec = 3;
+        };
+      };
+
     };
 
     timers = {

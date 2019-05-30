@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MUSIC_DIR=$HOME/lfs/music
 

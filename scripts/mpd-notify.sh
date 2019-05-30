@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Get fields from mpc, split by tabs
 IFS=$'\t' read artist title \
