@@ -4,11 +4,12 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
 
-    fatcat = (import ../pkgs/fatcat.nix);
+    fatcat = import ../pkgs/fatcat.nix { pkgs = self.pkgs; };
 
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
     skype = self.skype;
+    patchelf = self.patchelf;
 
     calcurse = self.calcurse;
     gnupg = self.gnupg;
@@ -21,7 +22,6 @@ self: super:
     feedreader = self.feedreader;
     fractal = self.fractal;
 
-    texlive.combined.scheme-full = self.texlive.combined.scheme-full;
     imagemagick = self.imagemagick;
     imv = self.imv;
     feh = self.feh;
@@ -30,7 +30,6 @@ self: super:
     neomutt = self.neomutt;
     offlineimap = self.offlineimap;
     pamixer = self.pamixer;
-    pandoc = self.pandoc;
     pass = self.pass;
     slurm = self.slurm;
     urlscan = self.urlscan;
@@ -41,6 +40,7 @@ self: super:
       vim-vint = self.vim-vint;
       shfmt = self.shfmt;
       mypy = self.mypy;
+      htmlTidy = self.htmlTidy;
 
     maim = self.maim;
     neofetch = self.neofetch;
@@ -70,27 +70,24 @@ self: super:
     steam = self.steam;
     beets = self.beets;
 
-    python37Packages = self.python37.withPackages(ps: with ps; [
-        ipython
-        python
-        pip
-        virtualenv
-
-        yapf
-        # neovim
-
-        mps-youtube
-        # terminal_velocity
-      ]);
-
     nix-env-rebuild = super.writeScriptBin "nix-env-rebuild" ''
       #!${super.stdenv.shell}
       if ! command -v nix-env &>/dev/null; then
           echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
           PATH=${self.nix}/bin:$PATH
       fi
-      exec nix-env -f '<nixpkgs>' -r -iA epiPackages userPackages unstablePackages "$@"
+      exec nix-env -f '<nixpkgs>' -r -iA \
+            userPackages \
+            unstablePackages \
+            pyPkgs \
+            epiPkgs \
+            "$@"
     '';
 
+    pandoc = self.pandoc;
+    myTexlive = self.texlive.combine {
+      inherit (self.texlive) scheme-full noto;
+      pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "cm-super";
+    };
   };
 }

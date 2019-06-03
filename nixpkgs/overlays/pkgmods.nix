@@ -1,7 +1,7 @@
 self: super:
 
 let
-  unstable = import (fetchTarball
+  unstable = import (builtins.fetchTarball
       https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
         config = self.config.nixpkgs.config;
       };
@@ -22,8 +22,12 @@ in
     python = self.python3;
   };
 
-  compton = super.compton.override {
-    configFile = ~/.dots/compton.conf;
+  # compton = super.compton.override {
+  #   configFile = ../../compton.conf;
+  # };
+
+  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    pkgs = self.pkgs;
   };
 
   unstablePackages = super.unstablePackages or {} // {

@@ -1,7 +1,7 @@
 self: super:
 
 {
-  epiPackages = super.lowPrio super.epiPackages or {} // {
+  epiPkgs = super.lowPrio super.epiPkgs or {} // {
 
     binutils-unwrapped = self.hiPrio self.binutils-unwrapped;
     # gcc = self.gcc;

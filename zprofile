@@ -14,7 +14,8 @@ export XDG_DESKTOP_DIR="$HOME/misctodo" \
 	XDG_CONFIG_HOME="$HOME/.config" \
 	XDG_CACHE_HOME="$HOME/.cache" \
 	XDG_DATA_HOME="$HOME/.local/share" \
-	XDG_DATA_DIRS="$HOME/.local/share/:/usr/local/share/:/usr/share/"
+	XDG_CONFIG_DIRS="$HOME/.config:$XDG_CONFIG_DIRS" \
+	XDG_DATA_DIRS="$HOME/.local/share/:$XDG_DATA_DIRS"
 
 # export GIT_ASKPASS="/bin/sh -c 'pass Gits/github.com | head -1'"
 export GITHUB_USER='alter2000' \

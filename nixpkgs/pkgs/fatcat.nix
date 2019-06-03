@@ -1,5 +1,6 @@
-with import <nixpkgs> {};
+{ pkgs ? import <nixpkgs> {} }:
 
+with pkgs;
 stdenv.mkDerivation rec {
   name = "fatcat-${version}";
   version = "git-2019-05-29";
