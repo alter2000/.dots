@@ -1,6 +1,5 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ stdenv, fetchFromGitHub, cmake }:
 
-with pkgs;
 stdenv.mkDerivation rec {
   name = "fatcat-${version}";
   version = "git-2019-05-29";

@@ -3,8 +3,9 @@ self: super:
 
 {
   userPackages = super.userPackages or {} // {
+    kiwix = self.kiwix;
 
-    fatcat = import ../pkgs/fatcat.nix { pkgs = self.pkgs; };
+    fatcat = super.callPackage ../pkgs/fatcat.nix {};
 
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
@@ -18,9 +19,13 @@ self: super:
     taskell = self.taskell;
     xbanish = self.xbanish;
     xorg.xinit = self.xorg.xinit;
+    zip = self.zip;
 
     feedreader = self.feedreader;
     fractal = self.fractal;
+    hledger = self.hledger;
+    hledger-ui = self.hledger-ui;
+    hledger-web = self.hledger-web;
 
     imagemagick = self.imagemagick;
     imv = self.imv;
@@ -31,6 +36,7 @@ self: super:
     offlineimap = self.offlineimap;
     pamixer = self.pamixer;
     pass = self.pass;
+    pass-git-helper = self.gitAndTools.pass-git-helper;
     slurm = self.slurm;
     urlscan = self.urlscan;
     zathura = self.zathura;
@@ -87,7 +93,7 @@ self: super:
     pandoc = self.pandoc;
     myTexlive = self.texlive.combine {
       inherit (self.texlive) scheme-full noto;
-      pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "cm-super";
+      # pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "cm-super";
     };
   };
 }

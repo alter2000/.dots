@@ -32,6 +32,7 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle" \
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export RTV_URLVIEWER=urlscan
+export LEDGER_FILE="$XDG_DOCUMENTS_DIR/hledger.journal"
 # export MAIL="$HOME/var/mail/main/INBOX"
 export MAILPATH="$HOME/var/mail/main/INBOX"
 

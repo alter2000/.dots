@@ -17,7 +17,7 @@
       "powertop" = {
         enable = true;
         description = "powertop autotune service";
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = [ "default.target" ];
         path = [ pkgs.powertop ];
         serviceConfig = {
           ExecStart = "${pkgs.powertop}/bin/powertop --auto-tune";
@@ -40,7 +40,7 @@
       "mpd" = {
         enable = true;
         description = "music player daemon";
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = [ "default.target" ];
         path = [ pkgs.mpd ];
         serviceConfig = {
           ExecStart = "${pkgs.mpd}/bin/mpd --no-daemon";
