@@ -6,10 +6,8 @@ super + p
 	~/.dots/bin/lock.sh
 
 # Terminal
-super + Return
-	alacritty
-super + shift + Return
-	termite -c ~/.dots/termite/base16-tomorrow
+super + {_,shift} + Return
+	[alacritty,termite]
 
 # bspwm {{{
 # # windows
