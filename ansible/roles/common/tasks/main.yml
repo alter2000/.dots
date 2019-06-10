@@ -1,20 +1,20 @@
 ---
-- name: set up ansible user for config sync
-  user:
-    name: ansible
-    uid: 900
+# - name: set up ansible user for config sync
+#   user:
+#     name: ansible
+#     uid: 900
 
-- name: add primary user
-  user:
-    name: alter2000
-    uid: 1000
-    state: present
-    createhome: true
-    comment: Jor Bashllari
-    shell: /bin/zsh
-    group: alter2000
-    groups: docker,video,wheel
-    append: true
+# - name: add primary user
+#   user:
+#     name: alter2000
+#     uid: 1000
+#     state: present
+#     createhome: true
+#     comment: Jor Bashllari
+#     shell: /bin/zsh
+#     group: alter2000
+#     groups: docker,video,wheel
+#     append: true
 
 - name: set up directory structure
   file:
@@ -25,15 +25,15 @@
   become: true
 # or dont - file: state: link src=$XDG_CACHE_HOME dest=$HOME/.compose-cache
 
-- name: git notes
-  git:
-    repo: git@bitbucket.org:alter2000/notes
-    dest: ~/notes
+#   - name: git notes
+#     git:
+#      repo: git@bitbucket.org:alter2000/notes
+#      dest: ~/notes
 
 #  - name: git docs
-#  git:
-#    repo: https://bitbucket.org/alter2000/docs
-#    dest: ~/static/documents
+#    git:
+#      repo: https://bitbucket.org/alter2000/docs
+#      dest: ~/static/documents
 
 # - name: copy ansible config
 #   become_user: root
@@ -60,25 +60,25 @@
 #     - import_tasks: arch.yml
 #   when: ansible_distribution : = Archlinux
 
-- block:
-    - import_tasks: fedora.yml
-  when: ansible_distribution == Fedora
+# - block:
+#    - import_tasks: fedora.yml
+#  when: ansible_distribution == Fedora
 
-- block:
-    - name: copy nix configuration
-      copy:
-        src: "{{dotdir}}/{{item}}"
-        dest: /etc/nixos/"{{item}}"
-        owner: root
-        group: root
-        mode: 0755
-      with_items:
-        - configuration.nix
-        - services.nix
-        - systemd.nix
-        - pkgs.nix
-  when: ansible_distribution == NixOS
+# - block:
+#     - name: copy nix configuration
+#       copy:
+#         src: "{{dotdir}}/{{item}}"
+#         dest: /etc/nixos/"{{item}}"
+#         owner: root
+#         group: root
+#         mode: 0755
+#       with_items:
+#         - configuration.nix
+#         - services.nix
+#         - systemd.nix
+#         - pkgs.nix
+#   when: ansible_distribution == NixOS
 
-- block:
-    - import_tasks: ubuntu.yml
-  when: ansible_distribution == Ubuntu
+# - block:
+#     - import_tasks: ubuntu.yml
+#   when: ansible_distribution == Ubuntu

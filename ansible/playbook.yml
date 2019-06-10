@@ -4,10 +4,11 @@
   # vars:
   roles:
     - common
-    - comms
+#    - comms
+    - shell
     - desktop
-    - games
-    - media
-    - systemd
+#    - games
+#    - media
+#    - systemd
     - term
     - web
