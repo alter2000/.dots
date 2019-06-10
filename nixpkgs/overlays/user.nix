@@ -5,8 +5,6 @@ self: super:
   userPackages = super.userPackages or {} // {
     kiwix = self.kiwix;
 
-    fatcat = super.callPackage ../pkgs/fatcat.nix {};
-
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
     skype = self.skype;
@@ -24,12 +22,12 @@ self: super:
     feedreader = self.feedreader;
     fractal = self.fractal;
     hledger = self.hledger;
-    hledger-ui = self.hledger-ui;
     hledger-web = self.hledger-web;
 
     imagemagick = self.imagemagick;
     imv = self.imv;
     feh = self.feh;
+    autorandr = self.autorandr;
     libnotify = self.libnotify;
     msmtp = self.msmtp;
     neomutt = self.neomutt;
@@ -40,13 +38,7 @@ self: super:
     slurm = self.slurm;
     urlscan = self.urlscan;
     zathura = self.zathura;
-
     vimHugeX = self.vimHugeX;
-      ansible-lint = self.ansible-lint;
-      vim-vint = self.vim-vint;
-      shfmt = self.shfmt;
-      mypy = self.mypy;
-      htmlTidy = self.htmlTidy;
 
     maim = self.maim;
     neofetch = self.neofetch;
@@ -67,12 +59,10 @@ self: super:
     teeworlds = self.teeworlds;
     termite = self.termite;
     alacritty = self.alacritty;
-    tig = self.tig;
     toilet = self.toilet;
     transmission-gtk = self.transmission-gtk;
 
     lolcat = self.lolcat;
-    platformio = self.platformio;
     steam = self.steam;
     beets = self.beets;
 
@@ -85,8 +75,7 @@ self: super:
       exec nix-env -f '<nixpkgs>' -r -iA \
             userPackages \
             unstablePackages \
-            pyPkgs \
-            epiPkgs \
+            devPkgs \
             "$@"
     '';
 

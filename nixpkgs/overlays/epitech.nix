@@ -3,17 +3,11 @@ self: super:
 {
   epiPkgs = super.lowPrio super.epiPkgs or {} // {
 
-    binutils-unwrapped = self.hiPrio self.binutils-unwrapped;
     # gcc = self.gcc;
-    clang = self.clang;
 
     gdb = self.gdb;
     manpages = self.manpages;
     ncurses.dev = self.ncurses.dev;
-    tcsh = self.tcsh;
-    ctags = self.ctags;
-    valgrind = self.valgrind;
-    qemu = self.qemu;
 
     gnumake = self.gnumake;
     icdiff = self.icdiff;
@@ -24,8 +18,5 @@ self: super:
 
     ansible = self.ansible;
     sourcetrail = self.sourcetrail;
-    vagrant = self.vagrant;
-    virtmanager = self.virtmanager;
-
   };
 }
