@@ -10,7 +10,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:][:lower:]} r:|[._-]
 zstyle ':completion:*' max-errors 0
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' substitute 1
-zstyle ':completion:*:*:(vim|e):*' file-patterns '^*.(aux|log|pdf|o|gc):source-files' '*:all-files'
+zstyle ':completion:*:*:(vim|e):*' file-patterns '^*.(aux|log|pdf|o|*gc*):source-files' '*:all-files'
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh
@@ -22,9 +22,11 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
+# zstyle ':completion:*:manuals' separate-sections true
+# zstyle ':completion:*:manuals.(^1*)' insert-sections true
 
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)git'
-zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#git'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 

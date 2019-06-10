@@ -18,6 +18,7 @@ alias m="neomutt"
 alias epim="neomutt -e 'set smtp_url = \"smtp://jori.bashllari@epitech.eu@smtp.office365.com:587\"'"
 alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
 
+alias browsh-docker='docker run --rm -it browsh/browsh'
 alias calc="autoload -Uz zcalc && zcalc"
 alias yeet="find . -mindepth 0 -maxdepth 9 -type f -name '*.o' -delete"
 
