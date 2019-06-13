@@ -15,7 +15,6 @@ self: super:
     jrnl = self.jrnl;
     keynav = self.keynav;
     taskell = self.taskell;
-    xbanish = self.xbanish;
     xorg.xinit = self.xorg.xinit;
     zip = self.zip;
     sxhkd = self.sxhkd;
@@ -36,6 +35,7 @@ self: super:
     offlineimap = self.offlineimap;
     pamixer = self.pamixer;
     pass = self.pass;
+    passff-host = self.passff-host;
     pass-git-helper = self.gitAndTools.pass-git-helper;
     slurm = self.slurm;
     urlscan = self.urlscan;

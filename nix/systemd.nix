@@ -2,33 +2,14 @@
 
 {
   systemd.user = {
-    services = {
-      "xbanish" = {
-        enable = true;
-        wantedBy = [ "graphical-session.target" ];
-        path = [ pkgs.xbanish ];
-        serviceConfig = {
-          ExecStart = "${pkgs.xbanish}/bin/xbanish";
-          Restart = "always";
-          RestartSec = 3;
-        };
-      };
 
-      "powertop" = {
-        enable = true;
-        description = "powertop autotune service";
-        wantedBy = [ "default.target" ];
-        path = [ pkgs.powertop ];
-        serviceConfig = {
-          ExecStart = "${pkgs.powertop}/bin/powertop --auto-tune";
-          Type = "oneshot";
-        };
-      };
+    services = {
 
       "dunst" = {
         enable = true;
         description = "dunst service";
-        wantedBy = [ "graphical-session.target" ];
+        wantedBy = [ "default.target" ];
+        partOf = [ "graphical-session.target" ];
         path = [ pkgs.dunst ];
         serviceConfig = {
           ExecStart = "${pkgs.dunst}/bin/dunst";
@@ -62,7 +43,8 @@
       "compton" = {
         enable = true;
         description = "custom compton service";
-        wantedBy = [ "graphical-session.target" ];
+        wantedBy = [ "default.target" ];
+        partOf = [ "graphical-session.target" ];
         path = [ pkgs.compton ];
         serviceConfig = {
           ExecStart = "${pkgs.compton}/bin/compton";
@@ -71,9 +53,21 @@
         };
       };
 
+      "sxhkd" = {
+        enable = true;
+        description = "hotkey daemon user service";
+        wantedBy = [ "default.target" ];
+        partOf = [ "graphical-session.target" ];
+        serviceConfig = {
+          ExecStart = "${pkgs.sxhkd}/bin/sxhkd";
+          ExecReload = "${pkgs.utillinux}/bin/kill -SIGUSR1 $MAINPID";
+        };
+      };
+
     };
 
     timers = {
+
       "1minute" = {
         enable = true;
         description = "1 minute timer";
@@ -90,5 +84,6 @@
       };
 
     };
+
   };
 }

@@ -96,5 +96,7 @@
 
     xserver = (import ./xserver.nix { inherit pkgs; });
 
+    xbanish.enable = true;
+
   };
 }
