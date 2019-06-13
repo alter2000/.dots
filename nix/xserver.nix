@@ -17,15 +17,17 @@
     '';
   };
 
-  multitouch = {
-    enable = true;
-    tapButtons = true;
-  };
+  multitouch.enable = true;
+  multitouch.tapButtons = true;
 
   displayManager = {
-    sessionCommands = ''
-      source ~/.xsession
-    '';
+    session = [ {
+      name = "i3";
+      manage = "window";
+      start = ''
+        exec ~/.xsession
+      '';
+    } ];
     lightdm = {
       enable = true;
       autoLogin = {

@@ -34,6 +34,7 @@ in
     nasm = self.nasm;
     netpbm = self.netpbm;
     squashfsTools = self.squashfsTools;
+    polybar = self.polybar;
   };
 
 }

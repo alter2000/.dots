@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = "alterpaper"; # Define your hostname.
+    hostName = "alterpad";
     dhcpcd.enable = false;
     networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
     useDHCP = true;
