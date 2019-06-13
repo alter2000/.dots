@@ -3,6 +3,7 @@ self: super:
 {
   pyPkgs = super.pyPkgs or {} // {
     # pefile = (import ../pkgs/pefile.nix);
+    tim = super.callPackage ../pkgs/tim.nix;
     pyEnv = self.python37.withPackages(ps: with ps; [
       ipython
       python
