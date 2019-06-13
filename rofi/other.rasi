@@ -2,7 +2,7 @@
 	background-color:	#f2e6d1;
 	border-color:		#70655b;
 	text-color:		#802152;
-	font:		"Hasklig";
+	font:		"Hasklig 13";
 }
 
 #configuration {
@@ -27,24 +27,25 @@
 /* 	children:	[entry,listview]; */
 /* } */
 
-/* #listview { */
-/* 	layout:		horizontal; */
-/* 	spacing:	4px; */
-/* 	lines:		100; */
-/* } */
+#listview {
+	layout:		horizontal;
+	spacing:	4px;
+	lines:		100;
+}
 
-/* #entry { */
-/* 	padding:	4px 4px; */
-/* 	expand:		false; */
-/* 	width:		10em; */
-/* 	font:		"Hasklig"; */
-/* } */
+#entry {
+	padding:	4px 4px;
+	expand:		false;
+	width:		10em;
+	font:		"Hasklig";
+}
 
-/* #element { */
-/* 	padding:	4px 14px; */
-/* } */
+#element {
+	padding:	4px 14px;
+}
 
-/* #element selected { */
-/* 	background-color:	#f0a43a; */
-/* } */
+#element selected {
+	background-color:	#f0a43a;
+}
+
 /* vim:ft=css ts=8

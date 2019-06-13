@@ -12,4 +12,4 @@ Persistent=yes
 Unit=offlineimap.service
 
 [Install]
-WantedBy=default.target
+WantedBy=timers.target

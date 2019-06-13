@@ -7,7 +7,7 @@ super + p
 
 # Terminal
 super + {_,shift} + Return
-	[alacritty,termite]
+	{alacritty,termite}
 
 # bspwm {{{
 # # windows
@@ -33,7 +33,7 @@ super + {_,shift} + Return
 super + d
 	rofi -show drun
 super + w
-	rofi -config ~/.dots/rofi/other.rasi
+	rofi -config ~/.dots/rofi/other.rasi -show window
 super + equal
 	~/.dots/rofi/=
 super + minus
