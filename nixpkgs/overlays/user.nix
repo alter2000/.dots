@@ -18,11 +18,13 @@ self: super:
     xbanish = self.xbanish;
     xorg.xinit = self.xorg.xinit;
     zip = self.zip;
+    sxhkd = self.sxhkd;
 
     feedreader = self.feedreader;
     fractal = self.fractal;
     hledger = self.hledger;
     hledger-web = self.hledger-web;
+    signal-desktop = self.signal-desktop;
 
     imagemagick = self.imagemagick;
     imv = self.imv;
@@ -55,7 +57,6 @@ self: super:
     mpd = self.mpd;
     mpv = self.mpv;
 
-    sxhkd = self.sxhkd;
     teeworlds = self.teeworlds;
     termite = self.termite;
     alacritty = self.alacritty;
