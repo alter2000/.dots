@@ -21,13 +21,17 @@
   multitouch.tapButtons = true;
 
   displayManager = {
+
+    # sessionCommands = "exec ~/.xsession";
+
     session = [ {
       name = "i3";
-      manage = "window";
+      manage = "desktop";
       start = ''
         exec ~/.xsession
       '';
     } ];
+
     lightdm = {
       enable = true;
       autoLogin = {

@@ -61,6 +61,8 @@
         serviceConfig = {
           ExecStart = "${pkgs.sxhkd}/bin/sxhkd";
           ExecReload = "${pkgs.utillinux}/bin/kill -SIGUSR1 $MAINPID";
+          Restart = "always";
+          RestartSec = 2;
         };
       };
 
