@@ -5,6 +5,7 @@
   # $ nix search wget
   environment = {
 
+    extraOutputsToInstall = [ "doc" "devdoc" ];
     variables = {
       PAGER = "less --ignore-case --status-column --raw-control-chars --quiet --window=-3";
       EDITOR = "vim";
