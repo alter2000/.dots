@@ -240,7 +240,7 @@ class MPD(Widget):
 
 
 class Mail(Widget):
-    icon = '\ue1a8'
+    icon = ' mail '
 
     @staticmethod
     def available():
@@ -259,22 +259,15 @@ class Mail(Widget):
 
     def __init__(self, pipe, hooks):
         if os.environ['MAILPATH']:
-            self.acct = (p for p in os.listdir(os.environ['MAILPATH'])
-                         if p[0] != '.')
-            self.mailpath = (os.environ['MAILPATH'] + '/' + p + '/INBOX/new'
-                             for p in self.acct)
+            self.mailpath = os.environ['MAILPATH'] + '/new'
         elif os.environ['MAIL']:
-            self.acct = (p for p in os.listdir(os.environ['MAILPATH'])
-                         if p[0] != '.')
-            self.mailpath = (os.environ['MAIL'] + '/' + p + '/INBOX/new'
-                             for p in self.acct)
+            self.mailpath = os.environ['MAIL'] + '/new'
         else:
-            self.acct = None
             self.mailpath = None
 
     def render(self):
-        new = [os.listdir(p) for p in self.mailpath if os.path.isdir(p)]
-        return self.icon + str(len(new)) + ' total '
+        # print(self.mailpath, file=sys.stderr)
+        return self.icon + str(len(os.listdir(self.mailpath))) + ' total '
 
 
 widgets = [
@@ -289,6 +282,7 @@ widgets = [
     Wifi,
 ]
 
+# no icons yet for some reason
 if __name__ == '__main__':
     sread, swrite = os.pipe()
     hooks = {}
