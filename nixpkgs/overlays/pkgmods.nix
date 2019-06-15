@@ -3,7 +3,7 @@ self: super:
 let
   unstable = import (builtins.fetchTarball
       https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
-        config = self.config.nixpkgs.config;
+        config = self.config;
       };
 in
 
@@ -31,10 +31,8 @@ in
   };
 
   unstablePackages = super.unstablePackages or {} // {
-    nasm = self.nasm;
-    netpbm = self.netpbm;
-    squashfsTools = self.squashfsTools;
-    polybar = self.polybar;
+    polybar = unstable.polybar;
+    firefox = unstable.firefox;
   };
 
 }
