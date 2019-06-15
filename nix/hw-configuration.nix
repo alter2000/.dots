@@ -50,6 +50,11 @@
       ];
     };
 
+    plymouth = {
+      enable = true;
+      theme = "breeze";
+    };
+
     loader = {
       systemd-boot = {
         enable = true;
