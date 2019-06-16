@@ -29,6 +29,7 @@ in
 
     pulseaudio = lcfg.hardware.pulseaudio or {
       enable = true;
+      package = pkgs.pulseaudioFull;
       support32Bit = true;
     };
 

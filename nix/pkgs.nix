@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  lcfg = (if builtins.pathExists ./local.nix then ./local.nix else {});
+in
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -14,9 +17,9 @@
 
     systemPackages = with pkgs; [
       acpi
-      chromium curl
+      curl
       elinks exfat
-      file firefox
+      file
       git
       htop
       iproute
@@ -27,17 +30,23 @@
       stdmanpages
       tmux tree
       w3m wget wirelesstools
-      xarchiver xorg.xev xdotool xclip xsel
 
       aspell aspellDicts.en aspellDicts.fr aspellDicts.de
       gucharmap gvfs
       mpv
       ncdu
       pavucontrol
-      tig torbrowser
+      tig
       unzip
+    ]
+    ++ (if config.services.xserver.enable then [
+      chromium
+      firefox
+      torbrowser
+      xarchiver xorg.xev xdotool xclip xsel
       xfce.thunar-bare
-    ];
+    ] else [])
+    ++ (lcfg.extraPackages or []);
   };
 
   nixpkgs = {

@@ -6,7 +6,10 @@ in
 {
   imports = [
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    (if (lcfg.server or false) then ./server-configuration.nix else ./laptop-configuration.nix)
+    (if (lcfg.server or false) then
+        ./server-configuration.nix
+      else
+        ./laptop-configuration.nix)
   ];
 
   fileSystems = lib.mkDefault {
