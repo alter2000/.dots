@@ -25,7 +25,8 @@ self: super:
     clang = self.clang;
     binutils-unwrapped = self.hiPrio self.binutils-unwrapped;
 
-    ghc = self.ghc;
+    ghc = self.hiPrio self.ghc;
+    stack = self.stack;
 
     rustup = self.rustup;
 

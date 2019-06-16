@@ -4,6 +4,7 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
     kiwix = self.kiwix;
+    xmonad-with-packages = self.xmonad-with-packages;
 
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
