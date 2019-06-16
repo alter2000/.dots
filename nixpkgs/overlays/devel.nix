@@ -20,6 +20,7 @@ self: super:
 
   devPkgs = super.devPkgs or {} // {
     tig = self.tig;
+    gitRepo = self.gitRepo;
 
     platformio = self.platformio;
     clang = self.clang;
@@ -45,5 +46,18 @@ self: super:
     shfmt = self.shfmt;
     mypy = self.mypy;
     htmlTidy = self.htmlTidy;
+  };
+
+  jetbrainsPkgs = super.jetbrainsPkgs or {} // {
+    clion = self.jetbrains.clion;
+    datagrip = self.jetbrains.datagrip;
+    pycharm-professional = self.jetbrains.pycharm-professional;
+    webstorm = self.jetbrains.webstorm;
+  };
+
+  androidPkgs = super.androidPkgs or {} // {
+    android-studio = self.android-studio;
+    apktool = self.apktool;
+    genymotion = self.genymotion;
   };
 }
