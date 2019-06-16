@@ -1,12 +1,15 @@
 { config, lib, pkgs, ... }:
 
+let
+  lcfg = (if builtins.pathExists ./local.nix then ./local.nix else {});
+in
 {
   imports = [
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ./laptop-configuration.nix
+    (if (lcfg.server or false) then ./server-configuration.nix else ./laptop-configuration.nix)
   ];
 
-  fileSystems = {
+  fileSystems = lib.mkDefault {
     "/" = {
       device = "/dev/disk/by-label/lunix";
       fsType = "btrfs";
@@ -23,11 +26,11 @@
     };
   };
 
-  swapDevices = [ {
+  swapDevices = lib.mkDefault [ {
     device = "/dev/disk/by-partlabel/Swap";
   } ];
 
-  boot = {
+  boot = lib.mkDefault {
     kernelPackages = pkgs.linuxPackages_latest;
     initrd = {
       checkJournalingFS = true;
