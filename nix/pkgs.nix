@@ -37,7 +37,7 @@ in
       ncdu
       pavucontrol
       tig
-      unzip
+      unzip usbutils
     ]
     ++ (if config.services.xserver.enable then [
       chromium

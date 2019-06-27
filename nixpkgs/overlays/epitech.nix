@@ -13,7 +13,6 @@ self: super:
     icdiff = self.icdiff;
     nixops = self.nixops;
     nodejs = self.nodejs;
-    usbutils = self.usbutils;
     inkscape = self.inkscape;
 
     ansible = self.ansible;

@@ -3,8 +3,8 @@ self: super:
 
 {
   userPackages = super.userPackages or {} // {
-    kiwix = self.kiwix;
     xmonad-with-packages = self.xmonad-with-packages;
+    jdk = self.jdk;
 
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
@@ -42,6 +42,7 @@ self: super:
     urlscan = self.urlscan;
     zathura = self.zathura;
     vimHugeX = self.vimHugeX;
+    cryptsetup = self.cryptsetup;
 
     maim = self.maim;
     neofetch = self.neofetch;
