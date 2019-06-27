@@ -16,7 +16,7 @@ in
     "/" = {
       device = "/dev/disk/by-label/lunix";
       fsType = "btrfs";
-      options = ["discard" "relatime" "subvol=@nixos"];
+      options = ["discard" "relatime" "subvol=@nixos" "compress=lzo" "space_cache"];
     };
     "/boot" = {
       device = "/dev/disk/by-partlabel/esp";
@@ -25,7 +25,7 @@ in
     "/home" = {
       device = "/dev/disk/by-label/lunix";
       fsType = "btrfs";
-      options = ["discard" "relatime" "subvol=@home"];
+      options = ["discard" "relatime" "subvol=@home" "compress=lzo" "space_cache"];
     };
   };
 
