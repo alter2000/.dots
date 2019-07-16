@@ -67,6 +67,17 @@ in
     };
   };
 
+  # From https://github.com/NixOS/nixpkgs/issues/45492#issuecomment-418903252
+  # Set limits for esync.
+  systemd.extraConfig = "DefaultLimitNOFILE=1048576";
+
+  security.pam.loginLimits = [{
+      domain = "*";
+      type = "hard";
+      item = "nofile";
+      value = "1048576";
+  }];
+
   services = {
     thinkfan = {
       enable = true;
