@@ -3,8 +3,10 @@ self: super:
 {
   pyPkgs = super.pyPkgs or {} // {
     tim = super.callPackage ../pkgs/tim.nix;
+    mypy = self.mypy;
     pyEnv = self.python37.withPackages(ps: with ps; [
       ipython
+      ipdb
       python
       pip
       virtualenv
@@ -20,31 +22,41 @@ self: super:
   devPkgs = super.devPkgs or {} // {
     tig = self.tig;
     gitRepo = self.gitRepo;
-
-    platformio = self.platformio;
-    clang = self.clang;
-    binutils-unwrapped = self.hiPrio self.binutils-unwrapped;
-
-    ghc = self.hiPrio self.ghc;
-    stack = self.stack;
-
-    rustup = self.rustup;
-
-    fatcat = super.callPackage ../pkgs/fatcat.nix {};
+    patchelf = self.patchelf;
 
     tcsh = self.tcsh;
     ctags = self.ctags;
-    valgrind = self.valgrind;
 
     qemu = self.qemu;
-    vagrant = self.vagrant;
     virtmanager = self.virtmanager;
 
     ansible-lint = self.ansible-lint;
     vim-vint = self.vim-vint;
     shfmt = self.shfmt;
-    mypy = self.mypy;
     htmlTidy = self.htmlTidy;
+  };
+
+  cPkgs = super.cPkgs or {} // {
+    vagrant = self.vagrant;
+    platformio = self.platformio;
+    clang = self.clang;
+    binutils-unwrapped = self.hiPrio self.binutils-unwrapped;
+  };
+
+  haskellPkgs = super.haskellPkgs or {} // {
+    ghc = self.hiPrio self.ghc;
+    stack = self.stack;
+  };
+
+  rustPkgs = super.rustPkgs or {} // {
+    rustup = self.rustup;
+  };
+
+  rubyPkgs = super.rubyPkgs or {} // rec {
+    ruby = self.ruby_2_6;
+    bundix = self.bundix.overrideAttrs (old: {
+      ruby = self.ruby_2_6;
+    });
   };
 
   jetbrainsPkgs = super.jetbrainsPkgs or {} // {

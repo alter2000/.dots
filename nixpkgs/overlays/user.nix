@@ -9,7 +9,6 @@ self: super:
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
     skype = self.skype;
-    patchelf = self.patchelf;
 
     calcurse = self.calcurse;
     gnupg = self.gnupg;
@@ -49,6 +48,8 @@ self: super:
     newsboat = self.newsboat;
     ncmpcpp = self.ncmpcpp;
     weechat = self.weechat;
+    # ultimate plumber
+    up = self.up;
 
     ncdu = self.ncdu;
     pavucontrol = self.pavucontrol;
@@ -65,7 +66,7 @@ self: super:
     toilet = self.toilet;
     transmission-gtk = self.transmission-gtk;
 
-    lolcat = self.lolcat;
+    lolcat = super.lowPrio self.lolcat;
     steam = self.steam;
     beets = self.beets;
 
@@ -78,6 +79,11 @@ self: super:
       exec nix-env -f '<nixpkgs>' -r -iA \
             userPackages \
             unstablePackages \
+            cPkgs \
+            pyPkgs \
+            rubyPkgs \
+            rustPkgs \
+            haskellPkgs \
             devPkgs \
             "$@"
     '';

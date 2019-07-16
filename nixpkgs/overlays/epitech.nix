@@ -1,13 +1,14 @@
 self: super:
 
 {
-  epiPkgs = super.lowPrio super.epiPkgs or {} // {
+  epiPkgs = super.epiPkgs or {} // {
 
     # gcc = self.gcc;
 
     gdb = self.gdb;
     manpages = self.manpages;
     ncurses.dev = self.ncurses.dev;
+    valgrind = self.valgrind;
 
     gnumake = self.gnumake;
     icdiff = self.icdiff;
