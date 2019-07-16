@@ -68,7 +68,13 @@
     i3 = {
       enable = true;
       package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [rofi polybar i3lock-color];
+      extraPackages = with pkgs; [ rofi polybar i3lock-color ];
+    };
+
+    xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      # extraPackages = self: [ self.xmonadContrib ];
     };
 
   };
