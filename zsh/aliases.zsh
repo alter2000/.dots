@@ -97,7 +97,7 @@ elif command -v dnf >/dev/null; then
 fi
 
 # global aliases for reading
-alias -g LL="2>&1 | less"
-alias -g NE="2> /dev/null"
-alias -g P="2>&1| pygmentize -l pytb"
-alias -g QQ="2>/dev/null"
+alias -g _LL="2>&1 | less"
+alias -g _NE="2> /dev/null"
+alias -g _P="2>&1| pygmentize -l pytb"
+alias -g _QQ="2>/dev/null"

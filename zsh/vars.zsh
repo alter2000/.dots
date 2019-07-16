@@ -3,7 +3,7 @@
 typeset -Uz path
 path=($HOME/.dots/bin $HOME/epitheq/bin $HOME/.cargo/bin $HOME/.local/bin $path)
 path+=(/root/.gem/ruby/2.6.0/bin)
-path+=($HOME/.gem/ruby/2.6.0/bin)
+path+=($GEM_HOME/bin)
 
 typeset -Uz fpath
 fpath+=($ZDATADIR/functions)
