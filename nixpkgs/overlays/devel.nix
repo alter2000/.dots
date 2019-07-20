@@ -1,6 +1,25 @@
 self: super:
 
 {
+  devPkgs = super.devPkgs or {} // {
+    tig = self.tig;
+    gitRepo = self.gitRepo;
+    git-lfs = self.git-lfs;
+    patchelf = self.patchelf;
+
+    tcsh = self.tcsh;
+    ctags = self.ctags;
+
+    qemu = self.qemu;
+    virtmanager = self.virtmanager;
+
+    ansible-lint = self.ansible-lint;
+    vim-vint = self.vim-vint;
+    ccls = self.ccls;
+    shfmt = self.shfmt;
+    htmlTidy = self.htmlTidy;
+  };
+
   pyPkgs = super.pyPkgs or {} // {
     tim = super.callPackage ../pkgs/tim.nix;
     mypy = self.mypy;
@@ -13,27 +32,12 @@ self: super:
       requests
 
       yapf
-      # neovim
+
+      goobook
       mps-youtube
+      # neovim
       # terminal_velocity
     ]);
-  };
-
-  devPkgs = super.devPkgs or {} // {
-    tig = self.tig;
-    gitRepo = self.gitRepo;
-    patchelf = self.patchelf;
-
-    tcsh = self.tcsh;
-    ctags = self.ctags;
-
-    qemu = self.qemu;
-    virtmanager = self.virtmanager;
-
-    ansible-lint = self.ansible-lint;
-    vim-vint = self.vim-vint;
-    shfmt = self.shfmt;
-    htmlTidy = self.htmlTidy;
   };
 
   cPkgs = super.cPkgs or {} // {
