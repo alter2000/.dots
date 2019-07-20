@@ -1,4 +1,4 @@
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -d "$XDG_CACHE_HOME/zcompdump"
 # autoload -U ~/.zsh/completions/*(:t)
 
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -26,7 +26,7 @@ zstyle ':completion:*:kill:*'   force-list always
 # zstyle ':completion:*:manuals.(^1*)' insert-sections true
 
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)git'
-zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#git'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
