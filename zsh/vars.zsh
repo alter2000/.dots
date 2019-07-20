@@ -1,9 +1,24 @@
+# PATH:
+# (N-/): do not register if the directory does not exist
+#
+#  N   : NULL_GLOB option (ignore path if the path does not match the glob)
+#  n   : Sort the output
+#  [-1]: Select the last item in the array
+#  -   : follow the symbol links
+#  /   : ignore files
+#  t   : tail of the path
 # export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 typeset -Uz path
-path=($HOME/.dots/bin $HOME/epitheq/bin $HOME/.cargo/bin $HOME/.local/bin $path)
-path+=(/root/.gem/ruby/2.6.0/bin)
-path+=($GEM_HOME/bin)
+path=(
+	${HOME}/.dots/bin
+	${HOME}/epitheq/bin(N-/)
+	${HOME}/.cargo/bin(N-/)
+	${HOME}/.local/bin
+	# /root/.gem/ruby/2.6.0/bin
+	${GEM_HOME}/bin(N-/)
+	$path
+)
 
 typeset -Uz fpath
 fpath+=($ZDATADIR/functions)
@@ -21,7 +36,7 @@ export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+export LESS_TERMCAP_us=$'\E[03;32m'
 
 ### HISTORY + SUBSTRING SEARCH ###
 HISTSIZE=10000

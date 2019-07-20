@@ -7,6 +7,8 @@ unsetopt beep
 setopt interactive_comments
 # if not a command, move to typed directory
 setopt auto_cd
+# tab completing directory appends a slash
+setopt autoparamslash
 # add to stack whenever cd'ing
 setopt autopushd
 setopt pushd_ignore_dups
