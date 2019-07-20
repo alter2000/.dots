@@ -4,7 +4,9 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
     xmonad-with-packages = self.xmonad-with-packages;
-    jdk = self.jdk;
+    jdk11 = self.jdk11;
+    nodejs-11_x = self.nodejs-11_x;
+    # busybox = self.busybox;
 
     alsaUtils = self.alsaUtils;
     gparted = self.gparted;
@@ -15,9 +17,12 @@ self: super:
     jrnl = self.jrnl;
     keynav = self.keynav;
     taskell = self.taskell;
-    xorg.xinit = self.xorg.xinit;
     zip = self.zip;
     sxhkd = self.sxhkd;
+
+    xbanish = self.xbanish;
+    xorg.xinit = self.xorg.xinit;
+    xorg.xkbcomp = self.xorg.xkbcomp;
 
     feedreader = self.feedreader;
     fractal = self.fractal;
