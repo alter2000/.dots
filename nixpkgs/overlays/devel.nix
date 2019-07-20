@@ -1,5 +1,8 @@
 self: super:
 
+  let
+    all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  in
 {
   devPkgs = super.devPkgs or {} // {
     tig = self.tig;
@@ -50,6 +53,8 @@ self: super:
   haskellPkgs = super.haskellPkgs or {} // {
     ghc = self.hiPrio self.ghc;
     stack = self.stack;
+    # Install stable HIE for GHC 8.6.4
+    hie = all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864; }; };
   };
 
   rustPkgs = super.rustPkgs or {} // {
