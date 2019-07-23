@@ -4,7 +4,7 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
     xmonad-with-packages = self.xmonad-with-packages;
-    jdk11 = self.jdk11;
+    # jdk11 = self.jdk11;
     nodejs-11_x = self.nodejs-11_x;
     # busybox = self.busybox;
 

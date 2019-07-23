@@ -9,7 +9,7 @@ set -g default-terminal "tmux-256color"
 
 set -g mouse on
 set -g history-limit 10000
-set -g history-file '$HOME/.cache/tmux/history'
+set -g history-file '$XDG_CACHE_HOME/tmux/history'
 set -g display-time 3000
 setw -g aggressive-resize on  # resize current window not session to smallest term's size
 

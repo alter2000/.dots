@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # package manager wrapper for my systems
 # might add fancy shiz later
 # TODO: proper way to check filesystem for root mountpoint

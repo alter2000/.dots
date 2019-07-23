@@ -33,6 +33,7 @@ in
   unstablePackages = super.unstablePackages or {} // {
     polybar = unstable.polybar;
     firefox = unstable.firefox;
+    oraclejdk8 = unstable.oraclejdk8;
   };
 
 }

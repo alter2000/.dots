@@ -32,7 +32,7 @@ foreground          = #4d4d4c
 foreground_bold     = #282a2e
 cursor              = #282a2e
 cursor_foreground   = #ffffff
-background          = rgba(255, 255, 255)
+background          = rgba(255, 255, 255, 200)
 
 # 16 color space
 
