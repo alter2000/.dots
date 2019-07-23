@@ -18,7 +18,7 @@
 # Automatically saved options
 #
 
-## config 
+## config
 #  Configuration handling options.
 
   ## config.saving_style_w [0|1]
@@ -27,27 +27,13 @@
   set config.saving_style_w = 1
 
 
-## terminal 
+## terminal
 #  Terminal options.
 
-  ## terminal.xterm-termite 
+  ## terminal.xterm-termite
   #  Options specific to this terminal type (according to $TERM value).
 
-    ## terminal.xterm-termite.underline [0|1]
-    set terminal.xterm-termite.underline = 1
-    ## terminal.xterm-termite.italic [0|1]
-    set terminal.xterm-termite.italic = 0
-    ## terminal.xterm-termite.transparency [0|1]
-    set terminal.xterm-termite.transparency = 1
-    ## terminal.xterm-termite.colors <num>
-    set terminal.xterm-termite.colors = 3
-    ## terminal.xterm-termite.m11_hack [0|1]
-    set terminal.xterm-termite.m11_hack = 1
-    ## terminal.xterm-termite.type <num>
-    set terminal.xterm-termite.type = 2
-
-
-## ui 
+## ui
 #  User interface options.
 
   ## ui.language <language>
@@ -63,7 +49,7 @@
 # Automatically saved options
 #
 
-## bookmarks 
+## bookmarks
 #  Bookmark options.
 
   ## bookmarks.file_format <num>
@@ -79,7 +65,7 @@
   set bookmarks.folder_state = 0
 
 
-## config 
+## config
 #  Configuration handling options.
 
   ## config.comments <num>
@@ -91,13 +77,13 @@
   set config.comments = 3
 
 
-## connection 
+## connection
 #  Connection options.
 
-  ## connection.ssl 
+  ## connection.ssl
   #  SSL options.
 
-    ## connection.ssl.client_cert 
+    ## connection.ssl.client_cert
     #  X509 client certificate options.
 
       ## connection.ssl.client_cert.enable [0|1]
@@ -124,13 +110,13 @@
   set connection.retries = 5
 
 
-## document 
+## document
 #  Document options.
 
-  ## document.browse 
+  ## document.browse
   #  Document browsing options (mainly interactivity).
 
-    ## document.browse.images 
+    ## document.browse.images
     #  Options for handling of images.
 
       ## document.browse.images.display_style <num>
@@ -159,10 +145,10 @@
       set document.browse.images.image_link_tagging = 2
 
 
-    ## document.browse.links 
+    ## document.browse.links
     #  Options for handling of links to other documents.
 
-      ## document.browse.links.active_link 
+      ## document.browse.links.active_link
       #  Options for the active link.
 
         ## document.browse.links.active_link.enable_color [0|1]
@@ -180,17 +166,17 @@
 
 
 
-    ## document.browse.scrolling 
+    ## document.browse.scrolling
     #  Scrolling options.
 
       ## document.browse.scrolling.vertical_overlap <num>
       #  Number of overlapping lines between the new page displayed and the
       #  previous one when scrolling one page up or down.
-      set document.browse.scrolling.vertical_overlap = 3
+      # set document.browse.scrolling.vertical_overlap = 3
 
 
 
-  ## document.download 
+  ## document.download
   #  Options regarding files downloading and handling.
 
     ## document.download.directory <str>
@@ -206,10 +192,10 @@
 
 
 
-## mime 
+## mime
 #  MIME-related options (handlers of various MIME types).
 
-  ## mime.extension 
+  ## mime.extension
   #  Extension <-> MIME type association.
 
     ## mime.extension.html <str>
@@ -231,10 +217,10 @@
 # Automatically saved options
 #
 
-## mime 
+## mime
 #  MIME-related options (handlers of various MIME types).
 
-  ## mime.extension 
+  ## mime.extension
   #  Extension <-> MIME type association.
 
     ## mime.extension.gif <str>
@@ -243,7 +229,7 @@
     set mime.extension.gif = "image/gif"
 
 
-  ## mime.mailcap 
+  ## mime.mailcap
   #  Options for mailcap support.
 
     ## mime.mailcap.description <num>
@@ -256,41 +242,41 @@
 
 
 
-## protocol 
+## protocol
 #  Protocol specific options.
 
-  ## protocol.http 
+  ## protocol.http
   #  HTTP-specific options.
 
     ## protocol.http.compression [0|1]
     #  If enabled, the capability to receive compressed content (gzip and/or
     #  bzip2) is announced to the server, which usually sends the reply
     #  compressed, thus saving some bandwidth at slight CPU expense.
-    #  
+    #
     #  If ELinks displays a incomplete page or garbage, try disabling this
     #  option. If that helps, there may be a bug in the decompression part of
     #  ELinks. Please report such bugs.
-    #  
+    #
     #  If ELinks has been compiled without compression support, this option has
     #  no effect. To check the supported features, see Help -> About.
     set protocol.http.compression = 1
 
 
 
-## terminal 
+## terminal
 #  Terminal options.
 
-  ## terminal.xterm-termite 
+  ## terminal.xterm-termite
   #  Options specific to this terminal type (according to $TERM value).
 
     ## terminal.xterm-termite.utf_8_io [0|1]
     set terminal.xterm-termite.utf_8_io = 1
 
 
-## ui 
+## ui
 #  User interface options.
 
-  ## ui.clock 
+  ## ui.clock
   #  Digital clock in the status bar.
 
     ## ui.clock.enable [0|1]
@@ -298,23 +284,23 @@
     set ui.clock.enable = 0
 
 
-  ## ui.sessions 
+  ## ui.sessions
   #  Sessions settings.
 
     ## ui.sessions.auto_restore [0|1]
     #  Automatically restore the session at start.
-    #  
+    #
     #  This feature requires bookmark support.
     set ui.sessions.auto_restore = 1
 
     ## ui.sessions.auto_save [0|1]
     #  Automatically save the session when quitting.
-    #  
+    #
     #  This feature requires bookmark support.
     set ui.sessions.auto_save = 1
 
 
-  ## ui.tabs 
+  ## ui.tabs
   #  Window tabs settings.
 
     ## ui.tabs.show_bar <num>
@@ -333,10 +319,10 @@
 # Automatically saved options
 #
 
-## terminal 
+## terminal
 #  Terminal options.
 
-  ## terminal.xterm-termite 
+  ## terminal.xterm-termite
   #  Options specific to this terminal type (according to $TERM value).
 
     ## terminal.xterm-termite.block_cursor [0|1]
@@ -356,8 +342,6 @@ bind "main" "Up" = "move-link-up"
 bind "main" "Right" = "move-link-right"
 bind "main" "Left" = "move-link-left"
 bind "main" "Down" = "move-link-down"
-bind "main" "Ctrl-U" = "move-half-page-up"
-bind "main" "Ctrl-D" = "move-half-page-down"
 bind "main" "Ctrl-Home" = "move-document-start"
 bind "main" "Ctrl-End" = "move-document-end"
 bind "main" "G" = "move-document-end"
