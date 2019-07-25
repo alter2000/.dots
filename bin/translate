@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # translate via Google
 # usage: translate <src-lang> <dest-lang> <string>
 

@@ -1,5 +1,7 @@
 {
   allowUnfree = true;
+  allowUnfreeRedistributable = true;
+
   overlays = [
     ./user.nix
     ./pkgmods.nix
@@ -7,8 +9,6 @@
     ./devel.nix
     # ./emacs.nix  # why oh why
   ];
-  oraclejdk.accept_license = true;
-  permittedInsecurePackages = [
-    "kiwix-0.9"
-  ];
+
+  # oraclejdk = { accept_license = true; pluginSupport = true; }
 }
