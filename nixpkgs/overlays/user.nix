@@ -4,7 +4,6 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
     xmonad-with-packages = self.xmonad-with-packages;
-    jdk11 = self.jdk11;
     nodejs-11_x = self.nodejs-11_x;
     # busybox = self.busybox;
 
@@ -72,8 +71,9 @@ self: super:
     transmission-gtk = self.transmission-gtk;
 
     lolcat = super.lowPrio self.lolcat;
-    steam = self.steam;
     beets = self.beets;
+    steam = self.steam;
+    minecraft = self.minecraft;
 
     nix-env-rebuild = super.writeScriptBin "nix-env-rebuild" ''
       #!${super.stdenv.shell}
