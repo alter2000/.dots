@@ -3,6 +3,8 @@
 # 🅱 tree fs
 alias cp="cp --reflink"
 
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
 export XDG_DESKTOP_DIR="$HOME/misctodo" \
 	XDG_DOWNLOAD_DIR="$HOME/var/download" \
 	XDG_TEMPLATES_DIR="$HOME/static/templates" \
