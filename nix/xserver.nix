@@ -57,7 +57,7 @@
   desktopManager.default = "none";
 
   windowManager = {
-    default = "i3";
+    default = "xmonad";
 
     # sway = {
     #   enable = true;
@@ -74,7 +74,10 @@
     xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      # extraPackages = self: [ self.xmonadContrib ];
+      extraPackages = hp: with hp; [
+        xmonad-contrib
+        monad-logger
+      ];
     };
 
   };
