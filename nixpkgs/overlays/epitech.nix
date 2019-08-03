@@ -2,21 +2,21 @@ self: super:
 
 {
   epiPkgs = super.epiPkgs or {} // {
+    inherit (self)
+      # gcc
+      gdb
+      manpages
+      valgrind
 
-    # gcc = self.gcc;
+      gnumake
+      icdiff
+      nixops
+      nodejs
+      inkscape
 
-    gdb = self.gdb;
-    manpages = self.manpages;
-    ncurses.dev = self.ncurses.dev;
-    valgrind = self.valgrind;
-
-    gnumake = self.gnumake;
-    icdiff = self.icdiff;
-    nixops = self.nixops;
-    nodejs = self.nodejs;
-    inkscape = self.inkscape;
-
-    ansible = self.ansible;
-    sourcetrail = self.sourcetrail;
+      ansible
+      sourcetrail
+    ;
+    inherit (self.ncurses) dev;
   };
 }
