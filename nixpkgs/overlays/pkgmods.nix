@@ -26,9 +26,9 @@ in
   #   configFile = ../../compton.conf;
   # };
 
-  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-    pkgs = self.pkgs;
-  };
+  # nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+  #   pkgs = self.pkgs;
+  # };
 
   unstablePackages = super.unstablePackages or {} // {
     polybar = unstable.polybar;
