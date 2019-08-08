@@ -5,7 +5,7 @@ alias cp="cp --reflink"
 
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 
-export XDG_DESKTOP_DIR="$HOME/misctodo" \
+export XDG_DESKTOP_DIR="$HOME/var/desk" \
 	XDG_DOWNLOAD_DIR="$HOME/var/download" \
 	XDG_TEMPLATES_DIR="$HOME/static/templates" \
 	XDG_PUBLICSHARE_DIR="$HOME/var/share" \
@@ -30,6 +30,8 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle" \
 	GEM_HOME="$XDG_DATA_HOME/gem" \
 	CARGO_HOME="$XDG_DATA_HOME/cargo" \
 	NVM_DIR="$XDG_DATA_HOME/nvm"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true" \
+	_JAVA_AWT_WM_NONREPARENTING=1
 
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
