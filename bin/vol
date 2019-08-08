@@ -1,0 +1,23 @@
+#/bin/sh
+
+up="$1"
+step=${2:-5}
+
+if [[ ! $up = "up" && ! $up = "down" ]]; then
+	echo "vol: either vol up or down"
+	exit 1
+fi
+
+if ! command -v pactl >/dev/null; then
+	if [[ $up = "down" ]]; then
+		pactl set-sink-volume @DEFAULT_SINK@ "-$step%"
+	else
+		pactl set-sink-volume @DEFAULT_SINK@ "+$step%"
+	fi
+elif ! command -v pactl >/dev/null; then
+	if [[ $up = "down" ]]; then
+		amixer -D pulse set Master "$step%-" unmute
+	else
+		amixer -D pulse set Master "$step%+" unmute
+	fi
+fi
