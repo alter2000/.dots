@@ -14,6 +14,8 @@ self: super:
       requests
 
       yapf
+      pylint
+      flake8
 
       goobook
       mps-youtube
@@ -55,8 +57,12 @@ self: super:
   };
 
   haskellPkgs = super.haskellPkgs or {} // {
-    inherit (self) stack;
-    ghc = self.hiPrio self.ghc;
+    inherit (self.haskellPackages)
+      stack
+      hoogle
+    ;
+
+    ghc = with self; hiPrio ghc;
 
     # Install stable HIE for GHC 8.6.4
     hie = all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864; }; };

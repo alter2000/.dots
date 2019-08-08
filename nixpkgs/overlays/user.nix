@@ -3,77 +3,82 @@ self: super:
 
 {
   userPackages = super.userPackages or {} // {
-    xmonad-with-packages = self.xmonad-with-packages;
-    nodejs-11_x = self.nodejs-11_x;
-    # busybox = self.busybox;
+    inherit (self)
+      # xmonad-with-packages
+      nodejs-11_x
+      # busybox
 
-    alsaUtils = self.alsaUtils;
-    gparted = self.gparted;
-    # skype = self.skype;
+      alsaUtils
+      gparted
+      # skype
 
-    calcurse = self.calcurse;
-    gnupg = self.gnupg;
-    jrnl = self.jrnl;
-    keynav = self.keynav;
-    taskell = self.taskell;
-    zip = self.zip;
-    sxhkd = self.sxhkd;
+      # calcurse
+      gnupg
+      jrnl
+      keynav
+      taskell
+      zip
+      sxhkd
 
-    xbanish = self.xbanish;
-    xorg.xinit = self.xorg.xinit;
-    xorg.xkbcomp = self.xorg.xkbcomp;
+      hledger
+      signal-desktop
 
-    feedreader = self.feedreader;
-    fractal = self.fractal;
-    hledger = self.hledger;
-    hledger-web = self.hledger-web;
-    signal-desktop = self.signal-desktop;
+      imagemagick
+      imv
+      feh
+      autorandr
+      libnotify
+      msmtp
+      neomutt
+      offlineimap
+      pamixer
+      pass
+      passff-host
+      slurm
+      urlscan
+      zathura
+      vimHugeX
+      cryptsetup
+      pandoc
 
-    imagemagick = self.imagemagick;
-    imv = self.imv;
-    feh = self.feh;
-    autorandr = self.autorandr;
-    libnotify = self.libnotify;
-    msmtp = self.msmtp;
-    neomutt = self.neomutt;
-    offlineimap = self.offlineimap;
-    pamixer = self.pamixer;
-    pass = self.pass;
-    passff-host = self.passff-host;
-    pass-git-helper = self.gitAndTools.pass-git-helper;
-    slurm = self.slurm;
-    urlscan = self.urlscan;
-    zathura = self.zathura;
-    vimHugeX = self.vimHugeX;
-    cryptsetup = self.cryptsetup;
+      maim
+      neofetch
+      newsboat
+      ncmpcpp
+      weechat
+      up  # ultimate plumber
 
-    maim = self.maim;
-    neofetch = self.neofetch;
-    newsboat = self.newsboat;
-    ncmpcpp = self.ncmpcpp;
-    weechat = self.weechat;
-    # ultimate plumber
-    up = self.up;
+      ncdu
+      pavucontrol
+      pipes
+      pulsemixer
+      pywal
+      mpc_cli
+      mpd
+      mpv
 
-    ncdu = self.ncdu;
-    pavucontrol = self.pavucontrol;
-    pipes = self.pipes;
-    pulsemixer = self.pulsemixer;
-    pywal = self.pywal;
-    mpc_cli = self.mpc_cli;
-    mpd = self.mpd;
-    mpv = self.mpv;
+      teeworlds
+      termite
+      alacritty
+      toilet
+      transmission-gtk
 
-    teeworlds = self.teeworlds;
-    termite = self.termite;
-    alacritty = self.alacritty;
-    toilet = self.toilet;
-    transmission-gtk = self.transmission-gtk;
+      lolcat
+      beets
+      steam
+      minecraft
 
-    lolcat = super.lowPrio self.lolcat;
-    beets = self.beets;
-    steam = self.steam;
-    minecraft = self.minecraft;
+      xbanish
+    ;
+
+    inherit (self.xorg)
+      xinit
+      xkbcomp
+    ;
+
+    inherit (self.gitAndTools)
+      pass-git-helper
+    ;
 
     nix-env-rebuild = super.writeScriptBin "nix-env-rebuild" ''
       #!${super.stdenv.shell}
@@ -81,20 +86,22 @@ self: super:
           echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
           PATH=${self.nix}/bin:$PATH
       fi
+      PENV=(
+              userPackages
+              unstablePackages
+              # cPkgs
+              pyPkgs
+              rubyPkgs
+              rustPkgs
+              haskellPkgs
+              devPkgs
+      )
       exec nix-env -f '<nixpkgs>' -r -iA \
-            userPackages \
-            unstablePackages \
-            cPkgs \
-            pyPkgs \
-            rubyPkgs \
-            rustPkgs \
-            haskellPkgs \
-            devPkgs \
+            ''${PENV[@]}
             "$@"
     '';
 
-    pandoc = self.pandoc;
-    myTexlive = self.texlive.combine {
+    myTexlive = super.texlive.combine {
       inherit (self.texlive) scheme-full noto;
       # pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "cm-super";
     };

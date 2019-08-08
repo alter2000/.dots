@@ -31,9 +31,12 @@ in
   # };
 
   unstablePackages = super.unstablePackages or {} // {
-    polybar = unstable.polybar;
-    firefox = unstable.firefox;
-    # oraclejdk8 = unstable.oraclejdk8;
+    inherit (unstable)
+      polybar
+      firefox
+      # oraclejdk8
+      # nixfmt
+    ;
   };
 
 }
