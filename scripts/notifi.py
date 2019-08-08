@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 from os import environ as env, listdir as ls, popen
-from os.path import isfile
+from os.path import isfile, expanduser
+from sys import argv
 import datetime
 import subprocess
 import atexit
@@ -23,8 +24,8 @@ except ImportError:
 MAILPATH = env['MAILPATH'] if env['MAILPATH'] else env['MAIL']
 # TODO
 COLOR = {
-    "foreground": "#ffffff",
-    "background": "#282f3a",
+    "background": "#ffffff",
+    "foreground": "#282f3a",
     "lightbackground": "#414a59",
     "primary": "#5294e2",
     "good": "#91cc57",
@@ -32,6 +33,17 @@ COLOR = {
     "muted": "#999999",
 }
 
+FMT = """<span foreground='{fgtitle}' font='{titlefont}'>{{date}}</span>
+<span foreground='{fgmain}' font='{mainfont}'>
+ <span foreground='{fg1}' font='{iconfont}'></span> {{wifi}}
+ <span foreground='{fg2}' font='{iconfont}'></span> {{mail}}
+ <span foreground='{fg3}' font='{iconfont}'></span> {{paudio}}
+ <span foreground='{fg4}' font='{iconfont}'></span> {{mpd}}
+ <span foreground='{fg5}' font='{iconfont}'></span> {{bat}} %
+</span>""".format(fgtitle=COLOR['foreground'], fgmain=COLOR['foreground'],
+    titlefont="Hasklig 15px", mainfont="Hasklig 14px", iconfont="Material Icons 14px",
+    fg1=COLOR['foreground'], fg2=COLOR['foreground'], fg3=COLOR['foreground'],
+    fg4=COLOR['foreground'], fg5=COLOR['foreground'])
 
 def output_of(cmd):
     try:
@@ -42,20 +54,20 @@ def output_of(cmd):
 
 
 def battery() -> str:
-    icons = ['', '', '', ]
-    icon_charging = ''
+    # icons = ['', '', '', ]
+    # icon_charging = ''
     battery = sensors_battery()
     charge = battery.percent
     # c = color['bad'] if charge < 30 else color['good']
-    if battery.power_plugged:
-        icon = '{0}'.format(icon_charging)
-    else:
-        icon = '{0}'.format(icons[round(charge / 100 * (len(icons) - 1))])
-    return str(round(charge)) + ' ' + icon
+    # if battery.power_plugged:
+    #     icon = '{0}'.format(icon_charging)
+    # else:
+    #     icon = '{0}'.format(icons[round(charge / 100 * (len(icons) - 1))])
+    return str(round(charge))
 
 
 def mail(path: str) -> str:
-    return str(len(ls(path))) + ' ' + ''
+    return str(len(ls(path)))
 
 
 def wifi() -> str:
@@ -68,7 +80,8 @@ def wifi() -> str:
         wif = ''
         sig = 'no wife kek'
     finally:
-        return '{0} [{1}]'.format(wif, sig)
+        return wif
+        # return '{0} [{1}]'.format(wif, sig)
 
 
 def paudio() -> str:
@@ -91,9 +104,11 @@ def mpd() -> str:
 
 
 if __name__ == "__main__":
-    print(date())
-    print("bat: {0}".format(battery()))
-    print("audio: {0}".format(paudio()))
-    print("net: {0}".format(wifi()))
-    print("mail: {0}".format(mail(MAILPATH + '/new')))
-    print(mpd())
+    info = {'date': date(),
+            'bat': battery(),
+            'paudio': paudio(),
+            'wifi': wifi(),
+            'mail': mail(MAILPATH + '/new'),
+            'mpd': mpd()}
+    fmt = FMT.format(**info)
+    subprocess.run(["notify-send", fmt])
