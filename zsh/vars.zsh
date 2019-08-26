@@ -19,6 +19,7 @@ path=(
 	${GEM_HOME}/bin(N-/)
 	$path
 )
+[[ -d /usr/local/bin ]] && path+=("/usr/local/bin")
 
 typeset -Uz fpath
 fpath+=($ZDATADIR/functions)

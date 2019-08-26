@@ -8,6 +8,7 @@ function mktar() {
 path() {
 	echo $PATH | tr ":" "\n" | \
 		awk "{ sub(\"/usr\", \"[;32m/usr[0;m\"); \
+					 sub(\"/home\", \"[;32m/home[0;m\"); \
 					 sub(\"/bin\", \"[;31m/bin[0;m\"); \
 					 sub(\"/opt\", \"[;36m/opt[0;m\"); \
 					 sub(\"/sbin\", \"[;35m/sbin[0;m\"); \
