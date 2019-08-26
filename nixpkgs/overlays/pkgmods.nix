@@ -34,6 +34,7 @@ in
     inherit (unstable)
       polybar
       firefox
+      # minecraft
       # oraclejdk8
       # nixfmt
     ;

@@ -19,6 +19,7 @@ self: super:
       taskell
       zip
       sxhkd
+      qutebrowser
 
       hledger
       signal-desktop
@@ -67,6 +68,7 @@ self: super:
       beets
       steam
       minecraft
+      jdk
 
       xbanish
     ;
