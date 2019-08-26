@@ -57,7 +57,7 @@
   desktopManager.default = "none";
 
   windowManager = {
-    default = "xmonad";
+    default = "i3";
 
     # sway = {
     #   enable = true;
