@@ -14,6 +14,11 @@ in
     fprintd.enable = lcfg.services.fprintd.enable or true;
     gpm.enable = true;
 
+    dbus.socketActivated = true;
+    dbus.packages = with pkgs; [
+      gnome3.dconf
+    ];
+
     # flatpak = {
     #   enable = true;
     #   # extraPortals = [  ];
@@ -55,6 +60,7 @@ in
     #     interval = "daily";
     #   };
     # };
+    openvpn.servers.officeVPN = import /home/alter2000/var/vpn/config.nix;
 
   };
 }

@@ -1,0 +1,52 @@
+#compdef kic
+
+_arguments \
+  '1: :->level1' \
+  '2: :->level2' \
+  '3: :_files'
+case $state in
+  level1)
+    case $words[1] in
+      kic)
+        _arguments '1: :(admin completion docker get help infra install me set ssh sync unprotect upgrade version)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  level2)
+    case $words[2] in
+      unprotect)
+        _arguments '2: :(file list)'
+      ;;
+      upgrade)
+        _arguments '2: :(addon agent core service)'
+      ;;
+      admin)
+        _arguments '2: :(add list)'
+      ;;
+      docker)
+        _arguments '2: :(login)'
+      ;;
+      get)
+        _arguments '2: :(context node)'
+      ;;
+      install)
+        _arguments '2: :(addon agent core service)'
+      ;;
+      set)
+        _arguments '2: :(context ns)'
+      ;;
+      ssh)
+        _arguments '2: :(etcd lb lb-worker master worker)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  *)
+    _arguments '*: :_files'
+  ;;
+esac

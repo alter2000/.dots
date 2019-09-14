@@ -95,4 +95,15 @@ self: super:
       genymotion
     ;
   };
+
+  mdiPkgs = super.mdiPkgs or {} // {
+    inherit (self)
+      kubernetes
+      minikube
+      terraform-full
+    ;
+    inherit (self.vimPlugins) vim-terraform;
+
+    # kubernetes-helm = import ../pkgs/helm.nix;
+  };
 }
