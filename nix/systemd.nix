@@ -2,7 +2,6 @@
 
 {
   systemd.user = {
-
     services = {
 
       "dunst" = {
@@ -86,6 +85,6 @@
       };
 
     };
-
   };
+
 }

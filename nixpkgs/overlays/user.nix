@@ -35,7 +35,6 @@ self: super:
       pamixer
       pass
       passff-host
-      slurm
       urlscan
       zathura
       vimHugeX
