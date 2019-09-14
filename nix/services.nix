@@ -42,6 +42,11 @@ in
       gatewayPorts = "yes";
     };
 
+    tor = {
+      enable = true;
+      enableGeoIP = false;
+    };
+
     # clamav = {
     #   daemon.enable = true;
     #   updater = {

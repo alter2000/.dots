@@ -3,6 +3,29 @@ self: super:
 
 {
   userPackages = super.userPackages or {} // {
+
+    nix-env-rebuild = super.writeScriptBin "nix-env-rebuild" ''
+      #!${super.stdenv.shell}
+      if ! command -v nix-env &>/dev/null; then
+          echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
+          PATH=${self.nix}/bin:$PATH
+      fi
+      PENV=(
+              userPackages
+              unstablePackages
+              # cPkgs
+              pyPkgs
+              rubyPkgs
+              rustPkgs
+              haskellPkgs
+              devPkgs
+              mdiPkgs
+      )
+      exec nix-env -f '<nixpkgs>' -r -iA \
+            ''${PENV[@]}
+            "$@"
+    '';
+
     inherit (self)
       # xmonad-with-packages
       nodejs-11_x
@@ -81,30 +104,10 @@ self: super:
       pass-git-helper
     ;
 
-    nix-env-rebuild = super.writeScriptBin "nix-env-rebuild" ''
-      #!${super.stdenv.shell}
-      if ! command -v nix-env &>/dev/null; then
-          echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
-          PATH=${self.nix}/bin:$PATH
-      fi
-      PENV=(
-              userPackages
-              unstablePackages
-              # cPkgs
-              pyPkgs
-              rubyPkgs
-              rustPkgs
-              haskellPkgs
-              devPkgs
-      )
-      exec nix-env -f '<nixpkgs>' -r -iA \
-            ''${PENV[@]}
-            "$@"
-    '';
-
     myTexlive = super.texlive.combine {
       inherit (self.texlive) scheme-full noto;
       # pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "cm-super";
     };
   };
+
 }
