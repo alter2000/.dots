@@ -2,9 +2,17 @@ self: super:
 
 let
   unstable = import (builtins.fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
+      "channel:nixos-unstable") {
         config = self.config;
       };
+
+  snack = import (builtins.fetchTarball "https://github.com/nmattia/snack/tarball/master");
+
+  nur = import (builtins.fetchTarball
+      "https://github.com/nix-community/NUR/tarball/master") {
+        pkgs = self.pkgs;
+      };
+
 in
 
 {
@@ -22,12 +30,15 @@ in
     python = self.python3;
   };
 
+  sudo = super.sudo.override {
+    withInsults = true;
+  };
+
+  endless-sky = super.callPackage ../pkgs/endless-sky {};
+  slurm-git = super.callPackage ../pkgs/slurm-git {};
+
   # compton = super.compton.override {
   #   configFile = ../../compton.conf;
-  # };
-
-  # nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-  #   pkgs = self.pkgs;
   # };
 
   unstablePackages = super.unstablePackages or {} // {
@@ -38,6 +49,13 @@ in
       # oraclejdk8
       # nixfmt
     ;
+    inherit (self)
+      deluge
+    ;
+  };
+
+  randomGithubPackagesIFoundAround = {
+    inherit (snack) snack-exe;
   };
 
 }

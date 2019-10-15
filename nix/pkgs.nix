@@ -45,7 +45,6 @@ in
     ++ (if config.services.xserver.enable then [
       chromium
       firefox
-      torbrowser
       xarchiver xorg.xev xdotool xclip xsel
       xfce.thunar-bare
     ] else [])

@@ -22,7 +22,7 @@ self: super:
               mdiPkgs
       )
       exec nix-env -f '<nixpkgs>' -r -iA \
-            ''${PENV[@]}
+            ''${PENV[@]} \
             "$@"
     '';
 
@@ -43,9 +43,11 @@ self: super:
       zip
       sxhkd
       qutebrowser
+      go-mtpfs
 
       hledger
       signal-desktop
+      torbrowser
 
       imagemagick
       imv
@@ -54,6 +56,7 @@ self: super:
       libnotify
       msmtp
       neomutt
+      notmuch
       offlineimap
       pamixer
       pass
@@ -88,11 +91,14 @@ self: super:
 
       lolcat
       beets
+      xbanish
+    ;
+
+    inherit (self)
       steam
+      endless-sky
       minecraft
       jdk
-
-      xbanish
     ;
 
     inherit (self.xorg)
