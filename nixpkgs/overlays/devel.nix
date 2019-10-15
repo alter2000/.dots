@@ -1,11 +1,16 @@
 self: super:
 
-  let
-    all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-  in
+let
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+
+  unstable = import (builtins.fetchTarball
+      "channel:nixos-unstable") {
+        config = self.config;
+      };
+in
 {
   pyPkgs = super.pyPkgs or {} // {
-    pyEnv = self.python37.withPackages(ps: with ps; [
+    pyEnv = self.python37.withPackages (ps: with ps; [
       ipython
       ipdb
       python
@@ -19,6 +24,7 @@ self: super:
 
       goobook
       mps-youtube
+      subliminal
       # neovim
       # terminal_velocity
     ]);
@@ -62,7 +68,7 @@ self: super:
       hoogle
     ;
 
-    ghc = with self; hiPrio ghc;
+    ghc = super.hiPrio self.ghc;
 
     # Install stable HIE for GHC 8.6.4
     hie = all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864; }; };
@@ -106,6 +112,7 @@ self: super:
       vagrant
       virtualboxHeadless
     ;
+    inherit (unstable) go;
     gotools = super.lowPrio self.gotools;
     inherit (self.vimPlugins) vim-terraform;
 
