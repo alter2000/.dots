@@ -13,9 +13,6 @@
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/alter2000/fonts
-[submodule "ansible/plugins/modules/aur"]
-	path = ansible/plugins/modules/aur
-	url = https://github.com/kewlfft/ansible-aur
 [submodule "zsh/k"]
 	path = zsh/k
 	url = https://github.com/supercrabtree/k.git
