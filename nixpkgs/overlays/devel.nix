@@ -98,10 +98,15 @@ self: super:
 
   mdiPkgs = super.mdiPkgs or {} // {
     inherit (self)
+      ansible
+      dep
+      direnv
+      kind
       kubernetes
-      minikube
-      terraform-full
+      vagrant
+      virtualboxHeadless
     ;
+    gotools = super.lowPrio self.gotools;
     inherit (self.vimPlugins) vim-terraform;
 
     # kubernetes-helm = import ../pkgs/helm.nix;

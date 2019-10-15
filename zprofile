@@ -49,11 +49,7 @@ export LESSHISTFILE="$HOME/.cache/lesshst"
 export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
 
-export KUBECONFIG="$XDG_CONFIG_HOME/kube" \
-	KIC_WORKING_DIRECTORY="$XDG_CONFIG_HOME/kic"
-
 # export $(dbus-launch)
-source /usr/local/share/chpharos/chpharos.sh
 
 systemctl --user import-environment PATH
 

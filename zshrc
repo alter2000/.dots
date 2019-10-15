@@ -21,3 +21,5 @@ source $ZDATADIR/prompt.zsh
 zle -N rationalize-dot
 bindkey . rationalize-dot
 bindkey -M isearch . self-insert # history search fix
+
+eval "$(direnv hook zsh)"
