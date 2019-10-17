@@ -34,6 +34,16 @@ in
     withInsults = true;
   };
 
+  minikube = super.minikube.overrideAttrs (old: rec {
+    version = "v1.4.0";
+    src = self.fetchFromGitHub {
+      owner = "kubernetes";
+      repo = "minikube";
+      rev = "${version}";
+      sha256 = "1wq0qhv2zlj3ndrv3ppp2hzb076kwni3mlr9j5jy04zdjxx705rs";
+    };
+  });
+
   endless-sky = super.callPackage ../pkgs/endless-sky {};
   slurm-git = super.callPackage ../pkgs/slurm-git {};
 

@@ -15,7 +15,7 @@ self: super:
               unstablePackages
               # cPkgs
               pyPkgs
-              rubyPkgs
+              # rubyPkgs
               rustPkgs
               haskellPkgs
               devPkgs

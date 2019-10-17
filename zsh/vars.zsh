@@ -12,7 +12,6 @@
 typeset -Uz path
 path=(
 	${HOME}/.dots/bin
-	${HOME}/epitheq/bin(N-/)
 	${HOME}/.cargo/bin(N-/)
 	${HOME}/.local/bin
 	# /root/.gem/ruby/2.6.0/bin

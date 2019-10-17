@@ -3,7 +3,6 @@ alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
 alias webget="wget -mPp"
 alias wq="toilet -f future \"this isn't vim, autismo\" | lolcat \
 	|| echo 'kek u forgot the shitbox'; \
-	echo 'now shit shtill roight here and rot in hell'; \
 	sleep 616"
 alias q="wq"
 alias e="$EDITOR"
