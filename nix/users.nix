@@ -33,12 +33,17 @@
       };
     };
     defaultUserShell = pkgs.bash;
+    extraGroups.vboxusers.members = [ "alter2000" ];
   };
 
   virtualisation = {
     docker = { enable = true; };
     # libvirtd = { enable = true; };
-    # virtualbox.host = { enable = true; headless = true; };
+    virtualbox.host = {
+      enable = true;
+      addNetworkInterface = true;
+      # headless = true;
+    };
   };
 
 }
