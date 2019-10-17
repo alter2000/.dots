@@ -17,7 +17,7 @@
   security = {
     pam = {
       enableSSHAgentAuth = true;
-      usb.enable = true;
+      # usb.enable = true;
     };
     polkit.enable = true;
     rngd.enable = true;
@@ -52,7 +52,7 @@
   # should.
   system = {
     nixos.tags = ["alterpad"];
-    stateVersion = "19.03"; # Did you read the comment?
+    stateVersion = "19.09"; # Did you read the comment?
   };
 
 }
