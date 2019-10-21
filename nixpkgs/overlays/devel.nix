@@ -63,12 +63,15 @@ in
   };
 
   haskellPkgs = super.haskellPkgs or {} // {
-    inherit (self.haskellPackages)
-      stack
-      hoogle
-    ;
+    env = self.haskellPackages.ghcWithHoogle (ps: with ps; [
+      hlint
+      hindent
+      stylish-haskell
 
-    ghc = super.hiPrio self.ghc;
+      cabal-install
+      cabal2nix
+      stack
+    ]);
 
     # Install stable HIE for GHC 8.6.4
     hie = all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864; }; };
@@ -104,18 +107,20 @@ in
 
   mdiPkgs = super.mdiPkgs or {} // {
     inherit (self)
-      ansible
       dep
       direnv
+      gnumake
       kind
       kubernetes
+      minikube
       vagrant
       virtualboxHeadless
     ;
     inherit (unstable) go;
     gotools = super.lowPrio self.gotools;
+
     inherit (self.vimPlugins) vim-terraform;
 
-    # kubernetes-helm = import ../pkgs/helm.nix;
+    kubernetes-helm = import ../pkgs/helm.nix;
   };
 }
