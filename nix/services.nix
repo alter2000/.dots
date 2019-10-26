@@ -48,7 +48,7 @@ in
     };
 
     tor = {
-      enable = true;
+      # enable = true;
       enableGeoIP = false;
     };
 

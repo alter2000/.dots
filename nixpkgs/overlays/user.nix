@@ -48,6 +48,7 @@ self: super:
       hledger
       signal-desktop
       torbrowser
+      macchanger
 
       imagemagick
       imv

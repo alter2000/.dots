@@ -121,6 +121,6 @@ in
 
     inherit (self.vimPlugins) vim-terraform;
 
-    kubernetes-helm = import ../pkgs/helm.nix;
+    # kubernetes-helm = import ../pkgs/helm/default.nix;
   };
 }
