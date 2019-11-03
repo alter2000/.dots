@@ -121,11 +121,11 @@ in
       dep
       direnv
       gnumake
-      kind
-      kubernetes
-      minikube
-      vagrant
-      virtualboxHeadless
+      # kind
+      # kubernetes
+      # minikube
+      # vagrant
+      # virtualboxHeadless
     ;
     inherit (unstable) go;
     gotools = super.lowPrio self.gotools;
