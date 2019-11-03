@@ -36,6 +36,13 @@ function main() {
     xrandr_cmd+=" --output ${output} ${position} ${mode}"
   done
 
+  if command -v compton &>/dev/null; then
+    xrandr_cmd+="&& pkill compton"
+  fi
+  if command -v xbanish &>/dev/null; then
+    xrandr_cmd+="&& pkill xbanish"
+  fi
+
   ${=xrandr_cmd}
 }
 
@@ -194,7 +201,7 @@ function environment_check() {
   elif ! command -v xrandr &>/dev/null; then
     echo "Try rofi-randr without xrandr, and you're gonna have a bad time." >&2
     exit 255
-elif ! command -v rofi &>/dev/null; then
+  elif ! command -v rofi &>/dev/null; then
     echo "Try rofi-randr without some dmenu, and you're gonna have a bad time." >&2
     exit 255
   elif ! xset q &>/dev/null; then
