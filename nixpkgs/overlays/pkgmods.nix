@@ -1,15 +1,13 @@
 self: super:
 
 let
-  unstable = import (builtins.fetchTarball
-      "channel:nixos-unstable") {
+  unstable = import (fetchTarball "https://github.com/nixos/nixpkgs/tarball/master") {
         config = self.config;
       };
 
-  snack = import (builtins.fetchTarball "https://github.com/nmattia/snack/tarball/master");
+  snack = import (fetchTarball "https://github.com/nmattia/snack/tarball/master");
 
-  nur = import (builtins.fetchTarball
-      "https://github.com/nix-community/NUR/tarball/master") {
+  nur = import (fetchTarball "https://github.com/nix-community/NUR/tarball/master") {
         pkgs = self.pkgs;
       };
 
