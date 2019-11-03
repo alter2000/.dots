@@ -46,7 +46,7 @@ in
   unstablePackages = super.unstablePackages or {} // {
     inherit (unstable)
       polybar
-      firefox
+      # firefox
       # minecraft
       # oraclejdk8
       # nixfmt

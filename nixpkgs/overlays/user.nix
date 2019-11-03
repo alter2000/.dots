@@ -30,19 +30,19 @@ self: super:
       # xmonad-with-packages
       nodejs-11_x
       # busybox
+      cachix
 
       alsaUtils
       gparted
       # skype
 
-      # calcurse
       gnupg
       jrnl
       keynav
       taskell
       zip
       sxhkd
-      qutebrowser
+      firefox
       go-mtpfs
 
       hledger
@@ -115,6 +115,8 @@ self: super:
       inherit (self.texlive) scheme-full noto;
       # pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "cm-super";
     };
+
+    pboy = import (fetchTarball https://github.com/2mol/pboy/tarball/master);
   };
 
 }

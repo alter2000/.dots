@@ -49,6 +49,7 @@ in
       vim-vint
       ccls
       shfmt
+      shellcheck
       htmlTidy
     ;
   };
@@ -67,6 +68,9 @@ in
       hlint
       hindent
       stylish-haskell
+      ghcid
+
+      markdown-unlit
 
       cabal-install
       cabal2nix
@@ -74,7 +78,15 @@ in
     ]);
 
     # Install stable HIE for GHC 8.6.4
-    hie = all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864; }; };
+    hie = all-hies.unstableFallback.selection { selector = p: {
+      inherit (p)
+        ghc844
+        ghc863
+        ghc864
+        ghc865
+        # ghc866
+      ;
+    }; };
   };
 
   rustPkgs = super.rustPkgs or {} // {
