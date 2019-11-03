@@ -40,7 +40,7 @@
     docker = { enable = true; };
     # libvirtd = { enable = true; };
     virtualbox.host = {
-      enable = true;
+      enable = false;
       addNetworkInterface = true;
       # headless = true;
     };

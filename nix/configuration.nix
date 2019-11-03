@@ -12,6 +12,7 @@
     ./services.nix
     ./systemd.nix
     ./users.nix
+    /etc/nixos/cachix.nix
   ];
 
   security = {
@@ -37,12 +38,13 @@
     buildCores = 3;
     maxJobs = 3;
     gc = {
-      automatic = true;
-      # dates = ["wed" "sun"];
+      automatic = false;
+      # man systemd.time
+      dates = "Wed,Sun";
     };
     optimise = {
       automatic = true;
-      # dates = ["wed" "sun"];
+      dates = ["wed" "sun"];
     };
   };
 
@@ -54,5 +56,4 @@
     nixos.tags = ["alterpad"];
     stateVersion = "19.09"; # Did you read the comment?
   };
-
 }
