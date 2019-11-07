@@ -2,8 +2,20 @@
 
 let
   lcfg = (if builtins.pathExists ./local.nix then ./local.nix else {});
+  vsliveshare = import /home/alter2000/tmp/nixos-vsliveshare;
 in
 {
+  imports = [
+    vsliveshare
+  ];
+
+  services.vsliveshare = {
+    enable = true;
+    enableWritableWorkaround = true;
+    enableDiagnosticsWorkaround = true;
+    extensionsDir = "/home/alter2000/.vscode/extensions";
+  };
+
   networking = {
     hostName = lcfg.networking.hostName or "alterpad";
     dhcpcd.enable = false;
