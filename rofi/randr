@@ -36,14 +36,15 @@ function main() {
     xrandr_cmd+=" --output ${output} ${position} ${mode}"
   done
 
+  ${=xrandr_cmd}
+
   if command -v compton &>/dev/null; then
-    xrandr_cmd+="&& pkill compton"
+    pkill compton
   fi
   if command -v xbanish &>/dev/null; then
-    xrandr_cmd+="&& pkill xbanish"
+    pkill xbanish
   fi
 
-  ${=xrandr_cmd}
 }
 
 ################################################################################
