@@ -33,13 +33,12 @@ in
 
   devPkgs = super.devPkgs or {} // {
     inherit (self)
-      tig
       gitRepo
       git-lfs
       patchelf
 
       tcsh
-      ctags
+      universal-ctags
 
       qemu
       virtmanager
@@ -84,6 +83,7 @@ in
         ghc864
         ghc865
         # ghc866
+        # ghc881
       ;
     }; };
   };

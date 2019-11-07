@@ -2,6 +2,7 @@
 	email = altnate2000@gmail.com
 	name = Jor Bashllari
 	signingkey = 352B7423BC3C59E4
+	useConfigOnly = true
 [color]
 	ui = true
 [color "branch"]
