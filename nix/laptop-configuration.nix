@@ -52,8 +52,11 @@ in
       speed = 120;
     };
 
-    opengl.driSupport32Bit = true;
-    opengl.driSupport = true;
+    opengl = {
+      driSupport32Bit = true;
+      driSupport = true;
+      extraPackages = [ pkgs.vaapiIntel ];
+    };
 
     # bluetooth = {
     #   enable = true;
@@ -90,6 +93,12 @@ in
       value = "1048576";
   }];
 
+  location = {
+    provider = "geoclue2";
+    # latitude = 50.0;
+    # longitude = 10.0;
+  };
+
   services = {
     thinkfan = {
       enable = true;
@@ -105,9 +114,9 @@ in
         (7,	63,	32767)
       '';
       sensors = ''
-        hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
-        hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input
-        hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp3_input
+        hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+        hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp2_input
+        hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp3_input
       '';
       # levels = ''
       #   (0,	0,	47)
@@ -127,10 +136,10 @@ in
 
     redshift = {
       enable = true;
-      latitude = "50";
-      longitude = "10";
-      temperature.day = 6300;
-      temperature.night = 4200;
+      temperature = {
+        day = 6300;
+        night = 4200;
+      };
       extraOptions = [ "-g 0.8" ];
     };
 

@@ -28,7 +28,7 @@ self: super:
 
     inherit (self)
       # xmonad-with-packages
-      nodejs-11_x
+      nodejs
       # busybox
       cachix
 
@@ -47,7 +47,7 @@ self: super:
 
       hledger
       signal-desktop
-      torbrowser
+      # torbrowser
       macchanger
 
       imagemagick

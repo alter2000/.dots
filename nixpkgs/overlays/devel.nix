@@ -65,10 +65,11 @@ in
     env = self.haskellPackages.ghcWithHoogle (ps: with ps; [
       hlint
       hindent
-      stylish-haskell
       ghcid
+      hasktags
 
       markdown-unlit
+      stylish-haskell
 
       cabal-install
       cabal2nix
@@ -118,20 +119,34 @@ in
 
   mdiPkgs = super.mdiPkgs or {} // {
     inherit (self)
-      dep
+      tmate
       direnv
+      steam-run-native
+
+      dep
       gnumake
+      kubectl
+      minikube
+      kubernetes-helm
       # kind
       # kubernetes
-      # minikube
       # vagrant
       # virtualboxHeadless
+
+      go-outline
+      gocode
+      gocode-gomod
+      godef
+      golint
+      gopkgs
     ;
     inherit (unstable) go;
     gotools = super.lowPrio self.gotools;
 
-    inherit (self.vimPlugins) vim-terraform;
+    # inherit (self.vimPlugins) vim-terraform;
 
-    # kubernetes-helm = import ../pkgs/helm/default.nix;
+    vscode =
+      # import ../pkgs/vscode-with-extensions self super;
+      self.vscode;
   };
 }
