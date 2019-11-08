@@ -3,7 +3,7 @@ self: super:
 let
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 
-  unstable = import (fetchTarball "https://github.com/nixos/nixpkgs/tarball/master") {
+  unstable = import (fetchTarball "channel:nixpkgs-unstable") {
         config = self.config;
       };
 in

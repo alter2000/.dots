@@ -109,6 +109,9 @@ self: super:
 
     inherit (self.gitAndTools)
       pass-git-helper
+      git-imerge
+      gitFull
+      tig
     ;
 
     myTexlive = super.texlive.combine {

@@ -1,7 +1,7 @@
 self: super:
 
 let
-  unstable = import (fetchTarball "https://github.com/nixos/nixpkgs/tarball/master") {
+  unstable = import (fetchTarball "channel:nixpkgs-unstable") {
         config = self.config;
       };
 
@@ -18,7 +18,6 @@ in
   polybar = super.polybar.override {
     githubSupport = true;
     i3Support = true;
-    # i3GapsSupport = true;
     nlSupport = true;
     mpdSupport = true;
     pulseSupport = true;
@@ -32,8 +31,6 @@ in
     withInsults = true;
   };
 
-  # minikube = super.callPackage ../pkgs/minikube {};
-
   endless-sky = super.callPackage ../pkgs/endless-sky {};
   slurm-git = super.callPackage ../pkgs/slurm-git {};
 
@@ -46,11 +43,7 @@ in
       polybar
       # firefox
       # minecraft
-      # oraclejdk8
       # nixfmt
-    ;
-    inherit (self)
-      deluge
     ;
   };
 
