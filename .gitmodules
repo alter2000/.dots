@@ -22,3 +22,9 @@
 [submodule "icons/Zafiro-icons"]
 	path = icons/Zafiro-icons
 	url = https://github.com/zayronxio/Zafiro-icons
+[submodule "nix"]
+	path = nix
+	url = git@github.com:alter2000/nixos
+[submodule "nixpkgs"]
+	path = nixpkgs
+	url = git@github.com:alter2000/nix-user
