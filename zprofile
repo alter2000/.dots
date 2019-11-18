@@ -33,6 +33,7 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle" \
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true" \
 	_JAVA_AWT_WM_NONREPARENTING=1
 
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch"
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export RTV_URLVIEWER=urlscan
