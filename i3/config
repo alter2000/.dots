@@ -98,9 +98,9 @@ bindsym $mod+Shift+Q move scratchpad
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-bindsym $mod+r mode r
+bindsym $mod+r mode resize
 # resize window (you can also use the mouse for that)
-mode R {
+mode resize {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.

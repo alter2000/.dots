@@ -336,6 +336,7 @@ inherit = module/network
 format-connected-prefix = "   "
 format-connected-suffix = "   "
 format-connected-background = ${colors.blue}
+format-disconnected-foreground = ${colors.red}
 label-connected = %upspeed%
 
 [module/down-speed]
@@ -343,6 +344,7 @@ inherit = module/network
 format-connected-prefix = "   "
 format-connected-suffix = "   "
 format-connected-background = ${colors.lightgreen}
+format-disconnected-foreground = ${colors.red}
 label-connected = %downspeed%
 
 [module/up-speed_eth]
