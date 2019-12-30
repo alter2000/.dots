@@ -144,6 +144,8 @@ pgrep -P ${PID} \
       then
         xdotool windowminimize $( xdotool search --pid ${PID} )
         echo "INFO: xdotool windowminimize \$( xdotool search --pid ${PID} )"
+        # TODO: y u no wurk?
+        # notify-send "process window" "${PID} paused"
       fi
       kill -${SIGNAL} ${I}
       echo "INFO: kill -${SIGNAL} ${I}"

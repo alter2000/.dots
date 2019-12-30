@@ -50,10 +50,10 @@ bind -n M-h select-pane -L
 bind -n M-j select-pane -D
 bind -n M-k select-pane -U
 bind -n M-l select-pane -R
-bind -n M-1 select-pane 1
-bind -n M-2 select-pane 2
-bind -n M-3 select-pane 3
-bind -n M-4 select-pane 4
+bind -n M-1 select-pane -t 1
+bind -n M-2 select-pane -t 2
+bind -n M-3 select-pane -t 3
+bind -n M-4 select-pane -t 4
 
 bind p previous-window
 bind _ split-window

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+bluetoothctl | while read -r; do
+	if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
+		device_info=$(bluetoothctl paired-devices | grep -E "Device" | head -n 1 | cut -d ' ' -f 2 | xargs bluetoothctl info)
+
+        if echo "$device_info" | grep -q "Connected: yes"; then
+            device_alias=$(echo "$device_info" | grep -E "Alias" | cut -d ' ' -f 2-)
+            printf "$device_alias"
+        fi
+        printf '\n'
+	fi
+done

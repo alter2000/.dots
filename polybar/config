@@ -76,6 +76,7 @@ fixed-center = false
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
 modules-left = i3 battery down-speed up-speed weather redshift
+modules-right = pulseaudio bluetoothctl cpu temperature date
 
 
 [bar/i3bar2]
@@ -145,6 +146,14 @@ label-charging-foreground = ${colors.mwhite}
 label-discharging-foreground = ${colors.mwhite}
 animation-charging-foreground = ${colors.mwhite}
 animation-charging-framerate = 750
+
+
+[module/bluetoothctl]
+type = custom/script
+exec = ~/.dots/scripts/bluetoothctl-print
+tail = true
+click-left = ~/.dots/scripts/bluetoothctl-toggle
+format-background = ${colors.green}
 
 
 [module/bspwm]
