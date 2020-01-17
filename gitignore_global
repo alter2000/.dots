@@ -17,6 +17,8 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 
+.ccls-cache
+a.out
 *.com
 *.class
 *.dll
@@ -52,9 +54,9 @@ Icon?
 Thumbs.db
 ehthumbs.db
 tags
-
-__pycache__
-*.pyc
 *.swp
 .*.swp
 *.swo
+
+__pycache__
+*.pyc
