@@ -1,3 +1,15 @@
+idk.c
+.ccls-cache
+a.out
+
+__pycache__
+*.pyc
+
+tags
+*.swp
+.*.swp
+*.swo
+
 dist
 dist-*
 cabal-dev
@@ -17,8 +29,6 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 
-.ccls-cache
-a.out
 *.com
 *.class
 *.dll
@@ -53,10 +63,3 @@ a.out
 Icon?
 Thumbs.db
 ehthumbs.db
-tags
-*.swp
-.*.swp
-*.swo
-
-__pycache__
-*.pyc
