@@ -20,9 +20,9 @@ export XDG_DESKTOP_DIR="$HOME/var/desk" \
 	XDG_DATA_DIRS="$HOME/.local/share/:$XDG_DATA_DIRS"
 
 # export GIT_ASKPASS="/bin/sh -c 'pass Gits/github.com | head -1'"
-export GITHUB_USER='alter2000' \
-	CHEATPATH='$HOME/static/documents/chsheets' \
-	CHEATCOLORS=true
+export GITHUB_USER='alter2000'
+	# CHEATPATH='$HOME/static/documents/chsheets' \
+	# CHEATCOLORS=true
 
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle" \
 	BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle" \

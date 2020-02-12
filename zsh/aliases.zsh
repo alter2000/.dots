@@ -74,28 +74,6 @@ alias grep="grep --color=auto"
 alias fgrep="grep --color=auto -F"
 alias egrep="grep --color=auto -E"
 
-if command -v yay >/dev/null; then
-	alias suffer="yay -Syu"
-	alias plague="yay -Pw"
-	alias pain="yay -S"
-	alias painl="yay -U"
-	alias paind="yay -S --asdeps"
-	alias pare="yay -R"
-	alias parm="yay -Rsn"
-	alias parmorphans="sudo pacman -Rns $(pacman -Qtdq | tr '\n' ' ')"
-	alias parmnew="sudo find / -name '*.pacnew' 2>/dev/null"
-elif command -v apt >/dev/null; then
-	alias suffer="sudo apt update && sudo apt upgrade"
-	alias pain="sudo apt install"
-	alias painl="sudo apt upgrade"
-	alias pare="sudo apt remove"
-	alias parm="sudo apt purge"
-elif command -v dnf >/dev/null; then
-	alias suffer="sudo dnf upgrade"
-	alias pain="sudo dnf install"
-	alias parm="sudo dnf remove"
-fi
-
 # global aliases for reading
 alias -g _LL="2>&1 | less"
 alias -g _NE="2> /dev/null"

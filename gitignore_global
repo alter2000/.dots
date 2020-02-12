@@ -9,6 +9,7 @@ tags
 *.swp
 .*.swp
 *.swo
+*.srctrl*
 
 dist
 dist-*
@@ -34,6 +35,7 @@ cabal.project.local~
 *.dll
 *.exe
 *.o
+*.gch
 *.so
 
 *.7z
