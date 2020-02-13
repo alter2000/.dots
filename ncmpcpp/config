@@ -57,7 +57,7 @@ visualizer_fifo_path = /tmp/mpd.fifo
 ## sound as currently there are some problems with it.
 ##
 #
-visualizer_output_name = Visualizer
+visualizer_output_name = visualizer
 #
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
@@ -387,7 +387,7 @@ startup_screen = playlist
 ##
 startup_slave_screen = "lyrics"
 #
-startup_slave_screen_focus = yes
+startup_slave_screen_focus = no
 #
 ##
 ## Default width of locked screen (in %).  Acceptable values are from 20 to 80.

@@ -1,4 +1,4 @@
-idk.c
+IDK.C
 .ccls-cache
 a.out
 
@@ -30,6 +30,7 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 
+.jekyll-cache
 *.com
 *.class
 *.dll
