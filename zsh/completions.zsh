@@ -1,4 +1,5 @@
 autoload -Uz compinit; compinit -d "$XDG_CACHE_HOME/zcompdump"
+autoload -U +X bashcompinit && bashcompinit -d "$XDG_CACHE_HOME/zbashcompdump"
 # autoload -U ~/.zsh/completions/*(:t)
 
 zstyle ':completion:*' completer _expand _complete _ignored _approximate

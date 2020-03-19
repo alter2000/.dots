@@ -79,3 +79,5 @@ alias -g _LL="2>&1 | less"
 alias -g _NE="2> /dev/null"
 alias -g _P="2>&1| pygmentize -l pytb"
 alias -g _QQ="2>/dev/null"
+
+alias headphones="bluetoothctl power off && bluetoothctl power on && bluetoothctl connect BC:F2:92:BA:A2:E2"

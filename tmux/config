@@ -38,14 +38,15 @@ bind P paste-buffer
 set -g mode-keys vi
 bind ` copy-mode
 unbind -T copy-mode-vi MouseDragEnd1Pane
-bind -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi V send-keys -X select-line
+bind -T copy-mode-vi v   send-keys -X begin-selection
+bind -T copy-mode-vi V   send-keys -X select-line
 bind -T copy-mode-vi C-V send-keys -X rectangle-toggle
-bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'
+bind -T copy-mode-vi y   send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'
 bind h resize-pane -L 5
 bind j resize-pane -D 3
 bind k resize-pane -U 5
 bind l resize-pane -R 3
+bind C-k clear-history
 bind -n M-h select-pane -L
 bind -n M-j select-pane -D
 bind -n M-k select-pane -U
