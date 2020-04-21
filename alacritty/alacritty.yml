@@ -47,7 +47,7 @@ scrolling:
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  multiplier: 3
+  multiplier: 2
 
   # Faux Scrolling
   #
@@ -56,7 +56,7 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
+  faux_multiplier: 2
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
@@ -91,9 +91,9 @@ font:
   normal:
     family: League Mono
     # family: Hasklig
-    # family: Powerline Extra Symbols
-    # family: FontAwesome
-    # family: Material Icons
+    # - Powerline Extra Symbols
+    # - FontAwesome
+    # - Material Icons
     style: Regular
   bold:
     family: IBM Plex Mono
@@ -103,20 +103,20 @@ font:
     family: IBM Plex Mono
     # family: Powerline Extra Symbols
     style: Italic
-  size: 9
+  size: 8
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: -1
-    y: 1
+    y: 4
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
   # the right, increase the y offset to move the glyph upward.
   glyph_offset:
     x: 0
-    y: 0
+    y: 1
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true

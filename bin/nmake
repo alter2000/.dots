@@ -1,0 +1,5 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i sh -p gnumake
+# vim:ft=sh
+
+clear && clear && make "$@"
