@@ -17,6 +17,7 @@ alias m="neomutt"
 alias epim="neomutt -e 'set smtp_url = \"smtp://jori.bashllari@epitech.eu@smtp.office365.com:587\"'"
 alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
 
+alias download-containers='for i in epitechcontent/epitest-docker mycroftai/docker-mycroft ubuntu:18.04; docker pull $i'
 alias browsh-docker='docker run --rm -it browsh/browsh'
 alias calc="autoload -Uz zcalc && zcalc"
 alias yeet="find . -mindepth 0 -maxdepth 9 -type f -name '*.o' -delete"
@@ -51,13 +52,16 @@ alias './'="ranger"
 alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit"
-alias gd="git diff"
+alias gstash="git stash"
+alias gpop="git stash pop"
+alias gd="git diff -w --word-diff"
 alias gdiff="git difftool"
 alias gp="git push"
 alias gpull="git pull --rebase"
 alias gsu="git submodule update"
 alias gts="git tag -s"
 alias grb="git rebase --interactive"
+alias grc="git rebase --continue"
 gdv() { git diff -w "$@" | vim - }
 compdef _git gdv=git-diff
 

@@ -1,8 +1,11 @@
 IDK.C
 .ccls-cache
+compile_commands.json
 a.out
 
 __pycache__
+.pytest-cache
+.hypothesis
 *.pyc
 
 tags
