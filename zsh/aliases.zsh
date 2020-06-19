@@ -1,6 +1,6 @@
 # fuck the law with the dick in my hand
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
-alias webget="wget -mPp"
+alias webget="wget -mkEpnp"
 alias wq="toilet -f future \"this isn't vim, autismo\" | lolcat \
 	|| echo 'kek u forgot the shitbox'; \
 	sleep 616"
@@ -8,17 +8,16 @@ alias q="wq"
 alias e="$EDITOR"
 alias ew="zile"
 alias ffs="sudo"
-alias sudont=""
+alias sudont="false && "
 alias m,="nmtui-connect"
-alias asd="taskell ~/notes/epitech/daily.md"
 alias qwe="tmux attach"
 alias aux="pulsemixer"
 alias m="neomutt"
-alias epim="neomutt -e 'set smtp_url = \"smtp://jori.bashllari@epitech.eu@smtp.office365.com:587\"'"
-alias wordgrinder='wordgrinder --config "$XDG_CONFIG_HOME/wordgrinder.lua"'
+alias :r="stack ghci"
 
 alias download-containers='for i in epitechcontent/epitest-docker mycroftai/docker-mycroft ubuntu:18.04; docker pull $i'
 alias browsh-docker='docker run --rm -it browsh/browsh'
+alias gdb='gdb -q -w'
 alias calc="autoload -Uz zcalc && zcalc"
 alias yeet="find . -mindepth 0 -maxdepth 9 -type f -name '*.o' -delete"
 

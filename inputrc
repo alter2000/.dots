@@ -12,7 +12,9 @@ set keymap vi-command
 # j and k should search for the string of characters preceding the cursor
 "k": history-search-backward
 "j": history-search-forward
+# Control-l: clear-screen
 
-# set keymap vi-insert
+set keymap vi-insert
+Control-l: clear-screen
 # inoremap jk <Esc>
 # "jk": vi-movement-mode
