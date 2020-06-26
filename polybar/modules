@@ -1,0 +1,211 @@
+[bar/i3bar2]
+inherit = template/mainbar
+monitor-strict = false
+override-redirect = true
+wm-restack = i3
+bottom = false
+fixed-center = false
+height = 40
+width = 50%
+padding-left = 100
+padding-right = 10
+modules-left = reddit mail
+foreground = ${xrdb:color15}
+background = ${colors.transparent}
+spacer = " "
+
+
+[bar/bspbar]
+inherit = template/mainbar
+wm-restack = bspwm
+spacing = 2
+modules-left = bspwm battery down-speed up-speed weather redshift
+scroll-up = bspwm-deskprev
+scroll-down = bspwm-desknext
+
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+format-foreground = #5f5f5f
+
+
+[module/xworkspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
+
+icon-0 = 1 ffox;
+icon-1 = 2 ide;
+icon-2 = 3 files;
+icon-3 = 4 random;
+icon-4 = 5 random;
+icon-5 = 6 random;
+icon-6 = 7 random;
+icon-7 = 8 random;
+icon-8 = 9 aux;
+icon-9 = 10 media;
+icon-default = O
+
+format = <label-monitor> <label-state>
+
+
+[module/memory]
+type = internal/memory
+interval = 5
+label =  %percentage_used%
+
+
+[module/backlight]
+type = internal/xbacklight
+format = <label> <bar>
+label = ""
+format-background = ${colors.darkpurple}
+bar-width = 15
+bar-indicator = │
+bar-indicator-foreground = ${colors.mainbg}
+bar-indicator-font = 8
+bar-fill = ─
+bar-fill-font = 8
+bar-fill-foreground = ${colors.mainfg}
+bar-empty = ─
+bar-empty-font = 8
+bar-empty-foreground = ${colors.purple}
+
+
+[module/volume]
+type = internal/volume
+;master-mixer = Master
+format-volume = <ramp-volume> <bar-volume>
+click-right = pavucontrol
+scroll-up = amixer -D pulse set Master 5%+ unmute
+scroll-down = amixer -D pulse set Master 5%- unmute
+interval = 0.5
+
+format-background = ${colors.brightgreen}
+format-muted-foreground = ${colors.dark}
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width = 14
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 8
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 8
+bar-volume-empty = ─
+bar-volume-empty-font = 8
+bar-volume-empty-foreground = ${colors.mainfg}
+bar-volume-background-6 = ${colors.lightgreen}
+
+
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = <label-indicator> <label-layout>
+format-spacing = 0
+label-layout = %name%
+label-layout-padding = 2
+label-indicator = %name%
+label-indicator-padding = 2
+
+
+[module/usb-ant]
+type = internal/network
+inherit = module/network
+interface = ra0
+
+[module/bspwm]
+type = internal/bspwm
+ws-icon-default = x
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+format = <label-mode> <label-state>
+format-background = ${colors.green}
+
+label-separator = " "
+label-separator-padding = 1
+label-separator-background = ${colors.green}
+
+label-focused = %icon%
+label-focused-background = ${colors.dark}
+label-focused-foreground = ${colors.mwhite}
+
+label-occupied = %icon%
+label-occupied-background = ${colors.green}
+label-occupied-foreground = ${colors.mwhite}
+label-urgent = %icon%
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.mwhite}
+label-empty = 
+label-empty-background = ${colors.green}
+label-empty-foreground = ${colors.mwhite}
+
+label-monocle = 
+label-tiled = 
+label-floating = 
+label-locked = 
+label-locked-foreground = ${colors.red}
+label-sticky = 
+label-sticky-foreground = ${colors.orange}
+label-private = 
+label-private-foreground = ${colors.red}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+; when using >1 monitors
+; label-dimmed-focused
+; label-dimmed-occupied
+; label-dimmed-urgent
+; label-dimmed-empty
+
+
+[module/up-speed_eth]
+inherit = module/up-speed
+interface = enp0s25
+[module/down-speed_eth]
+inherit = module/down-speed
+interface = enp0s25
+
+
+[module/mail]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = "  "
+exec = ~/git/me/stuffs/mail.sh
+
+
+[module/reddit]
+type = custom/script
+interval = 10
+format = <label>
+exec = ~/.config/polybar/reddit.sh
+click-left = xdg-open https://reddit.com/message/unread & disown
+
+
+[module/app_firefox]
+type = custom/text
+click-left = firefox &
+content = 
+
+; vim:ft=dosini
