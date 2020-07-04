@@ -127,6 +127,9 @@ case $1 in
     f)
       printf "(っ◕‿◕)っ♥"
     ;;
+    rice)
+      printf "🍚"
+    ;;
     b)
       printf "🅱"
     ;;
