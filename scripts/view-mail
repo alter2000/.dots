@@ -1,0 +1,19 @@
+#!/bin/sh
+
+COLUMNS=${COLUMNS:-`tput cols`}
+FILE="$1"
+ENCODING="${2:utf-8}"
+
+# copy file before opening because mutt deletes it quicklyish idk
+DIR="${mktemp -d}"
+cp "$FILE" "$DIR/preview"
+FILE="$DIR/preview"
+
+CMD="view '+set encoding=$ENCODING' filetype=mail nofoldenable nomodifiable' '$FILE'"
+if [ -z "$TMUX" ]; then
+    $CMD
+elif [ $COLUMNS -gt 160 ]; then
+    tmux split-window -p 50 -h $CMD
+else
+    tmux split-window -p 50 -v $CMD
+fi
