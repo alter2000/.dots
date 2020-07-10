@@ -54,9 +54,4 @@ export MAKEFLAGS='-j3'
 
 systemctl --user import-environment PATH
 
-# if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-# 	exec startx
-# fi
-
-
 # vim:ft=zsh
