@@ -2,7 +2,8 @@
 black  = #cc0c0d0e
 bblack = #444444
 white  = #ffffff
-mwhite = #fbf1c7
+;  #fbf1c7
+mwhite = #f2e6d1
 dark = #70655b
 mainbg = #f2e6d1
 mainfg = #70655b
@@ -61,7 +62,7 @@ fixed-center = true
 background = ${colors.mainbg}
 foreground = ${colors.dark}
 
-modules-left = xworkspaces battery down-speed up-speed weather redshift
+modules-left = battery down-speed up-speed weather redshift
 modules-center = mpd
 modules-right = pulseaudio cpu temperature date
 
@@ -70,7 +71,7 @@ font-1 = Material Icons:pixelsize=14;+3
 font-2 = Knack Nerd Font:pixelsize=10;+3
 
 
-[bar/i3bar1]
+[bar/i3bar]
 inherit = template/mainbar
 fixed-center = false
 scroll-up = i3wm-wsprev
@@ -137,7 +138,8 @@ format-background = ${colors.blue}
 type = internal/i3
 format = <label-state>  <label-mode>
 strip-wsnumbers = true
-pin-workspaces = true
+pin-workspaces = false
+fuzzy-match = true
 index-sort = false
 wrapping-scroll = false
 
