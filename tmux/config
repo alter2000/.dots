@@ -12,6 +12,7 @@ set -g history-limit 10000
 set -g history-file '$XDG_CACHE_HOME/tmux/history'
 set -g display-time 3000
 setw -g aggressive-resize on  # resize current window not session to smallest term's size
+setw -g main-pane-width 85
 
 unbind C-b
 set -g prefix C-s
@@ -21,6 +22,8 @@ set -sg escape-time 1  # command escape time
 set -g base-index 1
 set -g pane-base-index 1
 set -g set-clipboard on
+setw -g xterm-keys on
+set -g focus-events on
 
 set -sg escape-time 0
 set -g allow-rename off
@@ -37,7 +40,16 @@ bind r source-file ~/.tmux.conf
 bind P paste-buffer
 set -g mode-keys vi
 bind ` copy-mode
+
+# Stay in copy mode on drag end.
 unbind -T copy-mode-vi MouseDragEnd1Pane
+# Make double and triple click work outside of copy mode (already works inside it with default bindings).
+bind-key -T root DoubleClick1Pane if-shell -Ft'{mouse}' '#{alternate_on}' "send-keys -M" "copy-mode -t'{mouse}'; send-keys -t'{mouse}' -X select-word"
+bind-key -T root TripleClick1Pane if-shell -Ft'{mouse}' '#{alternate_on}' "send-keys -M" "copy-mode -t'{mouse}'; send-keys -t'{mouse}' -X select-line"
+# Don't exit copy mode on double or triple click.
+bind-key -T copy-mode-vi DoubleClick1Pane if-shell -Ft'{mouse}' '#{alternate_on}' "send-keys -M" "copy-mode -t'{mouse}'; send-keys -t'{mouse}' -X select-word"
+bind-key -T copy-mode-vi TripleClick1Pane if-shell -Ft'{mouse}' '#{alternate_on}' "send-keys -M" "copy-mode -t'{mouse}'; send-keys -t'{mouse}' -X select-line"
+
 bind -T copy-mode-vi v   send-keys -X begin-selection
 bind -T copy-mode-vi V   send-keys -X select-line
 bind -T copy-mode-vi C-V send-keys -X rectangle-toggle

@@ -49,25 +49,25 @@ Xcursor.size: 20
 *color13: base06
 *color14: base0F
 
-/* *color0: #252127 */
-/* *color1: #E85629 */
-/* *color2: #188A67 */
-/* *color3: #F0A43A */
-/* *color4: #2D595D */
-/* *color5: #9D7186 */
-/* *color6: #B5C8C0 */
-/* *color7: #C5BEA4 */
+*color0: #252127
+*color1: #E85629
+*color2: #188A67
+*color3: #F0A43A
+*color4: #2D595D
+*color5: #9D7186
+*color6: #B5C8C0
+*color7: #C5BEA4
 
-/* *color8: #70655B */
-/* *color9: #CC241D */
-/* *color10: #8AB93F */
-/* *color11: #F0A43A */
-/* *color12: #458588 */
-/* *color13: #802152 */
-/* *color14: #54ced6 */
-/* *color15: #FBF1C7 */
+*color8: #70655B
+*color9: #CC241D
+*color10: #8AB93F
+*color11: #F0A43A
+*color12: #458588
+*color13: #802152
+*color14: #54ced6
+*color15: #FBF1C7
 
-/* }}} */
+}}}
 
 Urxvt.font: xft:Overpass Mono:size=21
 URxvt.geometry: 58x12

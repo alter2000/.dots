@@ -77,6 +77,6 @@ XF86Tools
 XF86LaunchA
 	endless-sky
 XF86Explorer
-	thunar
+	nautilus
 
 # }}}

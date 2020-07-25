@@ -31,7 +31,7 @@
 #listview {
 	layout:		horizontal;
 	spacing:	4px;
-	lines:		100;
+	lines:		10;
 }
 
 #entry {

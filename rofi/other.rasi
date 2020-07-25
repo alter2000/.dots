@@ -28,9 +28,9 @@
 /* } */
 
 #listview {
-	layout:		horizontal;
+	layout:		vertical;
 	spacing:	4px;
-	lines:		100;
+	lines:		8;
 }
 
 #entry {

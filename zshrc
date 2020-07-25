@@ -22,4 +22,6 @@ zle -N rationalize-dot
 bindkey . rationalize-dot
 bindkey -M isearch . self-insert # history search fix
 
+for i in $(cat "$ZDATADIR/hashed.dirs"); hash -d "$i"
+
 eval "$(direnv hook zsh)"

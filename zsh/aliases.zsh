@@ -77,10 +77,10 @@ alias grep="grep --color=auto"
 alias fgrep="grep --color=auto -F"
 alias egrep="grep --color=auto -E"
 
-# global aliases for reading
-alias -g _LL="2>&1 | less"
-alias -g _NE="2> /dev/null"
-alias -g _P="2>&1| pygmentize -l pytb"
-alias -g _QQ="2>/dev/null"
+alias -g L="2>&1 | less"
+alias -g NE="2> /dev/null"
+alias -g P="2>&1| pygmentize -l pytb"
+alias -g QQ="2>/dev/null"
+alias -g E=" | xargs -o $EDITOR"
 
 alias headphones="bluetoothctl power off && bluetoothctl power on && bluetoothctl connect BC:F2:92:BA:A2:E2"
