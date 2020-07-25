@@ -80,6 +80,16 @@ modules-left = i3 battery down-speed up-speed weather redshift
 modules-right = pulseaudio bluetoothctl cpu temperature date
 
 
+[bar/xmonadbar]
+inherit = template/mainbar
+monitor = ${env:MONITOR:eDP1}
+fixed-center = false
+; scroll-up = i3wm-wsprev
+; scroll-down = i3wm-wsnext
+modules-left = ewmh battery down-speed up-speed weather redshift
+modules-right = pulseaudio bluetoothctl cpu temperature date
+
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -172,7 +182,61 @@ label-urgent = %icon%
 label-urgent-background = ${colors.orange}
 label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${self.label-focused-foreground}
 
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; not yet supported by xmonad: needs _NET_DESKTOP_VIEWPORT
+;pin-workspaces = true
+enable-click = false
+enable-scroll = true
+
+icon-0 = ffox;
+icon-1 = term;
+icon-2 = files;
+icon-3 = random;
+icon-4 = random;
+icon-5 = random;
+icon-6 = random;
+icon-7 = random;
+icon-8 = aux;
+icon-9 = media;
+icon-default = 0
+
+format-background = ${colors.green}
+format-foreground = ${colors.mwhite}
+
+label-active-padding = 2
+label-empty-padding = 1
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-urgent-padding = 1
+label-visible-padding = 1
+
+label-active = 
+label-active-background = ${self.format-foreground}
+label-active-foreground = ${self.format-background}
+
+label-empty = %icon%
+label-empty-background = ${self.format-background}
+label-empty-foreground = ${self.format-foreground}
+
+label-focused = %icon%
+label-focused-background = ${colors.dark}
+label-focused-foreground = ${colors.mwhite}
+
+label-unfocused = %icon%
+label-unfocused-background = ${self.format-background}
+label-unfocused-foreground = ${self.format-foreground}
+
+label-urgent = %icon%
+label-urgent-background = ${colors.orange}
+
+label-visible = %icon%
+label-visible-background = ${self.label-unfocused-background}
+label-visible-foreground = ${self.label-unfocused-foreground}
 
 [module/mpd]
 type = internal/mpd
