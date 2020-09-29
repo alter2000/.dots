@@ -76,6 +76,7 @@ alias ff='find ./ -name'
 alias grep="grep --color=auto"
 alias fgrep="grep --color=auto -F"
 alias egrep="grep --color=auto -E"
+alias dmenu="rofi -dmenu"
 
 alias -g L="2>&1 | less"
 alias -g NE="2> /dev/null"

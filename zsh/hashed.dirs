@@ -1,3 +1,6 @@
 var=/home/alter2000/var
 tmp=/home/alter2000/tmp
 epi=/home/alter2000/epitheq
+notes=/home/alter2000/notes
+dots=/home/alter2000/.dots
+music=/home/alter2000/lfs/music
