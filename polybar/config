@@ -36,9 +36,7 @@ module-margin = "   "
 format-foreground = ${colors.mainbg}
 format-background = ${colors.mainbg}
 format-prefix-foreground = ${colors.mainbg}
-; format-spacing = 3
-format-padding = 4
-; format-margin = 3
+format-padding = 3
 content-foreground = ${colors.mainbg}
 content-background = ${colors.transparent}
 ; format-offset =
@@ -370,5 +368,14 @@ format-padding = 1
 format-background = ${colors.yellow}
 exec = "~/.dots/polybar/weather -i"
 
+
+[module/xkeyboard]
+type = internal/xkeyboard
+label-layout-background = ${colors.mainbg}
+label-layout-foreground = ${colors.mainfg}
+indicator-icon-default = 
+indicator-icon-0 = caps lock;-CL;+CL
+indicator-icon-1 = scroll lock;;+SL
+indicator-icon-2 = num lock;-NL;+NL
 
 ; vim:ft=dosini
