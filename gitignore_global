@@ -1,20 +1,31 @@
-IDK.C
+# C(++) {{{
+idk.c
+idk.cpp
 .ccls-cache
 compile_commands.json
 a.out
+*.o
+*.gch
+*.so
+# }}}
 
+# python {{{
 __pycache__
 .pytest-cache
 .hypothesis
 *.pyc
+# }}}
 
+# editor {{{
 tags
 TAGS
 *.swp
 .*.swp
 *.swo
 *.srctrl*
+# }}}
 
+# haskell {{{
 dist
 dist-*
 cabal-dev
@@ -33,16 +44,17 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+# }}}
 
+# random binaries {{{
 .jekyll-cache
 *.com
 *.class
 *.dll
 *.exe
-*.o
-*.gch
-*.so
+# }}}
 
+# archives {{{
 *.7z
 *.bz2
 *.gz
@@ -60,7 +72,9 @@ cabal.project.local~
 
 *.log
 *.sqlite
+# }}}
 
+# mac {{{
 .DS_Store
 .DS_Store*
 .DS_Store?
@@ -70,3 +84,11 @@ cabal.project.local~
 Icon?
 Thumbs.db
 ehthumbs.db
+# }}}
+
+# purescript {{{
+output
+.psc*
+.purs*
+.spago
+# }}}
