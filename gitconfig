@@ -24,6 +24,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.dots/gitignore_global
+	attributesfile = ~/.dots/gitattributes
 [diff]
 	tool = vimdiff
 	autorefreshindex = true
@@ -47,3 +48,7 @@
 	spellcheck = false
 # [http]
 # 	proxy = socks5://127.0.0.1:9050
+[diff "nix"]
+	# xfuncname = "^([a-zA-Z_-]\\+=\\{.*})$"
+	xfuncname = "^\\{.*}=\\{.*}$"
+	# xfuncname = ^([a-zA-Z_-]\\\\+=\\\\{.*})$

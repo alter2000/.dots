@@ -1,4 +1,6 @@
 set editing-mode vi
+# TODO: cannot find for some reason
+# set editor nvim
 
 set show-mode-in-prompt on
 set vi-ins-mode-string "λ  "
