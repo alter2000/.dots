@@ -42,8 +42,8 @@ export LEDGER_FILE="$XDG_DOCUMENTS_DIR/hledger.journal"
 export MAILPATH="$HOME/var/mail/main/INBOX"
 
 export PAGER='less'
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export BROWSER=firefox
 export LESS='--ignore-case --status-column --raw-control-chars --quiet --window=-3'
 export LESSHISTFILE="$HOME/.cache/lesshst"
