@@ -7,7 +7,7 @@ super + p
 
 # Terminal
 super + {_,shift} + Return
-	{alacritty,termite}
+	{alacritty,kitty}
 
 # bspwm {{{
 # # windows

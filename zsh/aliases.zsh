@@ -48,6 +48,7 @@ alias './'="ranger"
 # alias gb="git bb"
 # alias gst="git status -sb"
 # convert from alias to function :s/alias // | s/="/() { / | s/"/ }
+alias gco="git checkout"
 alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit"
