@@ -6,17 +6,17 @@ function mktar() {
 # Display neatly formatted path {{{
 # https://github.com/zanshin/dotfiles/blob/master/zsh/functions.zsh
 path() {
-	echo $PATH | tr ":" "\n" | \
+	echo ${1:-$PATH} | tr ":" "\n" | \
 		awk "{ sub(\"/usr\", \"[;32m/usr[0;m\"); \
-					 sub(\"/home\", \"[;32m/home[0;m\"); \
-					 sub(\"/bin\", \"[;31m/bin[0;m\"); \
-					 sub(\"/opt\", \"[;36m/opt[0;m\"); \
-					 sub(\"/sbin\", \"[;35m/sbin[0;m\"); \
-					 sub(\"/local\", \"[;33m/local[0;m\"); \
-					 sub(\"/.rvm\", \"[;31m/.rvm[0;m\"); \
-					 sub(\"/.cargo\", \"[;31m/.rvm[0;m\"); \
-					 sub(\"/.perl\", \"[;31m/.rvm[0;m\"); \
-					 print }"
+			sub(\"/home\", \"[;32m/home[0;m\"); \
+			sub(\"/bin\", \"[;31m/bin[0;m\"); \
+			sub(\"/opt\", \"[;36m/opt[0;m\"); \
+			sub(\"/sbin\", \"[;35m/sbin[0;m\"); \
+			sub(\"/local\", \"[;33m/local[0;m\"); \
+			sub(\"/.rvm\", \"[;31m/.rvm[0;m\"); \
+			sub(\"/.cargo\", \"[;31m/.rvm[0;m\"); \
+			sub(\"/.perl\", \"[;31m/.rvm[0;m\"); \
+			print }"
 }
 # }}}
 # <Esc><Esc> prepends sudo or sudoedit {{{

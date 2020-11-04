@@ -14,8 +14,8 @@ alias qwe="tmux attach"
 alias aux="pulsemixer"
 alias m="neomutt"
 alias :r="stack ghci"
+alias bux="nix"
 
-alias download-containers='for i in epitechcontent/epitest-docker mycroftai/docker-mycroft ubuntu:18.04; docker pull $i'
 alias browsh-docker='docker run --rm -it browsh/browsh'
 alias gdb='gdb -q -w'
 alias calc="autoload -Uz zcalc && zcalc"
