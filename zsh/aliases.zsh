@@ -20,6 +20,7 @@ alias browsh-docker='docker run --rm -it browsh/browsh'
 alias gdb='gdb -q -w'
 alias calc="autoload -Uz zcalc && zcalc"
 alias yeet="find . -mindepth 0 -maxdepth 9 -type f -name '*.o' -delete"
+alias stats="arbtt-stats --categorizefile=$HOME/.dots/arbtt.cfg --logfile=$XDG_DATA_HOME/arbtt/capture.log"
 
 alias ipy="ipython3"
 alias tree="tree -C"
