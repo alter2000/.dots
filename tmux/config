@@ -1,8 +1,6 @@
 set -sa terminal-overrides 'xterm*:smcup@:rmcup@'
 set -sa terminal-overrides 'alacritty:RGB'
 set -g default-terminal "tmux-256color"
-# set -g default-command "/bin/zsh"
-# set -sg default-shell "/bin/zsh"
 
 # set terminal based on emulator
 # set -g update-environment 'DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY'
@@ -31,6 +29,8 @@ set -g allow-rename off
 set -g display-time 2500
 set -g display-panes-time 1500
 set -g renumber-windows on
+set -g set-titles on
+set -g set-titles-string "#W - #{pane_current_path}"
 
 ### Keybindings
 
@@ -86,7 +86,7 @@ bind b capture-pane \; \
 bind -n M-up set -q status off
 bind -n M-down set -q status on
 set -g status on
-set -g status-interval 7
+set -g status-interval 3
 set -g status-justify centre
 set -g status-position bottom
 # set -g status-fg default
