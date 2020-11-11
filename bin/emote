@@ -34,6 +34,9 @@ case $1 in
     lenny)
       printf "( ͡° ͜ʖ ͡°)"
     ;;
+    cock)
+      printf "(｡˘з˘)ᗡლ==8"
+    ;;
     satan)
       printf "ψ(｀∇´)ψ"
     ;;
