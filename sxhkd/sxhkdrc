@@ -35,7 +35,7 @@ super + d
 super + w
 	rofi -config ~/.dots/rofi/other.rasi -show window
 super + equal
-	~/.dots/rofi/=
+	~/.dots/rofi/eq
 super + minus
 	~/.dots/rofi/randr
 

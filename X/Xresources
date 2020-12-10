@@ -1,4 +1,4 @@
-#include ".cache/wal/colors.Xresources"
+/* #include ".cache/wal/colors.Xresources" */
 
 Xft.dpi: 140
 Xft.autohint: 0
@@ -8,6 +8,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 Xcursor.size: 20
+
 /* colors {{{ */
 #define base00 #282828
 #define base01 #3c3836
@@ -49,25 +50,25 @@ Xcursor.size: 20
 *color13: base06
 *color14: base0F
 
-*color0: #252127
-*color1: #E85629
-*color2: #188A67
-*color3: #F0A43A
-*color4: #2D595D
-*color5: #9D7186
-*color6: #B5C8C0
-*color7: #C5BEA4
+/* *color0: #252127 */
+/* *color1: #E85629 */
+/* *color2: #188A67 */
+/* *color3: #F0A43A */
+/* *color4: #2D595D */
+/* *color5: #9D7186 */
+/* *color6: #B5C8C0 */
+/* *color7: #C5BEA4 */
 
-*color8: #70655B
-*color9: #CC241D
-*color10: #8AB93F
-*color11: #F0A43A
-*color12: #458588
-*color13: #802152
-*color14: #54ced6
-*color15: #FBF1C7
+/* *color8: #70655B */
+/* *color9: #CC241D */
+/* *color10: #8AB93F */
+/* *color11: #F0A43A */
+/* *color12: #458588 */
+/* *color13: #802152 */
+/* *color14: #54ced6 */
+/* *color15: #FBF1C7 */
 
-}}}
+/* }}} */
 
 Urxvt.font: xft:Overpass Mono:size=21
 URxvt.geometry: 58x12
@@ -105,3 +106,25 @@ UXTerm.vt100.visualBell: true
 UXTerm.vt100.visualBellLine: true
 UXTerm.selectToClipboard: false
 UXTerm*customization: -color
+
+XTerm.iconHint: none
+XTerm.maxBufSize: 1048576
+XTerm.vt100.allowBoldFonts: true
+XTerm.vt100.allowFontOps: true
+XTerm.vt100.allowColorOps: true
+XTerm*font: "Overpass Mono"
+XTerm*faceSize: 9
+XTerm.vt100.boldFont: "Overpass Mono"
+XTerm.vt100.faceName: "Overpass Mono"
+XTerm.vt100.faceSize: 9
+XTerm.vt100.cutNewline: true
+XTerm.vt100.fastScroll: true
+XTerm.vt100.loginShell: true
+XTerm.vt100.on2Clicks: word
+XTerm.vt100.on3Clicks: line
+XTerm.vt100.scrollTtyOutput: false
+XTerm.vt100.utf8: true
+XTerm.vt100.visualBell: true
+XTerm.vt100.visualBellLine: true
+XTerm.selectToClipboard: false
+XTerm*customization: -color

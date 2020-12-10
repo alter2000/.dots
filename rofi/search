@@ -1,3 +1,3 @@
-#!/usr/bin/sh
+#!/bin/sh
 
-rofi -dmenu -theme search | xargs -I{} $BROWSER https://duckduckgo.com/?q={}
+rofi -dmenu -config ./search.rasi | xargs -I{} $BROWSER https://duckduckgo.com/?q={}
