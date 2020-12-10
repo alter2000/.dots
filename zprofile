@@ -43,6 +43,7 @@ export MAILPATH="$HOME/var/mail/main/INBOX"
 
 export PAGER='less'
 export EDITOR='nvim'
+export MANPAGER="$EDITOR +Man!"
 export VISUAL='nvim'
 export BROWSER=firefox
 export LESS='--ignore-case --status-column --raw-control-chars --quiet --window=-3'

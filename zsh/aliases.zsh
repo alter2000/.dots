@@ -15,6 +15,7 @@ alias aux="pulsemixer"
 alias m="neomutt"
 alias :r="stack ghci"
 alias bux="nix"
+alias todo="$EDITOR ~/todo"
 
 alias browsh-docker='docker run --rm -it browsh/browsh'
 alias gdb='gdb -q -w'
