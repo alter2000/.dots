@@ -13,7 +13,7 @@ set notification-warning-fg     "$color1"
 set notification-bg             "$color0"
 set notification-fg             "$color14"
 
-set completion-group-bg         "$color0" 
+set completion-group-bg         "$color0"
 set completion-group-fg         "$color3"
 set completion-bg               "$color0"
 set completion-fg               "$color3"
@@ -36,8 +36,8 @@ set default-fg                  "#93a1a1"
 
 # Recolor book content's color
 set recolor                     true
-set recolor-lightcolor          "$color7" 
-set recolor-darkcolor           "$color0" 
+set recolor-lightcolor          "$color7"
+set recolor-darkcolor           "$color0"
 # set recolor-keephue           true      # keep original color
 
 set smooth-scroll               true

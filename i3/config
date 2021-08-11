@@ -189,6 +189,8 @@ assign [class="Vim"] ide
 assign [class="ncmpcpp"] media
 assign [class="Transmission"] media
 
+ for_window [class="^(telegram-desktop|Telegram-desktop|TelegramDesktop)$"] move scratchpad, move absolute position 900 -200, resize set 500 500
+
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use
 # from the generated scheme.

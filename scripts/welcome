@@ -63,7 +63,7 @@ else
 fi
 
 # Print results
-echo -e "${blue}${bold}----------------------H E L L O  T H E R E----------------------${reset}"
+echo -e "${blue}${bold}--------------------- H E L L O  T H E R E ---------------------${reset}"
 echo ""
 echo -e "${blue}Host:${reset} \t\t\t ${bold}$(whoami)@$(uname -n)${reset}"
 echo -e "${blue}Shell:${reset} \t\t\t $SHELL"
