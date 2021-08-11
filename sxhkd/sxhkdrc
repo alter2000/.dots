@@ -1,6 +1,6 @@
 # Reload functions
 super + shift + Escape
-	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded" --urgency low
+	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded" --urgency=low
 
 super + p
 	~/.dots/bin/lock.sh
@@ -42,7 +42,7 @@ super + minus
 # }}}
 
 super + shift + Delete
-	maim -s -u ~/var/scrots/$(date +%s).png
+	~/.dots/scripts/screenshot.sh
 super + alt + Delete
 	~/.dots/bin/dpause -a 1>/dev/null 2>/dev/null
 

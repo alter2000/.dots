@@ -25,7 +25,6 @@ darkpurple  = #38223b
 [settings]
 throttle-output = 5
 throttle-output-for = 10
-throttle-input-for = 30
 compositing-background = over
 compositing-foreground = source
 compositing-overline = over
