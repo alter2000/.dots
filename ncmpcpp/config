@@ -49,7 +49,7 @@ mpd_crossfade_time = 3
 ## }
 ##
 #
-visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp to determine which output
@@ -339,7 +339,7 @@ data_fetching_delay = no
 #
 #lines_scrolled = 2
 #
-lyrics_fetchers = lyricwiki, azlyrics, genius, sing365, lyricsmania, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
+lyrics_fetchers = azlyrics, genius, musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
 #
 follow_now_playing_lyrics = yes
 #

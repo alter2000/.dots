@@ -21,29 +21,21 @@ except ImportError:
             state = (sfd.readlines()[0] == 1)
         return Battery(ncur, state)
 
-MAILPATH = env['MAILPATH'] if env['MAILPATH'] else env['MAIL']
+MAILPATH  = env['MAILPATH'] if env['MAILPATH'] else env['MAIL']
 # TODO
-COLOR = {
-    "background": "#ffffff",
-    "foreground": "#282f3a",
-    "lightbackground": "#414a59",
-    "primary": "#5294e2",
-    "good": "#91cc57",
-    "bad": "#cc575d",
-    "muted": "#999999",
-}
+bg        = "#ffffff"
+fg        = "#282f3a"
+fgmain    = fg
+lightbg   = "#414a59"
+primary   = "#5294e2"
+good      = "#91cc57"
+bad       = "#cc575d"
+muted     = "#999999"
 
-FMT = """<span foreground='{fgtitle}' font='{titlefont}'>{{date}}</span>
-<span foreground='{fgmain}' font='{mainfont}'>
- <span foreground='{fg1}' font='{iconfont}'></span> {{wifi}}
- <span foreground='{fg2}' font='{iconfont}'></span> {{mail}}
- <span foreground='{fg3}' font='{iconfont}'></span> {{paudio}}
- <span foreground='{fg4}' font='{iconfont}'></span> {{mpd}}
- <span foreground='{fg5}' font='{iconfont}'></span> {{bat}} %
-</span>""".format(fgtitle=COLOR['foreground'], fgmain=COLOR['foreground'],
-    titlefont="Hasklig 15px", mainfont="Hasklig 14px", iconfont="Material Icons 14px",
-    fg1=COLOR['foreground'], fg2=COLOR['foreground'], fg3=COLOR['foreground'],
-    fg4=COLOR['foreground'], fg5=COLOR['foreground'])
+titlefont = "Hasklig 15px"
+mainfont  = "Hasklig 14px"
+iconfont  = "Material Icons 14px"
+
 
 def output_of(cmd):
     try:
@@ -93,8 +85,7 @@ def date() -> str:
 
 
 def mpd_init() -> None:
-    client = subprocess.Popen(['mpc', 'idleloop', 'player'],
-                              stdout=subprocess.PIPE)
+    client = subprocess.Popen(['mpc', 'idleloop', 'player'], stdout=subprocess.PIPE)
     atexit.register(client.kill)
 
 
@@ -104,11 +95,12 @@ def mpd() -> str:
 
 
 if __name__ == "__main__":
-    info = {'date': date(),
-            'bat': battery(),
-            'paudio': paudio(),
-            'wifi': wifi(),
-            'mail': mail(MAILPATH + '/new'),
-            'mpd': mpd()}
-    fmt = FMT.format(**info)
-    subprocess.run(["notify-send", fmt])
+    FMT = f"""{date()}
+<span font='{mainfont}'>
+<span font='{iconfont}'></span> {wifi()}
+<span font='{iconfont}'></span> {mail(MAILPATH + '/new')}
+<span font='{iconfont}'></span> {paudio()}
+<span font='{iconfont}'></span> {mpd()}
+<span font='{iconfont}'></span> {battery()} %
+</span>""".split('\n')
+    subprocess.run(["notify-send", FMT[0], '\n'.join(FMT[1:])])

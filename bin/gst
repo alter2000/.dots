@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# PROJ_ROOT=$(git rev-parse --show-toplevel)
+
 awk -vOFS='' '
     NR==FNR {
         all[i++] = $0;

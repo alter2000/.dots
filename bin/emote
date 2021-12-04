@@ -148,6 +148,9 @@ case $1 in
     grape)
     printf "🍇"
     ;;
+    epsilon)
+    printf "ε>"
+    ;;
     # add more as you please
     *)
       usage

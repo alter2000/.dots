@@ -6,6 +6,7 @@
 [alias]
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	co = checkout
 [color]
 	ui = true
 [color "branch"]
@@ -55,3 +56,5 @@
 	# xfuncname = "^([a-zA-Z_-]\\+=\\{.*})$"
 	xfuncname = "^\\{.*}=\\{.*}$"
 	# xfuncname = ^([a-zA-Z_-]\\\\+=\\\\{.*})$
+[init]
+	defaultBranch = master
