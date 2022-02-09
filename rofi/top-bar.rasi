@@ -1,0 +1,44 @@
+* {
+	background-color:	#f2e6d1;
+	border-color:		#70655b;
+	text-color:		#802152;
+	font:	"Hasklig 12";
+}
+
+window {
+	anchor:		north;
+	location:	north;
+	orientation:	horizontal;
+	width:		100%;
+	bw:		0;
+	padding:	3px 48px 3px 16px;
+	children:	[entry,listview];
+}
+
+listview {
+	layout:		horizontal;
+	spacing:	4px;
+	lines:		10;
+}
+
+entry {
+	padding:	0px 4px;
+	expand:		false;
+	width:		10em;
+	font:		"Hasklig";
+}
+
+element {
+	padding:	0px 14px;
+}
+
+element selected {
+	background-color:	#f0a43a;
+}
+
+element-text {
+	background-color:	inherit;
+	text-color:		inherit;
+}
+
+/* vim:ft=css ts=8

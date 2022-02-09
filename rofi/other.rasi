@@ -1,51 +1,13 @@
-* {
-	background-color:	#f2e6d1;
-	border-color:		#70655b;
-	text-color:		#802152;
-	font:		"Hasklig 13";
-}
-
-#configuration {
+configuration {
 	modi:		"window";
-	window-format:	"{w} || {n}";
-	width:		50;
+	window-format:	"{w}     {n}";
+	/* width:		50; */
 	window-command:	 "xkill -id {window}";
 
-	hide-scrollbar:	false;
 	show-icons:	false;
-	/* drun-icon-theme: gruvbox-soft; */
 	cycle:	false;
 }
 
-/* #window { */
-/* 	anchor:		north; */
-/* 	location:	north; */
-/* 	orientation:	horizontal; */
-/* 	width:		100%; */
-/* 	bw:		0; */
-/* 	padding:	3px 48px 3px 16px; */
-/* 	children:	[entry,listview]; */
-/* } */
-
-#listview {
-	layout:		vertical;
-	spacing:	4px;
-	lines:		8;
-}
-
-#entry {
-	padding:	4px 4px;
-	expand:		false;
-	width:		10em;
-	font:		"Hasklig";
-}
-
-#element {
-	padding:	4px 14px;
-}
-
-#element selected {
-	background-color:	#f0a43a;
-}
+@theme "center"
 
 /* vim:ft=css ts=8

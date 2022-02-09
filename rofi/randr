@@ -38,8 +38,8 @@ function main() {
 
   ${=xrandr_cmd}
 
-  if command -v compton &>/dev/null; then
-    pkill compton
+  if command -v picom &>/dev/null; then
+    pkill picom
   fi
   if command -v xbanish &>/dev/null; then
     pkill xbanish
@@ -85,7 +85,7 @@ function select_output() {
   case ${#menu} in
     0) return "${err_no_options}" ;;
     1) echo "${menu}" ;;
-    *) echo ${(F)menu} | rofi -dmenu -l 10 -location 0 -p "$1" ;;
+    *) echo ${(F)menu} | rofi -config ~/.dots/rofi/other.rasi -dmenu -l 10 -location 0 -p "$1" ;;
   esac
 }
 
@@ -119,7 +119,7 @@ right of ${anchor}
 above ${anchor}
 below ${anchor}
 mirror ${anchor}
-off" | rofi -dmenu -l 10 -location 0 -p "Select position of $1:" | read selection
+off" | rofi -config ~/.dots/rofi/other.rasi -dmenu -l 10 -location 0 -p "Select position of $1:" | read selection
 
   case "${selection[(w)1]}" in
     left) echo "--left-of ${anchor}" ;;
@@ -163,7 +163,7 @@ function select_mode() {
     | grep x \
     | cat <(echo auto) -)"
 
-  echo "${menu}" | rofi -dmenu -l 10 -location 0 -p "Select mode for $1:" | read selection
+  echo "${menu}" | rofi -config ~/.dots/rofi/other.rasi -dmenu -l 10 -location 0 -p "Select mode for $1:" | read selection
 
   case "${selection}" in
     'auto') echo '--auto' ;;

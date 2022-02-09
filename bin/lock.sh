@@ -3,9 +3,10 @@
 
 rectangles=" "
 
-# TMPBG=/tmp/screen.png
+TMPBG=/tmp/screen.png
 # scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% $TMPBG
-TMPBG="$HOME/git/me/img/loop-lock.png"
+maim $TMPBG
+# TMPBG="$HOME/git/me/img/loop-lock.png"
 
 pkill -u $USER -USR1 dunst
 
@@ -13,30 +14,30 @@ pkill -u $USER -USR1 dunst
 
 $I3L \
 	-i $TMPBG \
-	--timepos="x+w/2:y+h-90"    \
-	--datepos="tx+24:ty+25"     \
-	--indpos="x+w/2:y+h/2"      \
-	--ring-width=13             \
-	--clock                     \
-	--datestr "Oi cunt"         \
-	--insidecolor=00000000      \
-	--ringcolor=f2e6d1ff        \
-	--line-uses-inside          \
-	--keyhlcolor=d23c3dff       \
-	--bshlcolor=d23c3dff        \
-	--separatorcolor=00000000   \
-	--insidevercolor=fecf4dff   \
-	--insidewrongcolor=ffffffff \
-	--ringvercolor=f2e6d1ff     \
-	--ringwrongcolor=d23c3dff   \
-	--radius=30                 \
-	--timecolor="8ab93fff"      \
-	--datecolor="821f5aff"      \
-	--veriftext=""              \
-	--wrongtext=""
+	--ind-pos="x+w/2:y+h/2"      \
+	--date-pos="tx+24:ty+25"     \
+	--time-pos="x+w/2:y+h-90"    \
+	--ring-width=13              \
+	--clock                      \
+	--date-str "Oi cunt"         \
+	--inside-color=00000000      \
+	--ring-color=f2e6d1ff        \
+	--line-uses-inside           \
+	--keyhl-color=d23c3dff       \
+	--bshl-color=d23c3dff        \
+	--separator-color=00000000   \
+	--insidever-color=fecf4dff   \
+	--insidewrong-color=ffffffff \
+	--ringver-color=f2e6d1ff     \
+	--ringwrong-color=d23c3dff   \
+	--radius=30                  \
+	--time-color="8ab93fff"      \
+	--date-color="821f5aff"      \
+	--verif-text=""              \
+	--wrong-text=""
 
 pkill -u $USER -USR2 dunst
 
-# sleep 0.3
+sleep 0.3
 # xset dpms force off
-# rm /tmp/screen.png
+rm -f /tmp/screen.png
