@@ -127,7 +127,7 @@ interval = 1
 format-prefix = " "
 format-background = ${colors.purple}
 label = %percentage%
-click-left = termite -e htop &
+click-left = kitty -e htop &
 
 
 [module/date]

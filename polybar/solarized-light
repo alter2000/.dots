@@ -91,7 +91,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.purple}
 label = %percentage%
-click-left = termite -e htop &
+click-left = kitty -e htop &
 
 
 [module/pulseaudio]
