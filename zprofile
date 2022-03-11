@@ -51,8 +51,4 @@ export LESSHISTFILE="$HOME/.cache/lesshst"
 export ARCHFLAGS='-arch x86_64'
 export MAKEFLAGS='-j3'
 
-# export $(dbus-launch)
-
-systemctl --user import-environment PATH
-
 # vim:ft=zsh

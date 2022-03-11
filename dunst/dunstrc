@@ -36,7 +36,7 @@
     # The minimum width of the progress bar in pixels. The notification is
     # rescaled to fit the bar.
     # (default: 150)
-    progress_bar_min_width 275
+    progress_bar_min_width = 275
 
     # The maximum width of the progress bar in pixels. The notification is
     # resized to fit the progress bar.

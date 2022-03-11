@@ -12,7 +12,7 @@ font pango:Ubuntu 9
 bindsym $mod+F4 kill
 
 #i3-gaps
-new_window pixel 3
+default_border pixel 3
 gaps inner 7
 gaps outer 9
 smart_gaps on
@@ -251,3 +251,4 @@ bindsym XF86Explorer exec --no-startup-id nautilus
 # lock
 bindsym $mod+L exec --no-startup-id swaylock --font Ubuntu #-t "paswurd hint: GTFO"
 
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"

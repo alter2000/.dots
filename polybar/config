@@ -71,18 +71,16 @@ font-2 = Knack Nerd Font:pixelsize=10;+3
 [bar/i3bar]
 inherit = template/mainbar
 fixed-center = false
-scroll-up = i3wm-wsprev
-scroll-down = i3wm-wsnext
+scroll-up = #i3.prev
+scroll-down = #i3.next
 modules-left = i3 battery down-speed up-speed weather redshift
-modules-right = pulseaudio bluetoothctl cpu temperature date
+modules-right = pulseaudio backlight bluetoothctl cpu temperature date
 
 
 [bar/xmonadbar]
 inherit = template/mainbar
 monitor = ${env:MONITOR:eDP1}
 fixed-center = false
-; scroll-up = i3wm-wsprev
-; scroll-down = i3wm-wsnext
 modules-left = ewmh battery down-speed up-speed weather redshift
 modules-right = pulseaudio bluetoothctl cpu temperature date
 
@@ -119,6 +117,17 @@ exec = ~/.dots/scripts/bluetoothctl-print
 tail = true
 click-left = ~/.dots/scripts/bluetoothctl-toggle
 format-background = ${colors.green}
+
+[module/backlight]
+type = internal/backlight
+card = amdgpu_bl0
+enable-scroll = true
+format = <ramp>
+format-foreground = ${colors.dark}
+label = idk
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 
 [module/cpu]
@@ -312,6 +321,7 @@ format = <label>
 format-background = ${colors.red}
 format-warn-background = ${colors.red}
 label = " %temperature-c%"
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon5/temp1_input
 
 
 [module/pulseaudio]

@@ -4,8 +4,7 @@
 rectangles=" "
 
 TMPBG=/tmp/screen.png
-# scrot $TMPBG && convert $TMPBG -scale 5% -scale 2000% $TMPBG
-maim $TMPBG
+maim $TMPBG && convert $TMPBG -scale 5% -scale 2000% $TMPBG
 # TMPBG="$HOME/git/me/img/loop-lock.png"
 
 pkill -u $USER -USR1 dunst
@@ -38,6 +37,4 @@ $I3L \
 
 pkill -u $USER -USR2 dunst
 
-sleep 0.3
 # xset dpms force off
-rm -f /tmp/screen.png
