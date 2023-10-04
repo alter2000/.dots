@@ -175,11 +175,22 @@ for_window [class="feh"] floating enable
 for_window [class="dde-polkit-dialog" instance="dde-polkit-dialog"] floating enable
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
-for_window [class="Dia" instance="dia"] floating enable
 
 for_window [class="Termite"] border pixel 1
 for_window [class="Termite" instance="Xt"] border pixel 1
 for_window [class="Alacritty"] border pixel 1
+
+for_window [class="plasmashell"] floating enable
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+# no_focus [class="plasmashell" window_type="notification"]
 
 assign [instance="Navigator" class="Firefox"]  ffox
 
@@ -189,7 +200,8 @@ assign [class="Vim"] ide
 assign [class="ncmpcpp"] media
 assign [class="Transmission"] media
 
- for_window [class="^(telegram-desktop|Telegram-desktop|TelegramDesktop)$"] move scratchpad, move absolute position 900 -200, resize set 500 500
+for_window [class="^(telegram-desktop|Telegram-desktop|TelegramDesktop)$"] move scratchpad, resize set 500 500
+#, move absolute position 900 -200
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use

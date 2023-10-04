@@ -90,7 +90,7 @@ set -g status-interval 3
 set -g status-justify centre
 set -g status-position bottom
 # set -g status-fg default
-set -g status-bg terminal
+set -g status-bg black
 
 set -g window-status-current-style fg=black,bold
 set -g pane-border-style fg=colour245

@@ -14,17 +14,17 @@
 (pack! "wbthomason/packer.nvim")
 (pack! "rktjmp/hotpot.nvim")
 (pack! "Olical/aniseed")
-(pack! "neovim/nvim-lspconfig")
+; (pack! "neovim/nvim-lspconfig")
 ; everywhere {{{
-; (pack! "neoclide/coc.nvim" {:branch "release"})
-(pack! "ms-jpq/coq_nvim" {:branch "coq" :do "python -m coq deps"})
+(pack! "neoclide/coc.nvim" {:branch "release"})
+; (pack! "ms-jpq/coq_nvim" {:branch "coq" :do "python -m coq deps"})
 ; (pack! "ms-jpq/coq.artifacts" {:branch "artifacts"})
 ; (pack! "ms-jpq/coq.thirdparty" {:branch "3p"})
 ; (pack! "ludovicchabant/vim-gutentags")
 
 (pack! "tpope/vim-commentary")
 (pack! "machakann/vim-sandwich")
-(pack! "ZhiyuanLck/smart-pairs")
+; (pack! "ZhiyuanLck/smart-pairs")
 
 (pack! "mhinz/vim-startify")
 (pack! "tpope/vim-fugitive")
@@ -64,6 +64,7 @@
 ; TODO: where?
 (pack! "neovimhaskell/haskell-vim")
 (pack! "mustache/vim-mustache-handlebars")
+(pack! "ruanyl/vim-gh-line")
 
 ; ftplugins only {{{
 (pack! "m42e/vim-gcov-marker" {:opt true}) ; :ft ["c" "cpp"]

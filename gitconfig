@@ -58,3 +58,7 @@
 	# xfuncname = ^([a-zA-Z_-]\\\\+=\\\\{.*})$
 [init]
 	defaultBranch = master
+[tag]
+  # Sort the output of git tag in version order, so you get v1, v2, ..., v9, v10
+  # instead of v1, v10, v2, ..., v9.
+  sort = version:refname

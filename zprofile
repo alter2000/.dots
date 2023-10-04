@@ -1,23 +1,25 @@
 [[ -f $ZDOTDIR/vars.zsh ]] && source $ZDOTDIR/vars.zsh
 
+source /etc/profile.d/nix.sh
+
 # 🅱 tree fs
 alias cp="cp --reflink"
 
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
+# export XDG_RUNTIME_DIR=/run/user/$(id -u)
 
-export XDG_DESKTOP_DIR="$HOME/var/desk" \
-	XDG_DOWNLOAD_DIR="$HOME/var/download" \
-	XDG_TEMPLATES_DIR="$HOME/static/templates" \
-	XDG_PUBLICSHARE_DIR="$HOME/var/share" \
-	XDG_DOCUMENTS_DIR="$HOME/static/documents" \
-	XDG_MUSIC_DIR="$HOME/lfs/music" \
-	XDG_PICTURES_DIR="$HOME/lfs/img" \
-	XDG_VIDEOS_DIR="$HOME/lfs/video" \
-	XDG_CONFIG_HOME="$HOME/.config" \
-	XDG_CACHE_HOME="$HOME/.cache" \
-	XDG_DATA_HOME="$HOME/.local/share" \
-	XDG_CONFIG_DIRS="$HOME/.config:$XDG_CONFIG_DIRS" \
-	XDG_DATA_DIRS="$HOME/.local/share/:$XDG_DATA_DIRS"
+# export XDG_DESKTOP_DIR="$HOME/var/desk" \
+# 	XDG_DOWNLOAD_DIR="$HOME/var/download" \
+# 	XDG_TEMPLATES_DIR="$HOME/static/templates" \
+# 	XDG_PUBLICSHARE_DIR="$HOME/var/share" \
+# 	XDG_DOCUMENTS_DIR="$HOME/static/documents" \
+# 	XDG_MUSIC_DIR="$HOME/lfs/music" \
+# 	XDG_PICTURES_DIR="$HOME/lfs/img" \
+# 	XDG_VIDEOS_DIR="$HOME/lfs/video" \
+# 	XDG_CONFIG_HOME="$HOME/.config" \
+# 	XDG_CACHE_HOME="$HOME/.cache" \
+# 	XDG_DATA_HOME="$HOME/.local/share" \
+# 	XDG_CONFIG_DIRS="$HOME/.config:$XDG_CONFIG_DIRS" \
+# 	XDG_DATA_DIRS="$HOME/.local/share/:$XDG_DATA_DIRS"
 
 # export GIT_ASKPASS="/bin/sh -c 'pass Gits/github.com | head -1'"
 export GITHUB_USER='alter2000'
